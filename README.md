@@ -1,8 +1,8 @@
 ## Installation
 
 ```bash
-git clone https://github.com/uroslazarevic/TheMealDB_recipes_project.git
-cd TheMealDB_recipes_project
+git clone https://github.com/uroslazarevic/Restaurant_Finder.git
+cd Restaurant_Finder
 ```
 
 ## Get started
