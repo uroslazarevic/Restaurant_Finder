@@ -1,3 +1,124 @@
 .test h3 {
-  background: #f4f4f4;
+  background: blue;
   text-align: center; }
+
+/* Get The App Component */
+.app-link {
+  background: #fff; }
+  .app-link a {
+    color: #33373D;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none !important;
+    padding: 5px 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .app-link a:hover {
+      color: #33373D;
+      background: #FFF8EB; }
+    .app-link a img {
+      height: 28px;
+      padding-right: 4px; }
+
+.login-navigation {
+  display: grid;
+  justify-content: right;
+  align-items: center;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(2, auto);
+  padding: 10px 0; }
+  .login-navigation div {
+    background-color: transparent !important;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    transition: background .1s ease; }
+    .login-navigation div:hover {
+      color: #B9BFC7 !important; }
+  .login-navigation .signup-link {
+    padding: 10px 20px 12px 20px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 15px; }
+    .login-navigation .signup-link:hover {
+      border-color: #B9BFC7 !important;
+      color: #B9BFC7 !important; }
+
+.main-home-bg {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+/* Search Container component*/
+.search-container {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  text-align: center;
+  /* Search form component*/ }
+  .search-container img {
+    height: 120px; }
+  .search-container .city-home-title {
+    margin-top: 26.6px;
+    margin-bottom: 14px;
+    padding: 0  15px 25px 15px;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.3em;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+    color: #fff; }
+  .search-container .search-form .search-location input, .search-container .search-form .search-place input, .search-container .search-form .search-btn {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+    border: none; }
+  .search-container .search-form {
+    display: grid;
+    grid-template-columns: 180px 500px 86px;
+    grid-column-gap: 5px;
+    grid-auto-rows: 40px;
+    justify-content: center; }
+    .search-container .search-form .search-location, .search-container .search-form .search-place {
+      position: relative; }
+      .search-container .search-form .search-location input, .search-container .search-form .search-place input {
+        color: #33373D; }
+      .search-container .search-form .search-location span, .search-container .search-form .search-place span {
+        position: absolute; }
+        .search-container .search-form .search-location span.fa-arrow, .search-container .search-form .search-place span.fa-arrow {
+          left: 13px;
+          font-size: 10px;
+          top: 13px; }
+        .search-container .search-form .search-location span.fa-caret, .search-container .search-form .search-place span.fa-caret {
+          right: 9px;
+          top: 11px;
+          font-size: 13px; }
+        .search-container .search-form .search-location span.fa-search, .search-container .search-form .search-place span.fa-search {
+          left: 10px;
+          font-size: 10px;
+          top: 13px; }
+          .search-container .search-form .search-location span.fa-search:before, .search-container .search-form .search-place span.fa-search:before {
+            content: ' '; }
+    .search-container .search-form .search-location input {
+      padding-left: 35px;
+      padding-right: 25px; }
+    .search-container .search-form .search-place input {
+      padding-left: 26px;
+      padding-right: 30px; }
+    .search-container .search-form .search-btn {
+      line-height: initial;
+      font-weight: 400;
+      text-align: center;
+      background: #cb202d;
+      color: #fff;
+      transition: .15s ease-out all; }
+      .search-container .search-form .search-btn:hover {
+        background: #A71823; }

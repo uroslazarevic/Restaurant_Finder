@@ -19,11 +19,11 @@ ReactDOM.render(
     )}>
     <BrowserRouter>
       <div>
-        <Layout>
-          <Switch>
-            <Route path="/" component={Home} />
-          </Switch>
-        </Layout>
+        {/* <Layout> */}
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+        {/* </Layout> */}
       </div>
     </BrowserRouter>
   </Provider>,

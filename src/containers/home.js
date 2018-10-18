@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { GetTheApp, MainHome, LoginNavigation, MainSearchContainer } from 'components';
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,15 @@ export default class Home extends Component {
 
     return(
       <div>
-        <h1>Home stranica</h1>
+        <div className="container">
+          <GetTheApp />
+        </div>
+        <MainHome>
+          <div className="container">
+            <LoginNavigation />
+            <MainSearchContainer />
+          </div>
+        </MainHome>
       </div>
     ) 
   };
