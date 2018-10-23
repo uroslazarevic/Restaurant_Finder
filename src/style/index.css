@@ -48,6 +48,15 @@
       border-color: #B9BFC7 !important;
       color: #B9BFC7 !important; }
 
+body {
+  margin: 0px; }
+  body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  body a {
+    text-decoration: none; }
+
 .main-home-bg {
   height: 400px;
   width: 100%;
@@ -86,11 +95,16 @@
     grid-template-columns: 180px 500px 86px;
     grid-column-gap: 5px;
     grid-auto-rows: 40px;
-    justify-content: center; }
+    justify-content: center;
+    position: relative; }
     .search-container .search-form .search-location, .search-container .search-form .search-place {
       position: relative; }
       .search-container .search-form .search-location input, .search-container .search-form .search-place input {
-        color: #33373D; }
+        color: #33373D;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none; }
       .search-container .search-form .search-location span, .search-container .search-form .search-place span {
         position: absolute; }
         .search-container .search-form .search-location span.fa-arrow, .search-container .search-form .search-place span.fa-arrow {
@@ -110,9 +124,19 @@
     .search-container .search-form .search-location input {
       padding-left: 35px;
       padding-right: 25px; }
+      .search-container .search-form .search-location input:focus {
+        padding-right: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+      .search-container .search-form .search-location input:focus ~ .fa-caret {
+        display: none; }
     .search-container .search-form .search-place input {
       padding-left: 26px;
-      padding-right: 30px; }
+      padding-right: 30px;
+      position: relative; }
+      .search-container .search-form .search-place input:focus {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
     .search-container .search-form .search-btn {
       line-height: initial;
       font-weight: 400;
@@ -122,3 +146,114 @@
       transition: .15s ease-out all; }
       .search-container .search-form .search-btn:hover {
         background: #A71823; }
+    .search-container .search-form .location-list {
+      position: absolute;
+      top: 40px;
+      left: 167px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .search-container .search-form .location-list li {
+        height: 42px;
+        width: 180px;
+        line-height: 42px;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
+        background: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none;
+        font-weight: 400;
+        padding: 0 10px;
+        cursor: pointer;
+        border: 1px solid #f0f0f0; }
+        .search-container .search-form .location-list li:hover {
+          background: #FBEED5;
+          color: #33373D; }
+        .search-container .search-form .location-list li:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px; }
+        .search-container .search-form .location-list li span {
+          pointer-events: none; }
+    .search-container .search-form ul.cuisine-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      background: darkred;
+      width: 500px;
+      padding: 10px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .search-container .search-form ul.cuisine-list label {
+        color: #89959B;
+        margin: 0 10px;
+        font-size: 12px;
+        line-height: 18px;
+        cursor: default; }
+      .search-container .search-form ul.cuisine-list li.cuisine-item {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-top: 5px;
+        padding: 6px 10px;
+        background: #fff;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 32px auto; }
+        .search-container .search-form ul.cuisine-list li.cuisine-item:hover {
+          background: #FBEED5; }
+        .search-container .search-form ul.cuisine-list li.cuisine-item img {
+          height: 27px;
+          padding-right: 5px; }
+        .search-container .search-form ul.cuisine-list li.cuisine-item span {
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 400;
+          padding-top: 1px;
+          color: #33373D;
+          text-transform: none; }
+    .search-container .search-form ul.places-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      width: 500px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .search-container .search-form ul.places-list li.place-item {
+        display: grid;
+        grid-template-columns: 30px auto;
+        grid-column-gap: 10px;
+        text-align: left;
+        background-color: #fff;
+        border-bottom: 1px solid #e7e7e7;
+        padding: 6px 11px; }
+        .search-container .search-form ul.places-list li.place-item:last-child {
+          border-bottom: none; }
+        .search-container .search-form ul.places-list li.place-item:hover {
+          background: #FBEED5; }
+        .search-container .search-form ul.places-list li.place-item img {
+          width: 30px;
+          height: 30px; }
+          .search-container .search-form ul.places-list li.place-item img.thumb-normal {
+            border: solid white 1px;
+            box-shadow: 1px 2px 5px #888;
+            border-radius: 4px; }
+        .search-container .search-form ul.places-list li.place-item .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+          .search-container .search-form ul.places-list li.place-item .place .name {
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 200;
+            color: #33373D; }
+          .search-container .search-form ul.places-list li.place-item .place .locality {
+            font-size: 12px;
+            line-height: 14px;
+            color: #89959B; }

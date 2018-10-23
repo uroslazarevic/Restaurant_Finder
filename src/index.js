@@ -8,7 +8,8 @@ import './App.css';
 
 import reducers from './reducers';
 import promise from 'redux-promise';
-import { Layout, Home } from 'components/index';
+import { Layout } from 'components';
+import { Home } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 

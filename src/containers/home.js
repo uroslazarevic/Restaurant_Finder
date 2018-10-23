@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// Import Components
 import { GetTheApp, MainHome, LoginNavigation, MainSearchContainer } from 'components';
 
 export default class Home extends Component {
