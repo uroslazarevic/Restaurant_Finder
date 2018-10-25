@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 // Import Actions
 import { getSearchedLocation, getSearchedCuisines, getSearchedPlaces } from 'actions';
 // Import Components
-import CategoriesList from '../components/categories_list';
-import PlacesList from '../components/places_list';
+import { CategoriesList, PlacesList, SearchPlacesLoader, SearchLocationsLoader } from 'components';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -30,11 +29,13 @@ class SearchForm extends Component {
       },
       showLocationList: false,
       showPlacesList: false,
-      showCuisineList: false
+      showCuisineList: false,
+      searchPlacesLoader: false,
+      searchLocationsLoader: false
     }
     this.searchLocationRef = React.createRef();
     this.searchCuisineRef = React.createRef();
-    this.debounce;
+    this.debounce = null;
 
     this.handleLocationTermChange = this.handleLocationTermChange.bind(this);
     this.manipulateSearchLists = this.manipulateSearchLists.bind(this);
@@ -44,17 +45,18 @@ class SearchForm extends Component {
   }
 
   // Handle Places Search
-
   handleLocationTermChange(e) {
     const { getSearchedLocation } = this.props;
     const { value } = e.target;
 
-    this.setState({ locationTerm: value }, () => {
-      // Get Location Suggestions
+    this.setState({ locationTerm: value, searchLocationsLoader: true }, () => {
+    // Get Location Suggestions
     clearTimeout(this.debounce)
-    this.debounce = setTimeout(() => this.state.locationTerm.length >= 2 && getSearchedLocation({ locationTerm: this.state.locationTerm }), 250)
+    this.state.locationTerm.length >= 2 ? 
+    this.debounce = setTimeout(() => {getSearchedLocation({ locationTerm: this.state.locationTerm })
+        .then(() => this.setState({ showLocationList: true, searchLocationsLoader: false }))
+    }, 250) : this.setState({ showLocationList: false, searchLocationsLoader: false })
     });
-    this.state.locationTerm.length >= 2  ? this.setState({ showLocationList: true }) : this.setState({ showLocationList: false });
   }
 
   renderLocationList() {
@@ -62,14 +64,12 @@ class SearchForm extends Component {
 
     return searchedLocation ? searchedLocation.map(location => {
       const { id, name } = location;
-
       const locationTextHighlight = () => { 
-        const regExp = new RegExp(this.state.locationTerm +"([a-zA-Z0-9\p{L}]\b)?[,\. -]?", 'ig');
+        const regExp = new RegExp(this.state.locationTerm +"([a-zA-Z0-9]\b)?[, -]?", 'ig');
         const matched = name.match(regExp);
         const newText = name.replace(regExp, `<span style="font-weight: bold">${matched}</span>`)
         return newText;
       }
-      
       return (
         <li 
           onClick={ () => this.handleLocationSuggestionClick(name, id) }
@@ -80,63 +80,59 @@ class SearchForm extends Component {
     }) : null
   }
 
-  // Handle Cuisines Search
-
   handleLocationSuggestionClick(location, entity_id) {
-    const { searchedCuisines } = this.props;
-    
+    const { getSearchedPlaces } = this.props;
     this.setState({ 
       locationTerm: location,
       setLocationTerm: location, 
       placesObject: {...this.state.placesObject, entity_id: entity_id },
       showLocationList: false,
+      showCuisineList: false
     }, 
-    // Change Parent component state object
     () => {
-      this.props.handleParentCityState(this.state.setLocationTerm)
-      this.state.placesObject.placeTerm.length !== 0 && getSearchedLocation(this.state.placesObject)
-      this.setState({ showPlacesList: true, showCuisineList: false })
-    });
-    
-    // If there are already fetched Cuisine suggestions, stop cuisine request
-    searchedCuisines.length === 0 && this.searchCuisioneRequest();
-    // if(this.state.placesObject.placeTerm.length !== 0) {
-    //   const { getSearchedLocation } = this.props;
-    //   getSearchedLocation(this.state.placesObject)
-    //   this.setState({ showPlacesList: true, showCuisineList: false })
-    // } else this.setState({ showCuisineList: true })
+      // Set City name & ID for parent - MainHome component
+      this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityID: entity_id})
+      if(this.state.placesObject.placeTerm.length !== 0){
+        this.setState({ searchPlacesLoader: true },
+          () => { getSearchedPlaces(this.state.placesObject).then(() => {
+            this.setState({ 
+              showPlacesList: true,
+              showCuisineList: false,
+              showLocationList: false,
+              searchPlacesLoader: false
+            })
+          })
+        })
+      }
+    })
   }
 
-  searchCuisioneRequest() {
-    const { getSearchedCuisines } = this.props;
-    getSearchedCuisines();
-  }
-  
   renderCuisinesList() {
     const { searchedCuisines } = this.props;
     return <CategoriesList nameList={searchedCuisines} />
   }
 
   // Handle Places Search
-
   handlePlacesTermChange(e) {
     const { value } = e.target;
 
     this.setState({ 
       placesObject: {...this.state.placesObject, placeTerm: value},
-      showPlacesList: true,
-      showCuisineList: false
+      showPlacesList: false,
+      showCuisineList: false,
+      searchPlacesLoader: true
     },() => {
-      this.debounceSearchPlaces()
+      this.debounceSearchPlaces();
     })
-    value.length === 0 && this.setState({ showPlacesList: false, showCuisineList: true });
+    value.length === 0 && this.setState({ showPlacesList: false, showCuisineList: true, searchPlacesLoader: false });
   }
 
   debounceSearchPlaces() {
     const { getSearchedPlaces } = this.props;
     const { placeTerm } = this.state.placesObject;
     clearTimeout(this.debounce)
-    this.debounce = setTimeout(() => placeTerm.length >= 2 && getSearchedPlaces(this.state.placesObject), 250)
+    placeTerm.length >= 2 ? this.debounce = setTimeout(() =>  getSearchedPlaces(this.state.placesObject)
+    .then(() => this.setState({ searchPlacesLoader: false, showPlacesList: true })), 250) : this.setState({ searchPlacesLoader: false })
   }
 
   renderPlacesList() {
@@ -145,41 +141,36 @@ class SearchForm extends Component {
   }
 
   manipulateSearchLists(e) {
-    const { showPlacesList, showCuisineList } = this.state;
     const { placeTerm } = this.state.placesObject;
-
-    // If places/cuisine search input is clicked - show cuisine/places list and hide location list
-    if( placeTerm.length === 0 && showPlacesList === false && this.searchCuisineRef.current.contains(e.target) ) {
-      // If cuisine input is clicked, hide location list and show cuisine list if showPlacesList= false
-      this.setState({ showLocationList: false, showCuisineList: true, locationTerm: this.state.setLocationTerm })
+    if(this.searchLocationRef.current.contains(e.target)) {
+      this.setState({ showCuisineList: false, showPlacesList: false, locationTerm: this.state.resetLocationTerm })
+    } else if(this.searchCuisineRef.current.contains(e.target)) {
       this.searchCuisineRef.current.setAttribute('placeholder', 'Start typing to search...');
-    } else if( placeTerm.length !== 0 && showCuisineList === false && this.searchCuisineRef.current.contains(e.target) ) {
-      // If cuisine input is clicked, hide location list and show places list if showCuisineList= false
-      this.setState({ showLocationList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm })
-      this.searchCuisineRef.current.setAttribute('placeholder', 'Start typing to search...');
-    } else if( e.target.parentNode.classList.contains('location-list') ) {
-      // If location item is clicked, show cuisine list and after, that,
-      this.setState({ showCuisineList: true })
-    } else if( this.searchLocationRef.current.contains(e.target)){
-      // If location search input is clicked - show location list and hide cuisines list
-      this.setState({ showLocationList: true, showCuisineList: false, showPlacesList: false, locationTerm: this.state.resetLocationTerm })
+      placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm }) : this.setState({ showLocationList: false, showCuisineList: true, showPlacesList: false, locationTerm: this.state.setLocationTerm })
+    } else if(e.target.parentNode.className === 'location-list') {
+      placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showCuisineList: false }) : this.setState({ showCuisineList: true })
     } else {
-      this.setState({ showCuisineList: false, showLocationList: false, showPlacesList: false, locationTerm: this.state.setLocationTerm })
       this.searchCuisineRef.current.setAttribute('placeholder', "Search for resturants or cuisines...");
+      this.setState({ showCuisineList: false, showLocationList: false, showPlacesList: false, locationTerm: this.state.setLocationTerm })
     }
   }
 
   componentDidMount() {
+    const { setLocationTerm, placesObject: { entity_id } } = this.state;
     document.querySelector('body').addEventListener('click', this.manipulateSearchLists);
-    this.props.handleParentCityState(this.state.setLocationTerm);
+    this.props.handleParentCityState({ cityName: setLocationTerm, cityID: entity_id });
   }
 
   componentWillUnmount() {
     document.querySelector('body').removeEventListener('click', this.manipulateSearchLists)
   }
 
+  componentWillMount() {
+    const { getSearchedCuisines } = this.props;
+    getSearchedCuisines();
+  }
+
   render() {
-    const { searchedCuisines } = this.props;
     return (
       <form className="search-form" type="submit">
         <div className="search-location">
@@ -190,15 +181,16 @@ class SearchForm extends Component {
             value={this.state.locationTerm}
             placeholder="Please type a location" />
           <span className="fa-caret"><i className="fas fa-caret-down"></i></span>
+          {this.state.searchLocationsLoader && <SearchLocationsLoader />}
         </div>
         <div className="search-place" >
           <input
             value={this.state.placesObject.placeTerm}
             onChange={this.handlePlacesTermChange} 
-            onClick={() => searchedCuisines.length === 0 && this.searchCuisioneRequest()}
             ref={this.searchCuisineRef}
             placeholder="Search for resturants or cuisines..." />
           <span className="fa-search"><i className="fas fa-search"></i></span>
+          {this.state.searchPlacesLoader && <SearchPlacesLoader />}
         </div>
         <button className="search-btn">Search</button>
         {/* Render Location List */}

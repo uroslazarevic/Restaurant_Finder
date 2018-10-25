@@ -13,4 +13,348 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  /* Search Container component*/ }
+  .main-home-bg .search-container {
+    padding-top: 32px;
+    padding-bottom: 45px;
+    text-align: center;
+    /* Search form component*/ }
+    .main-home-bg .search-container img {
+      height: 120px; }
+    .main-home-bg .search-container .city-home-title {
+      margin-top: 26.6px;
+      margin-bottom: 14px;
+      padding: 0  15px 25px 15px;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.3em;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+      color: #fff; }
+    .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input, .main-home-bg .search-container .search-form .search-btn {
+      height: 40px;
+      line-height: 40px;
+      width: 100%;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border-radius: 4px;
+      border: none; }
+    .main-home-bg .search-container .search-form {
+      display: grid;
+      grid-template-columns: 180px 500px 86px;
+      grid-column-gap: 5px;
+      grid-auto-rows: 40px;
+      justify-content: center;
+      position: relative; }
+      .main-home-bg .search-container .search-form .search-location, .main-home-bg .search-container .search-form .search-place {
+        position: relative; }
+        .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input {
+          color: #33373D;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          outline: none; }
+        .main-home-bg .search-container .search-form .search-location span, .main-home-bg .search-container .search-form .search-place span {
+          position: absolute; }
+          .main-home-bg .search-container .search-form .search-location span.fa-arrow, .main-home-bg .search-container .search-form .search-place span.fa-arrow {
+            left: 13px;
+            font-size: 10px;
+            top: 13px; }
+          .main-home-bg .search-container .search-form .search-location span.fa-caret, .main-home-bg .search-container .search-form .search-place span.fa-caret {
+            right: 9px;
+            top: 11px;
+            font-size: 13px; }
+          .main-home-bg .search-container .search-form .search-location span.fa-search, .main-home-bg .search-container .search-form .search-place span.fa-search {
+            left: 10px;
+            font-size: 10px;
+            top: 13px; }
+            .main-home-bg .search-container .search-form .search-location span.fa-search:before, .main-home-bg .search-container .search-form .search-place span.fa-search:before {
+              content: ' '; }
+      .main-home-bg .search-container .search-form .search-location input {
+        padding-left: 35px;
+        padding-right: 25px; }
+        .main-home-bg .search-container .search-form .search-location input:focus {
+          padding-right: 5px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
+        .main-home-bg .search-container .search-form .search-location input:focus ~ .fa-caret {
+          display: none; }
+      .main-home-bg .search-container .search-form .search-place input {
+        padding-left: 26px;
+        padding-right: 30px;
+        position: relative; }
+        .main-home-bg .search-container .search-form .search-place input:focus {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
+      .main-home-bg .search-container .search-form .search-btn {
+        line-height: initial;
+        font-weight: 400;
+        text-align: center;
+        background: #cb202d;
+        color: #fff;
+        transition: .15s ease-out all; }
+        .main-home-bg .search-container .search-form .search-btn:hover {
+          background: #A71823; }
+      .main-home-bg .search-container .search-form .location-list {
+        position: absolute;
+        top: 40px;
+        left: 167px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form .location-list li {
+          height: 42px;
+          width: 180px;
+          line-height: 42px;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          color: #333;
+          background: #fff;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          outline: none;
+          font-weight: 400;
+          padding: 0 10px;
+          cursor: pointer;
+          border: 1px solid #f0f0f0; }
+          .main-home-bg .search-container .search-form .location-list li:hover {
+            background: #FBEED5;
+            color: #33373D; }
+          .main-home-bg .search-container .search-form .location-list li:last-child {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px; }
+          .main-home-bg .search-container .search-form .location-list li span {
+            pointer-events: none; }
+      .main-home-bg .search-container .search-form ul.cuisine-list {
+        position: absolute;
+        top: 40px;
+        left: 352px;
+        background: darkred;
+        width: 500px;
+        padding: 10px;
+        text-align: left;
+        background: #e5eaed;
+        cursor: pointer;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form ul.cuisine-list label {
+          color: #89959B;
+          margin: 0 10px;
+          font-size: 12px;
+          line-height: 18px;
+          cursor: default; }
+        .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          margin-top: 5px;
+          padding: 6px 10px;
+          background: #fff;
+          border-radius: 5px;
+          display: grid;
+          grid-template-columns: 32px auto; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item:hover {
+            background: #FBEED5; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item img {
+            height: 27px;
+            padding-right: 5px; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item span {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+            padding-top: 1px;
+            color: #33373D;
+            text-transform: none; }
+      .main-home-bg .search-container .search-form ul.places-list {
+        position: absolute;
+        top: 40px;
+        left: 352px;
+        width: 500px;
+        text-align: left;
+        background: #e5eaed;
+        cursor: pointer;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form ul.places-list li.place-item {
+          display: grid;
+          grid-template-columns: 30px auto;
+          grid-column-gap: 10px;
+          text-align: left;
+          background-color: #fff;
+          border-bottom: 1px solid #e7e7e7;
+          padding: 6px 11px; }
+          .main-home-bg .search-container .search-form ul.places-list li.place-item:last-child {
+            border-bottom: none; }
+          .main-home-bg .search-container .search-form ul.places-list li.place-item:hover {
+            background: #FBEED5; }
+          .main-home-bg .search-container .search-form ul.places-list li.place-item img {
+            width: 30px;
+            height: 30px; }
+            .main-home-bg .search-container .search-form ul.places-list li.place-item img.thumb-normal {
+              border: solid white 1px;
+              box-shadow: 1px 2px 5px #888;
+              border-radius: 4px; }
+          .main-home-bg .search-container .search-form ul.places-list li.place-item .place {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .name {
+              font-size: 15px;
+              line-height: 20px;
+              font-weight: 200;
+              color: #33373D; }
+            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .locality {
+              font-size: 12px;
+              line-height: 14px;
+              color: #89959B; }
+  .main-home-bg .bottom-home-bg {
+    background: #F3F3F3;
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    .main-home-bg .bottom-home-bg .cuisine-list .cuisine-title, .main-home-bg .bottom-home-bg .popular-restaurants-list .popular-restaurants-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 600;
+      line-height: 1.1em;
+      text-transform: none;
+      color: #33373D;
+      font-size: 24px; }
+    .main-home-bg .bottom-home-bg .cuisine-list .cuisine-subtitle, .main-home-bg .bottom-home-bg .popular-restaurants-list .popular-restaurants-subtitle {
+      margin-top: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.2em;
+      color: #89959B;
+      font-weight: 400;
+      font-size: 16px;
+      word-spacing: 3px; }
+    .main-home-bg .bottom-home-bg .collections .collections-header {
+      margin-bottom: 14px; }
+      .main-home-bg .bottom-home-bg .collections .collections-header .collections-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 600;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #33373D;
+        font-size: 24px; }
+      .main-home-bg .bottom-home-bg .collections .collections-header .collections-subtitle {
+        margin-top: 5px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.2em;
+        color: #89959B;
+        font-weight: 400;
+        font-size: 16px;
+        word-spacing: 3px; }
+    .main-home-bg .bottom-home-bg .collections .collections-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      grid-gap: 20px; }
+      .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all {
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all img {
+          margin-top: 10px;
+          height: 60px; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all .collections-link {
+          padding: 10px;
+          color: #cb202d;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px; }
+      .main-home-bg .bottom-home-bg .collections .collections-list .collection-item {
+        display: grid;
+        grid-template-columns: 150px auto;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem;
+        overflow: hidden; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item img {
+          height: 120px;
+          width: 150px;
+          border: 1px solid #e7e7e7;
+          border-top-left-radius: 0.2857rem;
+          border-bottom-left-radius: 0.2857rem; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item {
+          padding: 10px; }
+          .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item .title {
+            color: #33373D;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 20px; }
+          .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item .description {
+            color: #33373D;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 16px;
+            margin-top: 5px;
+            width: 190px; }
+    .main-home-bg .bottom-home-bg .cuisine-list {
+      padding: 60px 0;
+      max-width: 1160px;
+      margin: 0 auto; }
+      .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container {
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: 117px;
+        padding: 21px;
+        list-style: none;
+        background: #fff; }
+        .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container label {
+          display: none; }
+        .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item {
+          padding: 14px;
+          display: grid;
+          grid-template-rows: repeat(2, auto);
+          justify-items: center;
+          cursor: pointer; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item:hover {
+            opacity: .7;
+            transition: opacity .25s ease-out; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item img {
+            height: 48px;
+            margin-bottom: 5px; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item span {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            color: #33373D; }
+    .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      grid-gap: 25px 20px;
+      background: #fff;
+      padding: 21px; }
+      .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item {
+        justify-self: center;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #fff; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:hover {
+          background: #FBEED5;
+          border: 1px solid #fce1b0;
+          transition: background .1s ease-out; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .name {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 15px;
+          line-height: 18px;
+          color: #33373D;
+          font-weight: 650;
+          width: 140px;
+          padding: 5px 0; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .locality {
+          color: #33373D;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 15px; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .average-cost-for-two {
+          color: #89959B;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em; }

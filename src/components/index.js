@@ -2,8 +2,11 @@ import Layout from './layout';
 import GetTheApp from './get_the_app';
 import LoginNavigation from './login_navigation';
 import MainHome from './main_home';
-import MainSearchContainer from './search_container';
-import SearchForm from './search_form';
+import CategoriesList from './categories_list';
+import PlacesList from './places_list';
+import Collections from './collections';
+import PopularRestaurants from './popular_restaurants';
+import { SearchPlacesLoader, SearchLocationsLoader } from './loaders';
 
 export {
   // Components
@@ -11,6 +14,10 @@ export {
   GetTheApp,
   LoginNavigation,
   MainHome,
-  MainSearchContainer,
-  SearchForm,
+  CategoriesList,
+  PlacesList,
+  Collections,
+  PopularRestaurants,
+  SearchPlacesLoader,
+  SearchLocationsLoader,
 }

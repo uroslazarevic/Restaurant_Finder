@@ -5,6 +5,7 @@ import thumbSupstitution from '../images/place_thumb_noimg.svg'
 export default function PlacesList ({ placesList }) {
   
   if(placesList.length !== 0) {
+    // Remove Duplicates
     const uniquePlaces = placesList.filter((place, index, self) => {
        return index === self.findIndex((t) => {
          return t.restaurant.name === place.restaurant.name

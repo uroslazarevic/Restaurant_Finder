@@ -5,7 +5,7 @@ import getTheApp from 'images/get-the-app-plain.svg'
 export default function GetTheApp() {
   return (
     <header>
-      <div className="app-link">
+      <div className="app-link container">
         <a href="" target="_blank">
           <img src={getTheApp} alt="get The App img" />
           Get the App

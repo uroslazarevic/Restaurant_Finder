@@ -28,7 +28,7 @@ export default function CategoriesList ({ nameList }) {
     const categoriesObject = createCategoriesObject(imgList, nameList);
     
     return (
-      <div>
+      <div className="cuisines-container">
         <label>Suggested Searches</label>
         {categoriesObject.map( cuisine => {
           const {img, name} = cuisine;
