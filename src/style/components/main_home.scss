@@ -1,16 +1,4 @@
-body {
-  margin: 0px;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
+/* MainHome component*/
 
 .main-home-bg {
   height: 400px;
@@ -20,7 +8,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  /* Search Container component*/
 
   .search-container {
     padding: {
@@ -48,8 +35,8 @@ body {
     }
 
     // Search Form component
-    @import 'style/components/search_form.scss';
+    @import 'style/containers/search_form.scss';
   }
   // Bottom Home container
-  @import 'style/components/bottom_home.scss';
+  @import 'style/containers/bottom_home.scss';
 }

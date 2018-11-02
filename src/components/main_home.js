@@ -14,12 +14,12 @@ export default class MainHome extends Component {
 
     this.state= { 
       cityName: 'Bratislava',
-      cityID: '111'
+      cityId: '111'
      }
      this.handleParentCityState = this.handleParentCityState.bind(this);
   }
-  handleParentCityState({ cityName, cityID }) {
-    this.setState({ cityName, cityID });
+  handleParentCityState({ cityName, cityId }) {
+    this.setState({ cityName, cityId });
   }
 
   render() {
@@ -35,7 +35,7 @@ export default class MainHome extends Component {
         </div>
         <HomeBottom 
           cityName={this.state.cityName}
-          cityID={this.state.cityID}/>
+          cityId={this.state.cityId}/>
       </main>
     );
   }

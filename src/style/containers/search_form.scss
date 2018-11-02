@@ -184,9 +184,11 @@
         img {
           height: 27px;
           padding-right: 5px;
+          pointer-events: none;
         }
 
         span {
+          pointer-events: none;
           font-size: 14px;
           line-height: 22px;
           font-weight: 400;

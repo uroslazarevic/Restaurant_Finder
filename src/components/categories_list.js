@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // Import category images
 import deliveryImg from '../images/Categories-images/category_1_delivery.png';
 import dinnerImg from '../images/Categories-images/category_10_dinner.png';
@@ -7,33 +8,40 @@ import breakfastImg from '../images/Categories-images/category_8_Breakfast.png';
 import lunchImg from '../images/Categories-images/category_9_Lunch.png';
 import cafesImg from '../images/Categories-images/category_6_cafes.png';
 import dineOutImg from '../images/Categories-images/special_23_Luxury_dining.png';
-import catchingUpImg from '../images/Categories-images/special_67_italian.png';
+import takeAwayImg from '../images/Categories-images/special_67_italian.png';
 import nightLifeImg from '../images/Categories-images/drinks_and_nightlife.png';
 
-export default function CategoriesList ({ nameList }) {
+export default function CategoriesList ({ nameList, city }) {
   
   let imgList = [
     {url: deliveryImg},
     {url: dineOutImg},
     {url: nightLifeImg},
-    {url: catchingUpImg},
+    {url: takeAwayImg},
     {url: cafesImg},
-    {url: dailyMenusImg},
     {url: breakfastImg},
     {url: lunchImg},
-    {url: dinnerImg}
+    {url: dinnerImg},
+    {url: dailyMenusImg}
   ];
 
-  if(nameList.length !== 0) {
+  if(nameList !== undefined && nameList.length !== 0) {
     const categoriesObject = createCategoriesObject(imgList, nameList);
     
+    const { cityName, cityId } = city;
+    const splitedCityName = cityName.split(' ').join('-');
+
     return (
       <div className="cuisines-container">
         <label>Suggested Searches</label>
         {categoriesObject.map( cuisine => {
-          const {img, name} = cuisine;
-          return <li key={name} className="cuisine-item"><img src={img} alt=""/> <span>{name}</span></li>
-        })}
+          const {img, name, id} = cuisine;
+          const categoryName = name.split(' ').join('-');
+          return (
+            <Link key={name} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName, cityName, categoryId: id , cityId } }} >
+              <li className="cuisine-item"><img src={img} alt=""/> <span>{name}</span></li>
+            </Link>
+          )})}
       </div>
     )
   }
@@ -42,10 +50,14 @@ export default function CategoriesList ({ nameList }) {
 
 function createCategoriesObject (imgList, nameList) {
   const cuisineNumber = 9;
+  const newList = nameList.filter(category => {
+    return category.categories.name !== 'Catching-up' &&  category.categories.name !== 'Daily Menus' ? category: null
+  })
   let newObj = [];
-
+  
   for(let i = 0; i < cuisineNumber; i++) {
-    newObj.push({img: imgList[i].url, name: nameList[i].categories.name})
+    const { name, id } = newList[i].categories;
+    newObj.push({img: imgList[i].url, name, id})
   }
   return newObj
 }

@@ -12,7 +12,7 @@ export default ({ data, cityName }) => {
 
 function createPopularRestaurantItem(data) {
   // Remove duplicates
-  const uniqueRestaurants = data.filter((restaurant, index, self) => {
+  const uniqueRestaurants = data.best_rated_restaurant.filter((restaurant, index, self) => {
     return index === self.findIndex((t) => {
       return t.restaurant.name === restaurant.restaurant.name
      })

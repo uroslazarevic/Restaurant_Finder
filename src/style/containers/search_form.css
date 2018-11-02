@@ -125,8 +125,10 @@
         background: #FBEED5; }
       .search-form ul.cuisine-list li.cuisine-item img {
         height: 27px;
-        padding-right: 5px; }
+        padding-right: 5px;
+        pointer-events: none; }
       .search-form ul.cuisine-list li.cuisine-item span {
+        pointer-events: none;
         font-size: 14px;
         line-height: 22px;
         font-weight: 400;

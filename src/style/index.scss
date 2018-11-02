@@ -1,8 +1,12 @@
 // Containers
 @import 'style/containers/app.scss';
+@import 'style/containers/browse_by_category.scss';
 
 // Components
 @import 'style/components/get_the_app.scss';
 @import 'style/components/login_navigation.scss';
 @import 'style/components/main_home.scss';
 @import 'style/components/loaders.scss';
+@import 'style/components/restaurant_card.scss';
+@import 'style/components/filter.scss';
+@import 'style/components/layout.scss';

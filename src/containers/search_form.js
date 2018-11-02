@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Actions
-import { getSearchedLocation, getSearchedCuisines, getSearchedPlaces } from 'actions';
+import { getSearchedLocation, getSearchedCategories, getSearchedPlaces } from 'actions';
 // Import Components
 import { CategoriesList, PlacesList, SearchPlacesLoader, SearchLocationsLoader } from 'components';
 
@@ -18,14 +18,7 @@ class SearchForm extends Component {
         placeTerm: '',
         entity_id : 111,
         entity_type : 'city',
-        radius : '' ,
-        cuisines : '',
-        establishment_type : '',
-        collection_id : '',
-        category : '',
-        count: 9,
-        sort : '',
-        order : ''
+        count: 9
       },
       showLocationList: false,
       showPlacesList: false,
@@ -91,7 +84,7 @@ class SearchForm extends Component {
     }, 
     () => {
       // Set City name & ID for parent - MainHome component
-      this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityID: entity_id})
+      this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityId: entity_id})
       if(this.state.placesObject.placeTerm.length !== 0){
         this.setState({ searchPlacesLoader: true },
           () => { getSearchedPlaces(this.state.placesObject).then(() => {
@@ -108,8 +101,9 @@ class SearchForm extends Component {
   }
 
   renderCuisinesList() {
-    const { searchedCuisines } = this.props;
-    return <CategoriesList nameList={searchedCuisines} />
+    const { searchedCategories } = this.props;
+    const { setLocationTerm, placesObject: { entity_id } } = this.state;
+    return <CategoriesList city = {{ cityName: setLocationTerm, cityId: entity_id}} nameList={ searchedCategories } />
   }
 
   // Handle Places Search
@@ -149,6 +143,9 @@ class SearchForm extends Component {
       placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm }) : this.setState({ showLocationList: false, showCuisineList: true, showPlacesList: false, locationTerm: this.state.setLocationTerm })
     } else if(e.target.parentNode.className === 'location-list') {
       placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showCuisineList: false }) : this.setState({ showCuisineList: true })
+    } 
+    else if(e.target.className=== 'cuisine-item') {
+      return
     } else {
       this.searchCuisineRef.current.setAttribute('placeholder', "Search for resturants or cuisines...");
       this.setState({ showCuisineList: false, showLocationList: false, showPlacesList: false, locationTerm: this.state.setLocationTerm })
@@ -158,7 +155,7 @@ class SearchForm extends Component {
   componentDidMount() {
     const { setLocationTerm, placesObject: { entity_id } } = this.state;
     document.querySelector('body').addEventListener('click', this.manipulateSearchLists);
-    this.props.handleParentCityState({ cityName: setLocationTerm, cityID: entity_id });
+    this.props.handleParentCityState({ cityName: setLocationTerm, cityId: entity_id });
   }
 
   componentWillUnmount() {
@@ -166,13 +163,13 @@ class SearchForm extends Component {
   }
 
   componentWillMount() {
-    const { getSearchedCuisines } = this.props;
-    getSearchedCuisines();
+    const { getSearchedCategories } = this.props;
+    getSearchedCategories();
   }
 
   render() {
     return (
-      <form className="search-form" type="submit">
+      <form className="search-form">
         <div className="search-location">
           <span className="fa-arrow"><i className="fas fa-location-arrow"></i></span>
           <input 
@@ -205,12 +202,12 @@ class SearchForm extends Component {
 }
 
 function mapStateToProps ({ searchedTerms }) {
-  const { searchedLocation, searchedCuisines, searchedPlaces } = searchedTerms;
+  const { searchedLocation, searchedCategories, searchedPlaces } = searchedTerms;
   return {
     searchedLocation,
-    searchedCuisines,
-    searchedPlaces
+    searchedCategories,
+    searchedPlaces : searchedPlaces.restaurants
   }
 }
 
-export default connect(mapStateToProps, { getSearchedLocation, getSearchedCuisines, getSearchedPlaces })(SearchForm)
+export default connect(mapStateToProps, { getSearchedLocation, getSearchedCategories, getSearchedPlaces })(SearchForm)

@@ -127,11 +127,14 @@
       cursor: pointer;
       border-radius: 10px;
       padding: 10px;
-      border: 1px solid #fff; }
-      .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:hover {
+      border: 1px solid #fff;
+      transition: background .1s ease-out; }
+      .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:nth-child(even):hover {
         background: #FBEED5;
-        border: 1px solid #fce1b0;
-        transition: background .1s ease-out; }
+        border: 1px solid #fce1b0; }
+      .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:nth-child(odd):hover {
+        background: #dcfccf;
+        border: 1px solid #b8fd5d; }
       .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .name {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         font-size: 15px;

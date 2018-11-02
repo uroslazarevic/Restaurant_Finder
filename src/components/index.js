@@ -6,6 +6,8 @@ import CategoriesList from './categories_list';
 import PlacesList from './places_list';
 import Collections from './collections';
 import PopularRestaurants from './popular_restaurants';
+import RestaurantCard from './restaurant_card_basics';
+import Filters from './filters';
 import { SearchPlacesLoader, SearchLocationsLoader } from './loaders';
 
 export {
@@ -20,4 +22,6 @@ export {
   PopularRestaurants,
   SearchPlacesLoader,
   SearchLocationsLoader,
+  RestaurantCard,
+  Filters
 }

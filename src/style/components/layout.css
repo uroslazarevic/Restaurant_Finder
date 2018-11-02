@@ -1,0 +1,231 @@
+/* Layout Component */
+.layout .header-top {
+  /* Search form component*/
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 115px auto auto;
+  background-color: #cb202d;
+  padding: 10px 0;
+  height: 62px; }
+  .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input, .layout .header-top .search-form .search-btn {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+    border: none; }
+  .layout .header-top .search-form {
+    display: grid;
+    grid-template-columns: 180px 500px 86px;
+    grid-column-gap: 5px;
+    grid-auto-rows: 40px;
+    justify-content: center;
+    position: relative; }
+    .layout .header-top .search-form .search-location, .layout .header-top .search-form .search-place {
+      position: relative; }
+      .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
+        color: #33373D;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none; }
+      .layout .header-top .search-form .search-location span, .layout .header-top .search-form .search-place span {
+        position: absolute; }
+        .layout .header-top .search-form .search-location span.fa-arrow, .layout .header-top .search-form .search-place span.fa-arrow {
+          left: 13px;
+          font-size: 10px;
+          top: 13px; }
+        .layout .header-top .search-form .search-location span.fa-caret, .layout .header-top .search-form .search-place span.fa-caret {
+          right: 9px;
+          top: 11px;
+          font-size: 13px; }
+        .layout .header-top .search-form .search-location span.fa-search, .layout .header-top .search-form .search-place span.fa-search {
+          left: 10px;
+          font-size: 10px;
+          top: 13px; }
+          .layout .header-top .search-form .search-location span.fa-search:before, .layout .header-top .search-form .search-place span.fa-search:before {
+            content: ' '; }
+    .layout .header-top .search-form .search-location input {
+      padding-left: 35px;
+      padding-right: 25px; }
+      .layout .header-top .search-form .search-location input:focus {
+        padding-right: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+      .layout .header-top .search-form .search-location input:focus ~ .fa-caret {
+        display: none; }
+    .layout .header-top .search-form .search-place input {
+      padding-left: 26px;
+      padding-right: 30px;
+      position: relative; }
+      .layout .header-top .search-form .search-place input:focus {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+    .layout .header-top .search-form .search-btn {
+      line-height: initial;
+      font-weight: 400;
+      text-align: center;
+      background: #cb202d;
+      color: #fff;
+      transition: .15s ease-out all; }
+      .layout .header-top .search-form .search-btn:hover {
+        background: #A71823; }
+    .layout .header-top .search-form .location-list {
+      position: absolute;
+      top: 40px;
+      left: 167px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form .location-list li {
+        height: 42px;
+        width: 180px;
+        line-height: 42px;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
+        background: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none;
+        font-weight: 400;
+        padding: 0 10px;
+        cursor: pointer;
+        border: 1px solid #f0f0f0; }
+        .layout .header-top .search-form .location-list li:hover {
+          background: #FBEED5;
+          color: #33373D; }
+        .layout .header-top .search-form .location-list li:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px; }
+        .layout .header-top .search-form .location-list li span {
+          pointer-events: none; }
+    .layout .header-top .search-form ul.cuisine-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      background: darkred;
+      width: 500px;
+      padding: 10px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form ul.cuisine-list label {
+        color: #89959B;
+        margin: 0 10px;
+        font-size: 12px;
+        line-height: 18px;
+        cursor: default; }
+      .layout .header-top .search-form ul.cuisine-list li.cuisine-item {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-top: 5px;
+        padding: 6px 10px;
+        background: #fff;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 32px auto; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item:hover {
+          background: #FBEED5; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item img {
+          height: 27px;
+          padding-right: 5px;
+          pointer-events: none; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item span {
+          pointer-events: none;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 400;
+          padding-top: 1px;
+          color: #33373D;
+          text-transform: none; }
+    .layout .header-top .search-form ul.places-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      width: 500px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form ul.places-list li.place-item {
+        display: grid;
+        grid-template-columns: 30px auto;
+        grid-column-gap: 10px;
+        text-align: left;
+        background-color: #fff;
+        border-bottom: 1px solid #e7e7e7;
+        padding: 6px 11px; }
+        .layout .header-top .search-form ul.places-list li.place-item:last-child {
+          border-bottom: none; }
+        .layout .header-top .search-form ul.places-list li.place-item:hover {
+          background: #FBEED5; }
+        .layout .header-top .search-form ul.places-list li.place-item img {
+          width: 30px;
+          height: 30px; }
+          .layout .header-top .search-form ul.places-list li.place-item img.thumb-normal {
+            border: solid white 1px;
+            box-shadow: 1px 2px 5px #888;
+            border-radius: 4px; }
+        .layout .header-top .search-form ul.places-list li.place-item .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+          .layout .header-top .search-form ul.places-list li.place-item .place .name {
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 200;
+            color: #33373D; }
+          .layout .header-top .search-form ul.places-list li.place-item .place .locality {
+            font-size: 12px;
+            line-height: 14px;
+            color: #89959B; }
+  .layout .header-top .zomato-urban-spon-logo {
+    width: 100px;
+    margin-right: 15px;
+    height: 50px;
+    padding: 8px 0;
+    cursor: pointer; }
+  .layout .header-top .search-form {
+    padding: 0 20px;
+    grid-template-columns: 230px 376px 86px; }
+    .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
+      border-radius: 2px; }
+    .layout .header-top .search-form .search-btn {
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      width: 73px;
+      font-weight: 500;
+      font-size: 15px; }
+      .layout .header-top .search-form .search-btn:hover {
+        background: #D94148; }
+    .layout .header-top .search-form ul.cuisine-list {
+      width: 376px;
+      z-index: 1;
+      left: 255px;
+      border-radius: 2px; }
+    .layout .header-top .search-form .location-list {
+      z-index: 1;
+      left: 20px;
+      border-radius: 2px; }
+      .layout .header-top .search-form .location-list li {
+        width: 230px; }
+  .layout .header-top .login-navigation {
+    padding-top: 0px;
+    grid-column-gap: 10px;
+    font-size: 15px; }
+    .layout .header-top .login-navigation .signin-link {
+      padding: 10px 20px 12px 20px;
+      border-radius: 4px; }
+      .layout .header-top .login-navigation .signin-link:hover {
+        background-color: #D94148 !important;
+        color: #fff !important; }
+    .layout .header-top .login-navigation .signup-link {
+      background-color: #ba1e2b !important;
+      border: none; }
+      .layout .header-top .login-navigation .signup-link:hover {
+        color: #fff !important;
+        background: #D94148 !important; }
