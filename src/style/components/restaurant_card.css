@@ -14,7 +14,8 @@
       .restaurant-list .restaurant-card-item .card-top img {
         height: 105px;
         width: 113px;
-        border-radius: 4px; }
+        border-radius: 4px;
+        border: 1px solid #f3f3f3; }
       .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .name {
         padding-top: 5px;
         width: 400px;

@@ -8,7 +8,8 @@ export default function Filters( {
   changeState,
   allCuisines,
   searchRestaurants,
-  city 
+  city,
+  catStates
   } ) {
 
   return (
@@ -20,15 +21,16 @@ export default function Filters( {
       <div className="sort-by-category">
         <div className="title">Sort by</div>
         <ul data-filter = "sort" className="sort content">
-          <li onClick={changeState} className="item" value="rating">Rating <span>- high to low</span></li>
-          <li onClick={changeState} className="item" value="cost">Cost<span>- high to low</span></li>
+          <li onClick={changeState} className='item' value="rating">Rating <span>- high to low</span></li>
+          <li onClick={changeState} className='item' value="cost">Cost<span>- high to low</span></li>
         </ul>
       </div>
 
       <div className="categories-category">
         <div className="title">Category</div>
         <ul data-filter = "category" className="categories-content">
-          {categories !== undefined ? categories.map( category => {
+          {categories !== undefined ? categories.filter(category =>  {
+            return category.categories.name !== 'Catching-up' &&  category.categories.name !== 'Daily Menus' ? category: null }).map( category => {
 
             const { name, id } = category.categories;
             const { cityName, cityId, categoryNameState } = city;
@@ -36,14 +38,13 @@ export default function Filters( {
             const categoryName = name.split(' ').join('-');
 
             return (
-              <Link key={id} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName, cityName, categoryId: id , cityId } }} >
+              <Link key={id} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName: name, cityName, categoryId: id , cityId } }} >
                 <li onClick={changeState}  className={`item ${categoryNameState === name ? 'active-filter-item' : '' }`} value={id}>{name}</li>
               </Link>
             )
           } ) : <div>List of categories...</div>} 
         </ul>
       </div>
-      {/* className="item ${this.state.activeCat == name ? 'active' : ''}" */}
       <div className="top-cuisines-category">
         <div className="title">Cuisines</div>
         <ul data-filter = "cuisines" className="cuisines content">

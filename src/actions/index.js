@@ -12,6 +12,7 @@ export const SEARCH_COLLECTIONS = 'SEARCH_COLLECTIONS';
 export const SEARCH_LOCATION_DETAILS = 'SEARCH_LOCATION_DETAILS';
 export const SEARCH_ESTABLISHMENTS = 'SEARCH_ESTABLISHMENTS';
 export const SEARCH_CUISINES = 'SEARCH_CUISINES';
+export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS';
 
 export function getSearchedLocation ({locationTerm = 'Bra', count='10'} = {}) {
   const data = {
@@ -99,6 +100,52 @@ export function getSearchedPlaces({
 
   return {
     type: SEARCH_PLACES,
+    payload: request
+  }
+}
+
+export function getSearchedRestaurants({ 
+  placeTerm = '',
+  entity_id = '',
+  entity_type = 'city',
+  radius = '' ,
+  cuisines = '',
+  establishment_type = '',
+  collection_id = '',
+  category = '',
+  count = 9,
+  sort = '',
+  order = ''
+ } = {}) {
+
+  const data = {
+    entity_type,
+    entity_id,
+    q: placeTerm,
+    radius,
+    cuisines,
+    establishment_type,
+    collection_id,
+    category,
+    count,
+    sort,
+    order
+  }
+
+  const stringify = qs.stringify(data);
+
+  const config = {
+    method: 'GET',
+    url: `${ROOT_URL}search?${stringify}`,
+    headers: {
+      'Content-Type': 'application/json',
+      'user-key': USER_KEY
+    }
+  }
+  const request = axios(config)
+
+  return {
+    type: SEARCH_RESTAURANTS,
     payload: request
   }
 }

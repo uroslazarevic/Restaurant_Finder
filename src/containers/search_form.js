@@ -11,12 +11,12 @@ class SearchForm extends Component {
     super(props);
 
     this.state = {
-      locationTerm:'Bratislava',
-      setLocationTerm:'Bratislava',
+      locationTerm: this.props.city.cityName,
+      setLocationTerm: this.props.city.cityName,
       resetLocationTerm: '',
       placesObject:{
         placeTerm: '',
-        entity_id : 111,
+        entity_id : this.props.city.cityId,
         entity_type : 'city',
         count: 9
       },
@@ -48,7 +48,7 @@ class SearchForm extends Component {
     this.state.locationTerm.length >= 2 ? 
     this.debounce = setTimeout(() => {getSearchedLocation({ locationTerm: this.state.locationTerm })
         .then(() => this.setState({ showLocationList: true, searchLocationsLoader: false }))
-    }, 250) : this.setState({ showLocationList: false, searchLocationsLoader: false })
+    }, 300) : this.setState({ showLocationList: false, searchLocationsLoader: false })
     });
   }
 
@@ -126,7 +126,7 @@ class SearchForm extends Component {
     const { placeTerm } = this.state.placesObject;
     clearTimeout(this.debounce)
     placeTerm.length >= 2 ? this.debounce = setTimeout(() =>  getSearchedPlaces(this.state.placesObject)
-    .then(() => this.setState({ searchPlacesLoader: false, showPlacesList: true })), 250) : this.setState({ searchPlacesLoader: false })
+    .then(() => this.setState({ searchPlacesLoader: false, showPlacesList: true })), 300) : this.setState({ searchPlacesLoader: false })
   }
 
   renderPlacesList() {
@@ -166,6 +166,18 @@ class SearchForm extends Component {
     const { getSearchedCategories } = this.props;
     getSearchedCategories();
   }
+  
+  // componentWillReceiveProps(newProps) {
+  //   if(newProps.location.state) {
+    // console.log(this.props)
+  //     const { cityName, cityId } = newProps.location.state;
+      // console.log('cityName:', cityName,'cityId: ', cityId )
+  //     // this.state.setLocationTerm !== cityName ? 
+  //     // this.setState({ setLocationTerm: cityName, entity_id: cityId }, () => {
+  //     //   // this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityId: this.state.entity_id });
+  //     // }) : null
+  //   }
+  // }
 
   render() {
     return (

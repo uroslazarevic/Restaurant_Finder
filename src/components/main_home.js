@@ -13,8 +13,8 @@ export default class MainHome extends Component {
     super(props);
 
     this.state= { 
-      cityName: 'Bratislava',
-      cityId: '111'
+      cityName: this.props.city.cityName,
+      cityId: this.props.city.cityId
      }
      this.handleParentCityState = this.handleParentCityState.bind(this);
   }
@@ -30,7 +30,7 @@ export default class MainHome extends Component {
           <div className="search-container">
             <img src={ logoUrl } alt="" />
             <div className="city-home-title">Find the best restaurants, cafés, and bars in { this.state.cityName ? this.state.cityName : 'Bratislava' }</div>
-            <SearchForm handleParentCityState={ this.handleParentCityState } />
+            <SearchForm city={{ cityName: this.state.cityName, cityId: this.state.cityId }} handleParentCityState={ this.handleParentCityState } />
           </div>
         </div>
         <HomeBottom 

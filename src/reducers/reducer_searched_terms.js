@@ -1,4 +1,13 @@
-import { SEARCH_LOCATION, SEARCH_CATEGORIES, SEARCH_PLACES, SEARCH_COLLECTIONS, SEARCH_LOCATION_DETAILS, SEARCH_ESTABLISHMENTS, SEARCH_CUISINES } from '../actions'
+import { 
+  SEARCH_LOCATION,
+  SEARCH_CATEGORIES,
+  SEARCH_PLACES,
+  SEARCH_COLLECTIONS,
+  SEARCH_LOCATION_DETAILS,
+  SEARCH_ESTABLISHMENTS,
+  SEARCH_CUISINES,
+  SEARCH_RESTAURANTS
+       } from '../actions'
 
 const initialState = {
   searchedLocations: [],
@@ -7,7 +16,8 @@ const initialState = {
   searchedCollections: [],
   searchedLocationDetails: [],
   searchedEstablishments: [],
-  searchedCuisines: []
+  searchedCuisines: [],
+  searchedRestaurants: []
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +31,9 @@ export default (state = initialState, action) => {
 
     case SEARCH_PLACES:
       return { ...state, searchedPlaces: action.payload.data}
+
+    case SEARCH_RESTAURANTS:
+      return { ...state, searchedRestaurants: action.payload.data}
 
     case SEARCH_COLLECTIONS:
       return { ...state, searchedCollections: action.payload.data.collections}

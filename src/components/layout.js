@@ -10,8 +10,8 @@ export default class Layout extends Component {
     super(props);
 
     this.state = {
-      cityName: 'Bratislava',
-      cityId: '111'
+      cityName: this.props.city.cityName,
+      cityId: this.props.city.cityId
     }
 
     this.handleParentCityState = this.handleParentCityState.bind(this);
@@ -27,7 +27,7 @@ export default class Layout extends Component {
         <header>
           <div className = "header-top">
             <img className="zomato-urban-spon-logo" src={zomatoUrbanSpoon} alt='zomato-spoon-logo' />
-            <SearchForm handleParentCityState={ this.handleParentCityState } />
+            <SearchForm city={{ cityName: this.state.cityName, cityId: this.state.cityId }} handleParentCityState={ this.handleParentCityState } />
             <LoginNavigation/>
           </div>
           <div className = "header-bottom">

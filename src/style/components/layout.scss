@@ -30,6 +30,17 @@
         }
       }
 
+      .search-place {
+        .places-loader-bg {
+          width: 376px;
+          z-index: 1;
+
+          .loader-content {
+            text-align: center;
+          }
+        }
+      }
+
       .search-btn {
         border: 1px solid rgba(255,255,255,.75);
         width: 73px;
@@ -56,6 +67,13 @@
         li {
           width: 230px;
         }
+      }
+
+      ul.places-list {
+        width: 376px;
+        left: initial;
+        right: 111px;
+        z-index: 1;
       }
     }
 
@@ -84,5 +102,9 @@
         }
       }
     }
+  }
+
+  .header-bottom {
+    background-color: #fff;
   }
 }

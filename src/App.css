@@ -32,13 +32,14 @@ body {
     color: #33373D; }
   .browse-by-category-wrapper .container .content-div {
     display: grid;
-    grid-template-columns: 2fr 3fr 2.5fr;
+    grid-template-columns: 1fr 3fr;
     grid-column-gap: 15px;
     align-items: start; }
 
 /* Get The App Component */
 .app-link {
-  background: #fff; }
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1); }
   .app-link a {
     color: #33373D;
     display: inline-block;
@@ -488,7 +489,8 @@ body {
       .restaurant-list .restaurant-card-item .card-top img {
         height: 105px;
         width: 113px;
-        border-radius: 4px; }
+        border-radius: 4px;
+        border: 1px solid #f3f3f3; }
       .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .name {
         padding-top: 5px;
         width: 400px;
@@ -608,7 +610,7 @@ body {
       border: 1px solid #ccc;
       color: #fff;
       text-align: center;
-      border-radius: 8px;
+      border-radius: 2px;
       transition: 200ms ease-in all;
       cursor: pointer;
       font-size: 14px;
@@ -840,6 +842,11 @@ body {
     grid-template-columns: 230px 376px 86px; }
     .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
       border-radius: 2px; }
+    .layout .header-top .search-form .search-place .places-loader-bg {
+      width: 376px;
+      z-index: 1; }
+      .layout .header-top .search-form .search-place .places-loader-bg .loader-content {
+        text-align: center; }
     .layout .header-top .search-form .search-btn {
       border: 1px solid rgba(255, 255, 255, 0.75);
       width: 73px;
@@ -858,6 +865,11 @@ body {
       border-radius: 2px; }
       .layout .header-top .search-form .location-list li {
         width: 230px; }
+    .layout .header-top .search-form ul.places-list {
+      width: 376px;
+      left: initial;
+      right: 111px;
+      z-index: 1; }
   .layout .header-top .login-navigation {
     padding-top: 0px;
     grid-column-gap: 10px;
@@ -874,3 +886,6 @@ body {
       .layout .header-top .login-navigation .signup-link:hover {
         color: #fff !important;
         background: #D94148 !important; }
+
+.layout .header-bottom {
+  background-color: #fff; }

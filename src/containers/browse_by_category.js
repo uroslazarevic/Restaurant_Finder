@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Import Actions
-import { getSearchedPlaces, getLocationDetails, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } from 'actions';
+import { getSearchedRestaurants, getLocationDetails, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } from 'actions';
 // Import Components
 import { RestaurantCard, Filters, Layout } from 'components';
 
@@ -36,10 +36,8 @@ class BrowseByCategory extends Component {
   }
 
   handleOnClickRestaurantsSearch() {
-    this.props.getSearchedPlaces( this.state.filterObject )
-      .then(() => {
-        this.paintActiveListItems()
-      });
+    this.props.getSearchedRestaurants( this.state.filterObject )
+      .then(() => this.paintActiveListItems());
   }
   
 
@@ -48,7 +46,6 @@ class BrowseByCategory extends Component {
     listItems.forEach( li => {
       const stateKey = li.parentNode.getAttribute('data-filter');
       const liValue = li.getAttribute('value');
-      console.log()
       if(liValue == this.state.filterObject[stateKey]) {
         li.className = ('item active-filter-item');
       } else {
@@ -58,33 +55,28 @@ class BrowseByCategory extends Component {
   }
 
   handleFilterObjStateChange(e) {
-    console.log('eventTarget: ',e.target)
-    const value = e.target.getAttribute('value');
-    const stateKey = e.target.parentNode.getAttribute('data-filter');
+    const ele = e.target;
+    const value = ele.getAttribute('value');
+    const stateKey = ele.parentNode.getAttribute('data-filter');
     const listItems = document.querySelectorAll(`.${stateKey} li`);
 
-    if(e.target.classList.contains('active-filter-item') && e.target.parentNode.getAttribute('data-filter')) {
+    if(ele.classList.contains('active-filter-item') && ele.parentNode.getAttribute('data-filter')) {
       // Remove current active filter item class
-      e.target.classList.remove('active-filter-item');
-      this.setState({ filterObject: {...this.state.filterObject, [stateKey]: ''}}, () => {
-        this.props.getSearchedPlaces( this.state.filterObject )
-      })
-    }
-    else if(e.target.classList.contains('next-active-filter-item')) {
+      this.setState({ filterObject: {...this.state.filterObject, [stateKey]: ''}}, () => ele.classList.remove('active-filter-item'))
+    } else if(ele.classList.contains('next-active-filter-item')) {
       // Remove next active filter item class
-      e.target.classList.remove('next-active-filter-item')
-      this.setState({ filterObject: {...this.state.filterObject, [stateKey]: ''}})
+      this.setState({ filterObject: {...this.state.filterObject, [stateKey]: ''}}, () => ele.classList.remove('next-active-filter-item'))
     } else {
        // Add active filter item class and remove it from rest items
       listItems.forEach( li => {
-        li === e.target ? li.classList.add('next-active-filter-item') : li.classList.remove('next-active-filter-item')
-      })
+        li === ele ? li.classList.add('next-active-filter-item') : li.classList.remove('next-active-filter-item')})
       this.setState({ filterObject: {...this.state.filterObject, [stateKey]: value}})
     }
+    console.log(this.state.filterObject)
   }
 
   componentWillMount() {
-    const { getLocationDetails,  getSearchedPlaces, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } = this.props;
+    const { getLocationDetails,  getSearchedRestaurants, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } = this.props;
     // State params
     const { entity_id, category, sort, order } = this.state.filterObject
     
@@ -95,7 +87,7 @@ class BrowseByCategory extends Component {
       this.setState({ filterObject: { ...this.state.filterObject, 
         category: categoryId, entity_id: cityId } }, () => {
           axios.all([
-            getSearchedPlaces({ entity_id: cityId, category: categoryId, sort, order, count: 15}),
+            getSearchedRestaurants({ entity_id: cityId, category: categoryId, sort, order, count: 15}),
             getLocationDetails({ entity_id: cityId }),
             getSearchedCategories(),
             getSearchedEstablishments({ city_id: cityId }),
@@ -104,7 +96,7 @@ class BrowseByCategory extends Component {
       }) 
     } else {
         axios.all([
-          getSearchedPlaces({ entity_id, category, sort, order, count: 15}),
+          getSearchedRestaurants({ entity_id, category, sort, order, count: 15}),
           getLocationDetails({ entity_id }),
           getSearchedCategories(),
           getSearchedEstablishments({ city_id: entity_id }),
@@ -114,26 +106,27 @@ class BrowseByCategory extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    const { getSearchedPlaces } = this.props;
-    const newCategoryId = newProps.location.state.categoryId
-    const oldCategoryId = this.props.location.state.categoryId
-
-    newCategoryId !== oldCategoryId ? 
-      this.setState({ filterObject: { ...this.state.filterObject, category: newCategoryId }}, () => {
-        getSearchedPlaces(this.state.filterObject).then(() => {
+    const { getSearchedRestaurants } = this.props;
+    const newCategoryId = newProps.location.state.categoryId;
+    const oldCategoryId = this.props.location.state.categoryId;
+    const newCityId = newProps.location.state.cityId;
+    const oldCityId = this.props.location.state.cityId;
+    newCategoryId !== oldCategoryId || newCityId !== oldCityId ? 
+      this.setState({ filterObject: { ...this.state.filterObject, category: newCategoryId, entity_id: newCityId  }}, () => {
+        getSearchedRestaurants(this.state.filterObject).then(() => {
           this.setState({ categoryName: newProps.location.state.categoryName })
           this.paintActiveListItems();
         })
-      }) : null
+      }): null
   }
   
   renderRestaurantCard() {
-    const { searchedPlaces } = this.props;
-    return searchedPlaces.restaurants !== undefined ? <RestaurantCard restaurants = {searchedPlaces.restaurants} /> : null;
+    const { searchedRestaurants } = this.props;
+    return searchedRestaurants.restaurants !== undefined ? <RestaurantCard restaurants = {searchedRestaurants.restaurants} /> : null;
   }
   
   render() {
-
+    // console.log(this.props.location.state)
     let category_Name, city_Name, city_Id;
     if(this.props.location.state) {
       const { categoryName, cityName, cityId } = this.props.location.state;
@@ -149,14 +142,16 @@ class BrowseByCategory extends Component {
 
     return(
       <div className="browse-by-category-wrapper">
-        <Layout>
+        <Layout city={{ cityName: city_Name, cityId: city_Id }} >
           <div className="container">
             <div className="pathway-link" >
-              <Link to={`/`} >Home</Link> <span><i className="fas fa-angle-right"></i></span> <span>{category_Name}</span>
+              <Link to={{ pathname:`/`, state: { cityName: city_Name, cityId: city_Id } }} >Home
+              </Link> <span><i className="fas fa-angle-right"></i></span> <span>{category_Name}</span>
             </div>
             <div className = "title">{category_Name} in {city_Name}</div>
             <div className = "content-div">
-              <Filters 
+              <Filters
+                catStates = {this.state.filterObject}
                 city = {{ cityName:city_Name, cityId:city_Id, categoryNameState: category_Name }}
                 searchRestaurants = {this.handleOnClickRestaurantsSearch}
                 changeState = {this.handleFilterObjStateChange}
@@ -166,7 +161,6 @@ class BrowseByCategory extends Component {
                 establishments = {searchedEstablishments} 
               />
               <ul className="restaurant-list" >{this.renderRestaurantCard()}</ul>
-              {/* <div className="other-categories">Other Categories</div> */}
             </div>
           </div>
         </Layout>
@@ -176,14 +170,14 @@ class BrowseByCategory extends Component {
 }
 
 function mapStateToProps ({ searchedTerms }) {
-  const { searchedPlaces, searchedLocationDetails, searchedCategories, searchedEstablishments, searchedCuisines } = searchedTerms;
+  const { searchedRestaurants, searchedLocationDetails, searchedCategories, searchedEstablishments, searchedCuisines } = searchedTerms;
   return {
     searchedLocationDetails,
-    searchedPlaces,
+    searchedRestaurants,
     searchedCategories,
     searchedEstablishments,
     searchedCuisines
   }
 }
 
-export default connect(mapStateToProps, { getSearchedPlaces, getLocationDetails, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines })(BrowseByCategory)
+export default connect(mapStateToProps, { getSearchedRestaurants, getLocationDetails, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines })(BrowseByCategory)

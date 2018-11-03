@@ -37,8 +37,9 @@ export default function CategoriesList ({ nameList, city }) {
         {categoriesObject.map( cuisine => {
           const {img, name, id} = cuisine;
           const categoryName = name.split(' ').join('-');
+          console.log(name)
           return (
-            <Link key={name} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName, cityName, categoryId: id , cityId } }} >
+            <Link key={name} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName: name , cityName, categoryId: id , cityId } }} >
               <li className="cuisine-item"><img src={img} alt=""/> <span>{name}</span></li>
             </Link>
           )})}
