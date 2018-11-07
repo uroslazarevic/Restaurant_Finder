@@ -23,12 +23,13 @@ ReactDOM.render(
         {/* <Layout> */}
         <Switch>
           {/* <Route path="/:city/restaurant" component={BrowseRestaurant} /> */}
-          <Route path="/:city/:category" component={BrowseByCategory} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route path="/:city/:wildcard" component={BrowseByCategory} />
+          <Route exact path="/:city/restaurants" component={BrowseByCategory} />
         </Switch>
         {/* </Layout> */}
       </div>
     </BrowserRouter>
-  </Provider>,
+  </Provider>, 
   document.querySelector('#root')
 );

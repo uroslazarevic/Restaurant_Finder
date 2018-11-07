@@ -1,8 +1,8 @@
 import axios from 'axios';
 import qs from 'qs';
 
-const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
-// const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
+// const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
+const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
 const ROOT_URL = 'https://developers.zomato.com/api/v2.1/';
 
 export const SEARCH_LOCATION = 'SEARCH_LOCATION';
@@ -108,12 +108,13 @@ export function getSearchedRestaurants({
   placeTerm = '',
   entity_id = '',
   entity_type = 'city',
+  start = '',
   radius = '' ,
   cuisines = '',
   establishment_type = '',
   collection_id = '',
   category = '',
-  count = 9,
+  count = '',
   sort = '',
   order = ''
  } = {}) {
@@ -129,7 +130,8 @@ export function getSearchedRestaurants({
     category,
     count,
     sort,
-    order
+    order,
+    start,
   }
 
   const stringify = qs.stringify(data);

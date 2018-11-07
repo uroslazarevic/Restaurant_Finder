@@ -9,7 +9,9 @@ export default function Filters( {
   allCuisines,
   searchRestaurants,
   city,
-  catStates
+  handleCuisinesModal,
+  cuisineModalItem,
+  removeCuisineModalItem
   } ) {
 
   return (
@@ -30,7 +32,9 @@ export default function Filters( {
         <div className="title">Category</div>
         <ul data-filter = "category" className="categories-content">
           {categories !== undefined ? categories.filter(category =>  {
-            return category.categories.name !== 'Catching-up' &&  category.categories.name !== 'Daily Menus' ? category: null }).map( category => {
+            return category.categories.name !== 'Catching-up' &&  
+            category.categories.name !== 'Daily Menus' ? category: null })
+              .map( category => {
 
             const { name, id } = category.categories;
             const { cityName, cityId, categoryNameState } = city;
@@ -62,9 +66,12 @@ export default function Filters( {
           }, [])
           .map(topCuisine => {
               const { id, name } = topCuisine;
-              return <li onClick={changeState} key={id} className="item" value={id}>{name}</li>
-          }): <div>List of top-cuisines...</div> } 
-          <li className="item all-cuisines">See all cuisines</li>
+              return (
+                <li onClick={changeState} key={id} className="item" value={id}>{name}</li>
+              )
+            }): <div>List of top-cuisines...</div> } 
+          {cuisineModalItem.cuisineId !== '' ? <li onClick = {removeCuisineModalItem} value={cuisineModalItem.cuisineId} className="item active-filter-item">{cuisineModalItem.cuisineName}</li> : null}
+          <li onClick={handleCuisinesModal} className="item all-cuisines">See all cuisines</li>
         </ul>
       </div>
 

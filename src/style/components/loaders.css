@@ -30,3 +30,17 @@
   right: 16px; }
   .locations-loader-bg img {
     height: 20px !important; }
+
+.page-loader-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1; }
+  .page-loader-bg img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -130%);
+    height: 60px; }

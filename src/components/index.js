@@ -8,7 +8,9 @@ import Collections from './collections';
 import PopularRestaurants from './popular_restaurants';
 import RestaurantCard from './restaurant_card_basics';
 import Filters from './filters';
-import { SearchPlacesLoader, SearchLocationsLoader } from './loaders';
+import CuisinesModal from './cuisines_list_modal';
+import Pagination from './pagination';
+import { SearchPlacesLoader, SearchLocationsLoader, PageLoader } from './loaders';
 
 export {
   // Components
@@ -21,7 +23,11 @@ export {
   Collections,
   PopularRestaurants,
   SearchPlacesLoader,
+  PageLoader,
   SearchLocationsLoader,
   RestaurantCard,
-  Filters
+  Filters,
+  CuisinesModal,
+  Pagination,
+  
 }
