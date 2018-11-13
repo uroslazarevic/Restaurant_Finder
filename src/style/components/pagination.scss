@@ -6,7 +6,7 @@
   height: 98px;
   line-height: 98px;
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
   margin-bottom: 15px;
 
   li {
@@ -20,10 +20,15 @@
     line-height: initial;
     background:#ba1e2b;
 
+    &:hover {
+      background: #fc871a;
+      border-color: #fc871a;
+      opacity: 0.8;
+    }
+
     &.active {
-      color: #fff;
-      background:#D94148;
-      border-color: #D94148;
+      background:#fc871a;
+      border-color: #fc871a;
     }
 
     &.break-me {
@@ -40,11 +45,6 @@
       &:focus {
         outline: none;
       }
-    }
-
-    &:hover {
-      color: #fff;
-      opacity: 0.8;
     }
   }
   

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 // Import Actions
 import { getSearchedLocation, getSearchedCategories, getSearchedPlaces } from 'actions';
 // Import Components
-import { CategoriesList, PlacesList, SearchPlacesLoader, SearchLocationsLoader } from 'components';
+import { CategoriesList, PlacesList, SearchPlacesLoader, SearchLocationsLoader, SearchBtn } from 'components';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -166,20 +167,10 @@ class SearchForm extends Component {
     const { getSearchedCategories } = this.props;
     getSearchedCategories();
   }
-  
-  // componentWillReceiveProps(newProps) {
-  //   if(newProps.location.state) {
-    // console.log(this.props)
-  //     const { cityName, cityId } = newProps.location.state;
-      // console.log('cityName:', cityName,'cityId: ', cityId )
-  //     // this.state.setLocationTerm !== cityName ? 
-  //     // this.setState({ setLocationTerm: cityName, entity_id: cityId }, () => {
-  //     //   // this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityId: this.state.entity_id });
-  //     // }) : null
-  //   }
-  // }
 
   render() {
+    const { setLocationTerm, placesObject: { entity_id } } = this.state;
+    // const splitedCityName = setLocationTerm.split(' ').join('-');
     return (
       <form className="search-form">
         <div className="search-location">
@@ -201,7 +192,7 @@ class SearchForm extends Component {
           <span className="fa-search"><i className="fas fa-search"></i></span>
           {this.state.searchPlacesLoader && <SearchPlacesLoader />}
         </div>
-        <button className="search-btn">Search</button>
+        <SearchBtn urlPath={ this.props.urlPath } city = {{ cityName: setLocationTerm, cityId: entity_id }} />
         {/* Render Location List */}
         {this.state.locationTerm.length !==0 && this.state.showLocationList && <ul className="location-list">{this.renderLocationList()}</ul>}
         {/* Render Cuisine list */}

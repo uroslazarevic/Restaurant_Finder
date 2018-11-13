@@ -10,6 +10,7 @@ import RestaurantCard from './restaurant_card_basics';
 import Filters from './filters';
 import CuisinesModal from './cuisines_list_modal';
 import Pagination from './pagination';
+import SearchBtn from './search_btn';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader } from './loaders';
 
 export {
@@ -29,5 +30,6 @@ export {
   Filters,
   CuisinesModal,
   Pagination,
+  SearchBtn,
   
 }

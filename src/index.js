@@ -8,8 +8,7 @@ import './App.css';
 
 import reducers from './reducers';
 import promise from 'redux-promise';
-import { Layout } from 'components';
-import { Home, BrowseByCategory } from 'containers';
+import { Home, RestaurantsCategoryPage, CityCollections, RestaurantOverview } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -20,14 +19,12 @@ ReactDOM.render(
     )}>
     <BrowserRouter>
       <div>
-        {/* <Layout> */}
         <Switch>
-          {/* <Route path="/:city/restaurant" component={BrowseRestaurant} /> */}
           <Route exact path="/" component={Home} />
-          <Route path="/:city/:wildcard" component={BrowseByCategory} />
-          <Route exact path="/:city/restaurants" component={BrowseByCategory} />
+          <Route path="/:city/restaurants/:restaurant" component={RestaurantOverview} />
+          <Route path="/:city/collections" component={CityCollections} />
+          <Route path="/:city/:wildcard" component={RestaurantsCategoryPage} />
         </Switch>
-        {/* </Layout> */}
       </div>
     </BrowserRouter>
   </Provider>, 

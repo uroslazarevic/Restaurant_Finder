@@ -30,12 +30,16 @@ export default class MainHome extends Component {
           <div className="search-container">
             <img src={ logoUrl } alt="" />
             <div className="city-home-title">Find the best restaurants, cafés, and bars in { this.state.cityName ? this.state.cityName : 'Bratislava' }</div>
-            <SearchForm city={{ cityName: this.state.cityName, cityId: this.state.cityId }} handleParentCityState={ this.handleParentCityState } />
+            <SearchForm 
+              urlPath={this.props.urlPath}
+              city={{ cityName: this.state.cityName, cityId: this.state.cityId }} 
+              handleParentCityState={ this.handleParentCityState } />
           </div>
         </div>
         <HomeBottom 
           cityName={this.state.cityName}
-          cityId={this.state.cityId}/>
+          cityId={this.state.cityId}
+          urlPath={this.props.urlPath}/>
       </main>
     );
   }

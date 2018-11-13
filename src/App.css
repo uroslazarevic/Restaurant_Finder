@@ -36,6 +36,105 @@ body {
     grid-column-gap: 15px;
     align-items: start; }
 
+/* City Collections Container */
+.city-collections .city-collections-content {
+  background: #F3F3F3;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+  .city-collections .city-collections-content .city-collections-title {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    line-height: 1.1em;
+    font-weight: 600;
+    padding: 0;
+    font-size: 28px;
+    margin: 10px 0; }
+  .city-collections .city-collections-content .city-collections-subtitle {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.4285em;
+    color: #33373D;
+    margin-bottom: 20px; }
+  .city-collections .city-collections-content .pathway-link {
+    color: #89959B;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 30px 0; }
+    .city-collections .city-collections-content .pathway-link span i {
+      padding: 0 2px; }
+    .city-collections .city-collections-content .pathway-link a {
+      color: #89959B; }
+      .city-collections .city-collections-content .pathway-link a:hover {
+        text-decoration: underline; }
+  .city-collections .city-collections-content .pathway-link {
+    padding: 0px 15px 30px 15px; }
+  .city-collections .city-collections-content .collections .collections-header {
+    margin-bottom: 14px; }
+    .city-collections .city-collections-content .collections .collections-header .collections-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 600;
+      line-height: 1.1em;
+      text-transform: none;
+      color: #33373D;
+      font-size: 24px; }
+    .city-collections .city-collections-content .collections .collections-header .collections-subtitle {
+      margin-top: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.2em;
+      color: #89959B;
+      font-weight: 400;
+      font-size: 16px;
+      word-spacing: 3px; }
+  .city-collections .city-collections-content .collections .collections-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 120px;
+    grid-gap: 20px; }
+    .city-collections .city-collections-content .collections .collections-list .collection-item-all {
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.2857rem; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item-all img {
+        margin-top: 10px;
+        height: 60px; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item-all .collections-link {
+        padding: 10px;
+        color: #cb202d;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 20px; }
+    .city-collections .city-collections-content .collections .collections-list .collection-item {
+      display: grid;
+      grid-template-columns: 150px auto;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.2857rem;
+      overflow: hidden; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item img {
+        height: 120px;
+        width: 150px;
+        border: 1px solid #e7e7e7;
+        border-top-left-radius: 0.2857rem;
+        border-bottom-left-radius: 0.2857rem; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item .about-item {
+        padding: 10px; }
+        .city-collections .city-collections-content .collections .collections-list .collection-item .about-item .title {
+          color: #33373D;
+          font-size: 18px;
+          font-weight: 700;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px; }
+        .city-collections .city-collections-content .collections .collections-list .collection-item .about-item .description {
+          color: #33373D;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 16px;
+          margin-top: 5px;
+          width: 190px; }
+
 /* Get The App Component */
 .app-link {
   background: #fff;
@@ -485,7 +584,7 @@ body {
     left: 50%;
     z-index: 1;
     transform: translate(-50%, -130%);
-    height: 60px; }
+    height: 40px; }
 
 .restaurant-list {
   display: grid;
@@ -985,7 +1084,7 @@ body {
   height: 98px;
   line-height: 98px;
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
   margin-bottom: 15px; }
   .pagination li {
     display: inline-block;
@@ -997,10 +1096,13 @@ body {
     margin-left: 5px;
     line-height: initial;
     background: #ba1e2b; }
+    .pagination li:hover {
+      background: #fc871a;
+      border-color: #fc871a;
+      opacity: 0.8; }
     .pagination li.active {
-      color: #fff;
-      background: #D94148;
-      border-color: #D94148; }
+      background: #fc871a;
+      border-color: #fc871a; }
     .pagination li.break-me {
       pointer-events: none;
       cursor: pointer; }
@@ -1010,8 +1112,5 @@ body {
       padding: 10px 13px !important; }
       .pagination li a:focus {
         outline: none; }
-    .pagination li:hover {
-      color: #fff;
-      opacity: 0.8; }
   .pagination .break a {
     cursor: default; }

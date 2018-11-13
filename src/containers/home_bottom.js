@@ -30,8 +30,12 @@ class HomeBottom extends Component {
   }
   
   renderCollections() {
-    const { searchedCollections, cityName } = this.props;
-    return searchedCollections ? <Collections collections={searchedCollections} cityName={cityName} /> : <div className="container">Collections not available</div>
+    const { searchedCollections, cityName, cityId } = this.props;
+    return searchedCollections ? 
+    <Collections 
+      urlPath={this.props.urlPath}
+      collections={searchedCollections} 
+      city = {{ cityName, cityId}} /> : <div className="container">Collections not available</div>
   }
 
   renderCuisinesList() {
