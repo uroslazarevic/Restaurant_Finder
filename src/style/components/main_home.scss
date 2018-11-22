@@ -1,0 +1,42 @@
+/* MainHome component*/
+
+.main-home-bg {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+  .search-container {
+    padding: {
+      top: 32px;
+      bottom: 45px;
+    }
+    text-align: center;
+
+    img {
+      height: 120px;
+    }
+
+    .city-home-title {
+      margin: {
+        top: 26.6px;
+        bottom: 14px;
+      }
+      padding: 0  15px 25px 15px;
+      font-weight: 300 ;
+      // text-rendering: optimizeLegibility;
+      font-size: 28px;
+      line-height: 1.3em;
+      text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+      color: #fff;
+    }
+
+    // Search Form component
+    @import 'style/containers/search_form.scss';
+  }
+  // Bottom Home container
+  @import 'style/containers/bottom_home.scss';
+}

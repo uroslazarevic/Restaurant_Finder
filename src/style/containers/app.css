@@ -1,3 +1,10 @@
-.test h3 {
-  background: #f4f4f4;
-  text-align: center; }
+body {
+  margin: 0px; }
+  body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  body a {
+    text-decoration: none; }
+    body a:hover, body a:focus {
+      text-decoration: none; }

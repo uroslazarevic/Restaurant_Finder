@@ -1,0 +1,35 @@
+.login-navigation {
+  display: grid;
+  justify-content: right;
+  align-items: center;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(2, auto);
+  padding: 10px 0;
+
+  div {
+    background-color: transparent!important;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    transition: background .1s ease ;
+
+    &:hover {
+      color: #B9BFC7!important;
+    }
+  }
+
+  .signup-link {
+    padding: 10px 20px 12px 20px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 15px;
+
+    &:hover {
+      border-color: #B9BFC7!important;
+      color: #B9BFC7!important;
+    }
+  }
+}

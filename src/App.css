@@ -1,3 +1,1894 @@
-.test h3 {
-  background: #f4f4f4;
+body {
+  margin: 0px; }
+  body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  body a {
+    text-decoration: none; }
+    body a:hover, body a:focus {
+      text-decoration: none; }
+
+.browse-by-category-wrapper {
+  background-color: #F3F3F3; }
+  .browse-by-category-wrapper .container .pathway-link {
+    color: #89959B;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 30px 0; }
+    .browse-by-category-wrapper .container .pathway-link span i {
+      padding: 0 2px; }
+    .browse-by-category-wrapper .container .pathway-link a {
+      color: #89959B; }
+      .browse-by-category-wrapper .container .pathway-link a:hover {
+        text-decoration: underline; }
+  .browse-by-category-wrapper .container .title {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    line-height: 1.1em;
+    font-weight: 600;
+    font-size: 2rem;
+    padding-bottom: 20px;
+    color: #33373D; }
+  .browse-by-category-wrapper .container .content-div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-column-gap: 15px;
+    align-items: start; }
+
+/* City Collections Container */
+.city-collections .city-collections-content {
+  background: #F3F3F3;
+  padding-bottom: 40px; }
+  .city-collections .city-collections-content .city-collections-title {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    line-height: 1.1em;
+    font-weight: 600;
+    padding: 0;
+    font-size: 28px;
+    margin: 10px 0; }
+  .city-collections .city-collections-content .city-collections-subtitle {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.4285em;
+    color: #33373D;
+    margin-bottom: 20px; }
+  .city-collections .city-collections-content .pathway-link {
+    color: #89959B;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 30px 0; }
+    .city-collections .city-collections-content .pathway-link span i {
+      padding: 0 2px; }
+    .city-collections .city-collections-content .pathway-link a {
+      color: #89959B; }
+      .city-collections .city-collections-content .pathway-link a:hover {
+        text-decoration: underline; }
+  .city-collections .city-collections-content .pathway-link {
+    padding-right: 15px;
+    padding-left: 15px; }
+  .city-collections .city-collections-content .collections .collections-header {
+    margin-bottom: 14px; }
+    .city-collections .city-collections-content .collections .collections-header .collections-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 600;
+      line-height: 1.1em;
+      text-transform: none;
+      color: #33373D;
+      font-size: 24px; }
+    .city-collections .city-collections-content .collections .collections-header .collections-subtitle {
+      margin-top: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.2em;
+      color: #89959B;
+      font-weight: 400;
+      font-size: 16px;
+      word-spacing: 3px; }
+  .city-collections .city-collections-content .collections .collections-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 120px;
+    grid-gap: 20px; }
+    .city-collections .city-collections-content .collections .collections-list .collection-item-all {
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.2857rem; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item-all img {
+        margin-top: 10px;
+        height: 60px; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item-all .collections-link {
+        padding: 10px;
+        color: #cb202d;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 20px; }
+    .city-collections .city-collections-content .collections .collections-list .collection-item {
+      display: grid;
+      grid-template-columns: 150px auto;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #e7e7e7;
+      border-radius: 0.2857rem;
+      overflow: hidden; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item img {
+        height: 120px;
+        width: 150px;
+        border: 1px solid #e7e7e7;
+        border-top-left-radius: 0.2857rem;
+        border-bottom-left-radius: 0.2857rem; }
+      .city-collections .city-collections-content .collections .collections-list .collection-item .about-item {
+        padding: 10px; }
+        .city-collections .city-collections-content .collections .collections-list .collection-item .about-item .title {
+          color: #33373D;
+          font-size: 18px;
+          font-weight: 700;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px; }
+        .city-collections .city-collections-content .collections .collections-list .collection-item .about-item .description {
+          color: #33373D;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 16px;
+          margin-top: 5px;
+          width: 190px; }
+
+body {
+  background: #f3f3f3; }
+
+.restaurant-details .restaurant-details-content {
+  padding-bottom: 200px; }
+  .restaurant-details .restaurant-details-content .pathway-link {
+    color: #89959B;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 30px 0; }
+    .restaurant-details .restaurant-details-content .pathway-link span i {
+      padding: 0 2px; }
+    .restaurant-details .restaurant-details-content .pathway-link a {
+      color: #89959B; }
+      .restaurant-details .restaurant-details-content .pathway-link a:hover {
+        text-decoration: underline; }
+  .restaurant-details .restaurant-details-content .restaurant-overview-display {
+    display: grid;
+    grid-row-gap: 15px;
+    /*  Restaurant Navigation Card */
+    /* Restaurant Menu Card */
+    /* Restaurant Menu Card */
+    /* Restaurant Reviews Card Component */ }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card {
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      background: #fff;
+      justify-items: safe;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 40px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row {
+        display: grid;
+        grid-auto-rows: minmax(60px, auto);
+        grid-row-gap: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .title {
+          margin-bottom: 5px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          line-height: 19.8px;
+          font-weight: 600;
+          font-size: 18px;
+          color: #33373D; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .phone-numbers .info {
+          color: #099e44;
+          font-size: 18px;
+          font-weight: 700;
+          ont-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .cuisines .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #cb202d; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .avg-cost .info, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .avg-cost .payment {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .working-hours .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D;
+          font-weight: 600; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .working-hours .see-more {
+          color: #cb202d;
+          cursor: pointer;
+          font-size: 12px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D;
+          width: 210px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map {
+          margin-top: 10px;
+          width: 155px;
+          height: 98px;
+          position: relative;
+          cursor: pointer; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map .text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 0px;
+            font-size: 12px;
+            line-height: 20px;
+            background: aliceblue; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map img {
+            height: 100%;
+            width: 100%; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info {
+          margin-bottom: 5px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span {
+            font-weight: 400;
+            line-height: 1;
+            font-size: .92857143em;
+            padding-right: 5px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span .fa-check {
+              color: #099E44; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span .fa-times {
+              transform: scale(1.3, 1.2);
+              color: #CB202D; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card {
+      background: #FFF; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul {
+        display: flex;
+        flex-direction: row;
+        background: #fff;
+        border-radius: .28571429rem;
+        overflow: hidden;
+        border: 1px solid #e7e7e7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul li {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding: 16px 24px 16px 24px;
+          border-bottom: 6px solid #fff;
+          border-right: 1px solid #e7e7e7;
+          transition: background border .1s ease;
+          color: #33373D;
+          font-weight: 400;
+          font-weight: 18px;
+          cursor: pointer; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul li:hover {
+            background-color: #eff2f6;
+            border-bottom: 6px solid #eff2f6; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card .active-nav-item {
+        font-weight: 700;
+        border-bottom: 6px solid #cb202d; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card .active-nav-item:hover {
+          font-weight: 700;
+          background-color: #fff;
+          border-bottom: 6px solid #cb202d; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card {
+      background: #FFF;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card .card-title {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        line-height: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        color: #33373D;
+        font-size: 18px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul {
+        display: flex;
+        flex-direction: row; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul li {
+          cursor: pointer;
+          height: 150px;
+          width: 150px;
+          margin-right: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul li img {
+            border-radius: .28571429rem;
+            border: 1px solid #e7e7e7;
+            height: 100%;
+            width: 100%; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card {
+      background: #FFF;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card .card-title {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        line-height: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        color: #33373D;
+        font-size: 18px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul {
+        display: flex;
+        flex-direction: row; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li {
+          cursor: pointer;
+          height: 135px;
+          width: 135px;
+          margin-right: 10px;
+          position: relative; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li img {
+            border-radius: .28571429rem;
+            border: 1px solid #e7e7e7;
+            height: 100%;
+            width: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li a {
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            width: 100%;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            font-weight: 700;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.55);
+            padding: 8.5px 0; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo {
+          cursor: pointer;
+          height: 135px;
+          width: 135px;
+          margin-right: 10px;
+          position: relative;
+          border-radius: .28571429rem;
+          border: 1px solid #e7e7e7;
+          display: block;
+          text-align: center; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo:hover {
+            background-color: #eff2f6;
+            transition: background border .1s ease; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo img {
+            height: 40px;
+            width: 40px;
+            margin-top: 35px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo div {
+            color: #fff;
+            width: 100%;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+            padding-top: 5px; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form {
+      margin-bottom: 15px;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form label {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.1em;
+        color: #33373D;
+        margin-bottom: 10px;
+        cursor: text; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input {
+        position: relative; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input input {
+          width: 100%;
+          padding: 9.5px 14px 9.5px 37.4px;
+          border-radius: .28571429rem;
+          border: 1px solid #e7e7e7;
+          font-size: 14px;
+          transition: border-color .1s ease;
+          line-height: 1.2142em;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input input::placeholder {
+            color: #89959B;
+            opacity: 0.7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input span {
+          position: absolute;
+          top: 7px;
+          left: 14px;
+          color: #89959B;
+          opacity: 0.7; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .add-review-btn {
+        box-shadow: 0 0 0 0 #e7e7e7 inset;
+        margin-top: 14px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #099E44;
+        color: #FFF;
+        transition: background .1s ease 0s;
+        border-radius: .28571429rem;
+        width: 145px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        font-weight: 400;
+        border: none; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .add-review-btn:hover {
+          background: #018c38; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews {
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header {
+        padding: 15px 15px 0 15px;
+        border-radius: .28571429rem;
+        border-top: 1px solid #e7e7e7;
+        border-left: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
+        background: #fff; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .title {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 1.1em;
+          color: #33373D;
+          margin-bottom: 10px;
+          cursor: text; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers {
+            height: 37px;
+            width: 37px;
+            border: 1.5px solid #fff;
+            border-radius: 100%;
+            overflow: hidden;
+            position: relative; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers:nth-child(2) {
+              left: -10px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers:nth-child(3) {
+              left: -17px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers img {
+              height: 100%;
+              width: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .reviewed-by-who {
+            line-height: 18px font-size 14px;
+            color: #33373D;
+            align-self: center;
+            position: relative;
+            left: -5px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .reviewed-by-who span {
+              color: #cb202d;
+              font-weight: 600; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors {
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        border-bottom: #f3f3f3 4px solid;
+        border-left: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .active-option {
+          border-bottom: #33373D 3px solid !important;
+          color: #cb202d !important;
+          font-weight: 700 !important; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .option {
+          border-bottom: #f3f3f3 3px solid;
+          position: relative;
+          bottom: -4px;
+          padding: 12px 16px;
+          color: #33373D;
+          font-weight: 400;
+          font-size: 1rem;
+          z-index: 1; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .option span {
+            color: #89959B; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item {
+      background: #fff;
+      margin-bottom: 20px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper {
+        padding: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile img {
+            height: 65px;
+            width: 65px;
+            border-radius: 100%;
+            border: 1px solid #fff; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info {
+            margin-left: 15px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .name {
+              cursor: pointer;
+              color: #33373D;
+              font-size: 1em;
+              font-weight: 700 !important;
+              line-height: 1.14em; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .social {
+              line-height: 1.14285714em;
+              font-size: 12px;
+              color: #89959B; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .follow {
+              background: #FFF;
+              border: 1px solid #e7e7e7;
+              color: #7B8489 !important;
+              transition: background .1s ease;
+              width: 50.23px;
+              height: 24.41px;
+              font-size: 10.64px;
+              line-height: 24.64px;
+              margin-top: 3px;
+              text-align: center;
+              border-radius: .28571429rem;
+              cursor: pointer; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .follow:hover {
+                background-color: #eff2f6 !important; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .review-time {
+          color: #89959B;
+          cursor: pointer;
+          line-height: 1.4285em;
+          font-size: 12px;
+          padding: 13px 0; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .review-time:hover {
+            color: #89959B; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text {
+          line-height: 20px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text .rated-text {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding-right: 3px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text .rated-mark {
+            cursor: default;
+            font-weight: 500;
+            font-size: 11px;
+            color: #fff;
+            padding: 0px 5px;
+            text-align: center;
+            line-height: 23px;
+            border-radius: .28571429rem;
+            margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion {
+          display: flex; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression {
+            display: flex; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate {
+              display: flex;
+              border: 1px solid #e7e7e7;
+              border-radius: 4px;
+              margin-right: 4px; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn {
+                padding: 7px 11px;
+                background-color: #e0e1e2;
+                line-height: 1rem;
+                text-align: right;
+                font-size: 12px;
+                cursor: pointer;
+                color: rgba(0, 0, 0, 0.6); }
+                .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn:hover {
+                  background-color: #EFF2F6; }
+                .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn span {
+                  padding-right: 8.21px; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .count {
+                color: #33373D;
+                background: #fff;
+                display: block;
+                padding: 7px 10px;
+                line-height: 1rem;
+                font-size: 12px;
+                line-height: 1rem; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review {
+            border: 1px solid #e7e7e7;
+            border-radius: 4px;
+            padding: 7px 13px;
+            background-color: #e0e1e2;
+            line-height: 1rem;
+            text-align: right;
+            font-size: 12px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.6);
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review:hover {
+              background-color: #EFF2F6; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review span {
+              padding-right: 8.21px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment {
+        padding: 0 15px;
+        background: #F9FAFB; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper {
+          display: flex;
+          padding: 10px 0;
+          border-top: 1px solid #f0f0f0; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper img {
+            height: 35px;
+            width: 35px;
+            align-self: center;
+            border-radius: 100%;
+            margin-right: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div {
+            width: 100%; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input {
+              width: 100%;
+              padding: 10px;
+              line-height: 18px;
+              min-height: 40px;
+              font-size: 14px;
+              border: 1px solid #f0f0f0;
+              color: #33373D;
+              outline: 0;
+              background-color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input:hover {
+                border: 1px solid #dedede; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input::placeholder {
+                color: #bababa; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 10px;
+      display: flex;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .main-img {
+        margin-right: 20px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .main-img img {
+          width: 168.88px;
+          height: 135px;
+          border-radius: .28571429rem; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info {
+        width: 100%; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info {
+          display: flex;
+          margin-top: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .title {
+            font-size: 33.6px;
+            font-weight: 600;
+            line-height: 30.8px;
+            height: 75px;
+            color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark {
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating {
+              background-color: #3f7e00;
+              font-size: 22px;
+              color: #B9B9B9;
+              color: #fff;
+              font-weight: 700;
+              line-height: 39px;
+              border-radius: .28571429rem;
+              width: 80px;
+              text-align: center; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-mark {
+                font-size: 28px;
+                font-weight: 600;
+                color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-max-mark {
+                letter-spacing: 2px;
+                font-size: 22px;
+                opacity: .5;
+                font-weight: 700; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .votes {
+              color: #89959B;
+              font-size: 12px;
+              text-align: center;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              line-height: 25px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers {
+          color: #89959B;
+          font-size: 15px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding-bottom: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .locality {
+            padding-right: 5px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .categories {
+            display: inline-block; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .categories .grey-dot {
+              height: 4px;
+              width: 4px;
+              background: #89959B;
+              display: inline-block;
+              margin-bottom: 3px;
+              border-radius: 100%;
+              overflow: hidden;
+              margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative {
+          display: flex;
+          padding-top: 10px;
+          border-top: 1px solid #e7e7e7; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative .open-now {
+            color: #099e44;
+            font-size: 15px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li {
+            padding-left: 16px;
+            font-size: 14px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:before, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li::before {
+              content: ' ';
+              height: 2px;
+              width: 2px;
+              position: absolute;
+              transform: translate(0, -50%);
+              left: 7px;
+              top: 50%;
+              border-radius: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:first-of-type {
+            color: #cb202d; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:last-child {
+            color: #89959B; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative .open-now {
+            color: #099e44; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img {
+        position: relative; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img img {
+          width: 100%;
+          height: 300px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a {
+          width: 60px;
+          height: 60px;
+          border: 1px solid #fff;
+          border-radius: 4px;
+          overflow: hidden;
+          display: block;
+          position: absolute;
+          bottom: 10px;
+          right: 35px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a img {
+            height: 60px;
+            width: 60px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a .photos-link {
+            position: absolute;
+            color: #000;
+            z-index: 100;
+            left: 0px;
+            color: #fff;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            width: 100%;
+            height: 28px;
+            bottom: 0px;
+            font-size: 12px;
+            line-height: 28px;
+            background: rgba(0, 0, 0, 0.55);
+            text-align: center; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info {
+        padding: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .title {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 30.8px;
+            height: 75px;
+            color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark {
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating {
+              background-color: #3f7e00;
+              font-size: 22px;
+              color: #B9B9B9;
+              color: #fff;
+              font-weight: 700;
+              line-height: 39px;
+              border-radius: .28571429rem;
+              width: 80px;
+              text-align: center; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating .rating-mark {
+                font-size: 28px;
+                font-weight: 600;
+                color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating .rating-max-mark {
+                letter-spacing: 2px;
+                font-size: 22px;
+                opacity: .5;
+                font-weight: 700; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .votes {
+              color: #89959B;
+              font-size: 12px;
+              text-align: center;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              line-height: 25px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers {
+          color: #89959B;
+          font-size: 15px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding-bottom: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .locality {
+            padding-right: 5px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .categories {
+            display: inline-block; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .categories .grey-dot {
+              height: 4px;
+              width: 4px;
+              background: #89959B;
+              display: inline-block;
+              margin-bottom: 3px;
+              border-radius: 100%;
+              overflow: hidden;
+              margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options {
+          padding-top: 10px;
+          padding-bottom: 15px;
+          border-top: 1px solid #e7e7e7; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn {
+            background-color: #fff;
+            margin-right: 10px;
+            padding: .5833em .833em;
+            color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #e7e7e7;
+            border-radius: .28571429rem;
+            -webkit-transition: background .1s ease;
+            transition: background .1s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            line-height: 14px;
+            color: #7B8489;
+            font-weight: 400; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn:hover {
+              background-color: #eff2f6; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn i {
+              font-weight: 400;
+              margin-right: 4px;
+              font-size: 1.1em;
+              color: #33373D; }
+  .restaurant-details .restaurant-details-content .notification {
+    overflow: hidden;
+    width: 300px;
+    height: 56px;
+    margin: 0 auto;
+    line-height: 56px;
+    text-align: center;
+    font-weight: 600;
+    font-style: oblique;
+    border-radius: .28571429rem;
+    border: 1px solid #e7e7e7;
+    font-family: arial;
+    color: #a94442;
+    background: #f2dede;
+    box-shadow: 0px 0px 10px 0px #a94442;
+    margin-bottom: 100px; }
+  .restaurant-details .restaurant-details-content .notification-enter {
+    width: 0px;
+    height: 0px;
+    opacity: 0.01;
+    transform: translateY(-100%); }
+  .restaurant-details .restaurant-details-content .notification-enter-done {
+    opacity: 1;
+    width: 300px;
+    height: 56px;
+    transform: translateY(40%);
+    transition: all 500ms ease-out; }
+  .restaurant-details .restaurant-details-content .notification-exit {
+    opacity: 1;
+    width: 300px;
+    height: 56px;
+    transform: translateY(40%); }
+  .restaurant-details .restaurant-details-content .notification-exit-active {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transition: all 0.2s ease-out; }
+
+/* Get The App Component */
+.app-link {
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1); }
+  .app-link a {
+    color: #33373D;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none !important;
+    padding: 5px 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .app-link a:hover {
+      color: #33373D;
+      background: #FFF8EB; }
+    .app-link a img {
+      height: 28px;
+      padding-right: 4px; }
+
+.login-navigation {
+  display: grid;
+  justify-content: right;
+  align-items: center;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(2, auto);
+  padding: 10px 0; }
+  .login-navigation div {
+    background-color: transparent !important;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    transition: background .1s ease; }
+    .login-navigation div:hover {
+      color: #B9BFC7 !important; }
+  .login-navigation .signup-link {
+    padding: 10px 20px 12px 20px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 15px; }
+    .login-navigation .signup-link:hover {
+      border-color: #B9BFC7 !important;
+      color: #B9BFC7 !important; }
+
+/* MainHome component*/
+.main-home-bg {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+  .main-home-bg .search-container {
+    padding-top: 32px;
+    padding-bottom: 45px;
+    text-align: center;
+    /* Search form component*/ }
+    .main-home-bg .search-container img {
+      height: 120px; }
+    .main-home-bg .search-container .city-home-title {
+      margin-top: 26.6px;
+      margin-bottom: 14px;
+      padding: 0  15px 25px 15px;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.3em;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+      color: #fff; }
+    .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input, .main-home-bg .search-container .search-form .search-btn, .layout .header-top .search-form .search-location .main-home-bg .search-container input, .layout .header-top .search-form .search-place .main-home-bg .search-container input, .layout .header-top .search-form .main-home-bg .search-container .search-btn {
+      height: 40px;
+      line-height: 40px;
+      width: 100%;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border-radius: 4px;
+      border: none; }
+    .main-home-bg .search-container .search-form {
+      display: grid;
+      grid-template-columns: 180px 500px 86px;
+      grid-column-gap: 5px;
+      grid-auto-rows: 40px;
+      justify-content: center;
+      position: relative; }
+      .main-home-bg .search-container .search-form .fade-enter {
+        opacity: 0.01; }
+      .main-home-bg .search-container .search-form .fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in; }
+      .main-home-bg .search-container .search-form .fade-exit {
+        opacity: 1; }
+      .main-home-bg .search-container .search-form .fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 500ms ease-in; }
+      .main-home-bg .search-container .search-form .search-location, .main-home-bg .search-container .search-form .search-place {
+        position: relative; }
+        .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input {
+          color: #33373D;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          outline: none; }
+        .main-home-bg .search-container .search-form .search-location span, .main-home-bg .search-container .search-form .search-place span {
+          position: absolute; }
+          .main-home-bg .search-container .search-form .search-location span.fa-arrow, .main-home-bg .search-container .search-form .search-place span.fa-arrow {
+            left: 13px;
+            font-size: 10px;
+            top: 13px; }
+          .main-home-bg .search-container .search-form .search-location span.fa-caret, .main-home-bg .search-container .search-form .search-place span.fa-caret {
+            right: 9px;
+            top: 11px;
+            font-size: 13px; }
+          .main-home-bg .search-container .search-form .search-location span.fa-search, .main-home-bg .search-container .search-form .search-place span.fa-search {
+            left: 10px;
+            font-size: 10px;
+            top: 13px; }
+            .main-home-bg .search-container .search-form .search-location span.fa-search:before, .main-home-bg .search-container .search-form .search-place span.fa-search:before {
+              content: ' '; }
+      .main-home-bg .search-container .search-form .search-location input {
+        padding-left: 35px;
+        padding-right: 25px; }
+        .main-home-bg .search-container .search-form .search-location input:focus {
+          padding-right: 5px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
+        .main-home-bg .search-container .search-form .search-location input:focus ~ .fa-caret {
+          display: none; }
+      .main-home-bg .search-container .search-form .search-place input {
+        padding-left: 26px;
+        padding-right: 30px;
+        position: relative; }
+        .main-home-bg .search-container .search-form .search-place input:focus {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; }
+      .main-home-bg .search-container .search-form .search-btn {
+        line-height: initial;
+        font-weight: 400;
+        text-align: center;
+        background: #cb202d;
+        color: #fff;
+        transition: .15s ease-out all; }
+        .main-home-bg .search-container .search-form .search-btn:hover {
+          background: #A71823; }
+      .main-home-bg .search-container .search-form .location-list {
+        position: absolute;
+        top: 40px;
+        left: 167px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form .location-list li {
+          height: 42px;
+          width: 180px;
+          line-height: 42px;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          color: #333;
+          background: #fff;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          outline: none;
+          font-weight: 400;
+          padding: 0 10px;
+          cursor: pointer;
+          border: 1px solid #f0f0f0; }
+          .main-home-bg .search-container .search-form .location-list li:hover {
+            background: #FBEED5;
+            color: #33373D; }
+          .main-home-bg .search-container .search-form .location-list li:last-child {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px; }
+          .main-home-bg .search-container .search-form .location-list li span {
+            pointer-events: none; }
+      .main-home-bg .search-container .search-form ul.cuisine-list {
+        position: absolute;
+        top: 40px;
+        left: 352px;
+        background: darkred;
+        width: 500px;
+        padding: 10px;
+        text-align: left;
+        background: #e5eaed;
+        cursor: pointer;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form ul.cuisine-list label {
+          color: #89959B;
+          margin: 0 10px;
+          font-size: 12px;
+          line-height: 18px;
+          cursor: default; }
+        .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          margin-top: 5px;
+          padding: 6px 10px;
+          background: #fff;
+          border-radius: 5px;
+          display: grid;
+          grid-template-columns: 32px auto; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item:hover {
+            background: #FBEED5; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item img {
+            height: 27px;
+            padding-right: 5px;
+            pointer-events: none; }
+          .main-home-bg .search-container .search-form ul.cuisine-list li.cuisine-item span {
+            pointer-events: none;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+            padding-top: 1px;
+            color: #33373D;
+            text-transform: none; }
+      .main-home-bg .search-container .search-form ul.places-list {
+        position: absolute;
+        top: 40px;
+        left: 352px;
+        width: 500px;
+        text-align: left;
+        background: #e5eaed;
+        cursor: pointer;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid #fff;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+        .main-home-bg .search-container .search-form ul.places-list .place-item {
+          display: grid;
+          grid-template-columns: 30px auto;
+          grid-column-gap: 10px;
+          text-align: left;
+          background-color: #fff;
+          border-bottom: 1px solid #e7e7e7;
+          padding: 6px 11px; }
+          .main-home-bg .search-container .search-form ul.places-list .place-item:last-child {
+            border-bottom: none; }
+          .main-home-bg .search-container .search-form ul.places-list .place-item:hover {
+            background: #FBEED5; }
+          .main-home-bg .search-container .search-form ul.places-list .place-item img {
+            width: 30px;
+            height: 30px;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item img.thumb-normal {
+              border: solid white 1px;
+              box-shadow: 1px 2px 5px #888;
+              border-radius: 4px; }
+          .main-home-bg .search-container .search-form ul.places-list .place-item .place {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .name {
+              font-size: 15px;
+              line-height: 20px;
+              font-weight: 200;
+              color: #33373D; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .locality {
+              font-size: 12px;
+              line-height: 14px;
+              color: #89959B; }
+  .main-home-bg .bottom-home-bg {
+    background: #F3F3F3;
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    .main-home-bg .bottom-home-bg .cuisine-list .cuisine-title, .main-home-bg .bottom-home-bg .popular-restaurants-list .popular-restaurants-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 600;
+      line-height: 1.1em;
+      text-transform: none;
+      color: #33373D;
+      font-size: 24px; }
+    .main-home-bg .bottom-home-bg .cuisine-list .cuisine-subtitle, .main-home-bg .bottom-home-bg .popular-restaurants-list .popular-restaurants-subtitle {
+      margin-top: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.2em;
+      color: #89959B;
+      font-weight: 400;
+      font-size: 16px;
+      word-spacing: 3px; }
+    .main-home-bg .bottom-home-bg .collections .collections-header {
+      margin-bottom: 14px; }
+      .main-home-bg .bottom-home-bg .collections .collections-header .collections-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 600;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #33373D;
+        font-size: 24px; }
+      .main-home-bg .bottom-home-bg .collections .collections-header .collections-subtitle {
+        margin-top: 5px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.2em;
+        color: #89959B;
+        font-weight: 400;
+        font-size: 16px;
+        word-spacing: 3px; }
+    .main-home-bg .bottom-home-bg .collections .collections-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      grid-gap: 20px; }
+      .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all {
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all img {
+          margin-top: 10px;
+          height: 60px; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item-all .collections-link {
+          padding: 10px;
+          color: #cb202d;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px; }
+      .main-home-bg .bottom-home-bg .collections .collections-list .collection-item {
+        display: grid;
+        grid-template-columns: 150px auto;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem;
+        overflow: hidden; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item img {
+          height: 120px;
+          width: 150px;
+          border: 1px solid #e7e7e7;
+          border-top-left-radius: 0.2857rem;
+          border-bottom-left-radius: 0.2857rem; }
+        .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item {
+          padding: 10px; }
+          .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item .title {
+            color: #33373D;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 20px; }
+          .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item .description {
+            color: #33373D;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 16px;
+            margin-top: 5px;
+            width: 190px; }
+    .main-home-bg .bottom-home-bg .cuisine-list {
+      padding: 60px 0;
+      max-width: 1160px;
+      margin: 0 auto; }
+      .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container {
+        display: grid;
+        margin-top: 20px;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: 117px;
+        padding: 21px;
+        list-style: none;
+        background: #fff; }
+        .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container label {
+          display: none; }
+        .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item {
+          padding: 14px;
+          display: grid;
+          grid-template-rows: repeat(2, auto);
+          justify-items: center;
+          cursor: pointer; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item:hover {
+            opacity: .7;
+            transition: opacity .25s ease-out; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item img {
+            height: 48px;
+            margin-bottom: 5px; }
+          .main-home-bg .bottom-home-bg .cuisine-list .cuisines-container .cuisine-item span {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            color: #33373D; }
+    .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      grid-gap: 25px 20px;
+      background: #fff;
+      padding: 21px; }
+      .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item {
+        justify-self: center;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #fff;
+        transition: background .1s ease-out; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:nth-child(even):hover {
+          background: #FBEED5;
+          border: 1px solid #fce1b0; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item:nth-child(odd):hover {
+          background: #dcfccf;
+          border: 1px solid #b8fd5d; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .name {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 15px;
+          line-height: 18px;
+          color: #33373D;
+          font-weight: 650;
+          width: 140px;
+          padding: 5px 0; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .locality {
+          color: #33373D;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 15px; }
+        .main-home-bg .bottom-home-bg .popular-restaurants-list .restaurants-container .restaurant-item .average-cost-for-two {
+          color: #89959B;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em; }
+
+.places-loader-bg {
+  background: #fff;
+  top: -2px;
+  width: 500px;
+  height: 442px;
+  position: relative;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+  .places-loader-bg .loader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .places-loader-bg .loader-content img {
+      height: 40px; }
+    .places-loader-bg .loader-content div {
+      color: #33373D;
+      font-weight: 400;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 16px;
+      margin-top: 10px;
+      width: 190px; }
+
+.locations-loader-bg {
+  position: absolute;
+  top: 8px;
+  right: 16px; }
+  .locations-loader-bg img {
+    height: 20px !important; }
+
+.page-loader-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1; }
+  .page-loader-bg img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -130%);
+    height: 40px; }
+
+.reviews-loader-bg {
   text-align: center; }
+  .reviews-loader-bg img {
+    height: 50px;
+    position: relative;
+    left: -5px;
+    margin: 20px auto; }
+  .reviews-loader-bg div {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+
+.restaurant-list {
+  display: grid;
+  grid-row-gap: 15px; }
+  .restaurant-list .restaurant-card-item {
+    position: relative;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    background: #fff; }
+    .restaurant-list .restaurant-card-item .card-top {
+      display: grid;
+      grid-template-columns: 113px auto;
+      grid-column-gap: 15px;
+      padding: 14px; }
+      .restaurant-list .restaurant-card-item .card-top img {
+        height: 105px;
+        width: 113px;
+        border-radius: 4px;
+        border: 1px solid #f3f3f3; }
+      .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .name {
+        padding-top: 5px;
+        width: 400px;
+        transition: color .1s ease;
+        cursor: pointer;
+        color: #cb202d;
+        font-weight: 700;
+        line-height: 26px;
+        font-size: 24px;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+        .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .name:hover {
+          opacity: 0.7; }
+      .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .locality {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 20px;
+        color: #33373D;
+        font-weight: 700;
+        cursor: pointer; }
+      .restaurant-list .restaurant-card-item .card-top .restaurant-main-info .address {
+        width: 320px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #89959B;
+        font-size: 1em;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .restaurant-list .restaurant-card-item .card-bottom {
+      margin: 0 14px;
+      padding: 14px 0;
+      border-top: 1px solid #e7e7e7; }
+      .restaurant-list .restaurant-card-item .card-bottom .cuisines, .restaurant-list .restaurant-card-item .card-bottom .cost-for-two, .restaurant-list .restaurant-card-item .card-bottom .rating-text, .restaurant-list .restaurant-card-item .card-bottom .hours {
+        display: grid;
+        grid-template-columns: 113px auto;
+        grid-column-gap: 15px;
+        justify-content: start; }
+        .restaurant-list .restaurant-card-item .card-bottom .cuisines .add-info, .restaurant-list .restaurant-card-item .card-bottom .cost-for-two .add-info, .restaurant-list .restaurant-card-item .card-bottom .rating-text .add-info, .restaurant-list .restaurant-card-item .card-bottom .hours .add-info {
+          color: #89959B;
+          text-transform: uppercase;
+          letter-spacing: .01em;
+          font-size: 12px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          line-height: 1.4285em; }
+        .restaurant-list .restaurant-card-item .card-bottom .cuisines .specific, .restaurant-list .restaurant-card-item .card-bottom .cost-for-two .specific, .restaurant-list .restaurant-card-item .card-bottom .rating-text .specific, .restaurant-list .restaurant-card-item .card-bottom .hours .specific {
+          text-overflow: ellipsis;
+          width: 75%;
+          white-space: nowrap;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          color: #33373D;
+          line-height: 20px; }
+    .restaurant-list .restaurant-card-item .restaurant-voting {
+      width: 36px;
+      position: absolute;
+      width: 60px;
+      top: 14px;
+      right: 14px; }
+      .restaurant-list .restaurant-card-item .restaurant-voting .rating {
+        color: #fff;
+        cursor: default;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        font-size: 16px;
+        height: 25px;
+        line-height: 23px;
+        text-align: center;
+        font-weight: 700;
+        background: #3F7E00;
+        width: 36px;
+        position: relative;
+        right: -24px; }
+      .restaurant-list .restaurant-card-item .restaurant-voting .votes {
+        font-size: 12px;
+        color: #89959B;
+        line-height: 14px;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        margin-top: 5px;
+        text-align: right; }
+
+.filters {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: #fff;
+  border-radius: .28571429rem;
+  border: 1px solid #e7e7e7;
+  padding: 14px; }
+  .filters .active-filter-item {
+    color: #099e44 !important;
+    font-weight: 700 !important; }
+    .filters .active-filter-item:hover {
+      font-weight: 700 !important; }
+      .filters .active-filter-item:hover span {
+        font-weight: 700 !important; }
+  .filters .next-active-filter-item {
+    color: #a4cd32 !important;
+    font-weight: 700 !important; }
+    .filters .next-active-filter-item:hover {
+      font-weight: 700 !important; }
+      .filters .next-active-filter-item:hover span {
+        font-weight: 700 !important; }
+  .filters .filters-title {
+    border: none;
+    margin-bottom: 14px;
+    padding: 0;
+    font-size: 1.28em;
+    font-weight: 600;
+    line-height: 1.1em;
+    text-transform: none;
+    color: #33373D;
+    position: relative; }
+    .filters .filters-title span {
+      position: absolute;
+      height: 27px;
+      line-height: 24px;
+      right: 0px;
+      background: #cb202d;
+      border: 1px solid #ccc;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      transition: 200ms ease-in all;
+      cursor: pointer;
+      font-size: 14px;
+      width: 75px; }
+      .filters .filters-title span i {
+        position: relative;
+        top: -1px;
+        font-size: 9px;
+        line-height: 9px;
+        right: -4px; }
+      .filters .filters-title span:hover {
+        opacity: 0.8;
+        color: #a4cd32; }
+  .filters .sort-by-category:nth-child(-n+5), .filters .categories-category:nth-child(-n+5), .filters .top-cuisines-category:nth-child(-n+5), .filters .order-by-category:nth-child(-n+5), .filters .establishments-category:nth-child(-n+5) {
+    margin-bottom: 20px; }
+  .filters .sort-by-category .title, .filters .categories-category .title, .filters .top-cuisines-category .title, .filters .order-by-category .title, .filters .establishments-category .title {
+    font-weight: 600;
+    line-height: 1.1em;
+    text-transform: none;
+    color: #33373D;
+    padding-bottom: 5px;
+    font-size: 1.071em; }
+  .filters .sort-by-category ul li, .filters .categories-category ul li, .filters .top-cuisines-category ul li, .filters .order-by-category ul li, .filters .establishments-category ul li {
+    padding: 1px 0;
+    font-size: 13px;
+    cursor: pointer;
+    color: #33373D;
+    line-height: 1.4285em; }
+    .filters .sort-by-category ul li span, .filters .categories-category ul li span, .filters .top-cuisines-category ul li span, .filters .order-by-category ul li span, .filters .establishments-category ul li span {
+      pointer-events: none;
+      color: #89959B; }
+    .filters .sort-by-category ul li:hover, .filters .categories-category ul li:hover, .filters .top-cuisines-category ul li:hover, .filters .order-by-category ul li:hover, .filters .establishments-category ul li:hover {
+      color: #cb202d; }
+
+/* Layout Component */
+.layout .disable-body-scroll {
+  overflow: hidden; }
+
+.layout .hide-unmatched-cuisine-item {
+  display: none; }
+
+.layout .header-top {
+  /* Search form component*/
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 115px auto auto;
+  background-color: #cb202d;
+  padding: 10px 0;
+  height: 62px; }
+  .main-home-bg .search-container .search-form .search-location .layout .header-top input, .main-home-bg .search-container .search-form .search-place .layout .header-top input, .main-home-bg .search-container .search-form .layout .header-top .search-btn, .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input, .layout .header-top .search-form .search-btn {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+    border: none; }
+  .layout .header-top .search-form {
+    display: grid;
+    grid-template-columns: 180px 500px 86px;
+    grid-column-gap: 5px;
+    grid-auto-rows: 40px;
+    justify-content: center;
+    position: relative; }
+    .layout .header-top .search-form .fade-enter {
+      opacity: 0.01; }
+    .layout .header-top .search-form .fade-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in; }
+    .layout .header-top .search-form .fade-exit {
+      opacity: 1; }
+    .layout .header-top .search-form .fade-exit-active {
+      opacity: 0.01;
+      transition: opacity 500ms ease-in; }
+    .layout .header-top .search-form .search-location, .layout .header-top .search-form .search-place {
+      position: relative; }
+      .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
+        color: #33373D;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none; }
+      .layout .header-top .search-form .search-location span, .layout .header-top .search-form .search-place span {
+        position: absolute; }
+        .layout .header-top .search-form .search-location span.fa-arrow, .layout .header-top .search-form .search-place span.fa-arrow {
+          left: 13px;
+          font-size: 10px;
+          top: 13px; }
+        .layout .header-top .search-form .search-location span.fa-caret, .layout .header-top .search-form .search-place span.fa-caret {
+          right: 9px;
+          top: 11px;
+          font-size: 13px; }
+        .layout .header-top .search-form .search-location span.fa-search, .layout .header-top .search-form .search-place span.fa-search {
+          left: 10px;
+          font-size: 10px;
+          top: 13px; }
+          .layout .header-top .search-form .search-location span.fa-search:before, .layout .header-top .search-form .search-place span.fa-search:before {
+            content: ' '; }
+    .layout .header-top .search-form .search-location input {
+      padding-left: 35px;
+      padding-right: 25px; }
+      .layout .header-top .search-form .search-location input:focus {
+        padding-right: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+      .layout .header-top .search-form .search-location input:focus ~ .fa-caret {
+        display: none; }
+    .layout .header-top .search-form .search-place input {
+      padding-left: 26px;
+      padding-right: 30px;
+      position: relative; }
+      .layout .header-top .search-form .search-place input:focus {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+    .layout .header-top .search-form .search-btn {
+      line-height: initial;
+      font-weight: 400;
+      text-align: center;
+      background: #cb202d;
+      color: #fff;
+      transition: .15s ease-out all; }
+      .layout .header-top .search-form .search-btn:hover {
+        background: #A71823; }
+    .layout .header-top .search-form .location-list {
+      position: absolute;
+      top: 40px;
+      left: 167px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form .location-list li {
+        height: 42px;
+        width: 180px;
+        line-height: 42px;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
+        background: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none;
+        font-weight: 400;
+        padding: 0 10px;
+        cursor: pointer;
+        border: 1px solid #f0f0f0; }
+        .layout .header-top .search-form .location-list li:hover {
+          background: #FBEED5;
+          color: #33373D; }
+        .layout .header-top .search-form .location-list li:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px; }
+        .layout .header-top .search-form .location-list li span {
+          pointer-events: none; }
+    .layout .header-top .search-form ul.cuisine-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      background: darkred;
+      width: 500px;
+      padding: 10px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form ul.cuisine-list label {
+        color: #89959B;
+        margin: 0 10px;
+        font-size: 12px;
+        line-height: 18px;
+        cursor: default; }
+      .layout .header-top .search-form ul.cuisine-list li.cuisine-item {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-top: 5px;
+        padding: 6px 10px;
+        background: #fff;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 32px auto; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item:hover {
+          background: #FBEED5; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item img {
+          height: 27px;
+          padding-right: 5px;
+          pointer-events: none; }
+        .layout .header-top .search-form ul.cuisine-list li.cuisine-item span {
+          pointer-events: none;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 400;
+          padding-top: 1px;
+          color: #33373D;
+          text-transform: none; }
+    .layout .header-top .search-form ul.places-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      width: 500px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
+      .layout .header-top .search-form ul.places-list .place-item {
+        display: grid;
+        grid-template-columns: 30px auto;
+        grid-column-gap: 10px;
+        text-align: left;
+        background-color: #fff;
+        border-bottom: 1px solid #e7e7e7;
+        padding: 6px 11px; }
+        .layout .header-top .search-form ul.places-list .place-item:last-child {
+          border-bottom: none; }
+        .layout .header-top .search-form ul.places-list .place-item:hover {
+          background: #FBEED5; }
+        .layout .header-top .search-form ul.places-list .place-item img {
+          width: 30px;
+          height: 30px;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item img.thumb-normal {
+            border: solid white 1px;
+            box-shadow: 1px 2px 5px #888;
+            border-radius: 4px; }
+        .layout .header-top .search-form ul.places-list .place-item .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item .place .name {
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 200;
+            color: #33373D; }
+          .layout .header-top .search-form ul.places-list .place-item .place .locality {
+            font-size: 12px;
+            line-height: 14px;
+            color: #89959B; }
+  .layout .header-top .zomato-urban-spon-logo {
+    width: 100px;
+    margin-right: 15px;
+    height: 50px;
+    padding: 8px 0;
+    cursor: pointer; }
+  .layout .header-top .search-form {
+    padding: 0 20px;
+    grid-template-columns: 230px 376px 86px; }
+    .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
+      border-radius: 2px; }
+    .layout .header-top .search-form .search-place .places-loader-bg {
+      width: 376px;
+      z-index: 1; }
+      .layout .header-top .search-form .search-place .places-loader-bg .loader-content {
+        text-align: center; }
+    .layout .header-top .search-form .search-btn {
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      width: 73px;
+      font-weight: 500;
+      font-size: 15px; }
+      .layout .header-top .search-form .search-btn:hover {
+        background: #D94148; }
+    .layout .header-top .search-form ul.cuisine-list {
+      width: 376px;
+      z-index: 1;
+      left: 255px;
+      border-radius: 2px; }
+    .layout .header-top .search-form .location-list {
+      z-index: 1;
+      left: 20px;
+      border-radius: 2px; }
+      .layout .header-top .search-form .location-list li {
+        width: 230px; }
+    .layout .header-top .search-form ul.places-list {
+      width: 376px;
+      left: initial;
+      right: 111px;
+      z-index: 1; }
+  .layout .header-top .login-navigation {
+    padding-top: 0px;
+    grid-column-gap: 10px;
+    font-size: 15px; }
+    .layout .header-top .login-navigation .signin-link {
+      padding: 10px 20px 12px 20px;
+      border-radius: 4px; }
+      .layout .header-top .login-navigation .signin-link:hover {
+        background-color: #D94148 !important;
+        color: #fff !important; }
+    .layout .header-top .login-navigation .signup-link {
+      background-color: #ba1e2b !important;
+      border: none; }
+      .layout .header-top .login-navigation .signup-link:hover {
+        color: #fff !important;
+        background: #D94148 !important; }
+
+.layout .header-bottom {
+  background-color: #fff; }
+
+.layout .all-cuisines-container {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: 1000px;
+  position: fixed;
+  top: 0px; }
+  .layout .all-cuisines-container .all-cuisine-content {
+    margin: 60px 0;
+    width: 600px;
+    position: absolute;
+    background: #fff;
+    left: 50%;
+    transform: translate(-50%, 0);
+    overflow: hidden;
+    border-radius: 4px; }
+    .layout .all-cuisines-container .all-cuisine-content label {
+      display: block;
+      line-height: 1.1em;
+      font-weight: 700;
+      font-size: 20px;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      border-bottom: 1px solid #e7e7e7;
+      padding: 17.5px 21px;
+      box-sizing: border-box; }
+      .layout .all-cuisines-container .all-cuisine-content label span {
+        position: absolute;
+        cursor: pointer;
+        right: 21px;
+        z-index: 1;
+        line-height: 20px;
+        top: 14px;
+        opacity: .8;
+        font-weight: bold;
+        font-size: 20px; }
+        .layout .all-cuisines-container .all-cuisine-content label span:hover {
+          opacity: 1; }
+        .layout .all-cuisines-container .all-cuisine-content label span i {
+          pointer-events: none; }
+    .layout .all-cuisines-container .all-cuisine-content .search-cuisine {
+      padding: 21px 21px 0 21px; }
+      .layout .all-cuisines-container .all-cuisine-content .search-cuisine input {
+        width: 100%;
+        line-height: 1.2142em;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        padding: .67861429em 1em;
+        background: #FFF;
+        border: 1px solid #e7e7e7;
+        font-size: 14px;
+        color: #33373D;
+        border-radius: .28571429rem;
+        -webkit-transition: box-shadow .1s ease,border-color .1s ease;
+        transition: box-shadow .1s ease,border-color .1s ease;
+        box-shadow: none; }
+    .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list {
+      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      padding: 21px 31px; }
+      .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list li {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 19.6px;
+        cursor: pointer;
+        white-space: nowrap; }
+        .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list li:hover {
+          color: #cb202d; }
+
+.pagination {
+  display: block !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 900px;
+  height: 98px;
+  line-height: 98px;
+  margin: 0 auto;
+  text-align: right;
+  margin-bottom: 15px; }
+  .pagination li {
+    display: inline-block;
+    border: 1px solid #ba1e2b;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    font-size: 14px;
+    margin-left: 5px;
+    line-height: initial;
+    background: #ba1e2b; }
+    .pagination li:hover {
+      background: #fc871a;
+      border-color: #fc871a;
+      opacity: 0.8; }
+    .pagination li.active {
+      background: #fc871a;
+      border-color: #fc871a; }
+    .pagination li.break-me {
+      pointer-events: none;
+      cursor: pointer; }
+    .pagination li a {
+      color: #fff;
+      display: block;
+      padding: 10px 13px !important; }
+      .pagination li a:focus {
+        outline: none; }
+  .pagination .break a {
+    cursor: default; }
+
+.sticky {
+  z-index: 99; }

@@ -1,0 +1,19 @@
+/* Get The App Component */
+.app-link {
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1); }
+  .app-link a {
+    color: #33373D;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none !important;
+    padding: 5px 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .app-link a:hover {
+      color: #33373D;
+      background: #FFF8EB; }
+    .app-link a img {
+      height: 28px;
+      padding-right: 4px; }

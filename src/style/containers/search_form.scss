@@ -1,0 +1,278 @@
+  /* Search form component*/
+
+  %form-elements-styling {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+    border: none;
+  }
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 180px 500px 86px;
+    grid-column-gap: 5px;
+    grid-auto-rows: 40px;
+    justify-content: center;
+    position: relative;
+
+    .fade-enter {
+      opacity: 0.01;
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+    }
+    .fade-exit {
+      opacity: 1;
+    }
+    .fade-exit-active {
+      opacity: 0.01;
+      transition: opacity 500ms ease-in;
+    }
+
+    .search-location, .search-place {
+      position: relative;
+
+      input {
+        @extend %form-elements-styling;
+        color: #33373D;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none;
+      }
+
+      span {
+        position: absolute;
+
+        &.fa-arrow {
+          left: 13px;
+          font-size: 10px;
+          top: 13px; 
+        }
+
+        &.fa-caret {
+          right: 9px;
+          top: 11px;
+          font-size: 13px;
+        }
+
+        &.fa-search {
+          left: 10px;
+          font-size: 10px;
+          top: 13px;
+
+          &:before {
+            content: ' ';
+          }
+        }
+      }
+    }
+
+    .search-location {
+      input {
+        padding: {
+          left: 35px;
+          right: 25px;
+        }
+        
+        &:focus {
+          padding-right: 5px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &:focus ~ .fa-caret {
+          display: none;
+        }
+      }
+    }
+    
+    .search-place {
+      input {
+        padding: {
+          left: 26px;
+          right: 30px;
+        }
+        position: relative;
+
+        &:focus {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0; 
+        }
+      }
+    }
+
+    .search-btn {
+      @extend %form-elements-styling;
+      line-height: initial;
+      font-weight: 400;
+      text-align: center;
+     
+      background: #cb202d;
+      color: #fff;
+      transition: .15s ease-out all;
+
+      &:hover {
+        background: #A71823;
+      }
+    }
+
+    .location-list {
+      position: absolute;
+      top: 40px;
+      left: 167px;
+      box-shadow: 0 2px 2px rgba(0,0,0,.35);
+
+      li {
+        height: 42px;
+        width: 180px;
+        line-height: 42px;
+        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #333;
+        background: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        outline: none;
+        font-weight: 400;
+        padding: 0 10px;
+        cursor: pointer;
+        border: 1px solid #f0f0f0;
+
+        &:hover {
+          background: #FBEED5;
+          color: #33373D;
+        }
+
+        &:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        span {
+          pointer-events: none;
+        }
+      }
+    }
+
+    ul.cuisine-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      background: darkred;
+      width: 500px;
+      padding: 10px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0,0,0,.35);
+
+      label {
+        color: #89959B;
+        margin: 0 10px;
+        font-size: 12px;
+        line-height: 18px;
+        cursor: default;
+      }
+
+      li.cuisine-item {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-top: 5px;
+        padding: 6px 10px;
+        background: #fff;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 32px auto;
+        
+        &:hover {
+          background: #FBEED5;
+        }
+
+        img {
+          height: 27px;
+          padding-right: 5px;
+          pointer-events: none;
+        }
+
+        span {
+          pointer-events: none;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 400;
+          padding-top: 1px;
+          color: #33373D;
+          text-transform: none;
+        }
+      }
+    }
+
+    ul.places-list {
+      position: absolute;
+      top: 40px;
+      left: 352px;
+      width: 500px;
+      text-align: left;
+      background: #e5eaed;
+      cursor: pointer;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: 1px solid #fff;
+      box-shadow: 0 2px 2px rgba(0,0,0,.35);
+
+      .place-item {
+        display: grid;
+        grid-template-columns: 30px auto;
+        grid-column-gap: 10px;
+        text-align: left;
+        background-color: #fff;
+        border-bottom: 1px solid #e7e7e7;
+        padding: 6px 11px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: #FBEED5;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          pointer-events: none;
+
+          &.thumb-normal {
+            border: solid white 1px;
+            box-shadow: 1px 2px 5px #888;
+            border-radius: 4px;
+          }
+        }
+
+        .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          pointer-events: none;
+
+          .name {
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 200;
+            color: #33373D;
+          }
+
+          .locality {
+            font-size: 12px;
+            line-height: 14px;
+            color: #89959B;
+          }
+        }
+      }
+    }
+  }

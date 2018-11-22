@@ -1,6 +1,16 @@
-.test {
-  h3{
-    background: #f4f4f4; 
-    text-align: center;
+body {
+  margin: 0px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
   }
 }

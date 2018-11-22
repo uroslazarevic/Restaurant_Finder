@@ -1,0 +1,26 @@
+.browse-by-category-wrapper {
+  background-color: #F3F3F3;
+
+  .container {
+
+    // Components
+    @import 'style/components/pathway_link.scss';
+
+    .title {
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      line-height: 1.1em;
+      font-weight: 600;
+      font-size: 2rem;
+      padding-bottom: 20px;
+      color: #33373D;
+    }
+
+    .content-div {
+      display: grid;
+      // grid-template-columns: 2fr 3fr 2.5fr;
+      grid-template-columns: 1fr 3fr;
+      grid-column-gap: 15px;
+      align-items: start;
+    }
+  }
+}

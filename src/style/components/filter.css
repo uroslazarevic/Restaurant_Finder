@@ -1,0 +1,73 @@
+.filters {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: #fff;
+  border-radius: .28571429rem;
+  border: 1px solid #e7e7e7;
+  padding: 14px; }
+  .filters .active-filter-item {
+    color: #099e44 !important;
+    font-weight: 700 !important; }
+    .filters .active-filter-item:hover {
+      font-weight: 700 !important; }
+      .filters .active-filter-item:hover span {
+        font-weight: 700 !important; }
+  .filters .next-active-filter-item {
+    color: #a4cd32 !important;
+    font-weight: 700 !important; }
+    .filters .next-active-filter-item:hover {
+      font-weight: 700 !important; }
+      .filters .next-active-filter-item:hover span {
+        font-weight: 700 !important; }
+  .filters .filters-title {
+    border: none;
+    margin-bottom: 14px;
+    padding: 0;
+    font-size: 1.28em;
+    font-weight: 600;
+    line-height: 1.1em;
+    text-transform: none;
+    color: #33373D;
+    position: relative; }
+    .filters .filters-title span {
+      position: absolute;
+      height: 27px;
+      line-height: 24px;
+      right: 0px;
+      background: #cb202d;
+      border: 1px solid #ccc;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      transition: 200ms ease-in all;
+      cursor: pointer;
+      font-size: 14px;
+      width: 75px; }
+      .filters .filters-title span i {
+        position: relative;
+        top: -1px;
+        font-size: 9px;
+        line-height: 9px;
+        right: -4px; }
+      .filters .filters-title span:hover {
+        opacity: 0.8;
+        color: #a4cd32; }
+  .filters .sort-by-category:nth-child(-n+5), .filters .categories-category:nth-child(-n+5), .filters .top-cuisines-category:nth-child(-n+5), .filters .order-by-category:nth-child(-n+5), .filters .establishments-category:nth-child(-n+5) {
+    margin-bottom: 20px; }
+  .filters .sort-by-category .title, .filters .categories-category .title, .filters .top-cuisines-category .title, .filters .order-by-category .title, .filters .establishments-category .title {
+    font-weight: 600;
+    line-height: 1.1em;
+    text-transform: none;
+    color: #33373D;
+    padding-bottom: 5px;
+    font-size: 1.071em; }
+  .filters .sort-by-category ul li, .filters .categories-category ul li, .filters .top-cuisines-category ul li, .filters .order-by-category ul li, .filters .establishments-category ul li {
+    padding: 1px 0;
+    font-size: 13px;
+    cursor: pointer;
+    color: #33373D;
+    line-height: 1.4285em; }
+    .filters .sort-by-category ul li span, .filters .categories-category ul li span, .filters .top-cuisines-category ul li span, .filters .order-by-category ul li span, .filters .establishments-category ul li span {
+      pointer-events: none;
+      color: #89959B; }
+    .filters .sort-by-category ul li:hover, .filters .categories-category ul li:hover, .filters .top-cuisines-category ul li:hover, .filters .order-by-category ul li:hover, .filters .establishments-category ul li:hover {
+      color: #cb202d; }
