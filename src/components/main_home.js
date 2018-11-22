@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 
 // Import picture
-import backgroundUrl from '../images/background-home.jpg'
+import backgroundUrl from '../images/background-home1.jpg'
 import logoUrl from 'images/zomato-logo.jpg'
 // Import container
 import { SearchForm, HomeBottom } from 'containers';
@@ -18,6 +18,7 @@ export default class MainHome extends Component {
      }
      this.handleParentCityState = this.handleParentCityState.bind(this);
   }
+  
   handleParentCityState({ cityName, cityId }) {
     this.setState({ cityName, cityId });
   }
@@ -37,8 +38,7 @@ export default class MainHome extends Component {
           </div>
         </div>
         <HomeBottom 
-          cityName={this.state.cityName}
-          cityId={this.state.cityId}
+          city={{ cityName: this.state.cityName, cityId: this.state.cityId }}
           urlPath={this.props.urlPath}/>
       </main>
     );

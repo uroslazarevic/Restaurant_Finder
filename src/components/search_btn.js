@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default ({ city, urlPath }) => {
   const splitedCityName = city.cityName.split(' ').join('-');
-  if(urlPath === '/' || urlPath === '/:city/:wildcard') {
+  if(urlPath === '/' || urlPath === '/:city/:wildcard' || urlPath === '/:city/Restaurants/:restaurant') {
     return (
       <Link to={{ 
         pathname:`/${splitedCityName}/Restaurants`, 

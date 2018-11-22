@@ -22,14 +22,13 @@ class CityCollections extends Component {
 
   componentWillReceiveProps(newProps) {
     const { getSearchedCollections } = this.props;
-    newProps.location.state.cityId !== this.props.location.state.cityId ?
+    newProps.location.state.cityId !== this.props.location.state.cityId &&
       this.setState({ pageLoader: true, showContent: false }, () =>  {
         getSearchedCollections({ 
           city_id: newProps.location.state.cityId, 
           count : '30' 
         }).then(() => this.setState({ pageLoader: false, showContent: true }))
       })
-    :null
   }
 
   componentWillMount() {

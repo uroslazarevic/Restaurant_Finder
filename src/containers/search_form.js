@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
 
 // Import Actions
 import { getSearchedLocation, getSearchedCategories, getSearchedPlaces } from 'actions';
@@ -132,7 +131,9 @@ class SearchForm extends Component {
 
   renderPlacesList() {
     const { searchedPlaces } = this.props;
-    return <PlacesList placesList={searchedPlaces} />
+    const {setLocationTerm, placesObject: { entity_id }} = this.state;
+    
+    return <PlacesList placesList={searchedPlaces} city = {{ cityName: setLocationTerm, cityId: entity_id}} />
   }
 
   manipulateSearchLists(e) {
@@ -141,11 +142,12 @@ class SearchForm extends Component {
       this.setState({ showCuisineList: false, showPlacesList: false, locationTerm: this.state.resetLocationTerm })
     } else if(this.searchCuisineRef.current.contains(e.target)) {
       this.searchCuisineRef.current.setAttribute('placeholder', 'Start typing to search...');
-      placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm }) : this.setState({ showLocationList: false, showCuisineList: true, showPlacesList: false, locationTerm: this.state.setLocationTerm })
+      placeTerm.length >= 2 &&  placeTerm.length > 0 ? 
+      this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm }) : this.setState({ showLocationList: false, showCuisineList: true, showPlacesList: false, locationTerm: this.state.setLocationTerm })
     } else if(e.target.parentNode.className === 'location-list') {
       placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showCuisineList: false }) : this.setState({ showCuisineList: true })
     } 
-    else if(e.target.className=== 'cuisine-item') {
+    else if(e.target.className=== 'cuisine-item' || e.target.className=== 'place-item') {
       return
     } else {
       this.searchCuisineRef.current.setAttribute('placeholder', "Search for resturants or cuisines...");
@@ -165,12 +167,12 @@ class SearchForm extends Component {
 
   componentWillMount() {
     const { getSearchedCategories } = this.props;
+    this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: false })
     getSearchedCategories();
   }
 
   render() {
     const { setLocationTerm, placesObject: { entity_id } } = this.state;
-    // const splitedCityName = setLocationTerm.split(' ').join('-');
     return (
       <form className="search-form">
         <div className="search-location">

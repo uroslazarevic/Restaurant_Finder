@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import thumbnailReplacement from '../images/restaurant_thumbnail_replacement.jpg'
 
-export default function RestaurantCard ({ restaurants }) {
-  return renderRestaurantCard(restaurants)
+export default function RestaurantCard ({ restaurants, city }) {
+  return renderRestaurantCard(restaurants, city)
 }
 
-function renderRestaurantCard(restaurants) {
+function renderRestaurantCard(restaurants, city) {
   
   const formatedRestaurants = restaurants.reduce((acc, restaurant) => {
     const restaurantIndex = acc.unique.findIndex(res => res.name === restaurant.restaurant.name);
@@ -28,11 +30,21 @@ function renderRestaurantCard(restaurants) {
       currency,
       average_cost_for_two,
       location: { address, locality },
-      user_rating: { aggregate_rating, votes, rating_text }
+      user_rating: { aggregate_rating, votes, rating_text },
+      R: { res_id }
     } = restaurant;
+    const splitedRestaurantName = name.split(' ').join('-');
+    const splitedCityName = city.cityName.split(' ').join('-');
     
     return (
-      <li key={`${name}-${i}`} className="restaurant-card-item">
+      <Link 
+        to= {{ pathname:`/${splitedCityName}/Restaurants/${splitedRestaurantName}`, state: { 
+          resId: res_id, 
+          resName: name,
+          cityName: city.cityName,
+          cityId: city.cityId
+        } }}
+        key={`${name}-${i}`} className="restaurant-card-item">
         <div className="card-top">
           <img src={ thumb ? thumb : thumbnailReplacement } alt="thumb" />
           <div className="restaurant-main-info">
@@ -51,7 +63,7 @@ function renderRestaurantCard(restaurants) {
           <div className="rating" style={generateRatingColor(aggregate_rating)}>{aggregate_rating}</div>
           <div className="votes">{votes} votes</div>
         </div>
-      </li>
+      </Link>
     )
   }) 
 }

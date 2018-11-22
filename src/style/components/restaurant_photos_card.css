@@ -1,0 +1,66 @@
+/* Restaurant Menu Card */
+.restaurant-photos-card {
+  background: #FFF;
+  border-radius: .28571429rem;
+  border: 1px solid #e7e7e7;
+  overflow: hidden;
+  padding: 15px; }
+  .restaurant-photos-card .card-title {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    line-height: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    color: #33373D;
+    font-size: 18px; }
+  .restaurant-photos-card ul {
+    display: flex;
+    flex-direction: row; }
+    .restaurant-photos-card ul li {
+      cursor: pointer;
+      height: 135px;
+      width: 135px;
+      margin-right: 10px;
+      position: relative; }
+      .restaurant-photos-card ul li img {
+        border-radius: .28571429rem;
+        border: 1px solid #e7e7e7;
+        height: 100%;
+        width: 100%; }
+      .restaurant-photos-card ul li a {
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        width: 100%;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 1.4285em;
+        font-weight: 700;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.55);
+        padding: 8.5px 0; }
+    .restaurant-photos-card ul .add-a-photo {
+      cursor: pointer;
+      height: 135px;
+      width: 135px;
+      margin-right: 10px;
+      position: relative;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      display: block;
+      text-align: center; }
+      .restaurant-photos-card ul .add-a-photo:hover {
+        background-color: #eff2f6;
+        transition: background border .1s ease; }
+      .restaurant-photos-card ul .add-a-photo img {
+        height: 40px;
+        width: 40px;
+        margin-top: 35px; }
+      .restaurant-photos-card ul .add-a-photo div {
+        color: #fff;
+        width: 100%;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 1.4285em;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.6);
+        padding-top: 5px; }

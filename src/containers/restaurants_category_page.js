@@ -133,7 +133,8 @@ class RestaurantsCategoryPage extends Component {
       this.setState({filterObjChange: false, filterObject: {...this.state.filterObject, [stateKey]: ''}, pageLoader: true, showContent: false }, () =>  {
         ele.classList.remove('active-filter-item')
         this.props.getSearchedRestaurants(this.state.filterObject)
-          .then( this.setState({ pageLoader: false, showContent: true }) )
+          .then( this.setState({ pageLoader: false, showContent: true }, 
+            () => this.paintActiveListItems()) )
       })
     } else if(ele.classList.contains('next-active-filter-item')) {
       // Remove next active filter item class
@@ -186,6 +187,7 @@ class RestaurantsCategoryPage extends Component {
 
   componentWillReceiveProps(newProps) {
     const { getSearchedRestaurants } = this.props;
+
     if(newProps.match.params.wildcard !== this.props.match.params.wildcard ) {
 
       if(this.props.location.state !== undefined) {
@@ -195,7 +197,7 @@ class RestaurantsCategoryPage extends Component {
           // If there is selected next-active-cuisine-iten, on restaurants search, remove active cuisineModalItem
           this.state.cuisineModalItem.cuisineId  !== this.state.filterObject.cuisines ? 
             this.setState({ cuisineModalItem: { cuisineId: '', cuisineName: '' } }): null,
-  
+
           this.setState({ pageLoader: true, showContent: false, 
             filterObject: { ...this.state.filterObject, category: newCategoryId,
             entity_id:( newProps.location.state.cityId ? newProps.location.state.cityId : this.state.filterObject.entityId)  }}, () => {
@@ -216,11 +218,24 @@ class RestaurantsCategoryPage extends Component {
         })
       }
     } 
+    if(this.props.location.state.cityId !== newProps.location.state.cityId) {
+      this.setState({ pageLoader: true, showContent: false, 
+        filterObject: { ...this.state.filterObject,
+        entity_id:( newProps.location.state.cityId ? newProps.location.state.cityId : this.state.filterObject.entityId)  }}, () => {
+        getSearchedRestaurants(this.state.filterObject).then(() => {
+          this.setState({ pageLoader: false, showContent: true, wildcard: this.props.match.params.wildcard })
+          this.paintActiveListItems();
+        })
+      })
+    }
   }
   
-  renderRestaurantCard() {
+  renderRestaurantCard(city) {
     const { searchedRestaurants } = this.props;
-    return searchedRestaurants.restaurants !== undefined ? <RestaurantCard restaurants = {searchedRestaurants.restaurants} /> : null;
+    return searchedRestaurants.restaurants !== undefined ? 
+    <RestaurantCard 
+      city= { city }
+      restaurants = {searchedRestaurants.restaurants} /> : null;
   }
   
   render() {
@@ -252,11 +267,14 @@ class RestaurantsCategoryPage extends Component {
           {this.state.showContent && <div className="container">
             <div className="pathway-link" >
               <Link to={{ pathname:`/`, state: { cityName: city_Name, cityId: city_Id } }} >Home
-              </Link> <span><i className="fas fa-angle-right"></i></span> <span>{wild_card}</span>
+              </Link>
+               <span><i className="fas fa-angle-right"></i></span> <span>{city_Name} </span>
+               <span><i className="fas fa-angle-right"></i></span> <span>{wild_card}</span>
             </div>
             <div className = "title">{wild_card} in {city_Name}</div>
             <div className = "content-div">
               <Filters
+                currentUrl={ this.props.match.url }
                 removeCuisineModalItem={this.removeCuisineModalItem}
                 cuisineModalItem = {this.state.cuisineModalItem}
                 handleCuisinesModal={this.handleCuisinesModal}
@@ -268,7 +286,11 @@ class RestaurantsCategoryPage extends Component {
                 categories = {searchedCategories}
                 establishments = {searchedEstablishments} 
               />
-              <ul className="restaurant-list" >{this.renderRestaurantCard()}</ul>
+              <ul className="restaurant-list" >
+                {this.renderRestaurantCard({
+                   cityName:city_Name, cityId:city_Id 
+                })}
+              </ul>
             </div>
             <Pagination 
               handlePageClick={this.handlePaginationPageClick}

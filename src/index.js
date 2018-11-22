@@ -8,7 +8,7 @@ import './App.css';
 
 import reducers from './reducers';
 import promise from 'redux-promise';
-import { Home, RestaurantsCategoryPage, CityCollections, RestaurantOverview } from 'containers';
+import { Home, RestaurantsCategoryPage, CityCollections, RestaurantDetails } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -21,7 +21,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/:city/restaurants/:restaurant" component={RestaurantOverview} />
+          <Route path="/:city/Restaurants/:restaurant" component={RestaurantDetails} />
           <Route path="/:city/collections" component={CityCollections} />
           <Route path="/:city/:wildcard" component={RestaurantsCategoryPage} />
         </Switch>

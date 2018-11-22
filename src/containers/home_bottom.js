@@ -14,13 +14,13 @@ class HomeBottom extends Component {
   }
 
   componentWillMount() {
-    const { getSearchedCollections, getLocationDetails, cityId } = this.props;
+    const { getSearchedCollections, getLocationDetails, city: { cityId } } = this.props;
     getSearchedCollections({city_id: cityId});
     getLocationDetails({ entity_id: cityId })
   }
 
   componentWillReceiveProps(newProps) {
-    const { getSearchedCollections, getLocationDetails, cityId } = this.props;
+    const { getSearchedCollections, getLocationDetails, city: { cityId } } = this.props;
     if(newProps.cityId !== cityId) {
       // Get New Collections
       getSearchedCollections({city_id: newProps.cityId});
@@ -30,7 +30,7 @@ class HomeBottom extends Component {
   }
   
   renderCollections() {
-    const { searchedCollections, cityName, cityId } = this.props;
+    const { searchedCollections, city: { cityId, cityName } } = this.props;
     return searchedCollections ? 
     <Collections 
       urlPath={this.props.urlPath}
@@ -39,18 +39,22 @@ class HomeBottom extends Component {
   }
 
   renderCuisinesList() {
-    const { searchedCategories, cityName, cityId } = this.props;
+    const { searchedCategories, city: { cityId, cityName } } = this.props;
     return (
     <div className="container" >
       <div className="cuisine-title">Quick Searches</div>
       <div className="cuisine-subtitle">Discover restaurants by type of meal</div>
-      <CategoriesList city = {{ cityName, cityId}} nameList={searchedCategories} />
+      <CategoriesList city = {{ cityName, cityId }} nameList={searchedCategories} />
     </div>)
   }
 
   renderPopularRestoraunts() {
-    const { searchedLocationDetails } = this.props;
-    return searchedLocationDetails.length !== 0 ? <PopularRestaurants data={searchedLocationDetails} cityName={this.props.cityName} /> : <div className="container">Popular Restaurants not available</div>
+    const { searchedLocationDetails, city: { cityId, cityName } } = this.props;
+    return searchedLocationDetails.length !== 0 ? 
+    <PopularRestaurants 
+      data={searchedLocationDetails} 
+      city = {{ cityId, cityName }}
+      /> : <div className="container">Popular Restaurants not available</div>
   }
 
   render() {

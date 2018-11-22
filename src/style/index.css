@@ -39,7 +39,6 @@ body {
 /* City Collections Container */
 .city-collections .city-collections-content {
   background: #F3F3F3;
-  padding-top: 40px;
   padding-bottom: 40px; }
   .city-collections .city-collections-content .city-collections-title {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -67,7 +66,8 @@ body {
       .city-collections .city-collections-content .pathway-link a:hover {
         text-decoration: underline; }
   .city-collections .city-collections-content .pathway-link {
-    padding: 0px 15px 30px 15px; }
+    padding-right: 15px;
+    padding-left: 15px; }
   .city-collections .city-collections-content .collections .collections-header {
     margin-bottom: 14px; }
     .city-collections .city-collections-content .collections .collections-header .collections-title {
@@ -134,6 +134,745 @@ body {
           line-height: 16px;
           margin-top: 5px;
           width: 190px; }
+
+body {
+  background: #f3f3f3; }
+
+.restaurant-details .restaurant-details-content {
+  padding-bottom: 200px; }
+  .restaurant-details .restaurant-details-content .pathway-link {
+    color: #89959B;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 9px;
+    padding: 30px 0; }
+    .restaurant-details .restaurant-details-content .pathway-link span i {
+      padding: 0 2px; }
+    .restaurant-details .restaurant-details-content .pathway-link a {
+      color: #89959B; }
+      .restaurant-details .restaurant-details-content .pathway-link a:hover {
+        text-decoration: underline; }
+  .restaurant-details .restaurant-details-content .restaurant-overview-display {
+    display: grid;
+    grid-row-gap: 15px;
+    /*  Restaurant Navigation Card */
+    /* Restaurant Menu Card */
+    /* Restaurant Menu Card */
+    /* Restaurant Reviews Card Component */ }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card {
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      background: #fff;
+      justify-items: safe;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 40px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row {
+        display: grid;
+        grid-auto-rows: minmax(60px, auto);
+        grid-row-gap: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .title {
+          margin-bottom: 5px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          line-height: 19.8px;
+          font-weight: 600;
+          font-size: 18px;
+          color: #33373D; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .phone-numbers .info {
+          color: #099e44;
+          font-size: 18px;
+          font-weight: 700;
+          ont-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .cuisines .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #cb202d; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .avg-cost .info, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .avg-cost .payment {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .working-hours .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D;
+          font-weight: 600; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .working-hours .see-more {
+          color: #cb202d;
+          cursor: pointer;
+          font-size: 12px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .info {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D;
+          width: 210px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map {
+          margin-top: 10px;
+          width: 155px;
+          height: 98px;
+          position: relative;
+          cursor: pointer; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map .text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 0px;
+            font-size: 12px;
+            line-height: 20px;
+            background: aliceblue; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .address .map img {
+            height: 100%;
+            width: 100%; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info {
+          margin-bottom: 5px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span {
+            font-weight: 400;
+            line-height: 1;
+            font-size: .92857143em;
+            padding-right: 5px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span .fa-check {
+              color: #099E44; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-contact-card .grid-row .more-info .info span .fa-times {
+              transform: scale(1.3, 1.2);
+              color: #CB202D; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card {
+      background: #FFF; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul {
+        display: flex;
+        flex-direction: row;
+        background: #fff;
+        border-radius: .28571429rem;
+        overflow: hidden;
+        border: 1px solid #e7e7e7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul li {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding: 16px 24px 16px 24px;
+          border-bottom: 6px solid #fff;
+          border-right: 1px solid #e7e7e7;
+          transition: background border .1s ease;
+          color: #33373D;
+          font-weight: 400;
+          font-weight: 18px;
+          cursor: pointer; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card ul li:hover {
+            background-color: #eff2f6;
+            border-bottom: 6px solid #eff2f6; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card .active-nav-item {
+        font-weight: 700;
+        border-bottom: 6px solid #cb202d; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-navigation-card .active-nav-item:hover {
+          font-weight: 700;
+          background-color: #fff;
+          border-bottom: 6px solid #cb202d; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card {
+      background: #FFF;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card .card-title {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        line-height: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        color: #33373D;
+        font-size: 18px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul {
+        display: flex;
+        flex-direction: row; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul li {
+          cursor: pointer;
+          height: 150px;
+          width: 150px;
+          margin-right: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-menu-card ul li img {
+            border-radius: .28571429rem;
+            border: 1px solid #e7e7e7;
+            height: 100%;
+            width: 100%; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card {
+      background: #FFF;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card .card-title {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        line-height: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        color: #33373D;
+        font-size: 18px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul {
+        display: flex;
+        flex-direction: row; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li {
+          cursor: pointer;
+          height: 135px;
+          width: 135px;
+          margin-right: 10px;
+          position: relative; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li img {
+            border-radius: .28571429rem;
+            border: 1px solid #e7e7e7;
+            height: 100%;
+            width: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul li a {
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            width: 100%;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            font-weight: 700;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.55);
+            padding: 8.5px 0; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo {
+          cursor: pointer;
+          height: 135px;
+          width: 135px;
+          margin-right: 10px;
+          position: relative;
+          border-radius: .28571429rem;
+          border: 1px solid #e7e7e7;
+          display: block;
+          text-align: center; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo:hover {
+            background-color: #eff2f6;
+            transition: background border .1s ease; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo img {
+            height: 40px;
+            width: 40px;
+            margin-top: 35px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-photos-card ul .add-a-photo div {
+            color: #fff;
+            width: 100%;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 14px;
+            line-height: 1.4285em;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+            padding-top: 5px; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form {
+      margin-bottom: 15px;
+      padding: 15px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form label {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.1em;
+        color: #33373D;
+        margin-bottom: 10px;
+        cursor: text; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input {
+        position: relative; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input input {
+          width: 100%;
+          padding: 9.5px 14px 9.5px 37.4px;
+          border-radius: .28571429rem;
+          border: 1px solid #e7e7e7;
+          font-size: 14px;
+          transition: border-color .1s ease;
+          line-height: 1.2142em;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input input::placeholder {
+            color: #89959B;
+            opacity: 0.7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .review-input span {
+          position: absolute;
+          top: 7px;
+          left: 14px;
+          color: #89959B;
+          opacity: 0.7; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .add-review-btn {
+        box-shadow: 0 0 0 0 #e7e7e7 inset;
+        margin-top: 14px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #099E44;
+        color: #FFF;
+        transition: background .1s ease 0s;
+        border-radius: .28571429rem;
+        width: 145px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        font-weight: 400;
+        border: none; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-form .add-review-btn:hover {
+          background: #018c38; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews {
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header {
+        padding: 15px 15px 0 15px;
+        border-radius: .28571429rem;
+        border-top: 1px solid #e7e7e7;
+        border-left: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7;
+        background: #fff; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .title {
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 1.1em;
+          color: #33373D;
+          margin-bottom: 10px;
+          cursor: text; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers {
+            height: 37px;
+            width: 37px;
+            border: 1.5px solid #fff;
+            border-radius: 100%;
+            overflow: hidden;
+            position: relative; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers:nth-child(2) {
+              left: -10px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers:nth-child(3) {
+              left: -17px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .famouse-reviewers img {
+              height: 100%;
+              width: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .reviewed-by-who {
+            line-height: 18px font-size 14px;
+            color: #33373D;
+            align-self: center;
+            position: relative;
+            left: -5px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .reviews-header .reviewed-by .reviewed-by-who span {
+              color: #cb202d;
+              font-weight: 600; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors {
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+        border-bottom: #f3f3f3 4px solid;
+        border-left: 1px solid #e7e7e7;
+        border-right: 1px solid #e7e7e7; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .active-option {
+          border-bottom: #33373D 3px solid !important;
+          color: #cb202d !important;
+          font-weight: 700 !important; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .option {
+          border-bottom: #f3f3f3 3px solid;
+          position: relative;
+          bottom: -4px;
+          padding: 12px 16px;
+          color: #33373D;
+          font-weight: 400;
+          font-size: 1rem;
+          z-index: 1; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews .selectors .option span {
+            color: #89959B; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item {
+      background: #fff;
+      margin-bottom: 20px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper {
+        padding: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile img {
+            height: 65px;
+            width: 65px;
+            border-radius: 100%;
+            border: 1px solid #fff; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info {
+            margin-left: 15px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .name {
+              cursor: pointer;
+              color: #33373D;
+              font-size: 1em;
+              font-weight: 700 !important;
+              line-height: 1.14em; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .social {
+              line-height: 1.14285714em;
+              font-size: 12px;
+              color: #89959B; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .follow {
+              background: #FFF;
+              border: 1px solid #e7e7e7;
+              color: #7B8489 !important;
+              transition: background .1s ease;
+              width: 50.23px;
+              height: 24.41px;
+              font-size: 10.64px;
+              line-height: 24.64px;
+              margin-top: 3px;
+              text-align: center;
+              border-radius: .28571429rem;
+              cursor: pointer; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .reviewer-profile .info .follow:hover {
+                background-color: #eff2f6 !important; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .review-time {
+          color: #89959B;
+          cursor: pointer;
+          line-height: 1.4285em;
+          font-size: 12px;
+          padding: 13px 0; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .review-time:hover {
+            color: #89959B; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text {
+          line-height: 20px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text .rated-text {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding-right: 3px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .rev-text .rated-mark {
+            cursor: default;
+            font-weight: 500;
+            font-size: 11px;
+            color: #fff;
+            padding: 0px 5px;
+            text-align: center;
+            line-height: 23px;
+            border-radius: .28571429rem;
+            margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion {
+          display: flex; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression {
+            display: flex; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate {
+              display: flex;
+              border: 1px solid #e7e7e7;
+              border-radius: 4px;
+              margin-right: 4px; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn {
+                padding: 7px 11px;
+                background-color: #e0e1e2;
+                line-height: 1rem;
+                text-align: right;
+                font-size: 12px;
+                cursor: pointer;
+                color: rgba(0, 0, 0, 0.6); }
+                .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn:hover {
+                  background-color: #EFF2F6; }
+                .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .express-btn span {
+                  padding-right: 8.21px; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .your-impression .rate .count {
+                color: #33373D;
+                background: #fff;
+                display: block;
+                padding: 7px 10px;
+                line-height: 1rem;
+                font-size: 12px;
+                line-height: 1rem; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review {
+            border: 1px solid #e7e7e7;
+            border-radius: 4px;
+            padding: 7px 13px;
+            background-color: #e0e1e2;
+            line-height: 1rem;
+            text-align: right;
+            font-size: 12px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.6);
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review:hover {
+              background-color: #EFF2F6; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .review-wrapper .share-opinion .share-review span {
+              padding-right: 8.21px; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment {
+        padding: 0 15px;
+        background: #F9FAFB; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper {
+          display: flex;
+          padding: 10px 0;
+          border-top: 1px solid #f0f0f0; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper img {
+            height: 35px;
+            width: 35px;
+            align-self: center;
+            border-radius: 100%;
+            margin-right: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div {
+            width: 100%; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input {
+              width: 100%;
+              padding: 10px;
+              line-height: 18px;
+              min-height: 40px;
+              font-size: 14px;
+              border: 1px solid #f0f0f0;
+              color: #33373D;
+              outline: 0;
+              background-color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input:hover {
+                border: 1px solid #dedede; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-reviews-card .reviews-body li.review-item .write-a-comment .comment-wrapper .input-div input::placeholder {
+                color: #bababa; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      padding: 10px;
+      display: flex;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .main-img {
+        margin-right: 20px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .main-img img {
+          width: 168.88px;
+          height: 135px;
+          border-radius: .28571429rem; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info {
+        width: 100%; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info {
+          display: flex;
+          margin-top: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .title {
+            font-size: 33.6px;
+            font-weight: 600;
+            line-height: 30.8px;
+            height: 75px;
+            color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark {
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating {
+              background-color: #3f7e00;
+              font-size: 22px;
+              color: #B9B9B9;
+              color: #fff;
+              font-weight: 700;
+              line-height: 39px;
+              border-radius: .28571429rem;
+              width: 80px;
+              text-align: center; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-mark {
+                font-size: 28px;
+                font-weight: 600;
+                color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-max-mark {
+                letter-spacing: 2px;
+                font-size: 22px;
+                opacity: .5;
+                font-weight: 700; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .main-info .restaurant-mark .votes {
+              color: #89959B;
+              font-size: 12px;
+              text-align: center;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              line-height: 25px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers {
+          color: #89959B;
+          font-size: 15px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding-bottom: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .locality {
+            padding-right: 5px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .categories {
+            display: inline-block; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .offers .categories .grey-dot {
+              height: 4px;
+              width: 4px;
+              background: #89959B;
+              display: inline-block;
+              margin-bottom: 3px;
+              border-radius: 100%;
+              overflow: hidden;
+              margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative {
+          display: flex;
+          padding-top: 10px;
+          border-top: 1px solid #e7e7e7; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative .open-now {
+            color: #099e44;
+            font-size: 15px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li {
+            padding-left: 16px;
+            font-size: 14px; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:before, .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li::before {
+              content: ' ';
+              height: 2px;
+              width: 2px;
+              position: absolute;
+              transform: translate(0, -50%);
+              left: 7px;
+              top: 50%;
+              border-radius: 100%; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:first-of-type {
+            color: #cb202d; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative li:last-child {
+            color: #89959B; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-general-card .info .informative .open-now {
+            color: #099e44; }
+    .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content {
+      background: #fff;
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img {
+        position: relative; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img img {
+          width: 100%;
+          height: 300px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a {
+          width: 60px;
+          height: 60px;
+          border: 1px solid #fff;
+          border-radius: 4px;
+          overflow: hidden;
+          display: block;
+          position: absolute;
+          bottom: 10px;
+          right: 35px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a img {
+            height: 60px;
+            width: 60px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .main-img a .photos-link {
+            position: absolute;
+            color: #000;
+            z-index: 100;
+            left: 0px;
+            color: #fff;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            width: 100%;
+            height: 28px;
+            bottom: 0px;
+            font-size: 12px;
+            line-height: 28px;
+            background: rgba(0, 0, 0, 0.55);
+            text-align: center; }
+      .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info {
+        padding: 15px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info {
+          display: flex;
+          flex-direction: row; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .title {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 30.8px;
+            height: 75px;
+            color: #33373D; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark {
+            margin-left: auto; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating {
+              background-color: #3f7e00;
+              font-size: 22px;
+              color: #B9B9B9;
+              color: #fff;
+              font-weight: 700;
+              line-height: 39px;
+              border-radius: .28571429rem;
+              width: 80px;
+              text-align: center; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating .rating-mark {
+                font-size: 28px;
+                font-weight: 600;
+                color: #fff; }
+              .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .rating .rating-max-mark {
+                letter-spacing: 2px;
+                font-size: 22px;
+                opacity: .5;
+                font-weight: 700; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .main-info .restaurant-mark .votes {
+              color: #89959B;
+              font-size: 12px;
+              text-align: center;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              line-height: 25px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers {
+          color: #89959B;
+          font-size: 15px;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          padding-bottom: 10px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .locality {
+            padding-right: 5px; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .categories {
+            display: inline-block; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .offers .categories .grey-dot {
+              height: 4px;
+              width: 4px;
+              background: #89959B;
+              display: inline-block;
+              margin-bottom: 3px;
+              border-radius: 100%;
+              overflow: hidden;
+              margin-right: 5px; }
+        .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options {
+          padding-top: 10px;
+          padding-bottom: 15px;
+          border-top: 1px solid #e7e7e7; }
+          .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn {
+            background-color: #fff;
+            margin-right: 10px;
+            padding: .5833em .833em;
+            color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #e7e7e7;
+            border-radius: .28571429rem;
+            -webkit-transition: background .1s ease;
+            transition: background .1s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            line-height: 14px;
+            color: #7B8489;
+            font-weight: 400; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn:hover {
+              background-color: #eff2f6; }
+            .restaurant-details .restaurant-details-content .restaurant-overview-display .restaurant-top-content .info .do-options .option-btn i {
+              font-weight: 400;
+              margin-right: 4px;
+              font-size: 1.1em;
+              color: #33373D; }
+  .restaurant-details .restaurant-details-content .notification {
+    overflow: hidden;
+    width: 300px;
+    height: 56px;
+    margin: 0 auto;
+    line-height: 56px;
+    text-align: center;
+    font-weight: 600;
+    font-style: oblique;
+    border-radius: .28571429rem;
+    border: 1px solid #e7e7e7;
+    font-family: arial;
+    color: #a94442;
+    background: #f2dede;
+    box-shadow: 0px 0px 10px 0px #a94442;
+    margin-bottom: 100px; }
+  .restaurant-details .restaurant-details-content .notification-enter {
+    width: 0px;
+    height: 0px;
+    opacity: 0.01;
+    transform: translateY(-100%); }
+  .restaurant-details .restaurant-details-content .notification-enter-done {
+    opacity: 1;
+    width: 300px;
+    height: 56px;
+    transform: translateY(40%);
+    transition: all 500ms ease-out; }
+  .restaurant-details .restaurant-details-content .notification-exit {
+    opacity: 1;
+    width: 300px;
+    height: 56px;
+    transform: translateY(40%); }
+  .restaurant-details .restaurant-details-content .notification-exit-active {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transition: all 0.2s ease-out; }
 
 /* Get The App Component */
 .app-link {
@@ -221,6 +960,16 @@ body {
       grid-auto-rows: 40px;
       justify-content: center;
       position: relative; }
+      .main-home-bg .search-container .search-form .fade-enter {
+        opacity: 0.01; }
+      .main-home-bg .search-container .search-form .fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in; }
+      .main-home-bg .search-container .search-form .fade-exit {
+        opacity: 1; }
+      .main-home-bg .search-container .search-form .fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 500ms ease-in; }
       .main-home-bg .search-container .search-form .search-location, .main-home-bg .search-container .search-form .search-place {
         position: relative; }
         .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input {
@@ -353,7 +1102,7 @@ body {
         border-bottom-right-radius: 4px;
         border: 1px solid #fff;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
-        .main-home-bg .search-container .search-form ul.places-list li.place-item {
+        .main-home-bg .search-container .search-form ul.places-list .place-item {
           display: grid;
           grid-template-columns: 30px auto;
           grid-column-gap: 10px;
@@ -361,25 +1110,27 @@ body {
           background-color: #fff;
           border-bottom: 1px solid #e7e7e7;
           padding: 6px 11px; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item:last-child {
+          .main-home-bg .search-container .search-form ul.places-list .place-item:last-child {
             border-bottom: none; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item:hover {
+          .main-home-bg .search-container .search-form ul.places-list .place-item:hover {
             background: #FBEED5; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item img {
+          .main-home-bg .search-container .search-form ul.places-list .place-item img {
             width: 30px;
-            height: 30px; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item img.thumb-normal {
+            height: 30px;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item img.thumb-normal {
               border: solid white 1px;
               box-shadow: 1px 2px 5px #888;
               border-radius: 4px; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item .place {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .name {
+          .main-home-bg .search-container .search-form ul.places-list .place-item .place {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .name {
               font-size: 15px;
               line-height: 20px;
               font-weight: 200;
               color: #33373D; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .locality {
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .locality {
               font-size: 12px;
               line-height: 14px;
               color: #89959B; }
@@ -573,7 +1324,7 @@ body {
     height: 20px !important; }
 
 .page-loader-bg {
-  height: 100%;
+  height: 500px;
   width: 100%;
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
@@ -585,6 +1336,18 @@ body {
     z-index: 1;
     transform: translate(-50%, -130%);
     height: 40px; }
+
+.reviews-loader-bg {
+  text-align: center; }
+  .reviews-loader-bg img {
+    height: 50px;
+    position: relative;
+    left: -5px;
+    margin: 20px auto; }
+  .reviews-loader-bg div {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 .restaurant-list {
   display: grid;
@@ -788,6 +1551,16 @@ body {
     grid-auto-rows: 40px;
     justify-content: center;
     position: relative; }
+    .layout .header-top .search-form .fade-enter {
+      opacity: 0.01; }
+    .layout .header-top .search-form .fade-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in; }
+    .layout .header-top .search-form .fade-exit {
+      opacity: 1; }
+    .layout .header-top .search-form .fade-exit-active {
+      opacity: 0.01;
+      transition: opacity 500ms ease-in; }
     .layout .header-top .search-form .search-location, .layout .header-top .search-form .search-place {
       position: relative; }
       .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
@@ -920,7 +1693,7 @@ body {
       border-bottom-right-radius: 4px;
       border: 1px solid #fff;
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
-      .layout .header-top .search-form ul.places-list li.place-item {
+      .layout .header-top .search-form ul.places-list .place-item {
         display: grid;
         grid-template-columns: 30px auto;
         grid-column-gap: 10px;
@@ -928,25 +1701,27 @@ body {
         background-color: #fff;
         border-bottom: 1px solid #e7e7e7;
         padding: 6px 11px; }
-        .layout .header-top .search-form ul.places-list li.place-item:last-child {
+        .layout .header-top .search-form ul.places-list .place-item:last-child {
           border-bottom: none; }
-        .layout .header-top .search-form ul.places-list li.place-item:hover {
+        .layout .header-top .search-form ul.places-list .place-item:hover {
           background: #FBEED5; }
-        .layout .header-top .search-form ul.places-list li.place-item img {
+        .layout .header-top .search-form ul.places-list .place-item img {
           width: 30px;
-          height: 30px; }
-          .layout .header-top .search-form ul.places-list li.place-item img.thumb-normal {
+          height: 30px;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item img.thumb-normal {
             border: solid white 1px;
             box-shadow: 1px 2px 5px #888;
             border-radius: 4px; }
-        .layout .header-top .search-form ul.places-list li.place-item .place {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-          .layout .header-top .search-form ul.places-list li.place-item .place .name {
+        .layout .header-top .search-form ul.places-list .place-item .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item .place .name {
             font-size: 15px;
             line-height: 20px;
             font-weight: 200;
             color: #33373D; }
-          .layout .header-top .search-form ul.places-list li.place-item .place .locality {
+          .layout .header-top .search-form ul.places-list .place-item .place .locality {
             font-size: 12px;
             line-height: 14px;
             color: #89959B; }

@@ -6,8 +6,11 @@ import {
   SEARCH_LOCATION_DETAILS,
   SEARCH_ESTABLISHMENTS,
   SEARCH_CUISINES,
-  SEARCH_RESTAURANTS
-       } from '../actions'
+  SEARCH_RESTAURANTS,
+  SEARCH_RESTAURANT_DETAILS,
+  SEARCH_RESTAURANT_REVIEWS
+
+} from '../actions'
 
 const initialState = {
   searchedLocations: [],
@@ -17,7 +20,9 @@ const initialState = {
   searchedLocationDetails: [],
   searchedEstablishments: [],
   searchedCuisines: [],
-  searchedRestaurants: []
+  searchedRestaurants: [],
+  searchedRestaurantDetails: [],
+  searchedRestaurantReviews: []
 }
 
 export default (state = initialState, action) => {
@@ -46,6 +51,12 @@ export default (state = initialState, action) => {
 
     case SEARCH_CUISINES:
       return { ...state, searchedCuisines: action.payload.data.cuisines}
+
+    case SEARCH_RESTAURANT_DETAILS:
+      return { ...state, searchedRestaurantDetails: action.payload.data}
+      
+    case SEARCH_RESTAURANT_REVIEWS:
+      return { ...state, searchedRestaurantReviews: action.payload.data}
 
     default:
       return state;
