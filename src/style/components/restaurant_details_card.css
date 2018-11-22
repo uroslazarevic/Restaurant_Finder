@@ -1,0 +1,120 @@
+.restaurant-overview-card {
+  background: #fff;
+  width: 75%;
+  border-radius: .28571429rem;
+  border: 1px solid #e7e7e7;
+  overflow: hidden; }
+  .restaurant-overview-card .main-img {
+    position: relative; }
+    .restaurant-overview-card .main-img img {
+      width: 100%;
+      height: 300px; }
+    .restaurant-overview-card .main-img a {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      display: block;
+      position: absolute;
+      bottom: 10px;
+      right: 35px; }
+      .restaurant-overview-card .main-img a img {
+        height: 60px;
+        width: 60px; }
+      .restaurant-overview-card .main-img a .photos-link {
+        position: absolute;
+        color: #000;
+        z-index: 100;
+        left: 0px;
+        color: #fff;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        width: 100%;
+        height: 28px;
+        bottom: 0px;
+        font-size: 12px;
+        line-height: 28px;
+        background: rgba(0, 0, 0, 0.55);
+        text-align: center; }
+  .restaurant-overview-card .info {
+    padding: 15px; }
+    .restaurant-overview-card .info .main-info {
+      display: flex;
+      flex-direction: row; }
+      .restaurant-overview-card .info .main-info .title {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 30.8px;
+        height: 75px;
+        color: #33373D; }
+      .restaurant-overview-card .info .main-info .restaurant-mark {
+        margin-left: auto; }
+        .restaurant-overview-card .info .main-info .restaurant-mark .rating {
+          background-color: #3f7e00;
+          font-size: 22px;
+          color: #B9B9B9;
+          color: #fff;
+          font-weight: 700;
+          line-height: 39px;
+          border-radius: .28571429rem;
+          width: 80px;
+          text-align: center; }
+          .restaurant-overview-card .info .main-info .restaurant-mark .rating .rating-mark {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff; }
+          .restaurant-overview-card .info .main-info .restaurant-mark .rating .rating-max-mark {
+            letter-spacing: 2px;
+            font-size: 22px;
+            opacity: .5;
+            font-weight: 700; }
+        .restaurant-overview-card .info .main-info .restaurant-mark .votes {
+          color: #89959B;
+          font-size: 12px;
+          text-align: center;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          line-height: 25px; }
+    .restaurant-overview-card .info .offers {
+      color: #89959B;
+      font-size: 15px;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      padding-bottom: 10px; }
+      .restaurant-overview-card .info .offers .locality {
+        padding-right: 5px; }
+      .restaurant-overview-card .info .offers .categories {
+        display: inline-block; }
+        .restaurant-overview-card .info .offers .categories .grey-dot {
+          height: 4px;
+          width: 4px;
+          background: #89959B;
+          display: inline-block;
+          margin-bottom: 3px;
+          border-radius: 100%;
+          overflow: hidden;
+          margin-right: 5px; }
+    .restaurant-overview-card .info .do-options {
+      padding-top: 10px;
+      padding-bottom: 15px;
+      border-top: 1px solid #e7e7e7; }
+      .restaurant-overview-card .info .do-options .option-btn {
+        background-color: #fff;
+        margin-right: 10px;
+        padding: .5833em .833em;
+        color: rgba(0, 0, 0, 0.6);
+        border: 1px solid #e7e7e7;
+        border-radius: .28571429rem;
+        -webkit-transition: background .1s ease;
+        transition: background .1s ease;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        line-height: 14px;
+        color: #7B8489;
+        font-weight: 400; }
+        .restaurant-overview-card .info .do-options .option-btn:hover {
+          background-color: #eff2f6; }
+        .restaurant-overview-card .info .do-options .option-btn i {
+          font-weight: 400;
+          margin-right: 4px;
+          font-size: 1.1em;
+          color: #33373D; }

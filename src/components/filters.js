@@ -11,7 +11,8 @@ export default function Filters( {
   city,
   handleCuisinesModal,
   cuisineModalItem,
-  removeCuisineModalItem
+  removeCuisineModalItem,
+  currentUrl
   } ) {
 
   return (
@@ -27,28 +28,62 @@ export default function Filters( {
           <li onClick={changeState} className='item' value="cost">Cost<span>- high to low</span></li>
         </ul>
       </div>
+      
+      {currentUrl === `/${city.cityName.split(' ').join('-')}/Restaurants` ? 
+      (
 
-      <div className="categories-category">
-        <div className="title">Category</div>
-        <ul data-filter = "category" className="categories-content">
-          {categories !== undefined ? categories.filter(category =>  {
-            return category.categories.name !== 'Catching-up' &&  
-            category.categories.name !== 'Daily Menus' ? category: null })
-              .map( category => {
+        <div className="categories-category">
+          <div className="title">Category</div>
+          <ul data-filter = "category" className="category content">
+            {categories !== undefined ? categories.filter(category =>  {
+              return category.categories.name !== 'Catching-up' &&  
+              category.categories.name !== 'Daily Menus' ? category: null })
+                .map( category => {
+              const { name, id } = category.categories;
 
-            const { name, id } = category.categories;
-            const { cityName, cityId, categoryNameState } = city;
-            const splitedCityName = cityName.split(' ').join('-');
-            const categoryName = name.split(' ').join('-');
+              return <li onClick={changeState} key={id} className='item ' value={id}>{name}</li>
 
-            return (
-              <Link key={id} to={{ pathname:`/${splitedCityName}/${categoryName}`, state: { categoryName: name, cityName, categoryId: id , cityId } }} >
-                <li onClick={changeState}  className={`item ${categoryNameState === name ? 'active-filter-item' : '' }`} value={id}>{name}</li>
-              </Link>
-            )
-          } ) : <div>List of categories...</div>} 
-        </ul>
-      </div>
+            } ) : <div>List of categories...</div>} 
+          </ul>
+        </div>
+
+      ): (
+
+        <div className="categories-category">
+          <div className="title">Category</div>
+          <ul data-filter = "category" className="categories-content">
+            {categories !== undefined ? categories.filter(category =>  {
+              return category.categories.name !== 'Catching-up' &&  
+              category.categories.name !== 'Daily Menus' ? category: null })
+                .map( category => {
+
+              const { name, id } = category.categories;
+              const { cityName, cityId, categoryNameState } = city;
+              const splitedCityName = cityName.split(' ').join('-');
+              const categoryName = name.split(' ').join('-');
+
+              return (
+                <Link 
+                  key={id} 
+                  to={{ 
+                    pathname:`/${splitedCityName}/${categoryName}`, 
+                    state: { categoryName: name, cityName, categoryId: id , cityId } 
+                }} >
+                  <li 
+                    onClick={changeState}  
+                    className={`item ${categoryNameState === name ? 'active-filter-item' : '' }`} 
+                    value={id}>
+                      {name}
+                  </li>
+                </Link>
+              )
+            } ) : <div>List of categories...</div>} 
+          </ul>
+        </div>
+
+      )}
+
+      
       <div className="top-cuisines-category">
         <div className="title">Cuisines</div>
         <ul data-filter = "cuisines" className="cuisines content">

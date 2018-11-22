@@ -1,0 +1,95 @@
+.restaurant-general-card {
+  background: #fff;
+  border-radius: .28571429rem;
+  border: 1px solid #e7e7e7;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+  .restaurant-general-card .main-img {
+    margin-right: 20px; }
+    .restaurant-general-card .main-img img {
+      width: 168.88px;
+      height: 135px;
+      border-radius: .28571429rem; }
+  .restaurant-general-card .info {
+    width: 100%; }
+    .restaurant-general-card .info .main-info {
+      display: flex;
+      margin-top: 10px; }
+      .restaurant-general-card .info .main-info .title {
+        font-size: 33.6px;
+        font-weight: 600;
+        line-height: 30.8px;
+        height: 75px;
+        color: #33373D; }
+      .restaurant-general-card .info .main-info .restaurant-mark {
+        margin-left: auto; }
+        .restaurant-general-card .info .main-info .restaurant-mark .rating {
+          background-color: #3f7e00;
+          font-size: 22px;
+          color: #B9B9B9;
+          color: #fff;
+          font-weight: 700;
+          line-height: 39px;
+          border-radius: .28571429rem;
+          width: 80px;
+          text-align: center; }
+          .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-mark {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff; }
+          .restaurant-general-card .info .main-info .restaurant-mark .rating .rating-max-mark {
+            letter-spacing: 2px;
+            font-size: 22px;
+            opacity: .5;
+            font-weight: 700; }
+        .restaurant-general-card .info .main-info .restaurant-mark .votes {
+          color: #89959B;
+          font-size: 12px;
+          text-align: center;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          line-height: 25px; }
+    .restaurant-general-card .info .offers {
+      color: #89959B;
+      font-size: 15px;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      padding-bottom: 10px; }
+      .restaurant-general-card .info .offers .locality {
+        padding-right: 5px; }
+      .restaurant-general-card .info .offers .categories {
+        display: inline-block; }
+        .restaurant-general-card .info .offers .categories .grey-dot {
+          height: 4px;
+          width: 4px;
+          background: #89959B;
+          display: inline-block;
+          margin-bottom: 3px;
+          border-radius: 100%;
+          overflow: hidden;
+          margin-right: 5px; }
+    .restaurant-general-card .info .informative {
+      display: flex;
+      padding-top: 10px;
+      border-top: 1px solid #e7e7e7; }
+      .restaurant-general-card .info .informative .open-now {
+        color: #099e44;
+        font-size: 15px; }
+      .restaurant-general-card .info .informative li {
+        padding-left: 16px;
+        font-size: 14px; }
+        .restaurant-general-card .info .informative li:before, .restaurant-general-card .info .informative li::before {
+          content: ' ';
+          height: 2px;
+          width: 2px;
+          position: absolute;
+          transform: translate(0, -50%);
+          left: 7px;
+          top: 50%;
+          border-radius: 100%; }
+      .restaurant-general-card .info .informative li:first-of-type {
+        color: #cb202d; }
+      .restaurant-general-card .info .informative li:last-child {
+        color: #89959B; }
+      .restaurant-general-card .info .informative .open-now {
+        color: #099e44; }

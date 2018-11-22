@@ -37,6 +37,16 @@
       grid-auto-rows: 40px;
       justify-content: center;
       position: relative; }
+      .main-home-bg .search-container .search-form .fade-enter {
+        opacity: 0.01; }
+      .main-home-bg .search-container .search-form .fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in; }
+      .main-home-bg .search-container .search-form .fade-exit {
+        opacity: 1; }
+      .main-home-bg .search-container .search-form .fade-exit-active {
+        opacity: 0.01;
+        transition: opacity 500ms ease-in; }
       .main-home-bg .search-container .search-form .search-location, .main-home-bg .search-container .search-form .search-place {
         position: relative; }
         .main-home-bg .search-container .search-form .search-location input, .main-home-bg .search-container .search-form .search-place input {
@@ -169,7 +179,7 @@
         border-bottom-right-radius: 4px;
         border: 1px solid #fff;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
-        .main-home-bg .search-container .search-form ul.places-list li.place-item {
+        .main-home-bg .search-container .search-form ul.places-list .place-item {
           display: grid;
           grid-template-columns: 30px auto;
           grid-column-gap: 10px;
@@ -177,25 +187,27 @@
           background-color: #fff;
           border-bottom: 1px solid #e7e7e7;
           padding: 6px 11px; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item:last-child {
+          .main-home-bg .search-container .search-form ul.places-list .place-item:last-child {
             border-bottom: none; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item:hover {
+          .main-home-bg .search-container .search-form ul.places-list .place-item:hover {
             background: #FBEED5; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item img {
+          .main-home-bg .search-container .search-form ul.places-list .place-item img {
             width: 30px;
-            height: 30px; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item img.thumb-normal {
+            height: 30px;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item img.thumb-normal {
               border: solid white 1px;
               box-shadow: 1px 2px 5px #888;
               border-radius: 4px; }
-          .main-home-bg .search-container .search-form ul.places-list li.place-item .place {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .name {
+          .main-home-bg .search-container .search-form ul.places-list .place-item .place {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            pointer-events: none; }
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .name {
               font-size: 15px;
               line-height: 20px;
               font-weight: 200;
               color: #33373D; }
-            .main-home-bg .search-container .search-form ul.places-list li.place-item .place .locality {
+            .main-home-bg .search-container .search-form ul.places-list .place-item .place .locality {
               font-size: 12px;
               line-height: 14px;
               color: #89959B; }

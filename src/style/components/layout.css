@@ -28,6 +28,16 @@
     grid-auto-rows: 40px;
     justify-content: center;
     position: relative; }
+    .layout .header-top .search-form .fade-enter {
+      opacity: 0.01; }
+    .layout .header-top .search-form .fade-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in; }
+    .layout .header-top .search-form .fade-exit {
+      opacity: 1; }
+    .layout .header-top .search-form .fade-exit-active {
+      opacity: 0.01;
+      transition: opacity 500ms ease-in; }
     .layout .header-top .search-form .search-location, .layout .header-top .search-form .search-place {
       position: relative; }
       .layout .header-top .search-form .search-location input, .layout .header-top .search-form .search-place input {
@@ -160,7 +170,7 @@
       border-bottom-right-radius: 4px;
       border: 1px solid #fff;
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.35); }
-      .layout .header-top .search-form ul.places-list li.place-item {
+      .layout .header-top .search-form ul.places-list .place-item {
         display: grid;
         grid-template-columns: 30px auto;
         grid-column-gap: 10px;
@@ -168,25 +178,27 @@
         background-color: #fff;
         border-bottom: 1px solid #e7e7e7;
         padding: 6px 11px; }
-        .layout .header-top .search-form ul.places-list li.place-item:last-child {
+        .layout .header-top .search-form ul.places-list .place-item:last-child {
           border-bottom: none; }
-        .layout .header-top .search-form ul.places-list li.place-item:hover {
+        .layout .header-top .search-form ul.places-list .place-item:hover {
           background: #FBEED5; }
-        .layout .header-top .search-form ul.places-list li.place-item img {
+        .layout .header-top .search-form ul.places-list .place-item img {
           width: 30px;
-          height: 30px; }
-          .layout .header-top .search-form ul.places-list li.place-item img.thumb-normal {
+          height: 30px;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item img.thumb-normal {
             border: solid white 1px;
             box-shadow: 1px 2px 5px #888;
             border-radius: 4px; }
-        .layout .header-top .search-form ul.places-list li.place-item .place {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-          .layout .header-top .search-form ul.places-list li.place-item .place .name {
+        .layout .header-top .search-form ul.places-list .place-item .place {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          pointer-events: none; }
+          .layout .header-top .search-form ul.places-list .place-item .place .name {
             font-size: 15px;
             line-height: 20px;
             font-weight: 200;
             color: #33373D; }
-          .layout .header-top .search-form ul.places-list li.place-item .place .locality {
+          .layout .header-top .search-form ul.places-list .place-item .place .locality {
             font-size: 12px;
             line-height: 14px;
             color: #89959B; }

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import qs from 'qs';
 
-// const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
-const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
+const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
+// const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
 const ROOT_URL = 'https://developers.zomato.com/api/v2.1/';
 
 export const SEARCH_LOCATION = 'SEARCH_LOCATION';
@@ -13,6 +13,8 @@ export const SEARCH_LOCATION_DETAILS = 'SEARCH_LOCATION_DETAILS';
 export const SEARCH_ESTABLISHMENTS = 'SEARCH_ESTABLISHMENTS';
 export const SEARCH_CUISINES = 'SEARCH_CUISINES';
 export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS';
+export const SEARCH_RESTAURANT_DETAILS = 'SEARCH_RESTAURANT_DETAILS';
+export const SEARCH_RESTAURANT_REVIEWS = 'SEARCH_RESTAURANT_REVIEWS';
 
 export function getSearchedLocation ({locationTerm = 'Bra', count='10'} = {}) {
   const data = {
@@ -247,6 +249,55 @@ export function getSearchedCuisines({city_id = '111'} = {}) {
 
   return {
     type: SEARCH_CUISINES,
+    payload: request
+  }
+}
+
+export function getRestaurantDetails({res_id = ''} = {}) {
+
+  const data = {
+    res_id
+  }
+
+  const stringify = qs.stringify(data);
+  const config = {
+    method: 'GET',
+    url: `${ROOT_URL}restaurant?${stringify}`,
+    headers: {
+      'Content-Type': 'application/json',
+      'user-key': USER_KEY
+    }
+  }
+
+  const request = axios(config);
+
+  return {
+    type: SEARCH_RESTAURANT_DETAILS,
+    payload: request
+  }
+}
+export function getRestaurantReviews({res_id = '', start = '', count = 5} = {}) {
+
+  const data = {
+    res_id,
+    start,
+    count
+  }
+
+  const stringify = qs.stringify(data);
+  const config = {
+    method: 'GET',
+    url: `${ROOT_URL}reviews?${stringify}`,
+    headers: {
+      'Content-Type': 'application/json',
+      'user-key': USER_KEY
+    }
+  }
+
+  const request = axios(config);
+
+  return {
+    type: SEARCH_RESTAURANT_REVIEWS,
     payload: request
   }
 }

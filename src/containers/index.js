@@ -1,13 +1,17 @@
 import Home from './home';
 import SearchForm from './search_form';
 import HomeBottom from './home_bottom';
-import BrowseByCategory from './browse_by_category';
+import RestaurantsCategoryPage from './restaurants_category_page';
+import RestaurantDetails from './restaurant_details';
+import CityCollections from './city_collections';
 
 export {
   // Containers
   Home,
   SearchForm,
   HomeBottom,
-  BrowseByCategory,
+  RestaurantsCategoryPage,
+  RestaurantDetails,
+  CityCollections
 
 }

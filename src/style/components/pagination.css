@@ -6,7 +6,7 @@
   height: 98px;
   line-height: 98px;
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
   margin-bottom: 15px; }
   .pagination li {
     display: inline-block;
@@ -18,10 +18,13 @@
     margin-left: 5px;
     line-height: initial;
     background: #ba1e2b; }
+    .pagination li:hover {
+      background: #fc871a;
+      border-color: #fc871a;
+      opacity: 0.8; }
     .pagination li.active {
-      color: #fff;
-      background: #D94148;
-      border-color: #D94148; }
+      background: #fc871a;
+      border-color: #fc871a; }
     .pagination li.break-me {
       pointer-events: none;
       cursor: pointer; }
@@ -31,8 +34,5 @@
       padding: 10px 13px !important; }
       .pagination li a:focus {
         outline: none; }
-    .pagination li:hover {
-      color: #fff;
-      opacity: 0.8; }
   .pagination .break a {
     cursor: default; }

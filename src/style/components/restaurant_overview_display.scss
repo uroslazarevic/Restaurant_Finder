@@ -1,0 +1,187 @@
+.restaurant-overview-display {
+  display: grid;
+  grid-row-gap: 15px;
+
+  // Import Restaurant Contact Card component
+  @import 'style/components/restaurant_contact_card.scss';
+
+  // Import Restaurant Navigation Card component
+  @import 'style/components/restaurant_navigation_card.scss';
+
+  // Import Restaurant Menu Card component
+  @import 'style/components/restaurant_menu_card.scss';
+
+  // Import Restaurant Photos Card component
+  @import 'style/components/restaurant_photos_card.scss';
+
+  // Import Restaurant Reviews Card component
+  @import 'style/components/restaurant_reviews_card.scss';
+
+  // Import Restaurant General Card component
+  @import 'style/components/restaurant_general_card.scss';
+  
+
+  .restaurant-top-content {
+
+    background: #fff;
+    border-radius: .28571429rem;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+  
+    .main-img {
+      position: relative;
+  
+      img {
+        width: 100%;
+        height: 300px;
+      }
+  
+      a {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        right: 35px;
+  
+        img {
+          height: 60px;
+          width: 60px;
+        }
+  
+        .photos-link {
+          position: absolute;
+          color: #000;
+          z-index: 100;
+          left: 0px;
+          color: #fff;
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          width: 100%;
+          height: 28px;
+          bottom: 0px;
+          font-size: 12px;
+          line-height: 28px;
+          background: rgba(0,0,0,.55);
+          text-align: center;
+        }
+      }
+    }
+  
+    .info {
+      padding: 15px;
+  
+      .main-info {
+        display: flex;
+        flex-direction: row;
+  
+        .title {
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 30.8px;
+          height: 75px;
+          color: #33373D;
+        }
+    
+        .restaurant-mark {
+          margin-left: auto;
+    
+          .rating {
+            background-color: rgb(63, 126, 0);
+            font-size: 22px;
+            color: #B9B9B9;
+            color: #fff;
+            font-weight: 700;
+            line-height: 39px;
+            border-radius: .28571429rem;
+            width: 80px;
+            text-align: center;
+    
+            .rating-mark {
+              font-size: 28px;
+              font-weight: 600;
+              color: #fff;
+            }
+  
+            .rating-max-mark {
+              letter-spacing: 2px;
+              font-size: 22px;
+              opacity: .5;
+              font-weight: 700;
+            }
+          }
+    
+          .votes {
+            color: #89959B;
+            font-size: 12px;
+            text-align: center;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            line-height: 25px;
+          }
+        }
+      }
+  
+      .offers {
+        color: #89959B;
+        font-size: 15px;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        padding-bottom: 10px;
+  
+        .locality {
+          padding-right: 5px;
+        }
+  
+        .categories {
+          display: inline-block;
+  
+          .grey-dot {
+            height: 4px;
+            width: 4px;
+            background: #89959B;
+            display: inline-block;
+            margin-bottom: 3px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin-right: 5px;
+          }
+        }
+      }
+  
+      .do-options {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        border-top: 1px solid #e7e7e7;
+        
+        .option-btn {
+          background-color: #fff;
+          margin-right: 10px;
+          padding: .5833em .833em;
+          color: rgba(0,0,0,.6);
+          border: 1px solid #e7e7e7;;
+          border-radius: .28571429rem;
+          -webkit-transition: background .1s ease;
+          transition: background .1s ease;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 14px;
+          cursor: pointer;
+          line-height: 14px;
+          color: #7B8489;
+          font-weight: 400;
+  
+          &:hover {
+            background-color: #eff2f6;
+          }
+  
+          i {
+            font-weight: 400;
+            margin-right: 4px;
+            font-size: 1.1em;
+            color: #33373D;
+          }
+        }
+      }
+    }
+  }
+}

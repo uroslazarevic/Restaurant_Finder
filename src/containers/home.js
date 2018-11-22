@@ -26,7 +26,7 @@ export default class Home extends Component {
     return(
       <div>
         <GetTheApp />
-        <MainHome city={{ cityName: city_Name, cityId: city_Id }} />
+        <MainHome urlPath={ this.props.match.path } city={{ cityName: city_Name, cityId: city_Id }} />
       </div>
     ) 
   };

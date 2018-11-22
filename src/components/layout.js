@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import zomatoUrbanSpoon from '../images/zomato-us-transparant-logo.webp';
 
-import { GetTheApp, LoginNavigation, CuisinesModal } from 'components';
+import { GetTheApp, LoginNavigation } from 'components';
 import { SearchForm } from 'containers';
 
 export default class Layout extends Component {
@@ -27,7 +27,10 @@ export default class Layout extends Component {
         <header>
           <div className = "header-top">
             <img className="zomato-urban-spon-logo" src={zomatoUrbanSpoon} alt='zomato-spoon-logo' />
-            <SearchForm city={{ cityName: this.state.cityName, cityId: this.state.cityId }} handleParentCityState={ this.handleParentCityState } />
+            <SearchForm 
+              urlPath={this.props.urlPath}
+              city={{ cityName: this.state.cityName, cityId: this.state.cityId }} 
+              handleParentCityState={ this.handleParentCityState } />
             <LoginNavigation/>
           </div>
           <div className = "header-bottom">
@@ -35,9 +38,6 @@ export default class Layout extends Component {
           </div>
         </header>
         {this.props.children}
-        {this.props.showModal && <CuisinesModal 
-          handleCuisinesModal={this.props.handleCuisinesModal} 
-          allCuisines={this.props.allCuisines} />}
       </div>
     );
   };
