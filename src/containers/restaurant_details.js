@@ -89,7 +89,6 @@ class RestaurantDetails extends Component {
          ]).then(() => this.setState({ pageLoader: false, showContent: true }))
        })
     )
-
   }
 
   componentWillUnmount() {

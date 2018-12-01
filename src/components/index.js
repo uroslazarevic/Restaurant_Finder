@@ -1,3 +1,4 @@
+import Home from './home';
 import Layout from './layout';
 import GetTheApp from './get_the_app';
 import LoginNavigation from './login_navigation';
@@ -11,6 +12,12 @@ import Filters from './filters';
 import CuisinesModal from './cuisines_list_modal';
 import Pagination from './pagination';
 import SearchBtn from './search_btn';
+import FormModal from './form_modal';
+import StartForm from './start_form';
+import LoginForm from './login_form';
+import SignupForm from './signup_form.js';
+import FormField from './form_field.js';
+import PasswordResetForm from './password_reset_form.js';
 import RestaurantOverviewDisplay from './restaurant_overview_display';
 import RestaurantMenuDisplay from './restaurant_menu_display';
 import RestaurantReviewsDisplay from './restaurant_reviews_display';
@@ -26,6 +33,7 @@ import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } 
 
 export {
   // Components
+  Home,
   Layout,
   GetTheApp,
   LoginNavigation,
@@ -43,6 +51,12 @@ export {
   CuisinesModal,
   Pagination,
   SearchBtn,
+  FormModal,
+  StartForm,
+  LoginForm,
+  SignupForm,
+  FormField,
+  PasswordResetForm,
   RestaurantOverviewDisplay,
   RestaurantMenuDisplay,
   RestaurantReviewsDisplay,

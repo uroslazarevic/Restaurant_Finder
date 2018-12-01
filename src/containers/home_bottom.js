@@ -21,10 +21,10 @@ class HomeBottom extends Component {
 
   componentWillReceiveProps(newProps) {
     const { getSearchedCollections, getLocationDetails, city: { cityId } } = this.props;
-    if(newProps.cityId !== cityId) {
+    if(newProps.city.cityId !== cityId) {
       // Get New Collections
       getSearchedCollections({city_id: newProps.cityId});
-      // Get New Location Details
+      // // Get New Location Details
       getLocationDetails({ entity_id: newProps.cityId });
     } 
   }

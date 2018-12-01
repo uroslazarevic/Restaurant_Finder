@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { CSSTransition } from 'react-transition-group';
 
 // Import Actions
 import { getSearchedRestaurants, getLocationDetails, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } from 'actions';
@@ -56,7 +57,8 @@ class RestaurantsCategoryPage extends Component {
   
   handleCuisinesModal(e, cuisine=null) {
     const body = document.querySelector('body');
-    e.target.className !== 'all-cuisines-container' && e.target.className !== 'hide-cuisine-modal' ?
+    const ele = e.target;
+    !ele.classList.contains('all-cuisines-container') && !ele.classList.contains('hide-cuisine-modal') ?
       this.setState({ showCuisinesModal: true }, () => body.style.overflow = "hidden")
       : this.setState({ showCuisinesModal: false }, () =>  body.style.overflow = "initial")
 
@@ -81,7 +83,9 @@ class RestaurantsCategoryPage extends Component {
     this.setState({ filterObjChange: false, filterObject: { ...this.state.filterObject, [stateKey]: ''},
     pageLoader: true,  showContent: false, cuisineModalItem: { cuisineId: '', cuisineName: '' } }, () => {
       this.props.getSearchedRestaurants( this.state.filterObject )
-        .then(this.setState({ pageLoader: false,  showContent: true }))
+        .then(this.setState({ pageLoader: false,  showContent: true }, 
+          () => this.paintActiveListItems()
+        ))
     })
   }
 
@@ -257,6 +261,12 @@ class RestaurantsCategoryPage extends Component {
       city_Name = this.state.cityName;
       city_Id =this.state.entity_id
     }
+    const transitionOptions = {
+      in: this.state.showCuisinesModal,
+      timeout: 300,
+      classNames :"modal-fade",
+      unmountOnExit: true
+    }
 
     return(
       <div className="browse-by-category-wrapper">
@@ -297,9 +307,13 @@ class RestaurantsCategoryPage extends Component {
               pageCount={pageCount}
             />
           </div>}
-        {this.state.showCuisinesModal && <CuisinesModal 
-          handleCuisinesModal={this.handleCuisinesModal} 
-          allCuisines={searchedCuisines} />}
+         
+          <CSSTransition {...transitionOptions} >
+            <CuisinesModal 
+              handleCuisinesModal={this.handleCuisinesModal} 
+              allCuisines={searchedCuisines} />
+          </CSSTransition>
+        
         </Layout>
       </div>
     );

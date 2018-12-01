@@ -25,10 +25,7 @@ export default ({ collections, city, urlPath }) => {
 function createCollectionItems(collections, city) {
   return collections.map(collection => {
     const { title, description, image_url, collection_id } = collection.collection;
-    // const { cityName, cityId } = city;
-    // const splitedCityName = cityName.split(' ').join('-');
-    // <Link to={{ pathname:`/${splitedCityName}/collections`, state: { cityName, cityId, collectionId: collection_id } }}
-    // key={collection_id} className="collection-item"></Link>
+   
     return (
       <div key={collection_id} className="collection-item">
         <img src= {image_url} alt="" />

@@ -8,7 +8,8 @@ import './App.css';
 
 import reducers from './reducers';
 import promise from 'redux-promise';
-import { Home, RestaurantsCategoryPage, CityCollections, RestaurantDetails } from 'containers';
+import { Home } from 'components';
+import { RestaurantsCategoryPage, CityCollections, RestaurantDetails } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
