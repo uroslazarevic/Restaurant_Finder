@@ -1,0 +1,54 @@
+.collection-restaurants-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin-top: 20px; }
+  .collection-restaurants-list .collection-restaurant-item {
+    border-radius: .28571429rem;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    background: #fff; }
+    .collection-restaurants-list .collection-restaurant-item .restaurant-header {
+      position: relative; }
+      .collection-restaurants-list .collection-restaurant-item .restaurant-header img {
+        width: 100%;
+        height: 150px; }
+      .collection-restaurants-list .collection-restaurant-item .restaurant-header .restaurant-rating {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        height: 28px;
+        font-weight: 600;
+        width: 40px;
+        text-align: center;
+        color: #fff;
+        cursor: default;
+        font-size: 13pt;
+        letter-spacing: -.2px;
+        font-weight: 500;
+        border-radius: 0 3px; }
+    .collection-restaurants-list .collection-restaurant-item .restaurant-content {
+      padding: 10px; }
+      .collection-restaurants-list .collection-restaurant-item .restaurant-content .title {
+        font-size: 17px;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #33373D;
+        line-height: 20px; }
+      .collection-restaurants-list .collection-restaurant-item .restaurant-content .location {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        white-space: nowrap;
+        color: #89959B;
+        text-transform: uppercase;
+        letter-spacing: .01em;
+        line-height: 20px; }
+      .collection-restaurants-list .collection-restaurant-item .restaurant-content .cuisines {
+        color: #89959B;
+        font-size: 14px;
+        line-height: 20px; }

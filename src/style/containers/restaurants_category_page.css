@@ -1,6 +1,7 @@
 .browse-by-category-wrapper {
   background-color: #F3F3F3; }
   .browse-by-category-wrapper .container .pathway-link {
+    background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Import Components
-import { ResContactCard, ResNavigationCard, ResMenuCard, ResPhotosCard, ResReviewsCard } from 'components';
+import { ShowNote, ResContactCard, ResNavigationCard, ResMenuCard, ResPhotosCard, ResReviewsCard } from 'components';
 
 // Import images
 import featuredImgAvatar from '../images/restaurant_imgs/res_photos_imgs/featuredImgAvatar.png'
@@ -13,7 +13,7 @@ export default ({ resInfo, resReviews, updateDisplayView, currentDisplayView }) 
     const { 
       thumb,
       featured_image, 
-      user_rating : { aggregate_rating, rating_color, votes },
+      user_rating : { aggregate_rating, rating_color, votes, rating_text },
       location: { locality, address },
       photos_url,
       name,
@@ -38,7 +38,12 @@ export default ({ resInfo, resReviews, updateDisplayView, currentDisplayView }) 
               <div className="main-info" >
                 <div className="title" >{name}</div>
                 <div className="restaurant-mark">
-                  <div style={ratingStyle} className="rating"><span className="rating-mark">{aggregate_rating}</span><span className="rating-max-mark"> /5</span></div>
+                  <ShowNote text = { rating_text } >
+                    <div style={ratingStyle} className="rating">
+                      <span className="rating-mark">{aggregate_rating}</span>
+                      <span className="rating-max-mark"> /5</span>
+                    </div>
+                  </ShowNote>
                   <div className="votes">{votes} votes</div>
                 </div>
               </div>

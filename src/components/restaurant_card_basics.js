@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+import { ShowNote } from 'components';
 import thumbnailReplacement from '../images/restaurant_thumbnail_replacement.jpg'
 
 export default function RestaurantCard ({ restaurants, city }) {
@@ -30,11 +31,13 @@ function renderRestaurantCard(restaurants, city) {
       currency,
       average_cost_for_two,
       location: { address, locality },
-      user_rating: { aggregate_rating, votes, rating_text },
+      user_rating: { aggregate_rating, votes, rating_text, rating_color },
       R: { res_id }
     } = restaurant;
     const splitedRestaurantName = name.split(' ').join('-');
     const splitedCityName = city.cityName.split(' ').join('-');
+
+    const ratingStyle = { backgroundColor: `#${rating_color}`, border: `1px solid #${rating_color}`}
     
     return (
       <Link 
@@ -60,7 +63,9 @@ function renderRestaurantCard(restaurants, city) {
           <div className="hours"><span className="add-info">hours:</span><span className="specific">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, explicabo!</span></div>
         </div>
         <div className="restaurant-voting">
-          <div className="rating" style={generateRatingColor(aggregate_rating)}>{aggregate_rating}</div>
+          <ShowNote text = { rating_text } className = {'res-basic-note'} >
+            <div className="rating" style={ ratingStyle }>{aggregate_rating}</div>
+          </ShowNote>
           <div className="votes">{votes} votes</div>
         </div>
       </Link>
@@ -68,34 +73,34 @@ function renderRestaurantCard(restaurants, city) {
   }) 
 }
 
-function generateRatingColor(rating) {
-  const ratingColors = { excelent:'#3F7E00', veryGood:'#5BA829', good:'#9ACD32', average:'#CDD614', poor:'#FF7800', none: '#cdcdcd' };
-  const { excelent, veryGood, good, average, poor, none } = ratingColors;
-  let color= {};
-  switch(true) {
-    case ( rating <=5 && rating >=4.5 ):
-    color.background =excelent;
-    break;
+// function generateRatingColor(rating) {
+//   const ratingColors = { excelent:'#3F7E00', veryGood:'#5BA829', good:'#9ACD32', average:'#CDD614', poor:'#FF7800', none: '#cdcdcd' };
+//   const { excelent, veryGood, good, average, poor, none } = ratingColors;
+//   let color= {};
+//   switch(true) {
+//     case ( rating <=5 && rating >=4.5 ):
+//     color.background =excelent;
+//     break;
 
-    case ( rating < 4.5 && rating >=4 ):
-    color.background = veryGood;
-    break;
+//     case ( rating < 4.5 && rating >=4 ):
+//     color.background = veryGood;
+//     break;
 
-    case ( rating < 4 && rating >= 3.5 ):
-    color.background = good;
-    break;
+//     case ( rating < 4 && rating >= 3.5 ):
+//     color.background = good;
+//     break;
 
-    case ( rating < 3.5 && rating >= 2.5 ):
-    color.background = average;
-    break;
+//     case ( rating < 3.5 && rating >= 2.5 ):
+//     color.background = average;
+//     break;
 
-    case ( rating < 2.5 && rating >= 2 ):
-    color.background = poor;
-    break;
+//     case ( rating < 2.5 && rating >= 2 ):
+//     color.background = poor;
+//     break;
     
-    default:
-    color.background = none;
-    break;
-  }
-  return color;
-}
+//     default:
+//     color.background = none;
+//     break;
+//   }
+//   return color;
+// }

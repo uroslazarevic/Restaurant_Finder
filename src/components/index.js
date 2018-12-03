@@ -1,3 +1,4 @@
+import Home from './home';
 import Layout from './layout';
 import GetTheApp from './get_the_app';
 import LoginNavigation from './login_navigation';
@@ -11,6 +12,12 @@ import Filters from './filters';
 import CuisinesModal from './cuisines_list_modal';
 import Pagination from './pagination';
 import SearchBtn from './search_btn';
+import FormModal from './form_modal';
+import StartForm from './start_form';
+import LoginForm from './login_form';
+import SignupForm from './signup_form.js';
+import FormField from './form_field.js';
+import PasswordResetForm from './password_reset_form.js';
 import RestaurantOverviewDisplay from './restaurant_overview_display';
 import RestaurantMenuDisplay from './restaurant_menu_display';
 import RestaurantReviewsDisplay from './restaurant_reviews_display';
@@ -22,10 +29,15 @@ import ResMenuCard from './restaurant_menu_card';
 import ResPhotosCard from './restaurant_photos_card';
 import ResReviewsCard from './restaurant_reviews_card';
 import ResGeneralCard from './restaurant_general_card';
+import CollectionDetailsCard from './collection_details_card';
+import CollectionRestaurantsList from './collection_restaurants_list';
+import CollectionRestaurantItem from './collection_restaurant_item';
+import ShowNote from './show_note';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './loaders';
 
 export {
   // Components
+  Home,
   Layout,
   GetTheApp,
   LoginNavigation,
@@ -43,6 +55,12 @@ export {
   CuisinesModal,
   Pagination,
   SearchBtn,
+  FormModal,
+  StartForm,
+  LoginForm,
+  SignupForm,
+  FormField,
+  PasswordResetForm,
   RestaurantOverviewDisplay,
   RestaurantMenuDisplay,
   RestaurantReviewsDisplay,
@@ -53,6 +71,10 @@ export {
   ResMenuCard,
   ResPhotosCard,
   ResReviewsCard,
-  ResGeneralCard
+  ResGeneralCard,
+  CollectionDetailsCard,
+  CollectionRestaurantsList,
+  CollectionRestaurantItem,
+  ShowNote
   
 }

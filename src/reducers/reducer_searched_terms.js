@@ -8,7 +8,8 @@ import {
   SEARCH_CUISINES,
   SEARCH_RESTAURANTS,
   SEARCH_RESTAURANT_DETAILS,
-  SEARCH_RESTAURANT_REVIEWS
+  SEARCH_RESTAURANT_REVIEWS,
+  SEARCH_COLLECTION_DETAILS
 
 } from '../actions'
 
@@ -22,7 +23,8 @@ const initialState = {
   searchedCuisines: [],
   searchedRestaurants: [],
   searchedRestaurantDetails: [],
-  searchedRestaurantReviews: []
+  searchedRestaurantReviews: [],
+  searchedCollectionDetails: []
 }
 
 export default (state = initialState, action) => {
@@ -55,9 +57,12 @@ export default (state = initialState, action) => {
     case SEARCH_RESTAURANT_DETAILS:
       return { ...state, searchedRestaurantDetails: action.payload.data}
       
-    case SEARCH_RESTAURANT_REVIEWS:
-      return { ...state, searchedRestaurantReviews: action.payload.data}
-
+      case SEARCH_RESTAURANT_REVIEWS:
+        return { ...state, searchedRestaurantReviews: action.payload.data}
+        
+      case SEARCH_COLLECTION_DETAILS:
+        return { ...state, searchedCollectionDetails: action.payload.data.restaurants}
+      
     default:
       return state;
   }
