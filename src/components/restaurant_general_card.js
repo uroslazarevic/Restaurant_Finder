@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ShowNote } from 'components';
+
 export default ({ resInfo }) => {
   const { 
     thumb,
@@ -12,6 +14,7 @@ export default ({ resInfo }) => {
   } = resInfo;
 
   const ratingStyle = {
+    cursor: 'default',
     backgroundColor: `#${rating_color}`
   };
   
@@ -24,7 +27,12 @@ export default ({ resInfo }) => {
         <div className="main-info" >
           <div className="title" >{name}</div>
           <div className="restaurant-mark">
-            <div style={ratingStyle} className="rating"><span className="rating-mark">{aggregate_rating}</span><span className="rating-max-mark"> /5</span></div>
+            <ShowNote text = {rating_text}>
+              <div style={ratingStyle} className="rating">
+                <span className="rating-mark">{aggregate_rating}</span>
+                <span className="rating-max-mark"> /5</span>
+              </div>
+            </ShowNote>
             <div className="votes">{votes} votes</div>
           </div>
         </div>

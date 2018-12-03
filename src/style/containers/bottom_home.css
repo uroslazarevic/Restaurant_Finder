@@ -73,7 +73,7 @@
         padding: 10px; }
         .bottom-home-bg .collections .collections-list .collection-item .about-item .title {
           color: #33373D;
-          font-size: 18px;
+          font-size: 17px;
           font-weight: 700;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
           line-height: 20px; }
@@ -83,7 +83,15 @@
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
           line-height: 16px;
           margin-top: 5px;
-          width: 190px; }
+          width: 190px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          box-orient: vertical;
+          -webkit-line-clamp: 3;
+          max-height: 48px;
+          text-overflow: ellipsis;
+          line-clamp: 3;
+          overflow: hidden; }
   .bottom-home-bg .cuisine-list {
     padding: 60px 0;
     max-width: 1160px;

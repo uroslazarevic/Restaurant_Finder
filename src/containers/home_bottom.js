@@ -1,31 +1,47 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 // import Actions
 import { getSearchedCollections, getLocationDetails } from 'actions';
 // Import Components
-import { Collections, CategoriesList, PopularRestaurants } from 'components'; 
+import { Collections, CategoriesList, PopularRestaurants, PageLoader } from 'components'; 
 
 class HomeBottom extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { entity_type: 'city' }
+    this.state = { 
+      entity_type: 'city',
+      pageLoader: false,
+      showContent: false
+     }
   }
 
   componentWillMount() {
     const { getSearchedCollections, getLocationDetails, city: { cityId } } = this.props;
-    getSearchedCollections({city_id: cityId});
-    getLocationDetails({ entity_id: cityId })
+    this.setState({ pageLoader: true,  showContent: false },
+      () => {
+        axios.all([
+          getSearchedCollections({city_id: cityId}),
+          getLocationDetails({ entity_id: cityId })
+        ]).then(() => this.setState({ pageLoader: false, showContent: true }))
+    })
+    
   }
 
   componentWillReceiveProps(newProps) {
     const { getSearchedCollections, getLocationDetails, city: { cityId } } = this.props;
     if(newProps.city.cityId !== cityId) {
-      // Get New Collections
-      getSearchedCollections({city_id: newProps.cityId});
-      // // Get New Location Details
-      getLocationDetails({ entity_id: newProps.cityId });
+      this.setState({ pageLoader: true,  showContent: false },
+        () => {
+          axios.all([
+            // Get New Collections
+            getSearchedCollections({city_id: newProps.cityId}),
+            // Get New Location Details
+            getLocationDetails({ entity_id: newProps.cityId })
+          ]).then(() => this.setState({ pageLoader: false, showContent: true }))
+      })
     } 
   }
   
@@ -58,12 +74,18 @@ class HomeBottom extends Component {
   }
 
   render() {
+    const { pageLoader, showContent } = this.state;
     return (
-      <div className="bottom-home-bg">
-        <div className="collections">{this.renderCollections()}</div>
-        <div className="cuisine-list">{this.renderCuisinesList()}</div>
-        <div className="popular-restaurants-list">{this.renderPopularRestoraunts()}</div>
-      </div>
+      <React.Fragment>
+        { pageLoader && <PageLoader/> }
+        {showContent && 
+          <div className="bottom-home-bg">
+            <div className="collections">{this.renderCollections()}</div>
+            <div className="cuisine-list">{this.renderCuisinesList()}</div>
+            <div className="popular-restaurants-list">{this.renderPopularRestoraunts()}</div>
+          </div>
+        }
+      </React.Fragment>
     )
   }
 }

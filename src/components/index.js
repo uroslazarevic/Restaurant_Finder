@@ -29,6 +29,10 @@ import ResMenuCard from './restaurant_menu_card';
 import ResPhotosCard from './restaurant_photos_card';
 import ResReviewsCard from './restaurant_reviews_card';
 import ResGeneralCard from './restaurant_general_card';
+import CollectionDetailsCard from './collection_details_card';
+import CollectionRestaurantsList from './collection_restaurants_list';
+import CollectionRestaurantItem from './collection_restaurant_item';
+import ShowNote from './show_note';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './loaders';
 
 export {
@@ -67,6 +71,10 @@ export {
   ResMenuCard,
   ResPhotosCard,
   ResReviewsCard,
-  ResGeneralCard
+  ResGeneralCard,
+  CollectionDetailsCard,
+  CollectionRestaurantsList,
+  CollectionRestaurantItem,
+  ShowNote
   
 }

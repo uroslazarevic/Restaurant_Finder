@@ -9,7 +9,7 @@ import './App.css';
 import reducers from './reducers';
 import promise from 'redux-promise';
 import { Home } from 'components';
-import { RestaurantsCategoryPage, CityCollections, RestaurantDetails } from 'containers';
+import { RestaurantsCategoryPage, CityCollections, RestaurantDetails, CollectionDetails } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -23,6 +23,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/:city/Restaurants/:restaurant" component={RestaurantDetails} />
+          <Route path="/:city/collections/:collection" component={CollectionDetails} />
           <Route path="/:city/collections" component={CityCollections} />
           <Route path="/:city/:wildcard" component={RestaurantsCategoryPage} />
         </Switch>
