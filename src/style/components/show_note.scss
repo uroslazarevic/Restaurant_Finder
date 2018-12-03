@@ -1,0 +1,54 @@
+.note {
+  position: relative;
+  z-index: 100;
+
+  .res-basic-note {
+    top: 138% !important;
+    left: 40% !important;
+    transform: initial !important;
+  }
+
+  &:hover {
+    .noteText {
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.3s;
+
+    }
+  }
+
+  $height: 30.66px;
+  $color: #585858;
+
+  .noteText {
+    position: absolute;
+    background: $color;
+    white-space: nowrap;
+    z-index: 100;
+    border-radius: 6px;
+    top: 120%;
+    left: 10%;
+    height: $height;
+    line-height: $height;
+    font-size: 11px;
+    cursor: pointer;
+    color: #fff;
+    padding: 0 10px;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.85);
+    pointer-events: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 15%;
+      margin-right: -5px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent $color transparent;
+    }
+  }
+}

@@ -12,6 +12,7 @@ body {
 .browse-by-category-wrapper {
   background-color: #F3F3F3; }
   .browse-by-category-wrapper .container .pathway-link {
+    background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;
@@ -54,6 +55,7 @@ body {
     color: #33373D;
     margin-bottom: 20px; }
   .city-collections .city-collections-content .pathway-link {
+    background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;
@@ -104,7 +106,8 @@ body {
         color: #cb202d;
         font-size: 14px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        line-height: 20px; }
+        line-height: 20px;
+        display: block; }
     .city-collections .city-collections-content .collections .collections-list .collection-item {
       display: grid;
       grid-template-columns: 150px auto;
@@ -123,7 +126,7 @@ body {
         padding: 10px; }
         .city-collections .city-collections-content .collections .collections-list .collection-item .about-item .title {
           color: #33373D;
-          font-size: 18px;
+          font-size: 17px;
           font-weight: 700;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
           line-height: 20px; }
@@ -133,7 +136,15 @@ body {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
           line-height: 16px;
           margin-top: 5px;
-          width: 190px; }
+          width: 190px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          box-orient: vertical;
+          -webkit-line-clamp: 3;
+          max-height: 48px;
+          text-overflow: ellipsis;
+          line-clamp: 3;
+          overflow: hidden; }
 
 body {
   background: #f3f3f3; }
@@ -141,6 +152,7 @@ body {
 .restaurant-details .restaurant-details-content {
   padding-bottom: 200px; }
   .restaurant-details .restaurant-details-content .pathway-link {
+    background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;
@@ -627,7 +639,6 @@ body {
       background: #fff;
       border-radius: .28571429rem;
       border: 1px solid #e7e7e7;
-      overflow: hidden;
       padding: 10px;
       display: flex;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
@@ -874,6 +885,349 @@ body {
     transform: rotateX(-90deg);
     transition: all 0.2s ease-out; }
 
+.collection-details {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+  .collection-details .collection-details-content {
+    background: transparent;
+    padding-bottom: 40px; }
+    .collection-details .collection-details-content .pathway-link {
+      background: transparent;
+      color: #89959B;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 9px;
+      padding: 30px 0; }
+      .collection-details .collection-details-content .pathway-link span i {
+        padding: 0 2px; }
+      .collection-details .collection-details-content .pathway-link a {
+        color: #89959B; }
+        .collection-details .collection-details-content .pathway-link a:hover {
+          text-decoration: underline; }
+    .collection-details .collection-details-content .pathway-link {
+      padding-right: 15px;
+      padding-left: 15px; }
+    .collection-details .collection-details-content .collections .collections-header {
+      margin-bottom: 14px; }
+      .collection-details .collection-details-content .collections .collections-header .collections-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 600;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #33373D;
+        font-size: 24px; }
+      .collection-details .collection-details-content .collections .collections-header .collections-subtitle {
+        margin-top: 5px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.2em;
+        color: #89959B;
+        font-weight: 400;
+        font-size: 16px;
+        word-spacing: 3px; }
+    .collection-details .collection-details-content .collections .collections-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      grid-gap: 20px; }
+      .collection-details .collection-details-content .collections .collections-list .collection-item-all {
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item-all img {
+          margin-top: 10px;
+          height: 60px; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item-all .collections-link {
+          padding: 10px;
+          color: #cb202d;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px;
+          display: block; }
+      .collection-details .collection-details-content .collections .collections-list .collection-item {
+        display: grid;
+        grid-template-columns: 150px auto;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem;
+        overflow: hidden; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item img {
+          height: 120px;
+          width: 150px;
+          border: 1px solid #e7e7e7;
+          border-top-left-radius: 0.2857rem;
+          border-bottom-left-radius: 0.2857rem; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item .about-item {
+          padding: 10px; }
+          .collection-details .collection-details-content .collections .collections-list .collection-item .about-item .title {
+            color: #33373D;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 20px; }
+          .collection-details .collection-details-content .collections .collections-list .collection-item .about-item .description {
+            color: #33373D;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 16px;
+            margin-top: 5px;
+            width: 190px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-line-clamp: 3;
+            max-height: 48px;
+            text-overflow: ellipsis;
+            line-clamp: 3;
+            overflow: hidden; }
+    .collection-details .collection-details-content .collection-details-card {
+      border-radius: .28571429rem;
+      border: 1px solid #e7e7e7;
+      overflow: hidden;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      .collection-details .collection-details-content .collection-details-card .collection-header {
+        position: relative; }
+        .collection-details .collection-details-content .collection-details-card .collection-header .bg-coll-image {
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          background-position: center center; }
+        .collection-details .collection-details-content .collection-details-card .collection-header .collection-url {
+          display: flex;
+          margin-left: 15px;
+          margin-top: 15px;
+          position: absolute;
+          top: 0;
+          font-size: 14px;
+          border-radius: 4px;
+          border: 1px solid #e7e7e7; }
+          .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip {
+            position: relative; }
+            .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip:hover .tooltipText {
+              visibility: visible;
+              opacity: 1;
+              transform: scale(1); }
+            .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip .tooltipText {
+              position: absolute;
+              background: #fff;
+              width: 183px;
+              z-index: 100;
+              border-radius: 4px;
+              top: 140%;
+              height: 44px;
+              line-height: 44px;
+              text-align: center;
+              display: block;
+              font-size: 14.5px;
+              cursor: pointer;
+              visibility: hidden;
+              opacity: 0;
+              transition: all 0.3s;
+              transform: scale(0.85);
+              pointer-events: none; }
+              .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip .tooltipText:before {
+                content: "";
+                position: absolute;
+                top: -12px;
+                left: 10%;
+                margin-right: -5px;
+                border-width: 6px;
+                border-style: solid;
+                border-color: transparent transparent #fff transparent; }
+            .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip .copy-url {
+              width: 193px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              cursor: pointer;
+              padding: .78571429em 1.5em;
+              background-color: #fff;
+              line-height: 1em; }
+          .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection {
+            line-height: 1em;
+            background: #E0E1E2;
+            color: rgba(0, 0, 0, 0.6);
+            padding: .78571429em 1.5em;
+            transition: background .1s ease 0s; }
+            .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection:hover {
+              background-color: #EFF2F6; }
+            .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection span {
+              position: relative;
+              bottom: 2px;
+              font-weight: 400;
+              margin-right: 4px;
+              font-size: 12px; }
+      .collection-details .collection-details-content .collection-details-card .collection-content {
+        padding: 15px;
+        background: #fff; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .title {
+          font-weight: 600;
+          color: #33373D;
+          min-height: 1rem;
+          margin-bottom: 5px;
+          font-size: 28px;
+          line-height: 30.8px; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .description {
+          line-height: 1.4285em;
+          color: #33373D;
+          margin-bottom: 5px;
+          font-size: 15px; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .restaurants-offering-service {
+          color: #89959B;
+          margin-bottom: 5px;
+          font-size: 14px;
+          line-height: 1.4285em; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .save-collection {
+          transition: background .1s ease;
+          padding: 7px 10px;
+          font-size: 14px;
+          border: 1px solid #e7e7e7;
+          background: #fff;
+          border-radius: 4px;
+          line-height: 14px;
+          margin-bottom: 5px; }
+          .collection-details .collection-details-content .collection-details-card .collection-content .save-collection:hover {
+            background-color: #eff2f6; }
+    .collection-details .collection-details-content .collection-restaurants-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+      margin-top: 20px; }
+      .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item {
+        border-radius: .28571429rem;
+        border: 1px solid #e7e7e7;
+        overflow: hidden;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        background: #fff; }
+        .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-header {
+          position: relative; }
+          .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-header img {
+            width: 100%;
+            height: 150px; }
+          .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-header .restaurant-rating {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            height: 28px;
+            font-weight: 600;
+            width: 40px;
+            text-align: center;
+            color: #fff;
+            cursor: default;
+            font-size: 13pt;
+            letter-spacing: -.2px;
+            font-weight: 500;
+            border-radius: 0 3px; }
+        .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-content {
+          padding: 10px; }
+          .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-content .title {
+            font-size: 17px;
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #33373D;
+            line-height: 20px; }
+          .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-content .location {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+            white-space: nowrap;
+            color: #89959B;
+            text-transform: uppercase;
+            letter-spacing: .01em;
+            line-height: 20px; }
+          .collection-details .collection-details-content .collection-restaurants-list .collection-restaurant-item .restaurant-content .cuisines {
+            color: #89959B;
+            font-size: 14px;
+            line-height: 20px; }
+    .collection-details .collection-details-content .collections .collections-header {
+      margin-bottom: 14px; }
+      .collection-details .collection-details-content .collections .collections-header .collections-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 600;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #33373D;
+        font-size: 24px; }
+      .collection-details .collection-details-content .collections .collections-header .collections-subtitle {
+        margin-top: 5px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.2em;
+        color: #89959B;
+        font-weight: 400;
+        font-size: 16px;
+        word-spacing: 3px; }
+    .collection-details .collection-details-content .collections .collections-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      grid-gap: 20px; }
+      .collection-details .collection-details-content .collections .collections-list .collection-item-all {
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item-all img {
+          margin-top: 10px;
+          height: 60px; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item-all .collections-link {
+          padding: 10px;
+          color: #cb202d;
+          font-size: 14px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          line-height: 20px;
+          display: block; }
+      .collection-details .collection-details-content .collections .collections-list .collection-item {
+        display: grid;
+        grid-template-columns: 150px auto;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        border-radius: 0.2857rem;
+        overflow: hidden; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item img {
+          height: 120px;
+          width: 150px;
+          border: 1px solid #e7e7e7;
+          border-top-left-radius: 0.2857rem;
+          border-bottom-left-radius: 0.2857rem; }
+        .collection-details .collection-details-content .collections .collections-list .collection-item .about-item {
+          padding: 10px; }
+          .collection-details .collection-details-content .collections .collections-list .collection-item .about-item .title {
+            color: #33373D;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 20px; }
+          .collection-details .collection-details-content .collections .collections-list .collection-item .about-item .description {
+            color: #33373D;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 16px;
+            margin-top: 5px;
+            width: 190px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-line-clamp: 3;
+            max-height: 48px;
+            text-overflow: ellipsis;
+            line-clamp: 3;
+            overflow: hidden; }
+    .collection-details .collection-details-content .collections {
+      margin-top: 40px; }
+      .collection-details .collection-details-content .collections .more-collections {
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.1em;
+        font-weight: 600; }
+      .collection-details .collection-details-content .collections .container {
+        padding: 0px; }
+
 /* Get The App Component */
 .app-link {
   background: #fff;
@@ -893,6 +1247,306 @@ body {
     .app-link a img {
       height: 28px;
       padding-right: 4px; }
+
+.form-modal-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 99;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0; }
+  .form-modal-container .form-modal {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    border-radius: .28571429rem;
+    background: #fff;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .form-modal-container .form-modal .header {
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      line-height: 1.1em;
+      font-weight: 700;
+      padding: 21px;
+      border-bottom: 1px solid #e7e7e7; }
+      .form-modal-container .form-modal .header .close-icon {
+        margin-left: auto;
+        cursor: pointer;
+        line-height: 20px;
+        top: 14px;
+        opacity: .8;
+        font-weight: bold;
+        color: #33373D;
+        font-size: 20px; }
+        .form-modal-container .form-modal .header .close-icon i {
+          pointer-events: none; }
+        .form-modal-container .form-modal .header .close-icon:hover {
+          opacity: 1; }
+    .form-modal-container .form-modal .content {
+      padding: 21px; }
+      .form-modal-container .form-modal .content .login-form, .form-modal-container .form-modal .content .signup-form, .form-modal-container .form-modal .content .password-reset-form {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+        .form-modal-container .form-modal .content .login-form .message, .form-modal-container .form-modal .content .signup-form .message, .form-modal-container .form-modal .content .password-reset-form .message {
+          font-size: 14px;
+          line-height: 19.6px;
+          color: #33373D;
+          margin-bottom: 10px; }
+        .form-modal-container .form-modal .content .login-form .field, .form-modal-container .form-modal .content .signup-form .field, .form-modal-container .form-modal .content .password-reset-form .field {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 14px; }
+          .form-modal-container .form-modal .content .login-form .field label, .form-modal-container .form-modal .content .signup-form .field label, .form-modal-container .form-modal .content .password-reset-form .field label {
+            font-weight: 600;
+            line-height: 1.1em;
+            text-transform: none;
+            color: #33373D;
+            margin-bottom: 14px;
+            font-size: 17.92px; }
+          .form-modal-container .form-modal .content .login-form .field input, .form-modal-container .form-modal .content .signup-form .field input, .form-modal-container .form-modal .content .password-reset-form .field input {
+            height: 60px;
+            border-color: none;
+            line-height: 60px;
+            padding: .67861429em 1em;
+            font-size: 1em;
+            background: #FFF;
+            border: 1px solid #e7e7e7;
+            color: #33373D;
+            border-radius: .28571429rem;
+            box-shadow: 0 0 0 0 transparent inset;
+            -webkit-transition: color .1s ease,border-color .1s ease;
+            transition: color .1s ease,border-color .1s ease; }
+            .form-modal-container .form-modal .content .login-form .field input:focus, .form-modal-container .form-modal .content .signup-form .field input:focus, .form-modal-container .form-modal .content .password-reset-form .field input:focus {
+              outline-color: #85B7D9; }
+        .form-modal-container .form-modal .content .login-form .check-data, .form-modal-container .form-modal .content .signup-form .check-data, .form-modal-container .form-modal .content .password-reset-form .check-data {
+          display: flex !important;
+          flex-direction: row;
+          color: #33373D;
+          transition: color .1s ease;
+          cursor: auto;
+          display: block;
+          outline: 0;
+          font-size: 14px;
+          line-height: 17px; }
+          .form-modal-container .form-modal .content .login-form .check-data .checkbox-label, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label {
+            position: relative;
+            padding-left: 25px; }
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input {
+              cursor: pointer;
+              position: absolute;
+              top: 0;
+              left: 0;
+              outline: 0;
+              width: 17px;
+              height: 17px;
+              border-radius: .28571429rem; }
+              .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input:focus {
+                color: #fff !important;
+                outline-color: #85B7D9 !important; }
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label span {
+              font-weight: 500;
+              color: #33373D;
+              cursor: pointer; }
+          .form-modal-container .form-modal .content .login-form .check-data .forgotpass, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass {
+            color: #cb202d;
+            margin-left: auto;
+            cursor: pointer; }
+            .form-modal-container .form-modal .content .login-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass:hover {
+              transition: color .1s ease 0s;
+              color: #222d3d; }
+        .form-modal-container .form-modal .content .login-form button, .form-modal-container .form-modal .content .signup-form button, .form-modal-container .form-modal .content .password-reset-form button {
+          height: 60px;
+          line-height: 60px;
+          background-color: #CB202D;
+          color: #FFF;
+          margin-top: 20px;
+          border: none; }
+          .form-modal-container .form-modal .content .login-form button:disabled, .form-modal-container .form-modal .content .signup-form button:disabled, .form-modal-container .form-modal .content .password-reset-form button:disabled {
+            cursor: default;
+            opacity: .45; }
+          .form-modal-container .form-modal .content .login-form button:hover, .form-modal-container .form-modal .content .signup-form button:hover, .form-modal-container .form-modal .content .password-reset-form button:hover {
+            transition: background .1s ease 0s; }
+      .form-modal-container .form-modal .content .validation-msg {
+        border-radius: .28571429rem;
+        font-size: 14px;
+        margin: 14px 0; }
+
+@keyframes animate-validation-error {
+  0% {
+    opacity: 0;
+    padding: 0em 0em; }
+  20% {
+    opacity: 0.116; }
+  59% {
+    opacity: 0.778; }
+  80% {
+    opacity: 0.543; }
+  100% {
+    opacity: 1;
+    padding: 1em 1.5em; } }
+
+@keyframes animate-validation-success {
+  0% {
+    opacity: 1;
+    padding: 0em 0em; }
+  25% {
+    opacity: 0.778; }
+  50% {
+    opacity: 0.543; }
+  75% {
+    opacity: 0.778; }
+  100% {
+    opacity: 1;
+    padding: 1em 1.5em; } }
+      .form-modal-container .form-modal .content .animate-validation-error {
+        background-color: #FFF6F6;
+        color: #9F3A38;
+        box-shadow: 0 0 0 1px #E0B4B4 inset, 0 0 0 0 transparent;
+        animation-duration: 0.3s;
+        animation-name: animate-validation-error;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease; }
+      .form-modal-container .form-modal .content .animate-validation-success {
+        color: #155724;
+        background-color: #d4edda;
+        box-shadow: 0 0 0 1px #c3e6cb inset, 0 0 0 0 transparent;
+        animation-duration: 0.3s;
+        animation-name: animate-validation-success;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease; }
+      .form-modal-container .form-modal .content button {
+        width: 100%;
+        height: 65px;
+        line-height: 65px;
+        font-size: 15px;
+        border-radius: .28571429rem;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        outline: none; }
+      .form-modal-container .form-modal .content .continue-with-facebook {
+        display: block;
+        background-color: rgba(59, 89, 152, 0.97);
+        border: none;
+        color: #FFF;
+        margin-bottom: 21px; }
+        .form-modal-container .form-modal .content .continue-with-facebook:hover {
+          background-color: rgba(48, 77, 138, 0.97);
+          transition: background .1s ease 0s; }
+        .form-modal-container .form-modal .content .continue-with-facebook:hover span {
+          transition: background .1s ease 0s;
+          background-color: #304d8a; }
+        .form-modal-container .form-modal .content .continue-with-facebook span {
+          position: absolute;
+          left: 0px;
+          width: 61px;
+          top: 0px;
+          background-color: #3B5998;
+          font-size: 24px; }
+      .form-modal-container .form-modal .content .continue-with-google {
+        display: block;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 400;
+        border: 1px solid #e7e7e7;
+        background: #fff; }
+        .form-modal-container .form-modal .content .continue-with-google:hover {
+          transition: background .1s ease 0s;
+          box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 #e7e7e7 inset; }
+        .form-modal-container .form-modal .content .continue-with-google img {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          left: 0px;
+          margin-left: 21px; }
+      .form-modal-container .form-modal .content .horizontal-divider {
+        width: 100%;
+        height: 24px;
+        position: relative;
+        margin: 9px 0; }
+        .form-modal-container .form-modal .content .horizontal-divider .line {
+          background: #e7e7e7;
+          height: 1.5px;
+          display: block;
+          position: absolute;
+          line-height: 1px;
+          top: 50%;
+          width: 100%; }
+        .form-modal-container .form-modal .content .horizontal-divider .text {
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .05em;
+          color: rgba(0, 0, 0, 0.85);
+          text-align: center;
+          font-size: 14px;
+          width: 45px;
+          background: #fff;
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+      .form-modal-container .form-modal .content .use-email {
+        font-size: 17.92px;
+        font-weight: 600;
+        line-height: 18px;
+        text-transform: none;
+        color: #33373D;
+        text-align: center;
+        margin-bottom: 14px; }
+      .form-modal-container .form-modal .content .form-btns {
+        display: flex;
+        flex-direction: row; }
+        .form-modal-container .form-modal .content .form-btns .login-email {
+          margin-right: 20px;
+          background-color: #CB202D;
+          color: #FFF;
+          border: none; }
+          .form-modal-container .form-modal .content .form-btns .login-email:hover {
+            background-color: #bd1522;
+            transition: background .1s ease 0s; }
+        .form-modal-container .form-modal .content .form-btns .signUp-email {
+          color: rgba(0, 0, 0, 0.6);
+          font-weight: 400;
+          border: 1px solid #e7e7e7;
+          background: #fff; }
+          .form-modal-container .form-modal .content .form-btns .signUp-email:hover {
+            transition: background .1s ease 0s;
+            box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 #e7e7e7 inset; }
+      .form-modal-container .form-modal .content .privacy-policy {
+        color: #89959B;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 9pt;
+        text-align: center; }
+        .form-modal-container .form-modal .content .privacy-policy span {
+          color: #cb202d;
+          text-decoration: underline;
+          cursor: pointer; }
+          .form-modal-container .form-modal .content .privacy-policy span:hover {
+            transition: background-color .5s linear;
+            color: #222d3d;
+            text-decoration: none; }
+
+.modal-fade-enter {
+  opacity: 0; }
+
+.modal-fade-enter-active {
+  opacity: 1;
+  transition: .3s ease-in all; }
+
+.modal-fade-exit {
+  opacity: 1; }
+
+.modal-fade-exit-active {
+  opacity: 0;
+  transition: .3s ease-in all; }
 
 .login-navigation {
   display: grid;
@@ -924,11 +1578,7 @@ body {
 /* MainHome component*/
 .main-home-bg {
   height: 400px;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
+  width: 100%; }
   .main-home-bg .search-container {
     padding-top: 32px;
     padding-bottom: 45px;
@@ -1189,7 +1839,8 @@ body {
           color: #cb202d;
           font-size: 14px;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-          line-height: 20px; }
+          line-height: 20px;
+          display: block; }
       .main-home-bg .bottom-home-bg .collections .collections-list .collection-item {
         display: grid;
         grid-template-columns: 150px auto;
@@ -1208,7 +1859,7 @@ body {
           padding: 10px; }
           .main-home-bg .bottom-home-bg .collections .collections-list .collection-item .about-item .title {
             color: #33373D;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 20px; }
@@ -1218,7 +1869,15 @@ body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 16px;
             margin-top: 5px;
-            width: 190px; }
+            width: 190px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-line-clamp: 3;
+            max-height: 48px;
+            text-overflow: ellipsis;
+            line-clamp: 3;
+            overflow: hidden; }
     .main-home-bg .bottom-home-bg .cuisine-list {
       padding: 60px 0;
       max-width: 1160px;
@@ -1792,7 +2451,7 @@ body {
   position: fixed;
   top: 0px; }
   .layout .all-cuisines-container .all-cuisine-content {
-    margin: 60px 0;
+    margin: 100px 0;
     width: 600px;
     position: absolute;
     background: #fff;
@@ -1889,3 +2548,43 @@ body {
         outline: none; }
   .pagination .break a {
     cursor: default; }
+
+.note {
+  position: relative;
+  z-index: 100; }
+  .note .res-basic-note {
+    top: 138% !important;
+    left: 40% !important;
+    transform: initial !important; }
+  .note:hover .noteText {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s; }
+  .note .noteText {
+    position: absolute;
+    background: #585858;
+    white-space: nowrap;
+    z-index: 100;
+    border-radius: 6px;
+    top: 120%;
+    left: 10%;
+    height: 30.66px;
+    line-height: 30.66px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #fff;
+    padding: 0 10px;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.85);
+    pointer-events: none; }
+    .note .noteText:before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 15%;
+      margin-right: -5px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent #585858 transparent; }

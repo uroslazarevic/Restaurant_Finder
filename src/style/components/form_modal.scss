@@ -1,0 +1,276 @@
+.form-modal-container {
+  background-color: rgba(0,0,0,.85);
+  z-index: 99;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  
+  .form-modal {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    border-radius: .28571429rem;
+    background: #fff;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      line-height: 1.1em;
+      font-weight: 700;
+      padding: 21px;
+      border-bottom: 1px solid #e7e7e7;
+
+      .close-icon {
+        margin-left: auto;
+        cursor: pointer;
+        line-height: 20px;
+        top: 14px;
+        opacity: .8; 
+        font-weight: bold;
+        color: #33373D;
+        font-size: 20px;
+
+        i {
+          pointer-events: none;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .content {
+      padding: 21px;
+
+      // Import Forms Components
+      @import 'style/components/forms.scss';
+
+      .validation-msg {
+        border-radius: .28571429rem;
+        font-size: 14px;
+        margin: 14px 0;
+      }
+
+      @keyframes animate-validation-error {
+        0% { opacity: 0; padding: 0em 0em; }
+        20% { opacity: 0.116 }
+        59% { opacity: 0.778 }
+        80% { opacity: 0.543 }
+        100% { opacity: 1; padding: 1em 1.5em; }
+      }
+
+      @keyframes animate-validation-success {
+        0% { 
+          opacity: 1;
+          padding: 0em 0em;
+        }
+        25% { opacity:0.778 }
+        50% { opacity: 0.543 }
+        75% { opacity:0.778  }
+        100% { 
+          opacity: 1;
+          padding: 1em 1.5em;
+        }
+      }
+
+      .animate-validation-error {
+        background-color: #FFF6F6;
+        color: #9F3A38;
+        box-shadow: 0 0 0 1px #E0B4B4 inset, 0 0 0 0 transparent;
+        animation-duration: 0.3s;
+        animation-name: animate-validation-error; 
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+      }
+
+      .animate-validation-success {
+        color: #155724;
+        background-color: #d4edda;
+        box-shadow: 0 0 0 1px #c3e6cb inset, 0 0 0 0 transparent;
+        animation-duration: 0.3s;
+        animation-name: animate-validation-success; 
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+      }
+
+      button {
+        width: 100%;
+        height:  65px;
+        line-height: 65px;
+        font-size: 15px;
+        border-radius: .28571429rem;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .continue-with-facebook {
+        display: block;
+        background-color: rgba(59, 89, 152, 0.97);
+        border: none;
+        color: #FFF;
+        margin-bottom: 21px;
+
+        &:hover {
+          background-color: rgba(48, 77, 138, 0.97);
+          transition: background .1s ease 0s;
+        }
+
+        &:hover span {
+          transition: background .1s ease 0s;
+          background-color: #304d8a;
+        }
+
+        span {
+          position: absolute;
+          left: 0px;
+          width: 61px;
+          top: 0px;
+          background-color: #3B5998;
+          font-size: 24px;
+        }
+      }
+
+      .continue-with-google {
+        display: block;
+        color: rgba(0,0,0,.6);
+        font-weight: 400;
+        border: 1px solid #e7e7e7;
+        background: #fff;
+
+        &:hover {
+          transition: background .1s ease 0s;
+          box-shadow: 0 0 0 1px rgba(34,36,38,.35) inset, 0 0 0 0 #e7e7e7 inset;
+        }
+
+        img {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          left: 0px;
+          margin-left: 21px;
+        }
+      }
+
+      .horizontal-divider {
+        width: 100%;
+        height: 24px;
+        position: relative;
+        margin: 9px 0;
+
+        .line {
+          background: #e7e7e7;
+          height: 1.5px;
+          display: block;
+          position: absolute;
+          line-height: 1px;
+          top: 50%;
+          width: 100%;
+        }
+        
+        .text {
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: .05em;
+          color: rgba(0, 0, 0, 0.85);
+          text-align: center;
+          font-size: 14px;
+          width: 45px;
+          background: #fff;
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .use-email {
+        font-size: 17.92px;
+        font-weight: 600;
+        line-height: 18px;
+        text-transform: none;
+        color: #33373D;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+
+      .form-btns {
+        display: flex;
+        flex-direction: row;
+
+        .login-email {
+          margin-right: 20px;
+          background-color: #CB202D;
+          color: #FFF;
+          border: none;
+
+          &:hover {
+            background-color: #bd1522;
+            transition: background .1s ease 0s;
+          }
+        }
+
+        .signUp-email {
+          color: rgba(0,0,0,.6);
+          font-weight: 400;
+          border: 1px solid #e7e7e7;
+          background: #fff;
+
+          &:hover {
+            transition: background .1s ease 0s;
+            box-shadow: 0 0 0 1px rgba(34,36,38,.35) inset, 0 0 0 0 #e7e7e7 inset;
+          }
+        }
+      }
+
+      .privacy-policy {
+        color: #89959B;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 9pt;
+        text-align: center;
+
+        span {
+          color: #cb202d;
+          text-decoration: underline;
+          cursor: pointer;
+          
+
+          &:hover {
+            transition: background-color .5s linear;
+            color: #222d3d;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-fade-enter {
+  opacity: 0;
+}
+.modal-fade-enter-active {
+  opacity: 1;
+  transition: .3s ease-in all;
+}
+.modal-fade-exit {
+  opacity: 1;
+}
+.modal-fade-exit-active {
+  opacity: 0;
+  transition: .3s ease-in all;
+}
