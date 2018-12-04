@@ -12,7 +12,6 @@ export default function Filters( {
   handleCuisinesModal,
   cuisineModalItem,
   removeCuisineModalItem,
-  currentUrl
   } ) {
 
   return (
@@ -29,26 +28,6 @@ export default function Filters( {
         </ul>
       </div>
       
-      {currentUrl === `/${city.cityName.split(' ').join('-')}/Restaurants` ? 
-      (
-
-        <div className="categories-category">
-          <div className="title">Category</div>
-          <ul data-filter = "category" className="category content">
-            {categories !== undefined ? categories.filter(category =>  {
-              return category.categories.name !== 'Catching-up' &&  
-              category.categories.name !== 'Daily Menus' ? category: null })
-                .map( category => {
-              const { name, id } = category.categories;
-
-              return <li onClick={changeState} key={id} className='item ' value={id}>{name}</li>
-
-            } ) : <div>List of categories...</div>} 
-          </ul>
-        </div>
-
-      ): (
-
         <div className="categories-category">
           <div className="title">Category</div>
           <ul data-filter = "category" className="categories-content">
@@ -81,9 +60,6 @@ export default function Filters( {
           </ul>
         </div>
 
-      )}
-
-      
       <div className="top-cuisines-category">
         <div className="title">Cuisines</div>
         <ul data-filter = "cuisines" className="cuisines content">

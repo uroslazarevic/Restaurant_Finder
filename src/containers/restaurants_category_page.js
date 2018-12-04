@@ -284,7 +284,6 @@ class RestaurantsCategoryPage extends Component {
             <div className = "title">{wild_card} in {city_Name}</div>
             <div className = "content-div">
               <Filters
-                currentUrl={ this.props.match.url }
                 removeCuisineModalItem={this.removeCuisineModalItem}
                 cuisineModalItem = {this.state.cuisineModalItem}
                 handleCuisinesModal={this.handleCuisinesModal}
