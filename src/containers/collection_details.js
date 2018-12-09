@@ -82,22 +82,24 @@ class CollectionDetails extends Component {
 
   render() {
     const { searchedCollections, searchedCollectionDetails } = this.props;
-    const { cityName, cityId, collectionName, collectionId, showTooltip } = this.state;
+    const { cityName, cityId, collectionName, collectionId, showTooltip, pageLoader, showContent } = this.state;
     const splitedCityName = cityName.split(' ').join('-');
+    const urlHome = '/';
+    const urlCollections = `/${splitedCityName}/collections`;
 
     return (
       <div className="collection-details">
-        <Layout urlPath={ this.props.match.path } city={{ cityName, cityId }} >
-          {this.state.pageLoader && <PageLoader />}
-          {this.state.showContent && 
+        <Layout showFooter = { showContent } urlPath={ this.props.match.path } city={{ cityName, cityId }} >
+          { pageLoader && <PageLoader />}
+          { showContent && 
           <div className="collection-details-content container">
             <div className="pathway-link container" >
-              <Link to={{ pathname:`/`, state: { cityName, cityId } }} >
+              <Link to={{ pathname: urlHome, state: { cityName, cityId } }} >
                 Home
               </Link> 
               <span> <i className="fas fa-angle-right"></i></span><span> {cityName}</span> 
               <span> <i className="fas fa-angle-right"></i> </span> 
-              <Link  to={{ pathname:`/${splitedCityName}/collections`, state: { cityName, cityId } }} >Collections</Link>
+              <Link  to={{ pathname: urlCollections.toLowerCase(), state: { cityName, cityId } }} >Collections</Link>
               <span> <i className="fas fa-angle-right"></i> {collectionName}</span>
             </div>
             <CollectionDetailsCard 
@@ -113,7 +115,7 @@ class CollectionDetails extends Component {
               <div className="more-collections">More Collections</div>
               <Collections 
                 collections={searchedCollections} 
-                city={{ cityName: cityName, cityId: cityId }} 
+                city={{ cityName, cityId }} 
                 filterOutId = { collectionId }
               />
             </div>

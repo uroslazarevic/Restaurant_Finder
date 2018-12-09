@@ -153,116 +153,81 @@ class RestaurantsCategoryPage extends Component {
 
   componentWillMount() {
     const { getLocationDetails,  getSearchedRestaurants, getSearchedCategories, getSearchedEstablishments, getSearchedCuisines } = this.props;
-    // State params
-    const { entity_id } = this.state.filterObject
-    
-    if( this.props.location.state ) {
-      // Props params
-      const {categoryId, cityId} = this.props.location.state;
+    const wildcard = this.props.location.state ? this.props.match.params.wildcard : this.state.wildcard;
+    const cityName = this.props.location.state ? this.props.location.state.cityName : this.state.cityName;
+    const cityId = this.props.location.state ? this.props.location.state.cityId : this.state.filterObject.entity_id;
+    const categoryId = this.props.location.state ? this.props.location.state.categoryId : this.state.filterObject.category;
      
-      this.setState({ pageLoader: true, showContent: false, filterObject: { ...this.state.filterObject, 
-        category: categoryId, entity_id: cityId } }, () => {
-          axios.all([
-            getSearchedRestaurants(this.state.filterObject),
-            getLocationDetails({ entity_id: cityId }),
-            getSearchedCategories(),
-            getSearchedEstablishments({ city_id: cityId }),
-            getSearchedCuisines({ city_id: cityId })
-        ]).then( () => {
-          this.setState({ pageLoader: false, showContent: true })
-          this.paintActiveListItems()
-         } );
-      }) 
-    } else {
-      this.setState({ pageLoader: true, showContent: false }, () => {
+    this.setState({ 
+      pageLoader: true, showContent: false, cityName: cityName, wildcard: wildcard,
+      filterObject: { ...this.state.filterObject, 
+      category: categoryId, entity_id: cityId } 
+    }, () => {
         axios.all([
           getSearchedRestaurants(this.state.filterObject),
-          getLocationDetails({ entity_id }),
+          getLocationDetails({ entity_id: cityId }),
           getSearchedCategories(),
-          getSearchedEstablishments({ city_id: entity_id }),
-          getSearchedCuisines({ city_id: entity_id })
-        ]).then( () => {
-          this.setState({ pageLoader: false, showContent: true })
-          this.paintActiveListItems()
-         } );
-      })
-    }
+          getSearchedEstablishments({ city_id: cityId }),
+          getSearchedCuisines({ city_id: cityId })
+      ]).then( () => {
+        this.setState({ pageLoader: false, showContent: true })
+        this.paintActiveListItems()
+        } );
+    }) 
   }
 
   componentWillReceiveProps(newProps) {
     const { getSearchedRestaurants } = this.props;
 
-    if(newProps.match.params.wildcard !== this.props.match.params.wildcard ) {
+    if( newProps.match.params.wildcard !== this.props.match.params.wildcard 
+      || newProps.match.params.city !== this.props.match.params.city ) {
+      const wildcard = newProps.match.params.wildcard;
+      const categoryId = newProps.location.state.categoryId;
+      const cityId = newProps.location.state ? newProps.location.state.cityId: this.state.filterObject.entity_id;
+      const cityName = this.props.location.state ? newProps.location.state.cityName : this.state.cityName;
 
-      if(this.props.location.state !== undefined) {
-        const newCategoryId = newProps.location.state.categoryId;
-        const oldCategoryId = this.props.location.state.categoryId;
-        newCategoryId !== oldCategoryId && (
-          // If there is selected next-active-cuisine-iten, on restaurants search, remove active cuisineModalItem
-          this.state.cuisineModalItem.cuisineId  !== this.state.filterObject.cuisines ? 
-            this.setState({ cuisineModalItem: { cuisineId: '', cuisineName: '' } }): null,
-
-          this.setState({ pageLoader: true, showContent: false, 
-            filterObject: { ...this.state.filterObject, category: newCategoryId,
-            entity_id:( newProps.location.state.cityId ? newProps.location.state.cityId : this.state.filterObject.entityId)  }}, () => {
-            getSearchedRestaurants(this.state.filterObject).then(() => {
-              this.setState({ pageLoader: false, showContent: true, wildcard: this.props.match.params.wildcard })
-              this.paintActiveListItems();
-            })
-          })
-        )
-      } else {
-        this.setState({ pageLoader: true, showContent: false, 
-          filterObject: { ...this.state.filterObject,
-          entity_id:( newProps.location.state.cityId ? newProps.location.state.cityId : this.state.filterObject.entityId)  }}, () => {
-          getSearchedRestaurants(this.state.filterObject).then(() => {
+      this.setState({ 
+        pageLoader: true, showContent: false,
+        cityName: cityName, wildcard: wildcard, 
+        filterObject: { ...this.state.filterObject, category: categoryId,
+        entity_id: cityId }
+      }, () => {
+        getSearchedRestaurants(this.state.filterObject)
+          .then(() => {
             this.setState({ pageLoader: false, showContent: true, wildcard: this.props.match.params.wildcard })
             this.paintActiveListItems();
           })
-        })
-      }
-    } 
-    if(this.props.location.state.cityId !== newProps.location.state.cityId) {
-      this.setState({ pageLoader: true, showContent: false, 
-        filterObject: { ...this.state.filterObject,
-        entity_id:( newProps.location.state.cityId ? newProps.location.state.cityId : this.state.filterObject.entityId)  }}, () => {
-        getSearchedRestaurants(this.state.filterObject).then(() => {
-          this.setState({ pageLoader: false, showContent: true, wildcard: this.props.match.params.wildcard })
-          this.paintActiveListItems();
-        })
       })
     }
   }
   
   renderRestaurantCard(city) {
     const { searchedRestaurants } = this.props;
+
     return searchedRestaurants.restaurants !== undefined ? 
-    <RestaurantCard 
-      city= { city }
-      restaurants = {searchedRestaurants.restaurants} /> : null;
+      <RestaurantCard 
+        city= { city }
+        restaurants = {searchedRestaurants.restaurants} /> : null;
+  }
+
+  capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1);
   }
   
   render() {
     const { searchedLocationDetails: { top_cuisines }, searchedCategories, searchedEstablishments, searchedCuisines, searchedRestaurants } = this.props;
+    const { wildcard, cityName, filterObject: { cityId }, showCuisinesModal, pageLoader, showContent } = this.state;
     let pageCount;
+    const urlHome = '/';
+    const wildcardCap = this.capitalize(wildcard)
+    console.log(wildcardCap)
 
     searchedRestaurants ? (
       pageCount = Math.ceil(searchedRestaurants.results_found / this.state.filterObject.count)
     ) : 50
-
-    let wild_card, city_Name, city_Id;
-    if(this.props.location.state) {
-      const { cityName, cityId } = this.props.location.state;
-      wild_card = this.props.match.params.wildcard;
-      city_Name = cityName;
-      city_Id = cityId
-    } else {
-      wild_card = this.state.wildcard;
-      city_Name = this.state.cityName;
-      city_Id =this.state.entity_id
-    }
+    
     const transitionOptions = {
-      in: this.state.showCuisinesModal,
+      in: showCuisinesModal,
       timeout: 300,
       classNames :"modal-fade",
       unmountOnExit: true
@@ -271,48 +236,48 @@ class RestaurantsCategoryPage extends Component {
     return(
       <div className="browse-by-category-wrapper">
         <Layout 
+          showFooter = { showContent }
           urlPath={this.props.match.path}
-          city={{ cityName: city_Name, cityId: city_Id }} >
-          {this.state.pageLoader && <PageLoader/>}
-          {this.state.showContent && <div className="container">
-            <div className="pathway-link" >
-              <Link to={{ pathname:`/`, state: { cityName: city_Name, cityId: city_Id } }} >Home
-              </Link>
-               <span><i className="fas fa-angle-right"></i></span> <span>{city_Name} </span>
-               <span><i className="fas fa-angle-right"></i></span> <span>{wild_card}</span>
-            </div>
-            <div className = "title">{wild_card} in {city_Name}</div>
-            <div className = "content-div">
-              <Filters
-                removeCuisineModalItem={this.removeCuisineModalItem}
-                cuisineModalItem = {this.state.cuisineModalItem}
-                handleCuisinesModal={this.handleCuisinesModal}
-                city = {{ cityName:city_Name, cityId:city_Id, categoryNameState: wild_card }}
-                searchRestaurants = {this.handleOnClickSearchFilter}
-                changeState = {this.handleFilterObjStateChange}
-                allCuisines = {searchedCuisines}
-                topCuisines = {top_cuisines}
-                categories = {searchedCategories}
-                establishments = {searchedEstablishments} 
-              />
-              <ul className="restaurant-list" >
-                {this.renderRestaurantCard({
-                   cityName:city_Name, cityId:city_Id 
-                })}
-              </ul>
-            </div>
-            <Pagination 
-              handlePageClick={this.handlePaginationPageClick}
-              pageCount={pageCount}
-            />
-          </div>}
-         
-          <CSSTransition {...transitionOptions} >
-            <CuisinesModal 
-              handleCuisinesModal={this.handleCuisinesModal} 
-              allCuisines={searchedCuisines} />
-          </CSSTransition>
-        
+          city={{ cityName, cityId }} >
+          {pageLoader && <PageLoader/>}
+          { showContent && 
+            <React.Fragment>
+              <div className="container">
+                <div className="pathway-link" >
+                  <Link to={{ pathname: urlHome, state: { cityName, cityId } }} >Home</Link>
+                  <span><i className="fas fa-angle-right"></i></span> <span>{cityName} </span>
+                  <span><i className="fas fa-angle-right"></i></span> <span>{wildcardCap}</span>
+                </div>
+                <div className = "title">{wildcardCap} in {cityName}</div>
+                <div className = "content-div">
+                  <Filters
+                    removeCuisineModalItem={this.removeCuisineModalItem}
+                    cuisineModalItem = {this.state.cuisineModalItem}
+                    handleCuisinesModal={this.handleCuisinesModal}
+                    city = {{ cityName, cityId, categoryNameState: wildcardCap }}
+                    searchRestaurants = {this.handleOnClickSearchFilter}
+                    changeState = {this.handleFilterObjStateChange}
+                    allCuisines = {searchedCuisines}
+                    topCuisines = {top_cuisines}
+                    categories = {searchedCategories}
+                    establishments = {searchedEstablishments} 
+                  />
+                  <ul className="restaurant-list" >
+                    {this.renderRestaurantCard({ cityName, cityId })}
+                  </ul>
+                </div>
+                <Pagination 
+                  handlePageClick={this.handlePaginationPageClick}
+                  pageCount={pageCount}
+                />
+              </div>
+              <CSSTransition {...transitionOptions} >
+                <CuisinesModal 
+                  handleCuisinesModal={this.handleCuisinesModal} 
+                  allCuisines={searchedCuisines} />
+              </CSSTransition>
+            </React.Fragment>
+          }
         </Layout>
       </div>
     );

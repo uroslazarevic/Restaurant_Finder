@@ -5,26 +5,26 @@
     bottom: 40px;
   }
 
-$font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  $font-stack: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
-%title {
-  font-family: $font-stack;
-  font-weight: 600;
-  line-height: 1.1em;
-  text-transform: none;
-  color: #33373D;
-  font-size: 24px;
-}
+  %title {
+    font-family: $font-stack;
+    font-weight: 600;
+    line-height: 1.1em;
+    text-transform: none;
+    color: #33373D;
+    font-size: 24px;
+  }
 
-%subtitle {
-  margin-top: 5px;
-  font-family: $font-stack;
-  line-height: 1.2em;
-  color: #89959B;
-  font-weight: 400;
-  font-size: 16px;
-  word-spacing: 3px;
-}
+  %subtitle {
+    margin-top: 5px;
+    font-family: $font-stack;
+    line-height: 1.2em;
+    color: #89959B;
+    font-weight: 400;
+    font-size: 16px;
+    word-spacing: 3px;
+  }
   
   // Collections component
   @import 'style/components/collections.scss';

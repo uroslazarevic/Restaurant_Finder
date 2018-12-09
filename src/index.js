@@ -22,7 +22,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/:city/Restaurants/:restaurant" component={RestaurantDetails} />
+          <Route path="/:city/restaurants/:restaurant" component={RestaurantDetails} />
           <Route path="/:city/collections/:collection" component={CollectionDetails} />
           <Route path="/:city/collections" component={CityCollections} />
           <Route path="/:city/:wildcard" component={RestaurantsCategoryPage} />

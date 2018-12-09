@@ -26,10 +26,11 @@ export default function PlacesList ({ placesList, city }) {
           const { name, thumb, location: { locality }, R: { res_id } } = place;
           const splitedRestaurantName = name.split(' ').join('-');
           const splitedCityName = city.cityName.split(' ').join('-');
+          const url = `/${splitedCityName}/restaurants/${splitedRestaurantName}`;
 
           return (
             <Link 
-            to= {{ pathname:`/${splitedCityName}/Restaurants/${splitedRestaurantName}`, state: { 
+            to= {{ pathname: url.toLowerCase(), state: { 
               resId: res_id, 
               resName: name,
               cityName: city.cityName,

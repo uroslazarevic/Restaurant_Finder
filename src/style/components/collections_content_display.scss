@@ -1,0 +1,14 @@
+/* Collections Content Display Component */
+
+.coll-content-display {
+
+  // Handpicked Collections Card Component
+  @import 'style/components/handpicked_collections_card.scss';
+
+  // Collections Navigation Card Component
+  @import 'style/components/navigation_collections_card.scss';
+
+  // Following Collections Card Component
+  @import 'style/components/following_collections_card.scss';
+}
+

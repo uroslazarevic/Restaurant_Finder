@@ -29,12 +29,13 @@ function createPopularRestaurantItem(data, city) {
 
     const splitedRestaurantName = name.split(' ').join('-');
     const splitedCityName = city.cityName.split(' ').join('-');
+    const url = `/${splitedCityName}/restaurants/${splitedRestaurantName}`
     
     return (
       <Link 
         key={name} 
         className="restaurant-item"
-        to= {{ pathname:`/${splitedCityName}/Restaurants/${splitedRestaurantName}`, state: { 
+        to= {{ pathname: url.toLowerCase(), state: { 
           resId: res_id, 
           resName: name,
           cityName: city.cityName,

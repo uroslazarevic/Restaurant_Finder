@@ -5,7 +5,7 @@ import axios from 'axios';
 // import Actions
 import { getSearchedCollections, getLocationDetails } from 'actions';
 // Import Components
-import { Collections, CategoriesList, PopularRestaurants, PageLoader } from 'components'; 
+import { Collections, CategoriesList, PopularRestaurants, PageLoader, Footer } from 'components'; 
 
 class HomeBottom extends Component {
   constructor(props) {
@@ -74,7 +74,9 @@ class HomeBottom extends Component {
   }
 
   render() {
+    const { city: { cityId, cityName } } = this.props
     const { pageLoader, showContent } = this.state;
+
     return (
       <React.Fragment>
         { pageLoader && <PageLoader/> }
@@ -85,6 +87,7 @@ class HomeBottom extends Component {
             <div className="popular-restaurants-list">{this.renderPopularRestoraunts()}</div>
           </div>
         }
+       { showContent && <Footer city={{ cityName, cityId }} /> }
       </React.Fragment>
     )
   }

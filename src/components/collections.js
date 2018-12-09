@@ -5,6 +5,7 @@ import collectionsImg from '../images/collections_img.webp'
 export default ({ collections, city, urlPath, filterOutId }) => {
     const { cityName, cityId } = city;
     const splitedCityName = cityName.split(' ').join('-');
+    const url = `/${splitedCityName}/collections`;
     
   return (
     <div className="container">
@@ -16,7 +17,7 @@ export default ({ collections, city, urlPath, filterOutId }) => {
           {createCollectionItems(collections, city, filterOutId)}
           {urlPath && 
           <Link 
-            to={{ pathname:`/${splitedCityName}/collections`, state: { cityName, cityId } }} 
+            to={{ pathname: url.toLowerCase(), state: { cityName, cityId } }} 
             className="collection-item-all">
             <img src={collectionsImg} alt="Slika kolekcija" />
             <div className="collections-link">All collections in Bratislava</div>
@@ -38,12 +39,13 @@ function createCollectionItems(collections, city, filterOutId) {
     const { title, description, image_url, collection_id } = collection.collection;
     const splitedCityName = cityName.split(' ').join('-');
     const collectionTitle = title.split(' ').join('-')
+    const url = `/${splitedCityName}/collections/${collectionTitle}`;
    
     return (
       <Link 
         key={collection_id} 
         className="collection-item"
-        to={{ pathname: `/${splitedCityName}/collections/${collectionTitle}`, 
+        to={{ pathname: url.toLowerCase(), 
         state: { cityName, cityId, collectionId: collection_id, collectionName: title } }} >
         <img src= {image_url} alt="" />
         <div className="about-item">

@@ -21,7 +21,6 @@ export default class ResContentDisplay extends Component {
   updateDisplayView(e) {
     const value = e.target.getAttribute('value');
     this.setState({ displayView: value })
-    console.log()
   }
   
   render() {

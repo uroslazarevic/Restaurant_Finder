@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 import zomatoUrbanSpoon from '../images/zomato-us-transparant-logo.webp';
 
-import { GetTheApp, LoginNavigation, FormModal } from 'components';
+import { GetTheApp, LoginNavigation, FormModal, Footer } from 'components';
 import { SearchForm } from 'containers';
 
 export default class Layout extends Component {
@@ -11,8 +12,8 @@ export default class Layout extends Component {
     super(props);
 
     this.state = {
-      cityName: this.props.city.cityName,
-      cityId: this.props.city.cityId,
+      searchCityName: this.props.city.cityName,
+      searchCityId: this.props.city.cityId,
       showModal: false
     }
 
@@ -39,10 +40,14 @@ export default class Layout extends Component {
   }
 
   handleParentCityState({ cityName, cityId }) {
-    this.setState({ cityName, cityId });
+    this.setState({ searchCityName: cityName, searchCityId: cityId });
   }
-  
+
   render () {
+    const { searchCityName, searchCityId } = this.state;
+    const { cityName, cityId } = this.props.city;
+    const urlHome = '/';
+
     const transitionOptions = {
       in: this.state.showModal,
       timeout: 300,
@@ -54,10 +59,12 @@ export default class Layout extends Component {
       <div className="layout">
         <header>
           <div className = "header-top">
-            <img className="zomato-urban-spon-logo" src={zomatoUrbanSpoon} alt='zomato-spoon-logo' />
+            <Link to={{ pathname: urlHome, state: { cityName, cityId } }} >
+              <img className="zomato-urban-spon-logo" src={zomatoUrbanSpoon} alt='zomato-spoon-logo' />
+            </Link>
             <SearchForm 
               urlPath={this.props.urlPath}
-              city={{ cityName: this.state.cityName, cityId: this.state.cityId }} 
+              city={{ cityName: searchCityName, cityId: searchCityId }} 
               handleParentCityState={ this.handleParentCityState } />
             <LoginNavigation showFormModal = {this.showFormModal} />
           </div>
@@ -71,6 +78,7 @@ export default class Layout extends Component {
             hideFormModal={this.hideFormModal}/> 
         </CSSTransition>
         {this.props.children}
+       { this.props.showFooter && <Footer city = {{ cityName, cityId }} /> }
       </div>
     );
   };

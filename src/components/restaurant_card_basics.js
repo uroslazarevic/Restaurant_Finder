@@ -36,12 +36,12 @@ function renderRestaurantCard(restaurants, city) {
     } = restaurant;
     const splitedRestaurantName = name.split(' ').join('-');
     const splitedCityName = city.cityName.split(' ').join('-');
-
+    const url = `/${splitedCityName}/restaurants/${splitedRestaurantName}`;
     const ratingStyle = { backgroundColor: `#${rating_color}`, border: `1px solid #${rating_color}`}
     
     return (
       <Link 
-        to= {{ pathname:`/${splitedCityName}/Restaurants/${splitedRestaurantName}`, state: { 
+        to= {{ pathname: url.toLowerCase(), state: { 
           resId: res_id, 
           resName: name,
           cityName: city.cityName,

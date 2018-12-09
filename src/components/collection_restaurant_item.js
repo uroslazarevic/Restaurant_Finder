@@ -6,7 +6,6 @@ import resThumbAvatar from '../images/restaurant_thumbnail_replacement.jpg'
 export default ({ restaurant, city }) => {
   const { 
   name,
-  thumb,
   featured_image,
   cuisines,
   location: { locality_verbose },
@@ -17,11 +16,12 @@ export default ({ restaurant, city }) => {
   const splitedRestaurantName = name.split(' ').join('-');
   const splitedCityName = city.cityName.split(' ').join('-');
   const ratingStyle = { backgroundColor: `#${rating_color}`, border: `1px solid #${rating_color}`}
+  const url = `/${splitedCityName}/restaurants/${splitedRestaurantName}`;
 
   return (
     <Link 
       className="collection-restaurant-item"
-      to= {{ pathname:`/${splitedCityName}/Restaurants/${splitedRestaurantName}`, 
+      to= {{ pathname: url.toLowerCase(), 
       state: { 
           resId: res_id, 
           resName: name,

@@ -32,6 +32,11 @@ import ResGeneralCard from './restaurant_general_card';
 import CollectionDetailsCard from './collection_details_card';
 import CollectionRestaurantsList from './collection_restaurants_list';
 import CollectionRestaurantItem from './collection_restaurant_item';
+import CollContentDisplay from './collections_content_display';
+import HandpickedCollCard from './handpicked_collections_card';
+import NavigationCollCard from './navigation_collections_card';
+import FollowingCollCard from './following_collections_card';
+import Footer from './footer';
 import ShowNote from './show_note';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './loaders';
 
@@ -75,6 +80,11 @@ export {
   CollectionDetailsCard,
   CollectionRestaurantsList,
   CollectionRestaurantItem,
-  ShowNote
+  CollContentDisplay,
+  HandpickedCollCard,
+  NavigationCollCard,
+  FollowingCollCard,
+  ShowNote,
+  Footer
   
 }

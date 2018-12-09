@@ -33,12 +33,14 @@ class RestaurantDetails extends Component {
   handleReviewsFetchScroll() {
     const { getRestaurantReviews } = this.props;
 
-    clearTimeout(this.debounce) 
+    clearTimeout(this.debounce); 
     this.debounce = setTimeout(() => {
       if(document.querySelector('.restaurant-reviews-card')) {
         const containerHeight = document.querySelector('.layout').getBoundingClientRect().height;
+        const footerHeight = document.querySelector('.footer').getBoundingClientRect().height
         const bottomScrolledViewpoint = window.scrollY + window.innerHeight;
-        const scrollHeight = containerHeight - bottomScrolledViewpoint;
+        const scrollHeight = containerHeight - bottomScrolledViewpoint - footerHeight;
+        console.log('containerHeight', containerHeight, 'bottomScrolledViewpoint', bottomScrolledViewpoint)
         
         if (scrollHeight < 10 && this.state.showNotification === false ) {
           this.setState({ multiple: this.state.multiple + 1, reviewsLoader: true }, () => {
@@ -48,11 +50,11 @@ class RestaurantDetails extends Component {
                 document.body.style.overflow = 'initial';
               }))
           })
-        } else if(scrollHeight > 160) {
+        } else if(scrollHeight > 60) {
           this.setState({ showNotification: false } )
         }
       }
-    }, 200)
+    }, 150)
   }
 
   componentWillMount() {
@@ -96,19 +98,22 @@ class RestaurantDetails extends Component {
   }
 
   render() {
-    const { cityName, cityId, resName, showNotification, reviewsLoader } = this.state;
+    const { cityName, cityId, resName, showNotification, reviewsLoader, pageLoader, showContent } = this.state;
     const { searchedRestaurantDetails, searchedRestaurantReviews } = this.props;
+    const urlHome = '/';
+    const splitedCityName = cityName.split(' ').join('-');
+    const urlRestaurants = `/${splitedCityName}/restaurants`;
 
     return (
       <div className="restaurant-details">
-        <Layout urlPath={ this.props.match.path }city={{ cityName, cityId }} >
-        {this.state.pageLoader && <PageLoader />}
-        {this.state.showContent && <div className="restaurant-details-content container">
+        <Layout showFooter = { showContent } urlPath={ this.props.match.path } city={{ cityName, cityId }} >
+        { pageLoader && <PageLoader />}
+        { showContent && <div className="restaurant-details-content container">
             <div className="pathway-link container" >
-              <Link to={{ pathname:`/`, state: { cityName, cityId } }} >Home</Link> 
+              <Link to={{ pathname: urlHome, state: { cityName, cityId } }} >Home</Link> 
               <span> <i className="fas fa-angle-right"></i></span><span> {cityName}</span>
               <span> <i className="fas fa-angle-right"></i> </span>  
-              <Link to={{ pathname:`/${cityName}/Restaurants`, state: { cityName, cityId } }} >Restaurants</Link>
+              <Link to={{ pathname: urlRestaurants.toLowerCase(), state: { cityName, cityId } }} >Restaurants</Link>
               <span> <i className="fas fa-angle-right"></i></span><span> {resName}</span>
             </div>
             <ResContentDisplay 
@@ -116,9 +121,7 @@ class RestaurantDetails extends Component {
               resReviews = { searchedRestaurantReviews }
               showWarning = { this.state.showWarning } 
             />
-
             { reviewsLoader && <ReviewsLoader />}
-            
             <CSSTransition
               in={showNotification}
               timeout={200}

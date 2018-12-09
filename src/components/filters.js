@@ -40,12 +40,13 @@ export default function Filters( {
               const { cityName, cityId, categoryNameState } = city;
               const splitedCityName = cityName.split(' ').join('-');
               const categoryName = name.split(' ').join('-');
+              const url = `/${splitedCityName}/${categoryName}`;
 
               return (
                 <Link 
                   key={id} 
                   to={{ 
-                    pathname:`/${splitedCityName}/${categoryName}`, 
+                    pathname: url.toLowerCase(), 
                     state: { categoryName: name, cityName, categoryId: id , cityId } 
                 }} >
                   <li 

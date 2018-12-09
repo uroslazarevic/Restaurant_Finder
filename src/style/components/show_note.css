@@ -1,6 +1,5 @@
 .note {
-  position: relative;
-  z-index: 1; }
+  position: relative; }
   .note .res-basic-note {
     top: 138% !important;
     left: 40% !important;
@@ -14,7 +13,7 @@
     position: absolute;
     background: #585858;
     white-space: nowrap;
-    z-index: 100;
+    z-index: 2;
     border-radius: 6px;
     top: 120%;
     left: 10%;
