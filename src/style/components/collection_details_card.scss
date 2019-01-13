@@ -129,15 +129,33 @@
       line-height: 1.4285em;
     }
 
-    .save-collection {
-      transition: background .1s ease;
+    .coll-btn {
+      transition: all .1s ease;
       padding: 7px 10px;
       font-size: 14px;
-      border: 1px solid #e7e7e7;
-      background: #fff;
-      border-radius: 4px;
       line-height: 14px;
       margin-bottom: 5px;
+      outline: none;
+      overflow: hidden;
+      white-space: nowrap;
+      border-radius: 4px;
+    }
+
+    .remove-collection {
+      border: 1px solid #d31616;
+      background: #d31616;
+      color: #fff;
+      width: 148.05px;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .save-collection {
+      width: 116.13px;
+      border: 1px solid #e7e7e7;
+      background: #fff;
 
       &:hover {
         background-color: #eff2f6;

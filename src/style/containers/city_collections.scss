@@ -4,23 +4,48 @@
   .city-collections-content {
     background: #F3F3F3;;
     padding-bottom: 40px;
-
-    .city-collections-title {
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-      line-height: 1.1em;
-      font-weight: 600;
-      padding: 0;
-      font-size: 28px;
-      margin: 10px 0;
-    }
-
-    .city-collections-subtitle {
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-      font-size: 14px;
-      line-height: 1.4285em;
-      color: #33373D;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    
+    .info {
+      display: flex;
+      flex-direction: row;
       margin-bottom: 20px;
+
+      .left {
+        .city-collections-title {
+          line-height: 1.1em;
+          font-weight: 600;
+          padding: 0;
+          font-size: 28px;
+          margin: 10px 0;
+        }
+    
+        .city-collections-subtitle {
+          font-size: 14px;
+          line-height: 1.4285em;
+          color: #33373D;
+        }
+      }
+
+      .right {
+        align-self: flex-end;
+        margin-left: auto;
+        padding: 11px 21px;
+        transition: background .1s ease 0s;
+        height: 36px;
+        background-color: #099E44;
+        font-size: 14px;
+        border: none;
+        line-height: 14px;
+        border-radius: .28571429rem;
+        color: #FFF;
+
+        &:hover {
+          background-color: #018c38;
+        }
+      }
     }
+
     
     // Pathway Link
     @import 'style/components/pathway_link.scss';

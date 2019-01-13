@@ -2,27 +2,44 @@
 .city-collections .city-collections-content {
   background: #F3F3F3;
   padding-bottom: 40px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   /* Collections Content Display Component */ }
-  .city-collections .city-collections-content .city-collections-title {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    line-height: 1.1em;
-    font-weight: 600;
-    padding: 0;
-    font-size: 28px;
-    margin: 10px 0; }
-  .city-collections .city-collections-content .city-collections-subtitle {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 14px;
-    line-height: 1.4285em;
-    color: #33373D;
+  .city-collections .city-collections-content .info {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 20px; }
+    .city-collections .city-collections-content .info .left .city-collections-title {
+      line-height: 1.1em;
+      font-weight: 600;
+      padding: 0;
+      font-size: 28px;
+      margin: 10px 0; }
+    .city-collections .city-collections-content .info .left .city-collections-subtitle {
+      font-size: 14px;
+      line-height: 1.4285em;
+      color: #33373D; }
+    .city-collections .city-collections-content .info .right {
+      align-self: flex-end;
+      margin-left: auto;
+      padding: 11px 21px;
+      transition: background .1s ease 0s;
+      height: 36px;
+      background-color: #099E44;
+      font-size: 14px;
+      border: none;
+      line-height: 14px;
+      border-radius: .28571429rem;
+      color: #FFF; }
+      .city-collections .city-collections-content .info .right:hover {
+        background-color: #018c38; }
   .city-collections .city-collections-content .pathway-link {
     background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;
     line-height: 9px;
-    padding: 30px 0; }
+    margin-top: 30px;
+    margin-bottom: 30px; }
     .city-collections .city-collections-content .pathway-link span i {
       padding: 0 2px; }
     .city-collections .city-collections-content .pathway-link a {
@@ -35,7 +52,8 @@
   .city-collections .city-collections-content .coll-content-display {
     /* Hadpicked Collections Card Component */
     /*  Navigation Collections Card Component */
-    /*  Following Collections Card Component */ }
+    /*  Following Collections Card Component */
+    /*  Saved Collections Card Component */ }
     .city-collections .city-collections-content .coll-content-display .collections .collections-header {
       margin-bottom: 14px; }
       .city-collections .city-collections-content .coll-content-display .collections .collections-header .collections-title {
@@ -146,6 +164,17 @@
       margin-bottom: 40px;
       text-align: center; }
       .city-collections .city-collections-content .coll-content-display .following-coll .filling-in {
+        margin: 20px 0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 1.4285em;
+        color: #33373D; }
+    .city-collections .city-collections-content .coll-content-display .saved-coll {
+      padding-top: 40px;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      text-align: center; }
+      .city-collections .city-collections-content .coll-content-display .saved-coll .filling-in {
         margin: 20px 0;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
         font-size: 14px;

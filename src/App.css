@@ -150,7 +150,8 @@ body {
     font-size: 11px;
     font-weight: 600;
     line-height: 9px;
-    padding: 30px 0; }
+    margin-top: 30px;
+    margin-bottom: 30px; }
     .browse-by-category-wrapper .container .pathway-link span i {
       padding: 0 2px; }
     .browse-by-category-wrapper .container .pathway-link a {
@@ -174,27 +175,44 @@ body {
 .city-collections .city-collections-content {
   background: #F3F3F3;
   padding-bottom: 40px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   /* Collections Content Display Component */ }
-  .city-collections .city-collections-content .city-collections-title {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    line-height: 1.1em;
-    font-weight: 600;
-    padding: 0;
-    font-size: 28px;
-    margin: 10px 0; }
-  .city-collections .city-collections-content .city-collections-subtitle {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 14px;
-    line-height: 1.4285em;
-    color: #33373D;
+  .city-collections .city-collections-content .info {
+    display: flex;
+    flex-direction: row;
     margin-bottom: 20px; }
+    .city-collections .city-collections-content .info .left .city-collections-title {
+      line-height: 1.1em;
+      font-weight: 600;
+      padding: 0;
+      font-size: 28px;
+      margin: 10px 0; }
+    .city-collections .city-collections-content .info .left .city-collections-subtitle {
+      font-size: 14px;
+      line-height: 1.4285em;
+      color: #33373D; }
+    .city-collections .city-collections-content .info .right {
+      align-self: flex-end;
+      margin-left: auto;
+      padding: 11px 21px;
+      transition: background .1s ease 0s;
+      height: 36px;
+      background-color: #099E44;
+      font-size: 14px;
+      border: none;
+      line-height: 14px;
+      border-radius: .28571429rem;
+      color: #FFF; }
+      .city-collections .city-collections-content .info .right:hover {
+        background-color: #018c38; }
   .city-collections .city-collections-content .pathway-link {
     background: transparent;
     color: #89959B;
     font-size: 11px;
     font-weight: 600;
     line-height: 9px;
-    padding: 30px 0; }
+    margin-top: 30px;
+    margin-bottom: 30px; }
     .city-collections .city-collections-content .pathway-link span i {
       padding: 0 2px; }
     .city-collections .city-collections-content .pathway-link a {
@@ -207,7 +225,8 @@ body {
   .city-collections .city-collections-content .coll-content-display {
     /* Hadpicked Collections Card Component */
     /*  Navigation Collections Card Component */
-    /*  Following Collections Card Component */ }
+    /*  Following Collections Card Component */
+    /*  Saved Collections Card Component */ }
     .city-collections .city-collections-content .coll-content-display .collections .collections-header {
       margin-bottom: 14px; }
       .city-collections .city-collections-content .coll-content-display .collections .collections-header .collections-title {
@@ -323,6 +342,17 @@ body {
         font-size: 14px;
         line-height: 1.4285em;
         color: #33373D; }
+    .city-collections .city-collections-content .coll-content-display .saved-coll {
+      padding-top: 40px;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      text-align: center; }
+      .city-collections .city-collections-content .coll-content-display .saved-coll .filling-in {
+        margin: 20px 0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 1.4285em;
+        color: #33373D; }
 
 body {
   background: #f3f3f3; }
@@ -335,7 +365,8 @@ body {
     font-size: 11px;
     font-weight: 600;
     line-height: 9px;
-    padding: 30px 0; }
+    margin-top: 30px;
+    margin-bottom: 30px; }
     .restaurant-details .restaurant-details-content .pathway-link span i {
       padding: 0 2px; }
     .restaurant-details .restaurant-details-content .pathway-link a {
@@ -1074,7 +1105,8 @@ body {
       font-size: 11px;
       font-weight: 600;
       line-height: 9px;
-      padding: 30px 0; }
+      margin-top: 30px;
+      margin-bottom: 30px; }
       .collection-details .collection-details-content .pathway-link span i {
         padding: 0 2px; }
       .collection-details .collection-details-content .pathway-link a {
@@ -1256,15 +1288,27 @@ body {
           margin-bottom: 5px;
           font-size: 14px;
           line-height: 1.4285em; }
-        .collection-details .collection-details-content .collection-details-card .collection-content .save-collection {
-          transition: background .1s ease;
+        .collection-details .collection-details-content .collection-details-card .collection-content .coll-btn {
+          transition: all .1s ease;
           padding: 7px 10px;
           font-size: 14px;
-          border: 1px solid #e7e7e7;
-          background: #fff;
-          border-radius: 4px;
           line-height: 14px;
-          margin-bottom: 5px; }
+          margin-bottom: 5px;
+          outline: none;
+          overflow: hidden;
+          white-space: nowrap;
+          border-radius: 4px; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .remove-collection {
+          border: 1px solid #d31616;
+          background: #d31616;
+          color: #fff;
+          width: 148.05px; }
+          .collection-details .collection-details-content .collection-details-card .collection-content .remove-collection:hover {
+            opacity: 0.8; }
+        .collection-details .collection-details-content .collection-details-card .collection-content .save-collection {
+          width: 116.13px;
+          border: 1px solid #e7e7e7;
+          background: #fff; }
           .collection-details .collection-details-content .collection-details-card .collection-content .save-collection:hover {
             background-color: #eff2f6; }
     .collection-details .collection-details-content .collection-restaurants-list {
@@ -1730,7 +1774,6 @@ body {
   display: grid;
   justify-content: right;
   align-items: center;
-  grid-column-gap: 20px;
   grid-template-columns: repeat(2, auto);
   padding: 10px 0; }
   .login-navigation div {
@@ -1743,13 +1786,22 @@ body {
     transition: background .1s ease; }
     .login-navigation div:hover {
       color: #B9BFC7 !important; }
-  .login-navigation .signup-link {
+  .login-navigation .nav-link {
+    transition: width 0.1ss ease;
     padding: 10px 20px 12px 20px;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap; }
+  .login-navigation .signup-link {
+    width: 159.59px; }
+  .login-navigation .logout-link {
+    width: 87.5px; }
+  .login-navigation .signup-link, .login-navigation .logout-link {
     border: 2px solid #fff;
     border-radius: 3px;
     font-size: 15px;
     line-height: 15px; }
-    .login-navigation .signup-link:hover {
+    .login-navigation .signup-link:hover, .login-navigation .logout-link:hover {
       border-color: #B9BFC7 !important;
       color: #B9BFC7 !important; }
 
@@ -2605,18 +2657,31 @@ body {
     padding-top: 0px;
     grid-column-gap: 10px;
     font-size: 15px; }
-    .layout .header-top .login-navigation .signin-link {
+    .layout .header-top .login-navigation .nav-link {
+      transition: width 0.1s ease;
       padding: 10px 20px 12px 20px;
+      outline: none;
+      overflow: hidden;
+      white-space: nowrap; }
+    .layout .header-top .login-navigation .signin-link, .layout .header-top .login-navigation .logined-user {
       border-radius: 4px; }
-      .layout .header-top .login-navigation .signin-link:hover {
+      .layout .header-top .login-navigation .signin-link:hover, .layout .header-top .login-navigation .logined-user:hover {
         background-color: #D94148 !important;
         color: #fff !important; }
-    .layout .header-top .login-navigation .signup-link {
+    .layout .header-top .login-navigation .signup-link, .layout .header-top .login-navigation .logout-link {
       background-color: #ba1e2b !important;
       border: none; }
-      .layout .header-top .login-navigation .signup-link:hover {
+      .layout .header-top .login-navigation .signup-link:hover, .layout .header-top .login-navigation .logout-link:hover {
         color: #fff !important;
         background: #D94148 !important; }
+    .layout .header-top .login-navigation .signin-link {
+      width: 78.19px; }
+    .layout .header-top .login-navigation .logined-user {
+      width: 100%; }
+    .layout .header-top .login-navigation .signup-link {
+      width: 159.59px; }
+    .layout .header-top .login-navigation .logout-link {
+      width: 87.5px; }
 
 .layout .header-bottom {
   background-color: #fff; }

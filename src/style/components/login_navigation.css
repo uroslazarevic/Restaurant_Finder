@@ -2,7 +2,6 @@
   display: grid;
   justify-content: right;
   align-items: center;
-  grid-column-gap: 20px;
   grid-template-columns: repeat(2, auto);
   padding: 10px 0; }
   .login-navigation div {
@@ -15,12 +14,21 @@
     transition: background .1s ease; }
     .login-navigation div:hover {
       color: #B9BFC7 !important; }
-  .login-navigation .signup-link {
+  .login-navigation .nav-link {
+    transition: width 0.1ss ease;
     padding: 10px 20px 12px 20px;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap; }
+  .login-navigation .signup-link {
+    width: 159.59px; }
+  .login-navigation .logout-link {
+    width: 87.5px; }
+  .login-navigation .signup-link, .login-navigation .logout-link {
     border: 2px solid #fff;
     border-radius: 3px;
     font-size: 15px;
     line-height: 15px; }
-    .login-navigation .signup-link:hover {
+    .login-navigation .signup-link:hover, .login-navigation .logout-link:hover {
       border-color: #B9BFC7 !important;
       color: #B9BFC7 !important; }

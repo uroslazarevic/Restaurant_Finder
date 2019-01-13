@@ -1,10 +1,5 @@
-import axios from 'axios';
+import { axiosZomato } from './../shared/axios_instances/axios_instances';
 import qs from 'qs';
-
-// const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
-const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
-// const USER_KEY = 'cdaf275cd76312ffb71ae60e7eb468cd';
-const ROOT_URL = 'https://developers.zomato.com/api/v2.1/';
 
 export const SEARCH_LOCATION = 'SEARCH_LOCATION';
 export const SEARCH_CATEGORIES = 'SEARCH_CATEGORIES';
@@ -28,14 +23,10 @@ export function getSearchedLocation ({locationTerm = 'Bra', count='10'} = {}) {
 
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}cities?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `cities?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_LOCATION,
@@ -47,14 +38,10 @@ export function getSearchedCategories() {
 
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}categories`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `categories`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_CATEGORIES,
@@ -94,13 +81,9 @@ export function getSearchedPlaces({
 
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}search?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `search?${stringify}`,
   }
-  const request = axios(config)
+  const request = axiosZomato(config)
 
   return {
     type: SEARCH_PLACES,
@@ -142,13 +125,9 @@ export function getSearchedRestaurants({
 
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}search?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `search?${stringify}`,
   }
-  const request = axios(config)
+  const request = axiosZomato(config)
 
   return {
     type: SEARCH_RESTAURANTS,
@@ -167,14 +146,10 @@ export function getSearchedCollections({city_id = '111', count = '5'} = {}) {
 
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}collections?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `collections?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_COLLECTIONS,
@@ -192,14 +167,10 @@ export function getLocationDetails({entity_id = '111', entity_type = 'city'} = {
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}location_details?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `location_details?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_LOCATION_DETAILS,
@@ -216,14 +187,10 @@ export function getSearchedEstablishments({city_id = '111'} = {}) {
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}establishments?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `establishments?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_ESTABLISHMENTS,
@@ -240,14 +207,10 @@ export function getSearchedCuisines({city_id = '111'} = {}) {
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}cuisines?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `cuisines?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_CUISINES,
@@ -264,14 +227,10 @@ export function getRestaurantDetails({res_id = ''} = {}) {
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}restaurant?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `restaurant?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_RESTAURANT_DETAILS,
@@ -289,14 +248,10 @@ export function getRestaurantReviews({res_id = '', start = '', count = 5} = {}) 
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}reviews?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `reviews?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_RESTAURANT_REVIEWS,
@@ -315,17 +270,14 @@ export function getCollectionDetails({entity_id = '111', entity_type = 'city', c
   const stringify = qs.stringify(data);
   const config = {
     method: 'GET',
-    url: `${ROOT_URL}search?${stringify}`,
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key': USER_KEY
-    }
+    url: `search?${stringify}`,
   }
 
-  const request = axios(config);
+  const request = axiosZomato(config);
 
   return {
     type: SEARCH_COLLECTION_DETAILS,
     payload: request
   }
 }
+

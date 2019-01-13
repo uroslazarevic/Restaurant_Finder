@@ -245,18 +245,31 @@
     padding-top: 0px;
     grid-column-gap: 10px;
     font-size: 15px; }
-    .layout .header-top .login-navigation .signin-link {
+    .layout .header-top .login-navigation .nav-link {
+      transition: width 0.1s ease;
       padding: 10px 20px 12px 20px;
+      outline: none;
+      overflow: hidden;
+      white-space: nowrap; }
+    .layout .header-top .login-navigation .signin-link, .layout .header-top .login-navigation .logined-user {
       border-radius: 4px; }
-      .layout .header-top .login-navigation .signin-link:hover {
+      .layout .header-top .login-navigation .signin-link:hover, .layout .header-top .login-navigation .logined-user:hover {
         background-color: #D94148 !important;
         color: #fff !important; }
-    .layout .header-top .login-navigation .signup-link {
+    .layout .header-top .login-navigation .signup-link, .layout .header-top .login-navigation .logout-link {
       background-color: #ba1e2b !important;
       border: none; }
-      .layout .header-top .login-navigation .signup-link:hover {
+      .layout .header-top .login-navigation .signup-link:hover, .layout .header-top .login-navigation .logout-link:hover {
         color: #fff !important;
         background: #D94148 !important; }
+    .layout .header-top .login-navigation .signin-link {
+      width: 78.19px; }
+    .layout .header-top .login-navigation .logined-user {
+      width: 100%; }
+    .layout .header-top .login-navigation .signup-link {
+      width: 159.59px; }
+    .layout .header-top .login-navigation .logout-link {
+      width: 87.5px; }
 
 .layout .header-bottom {
   background-color: #fff; }

@@ -90,8 +90,15 @@
       grid-column-gap: 10px;
       font-size: 15px;
 
-      .signin-link {
+      .nav-link {
+        transition: width 0.1s ease;
         padding: 10px 20px 12px 20px;
+        outline: none;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      %first-nav-link {
         border-radius: 4px;
 
         &:hover {
@@ -100,7 +107,7 @@
         }
       }
 
-      .signup-link {
+      %second-nav-link {
         background-color: #ba1e2b !important;
         border: none;
 
@@ -108,6 +115,24 @@
           color: #fff !important;
           background: #D94148 !important;
         }
+      }
+
+      .signin-link {
+        @extend %first-nav-link;
+        width: 78.19px;
+      }
+      .logined-user {
+        @extend %first-nav-link;
+        width: 100%;
+      }
+
+      .signup-link {
+        @extend %second-nav-link;
+        width: 159.59px;
+      }
+      .logout-link {
+        @extend %second-nav-link;
+        width: 87.5px;
       }
     }
   }
