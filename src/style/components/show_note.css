@@ -5,10 +5,13 @@
     left: 40% !important;
     transform: initial !important; }
   .note:hover .noteText {
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0) scale(1, 1);
     visibility: visible;
     opacity: 1;
     transform: scale(1);
-    transition: all 0.3s; }
+    transition: all 0.2s ease-out; }
   .note .noteText {
     position: absolute;
     background: #585858;

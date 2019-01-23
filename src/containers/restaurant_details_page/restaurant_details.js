@@ -40,7 +40,6 @@ class RestaurantDetails extends Component {
         const footerHeight = document.querySelector('.footer').getBoundingClientRect().height
         const bottomScrolledViewpoint = window.scrollY + window.innerHeight;
         const scrollHeight = containerHeight - bottomScrolledViewpoint - footerHeight;
-        // console.log('containerHeight', containerHeight, 'bottomScrolledViewpoint', bottomScrolledViewpoint)
         
         if (scrollHeight < 10 && this.state.showNotification === false ) {
           this.setState({ multiple: this.state.multiple + 1, reviewsLoader: true }, () => {

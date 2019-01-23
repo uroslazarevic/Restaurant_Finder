@@ -7,8 +7,10 @@ export default({ field }) => {
       <field.tag 
         value = { field.value }
         name = { field.name }
-        onChange = { field.handleInputState }
+        onChange = { field.handleInputState ? field.handleInputState : null }
         type= { field.type ? field.type : null }
+        placeholder = { field.placeholder ? field.placeholder : null }
+        autoComplete ={ field.autoComplete ? field.autoComplete : null }
       /> 
     </div>
   );

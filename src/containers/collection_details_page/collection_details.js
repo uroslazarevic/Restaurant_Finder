@@ -13,6 +13,7 @@ import {
   Layout,
   PageLoader,
   CollectionDetailsCard,
+  PersonalCollectionDetailsCard,
   CollectionRestaurantsList
 } from 'components'; 
 
@@ -33,8 +34,8 @@ class CollectionDetails extends Component {
   }
 
   componentWillMount() {
-    
     const { getCollectionDetails, getSearchedCollections } = this.props;
+
     this.setState({ 
       pageLoader: true,
       showContent: false,
@@ -42,14 +43,19 @@ class CollectionDetails extends Component {
       cityId: this.props.location.state.cityId,
       collectionName: this.props.location.state.collectionName,
       collectionId: this.props.location.state.collectionId
-     }, () => {
-       const { cityId, collectionId } = this.state;
+      }, () => {
+        const { cityId, collectionId } = this.state;
 
-       axios.all([
-        getCollectionDetails({ entity_id: cityId, collection_id: collectionId }),
+        if(!this.props.location.state.userCollection) {
+        axios.all([
+          getCollectionDetails({ entity_id: cityId, collection_id: collectionId }),
+          getSearchedCollections({city_id: cityId, count : '30' })
+        ]).then(() => this.setState({ pageLoader: false, showContent: true }))
+      } else {
         getSearchedCollections({city_id: cityId, count : '30' })
-       ]).then(() => this.setState({ pageLoader: false, showContent: true }))
-     })
+          .then(() => this.setState({ pageLoader: false, showContent: true }))
+      }
+    })
   }
 
   componentWillReceiveProps(newProps) {
@@ -57,23 +63,25 @@ class CollectionDetails extends Component {
       getCollectionDetails,
       getSearchedCollections
     } = this.props;
-
+    
     newProps.location.state.collectionId !== this.props.location.state.collectionId &&
-      this.setState({ 
-        pageLoader: true,
-        showContent: false,
-        cityName: newProps.location.state.cityName,
-        cityId: newProps.location.state.cityId,
-        collectionName: newProps.location.state.collectionName,
-        collectionId: newProps.location.state.collectionId
-      }, () => {
-        const { cityId, collectionId } = this.state;
-
+    this.setState({ 
+      pageLoader: true,
+      showContent: false,
+      cityName: newProps.location.state.cityName,
+      cityId: newProps.location.state.cityId,
+      collectionName: newProps.location.state.collectionName,
+      collectionId: newProps.location.state.collectionId
+    }, () => {
+      const { cityId, collectionId } = this.state;
+      
+      // if(!this.props.location.state.userCollection) {
         axios.all([
           getCollectionDetails({ entity_id: cityId, collection_id: collectionId }),
           getSearchedCollections({city_id: cityId, count : '30' })
         ]).then(() => this.setState({ pageLoader: false, showContent: true }))
-      })
+      // }
+    })
   }
 
   render() {
@@ -92,7 +100,6 @@ class CollectionDetails extends Component {
       cityId,
       collectionName,
       collectionId,
-      showTooltip,
       pageLoader,
       showContent
     } = this.state;
@@ -116,18 +123,33 @@ class CollectionDetails extends Component {
               <Link  to={{ pathname: urlCollections.toLowerCase(), state: { cityName, cityId } }} >Collections</Link>
               <span> <i className="fas fa-angle-right"></i> {collectionName}</span>
             </div>
+            { !this.props.location.state.userCollection ?
             <CollectionDetailsCard 
               setVisibleFM = { setVisibleFM }
               isAuth = { isAuth }
               removeCollectionFromDB = { removeCollectionFromDB }
-              savedCollections = { savedCollections }
+              savedCollections = {  savedCollections }
               saveCollectionInDB = { saveCollectionInDB }
-              showTooltip = { showTooltip }
               collectionsArray = { searchedCollections } 
-              requiredCollectionId = {collectionId} />
-            <CollectionRestaurantsList 
-              city = {{ cityName, cityId }}
-              restaurants = { searchedCollectionDetails } />
+              requiredCollectionId = {collectionId} 
+            /> 
+          : <PersonalCollectionDetailsCard 
+              saveCollectionInDB = { saveCollectionInDB }
+              removeCollectionFromDB = { removeCollectionFromDB }
+              personalCollection = { this.props.location.state.userCollection.personalCollection } 
+            />
+           }
+           { !this.props.location.state.userCollection ? 
+           <CollectionRestaurantsList 
+             city = {{ cityName, cityId }}
+             restaurants = { searchedCollectionDetails } 
+           />
+           : 
+           <CollectionRestaurantsList 
+             city = {{ cityName, cityId }}
+             restaurants = { this.props.location.state.userCollection.restaurants } 
+           />
+          }
             <div className="collections">
               <div className="more-collections">More Collections</div>
               <Collections 
@@ -143,12 +165,12 @@ class CollectionDetails extends Component {
   }
 }
 
-function mapStateToProps ({ searchedTerms, collections, authentification }) {
+function mapStateToProps ({ searchedTerms, userCollections, authentification }) {
   const { searchedCollectionDetails, searchedCollections } = searchedTerms;
   return {
     searchedCollectionDetails,
     searchedCollections,
-    savedCollections: collections.savedCollections,
+    savedCollections: userCollections.savedCollections,
     isAuth: authentification.isAuth,
   }
 }

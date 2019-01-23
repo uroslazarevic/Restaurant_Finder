@@ -30,13 +30,24 @@ import ResPhotosCard from './restaurant_details_page/restaurant_content_display/
 import ResReviewsCard from './restaurant_details_page/restaurant_content_display/shared/restaurant_reviews_card';
 import ResGeneralCard from './restaurant_details_page/restaurant_content_display/shared/restaurant_general_card';
 import CollectionDetailsCard from './collection_details_page/collection_details_card/collection_details_card';
+import PersonalCollectionDetailsCard from './collection_details_page/personal_collection_details_card/personal_collection_details_card';
 import CollectionRestaurantsList from './collection_details_page/collection_restaurants_list/collection_restaurants_list';
 import CollectionRestaurantItem from './collection_details_page/collection_restaurants_list/collection_restaurant_item/collection_restaurant_item';
 import CollContentDisplay from './city_collections_page/collections_content_display/collections_content_display';
+import CreateNewCollection from './city_collections_page/add_new_collection/create_new_collection';
+import AddCollectionForm from './city_collections_page/add_new_collection/add_collection_form/add_collection_form';
+import AddCollectionResForm from './city_collections_page/add_new_collection/add_collection_res_form/add_collection_res_form'
+import LocationList from './city_collections_page/add_new_collection/add_collection_res_form/location_list/location_list'
+import RestaurantList from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_list'
+import ResItem from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_item/restaurant_item'
+import InCollectionResForm from './city_collections_page/add_new_collection/in_collection_res_form/in_collection_res_form';
+import AddedResList from './city_collections_page/add_new_collection/in_collection_res_form/added_restaurants/added_restaurants';
+import AddedResItem from './city_collections_page/add_new_collection/in_collection_res_form/added_restaurants/added_res_item/added_res_item';
 import HandpickedCollCard from './city_collections_page/collections_content_display/handpicked_collections_card/handpicked_collections_card';
 import NavigationCollCard from './city_collections_page/collections_content_display/navigation_collections_card/navigation_collections_card';
 import FollowingCollCard from './city_collections_page/collections_content_display/following_collections_card/following_collections_card';
 import SavedCollCard from './city_collections_page/collections_content_display/saved_collections_card/saved_collections_card';
+import PersonalCollCard from './city_collections_page/collections_content_display/personal_collections_card/personal_collections_card';
 import Footer from './shared/footer';
 import ShowNote from './shared/show_note';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './shared/loaders';
@@ -79,13 +90,24 @@ export {
   ResReviewsCard,
   ResGeneralCard,
   CollectionDetailsCard,
+  PersonalCollectionDetailsCard,
   CollectionRestaurantsList,
   CollectionRestaurantItem,
   CollContentDisplay,
+  CreateNewCollection,
+  AddCollectionForm,
+  AddCollectionResForm,
+  LocationList,
+  RestaurantList,
+  ResItem,
+  InCollectionResForm,
+  AddedResList,
+  AddedResItem,
   HandpickedCollCard,
   NavigationCollCard,
   FollowingCollCard,
   SavedCollCard,
+  PersonalCollCard,
   ShowNote,
   Footer
   

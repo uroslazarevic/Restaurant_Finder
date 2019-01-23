@@ -3,7 +3,8 @@
   /* Hadpicked Collections Card Component */
   /*  Navigation Collections Card Component */
   /*  Following Collections Card Component */
-  /*  Saved Collections Card Component */ }
+  /*  Saved Collections Card Component */
+  /*  Personal Collections Card Component */ }
   .coll-content-display .collections .collections-header {
     margin-bottom: 14px; }
     .coll-content-display .collections .collections-header .collections-title {
@@ -125,6 +126,17 @@
     margin-bottom: 40px;
     text-align: center; }
     .coll-content-display .saved-coll .filling-in {
+      margin: 20px 0;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-size: 14px;
+      line-height: 1.4285em;
+      color: #33373D; }
+  .coll-content-display .personal-coll {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    text-align: center; }
+    .coll-content-display .personal-coll .filling-in {
       margin: 20px 0;
       font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
       font-size: 14px;

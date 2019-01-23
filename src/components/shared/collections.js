@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import collectionsImg from '../../images/collections_img.webp'
 
-export default ({ collections, city, urlPath, filterOutId }) => {
+export default ({ collections, city, urlPath, filterOutId, userCollection }) => {
     const { cityName, cityId } = city;
     const splitedCityName = cityName.split(' ').join('-');
     const url = `/${splitedCityName}/collections`;
@@ -14,7 +14,7 @@ export default ({ collections, city, urlPath, filterOutId }) => {
         <div className="collections-subtitle">Explore Curated lists of top restaurants, cafes in {city.cityName}, based on trends</div>
       </div>}
         <div className="collections-list">
-          {createCollectionItems(collections, city, filterOutId)}
+          {createCollectionItems(collections, city, filterOutId, userCollection)}
           {urlPath && 
           <Link 
             to={{ pathname: url.toLowerCase(), state: { cityName, cityId } }} 
@@ -27,7 +27,7 @@ export default ({ collections, city, urlPath, filterOutId }) => {
   );
 }
 
-function createCollectionItems(collections, city, filterOutId) {
+function createCollectionItems(collections, city, filterOutId, userCollection) {
   const { cityName, cityId } = city;
   let collectionsArray;
   // If filterOutId argument is provided, create new array
@@ -52,6 +52,7 @@ function createCollectionItems(collections, city, filterOutId) {
             cityId,
             collectionId: collection_id,
             collectionName: title,
+            userCollection: userCollection ? { restaurants: collection.collection.restaurants, personalCollection: collection } : null
           }
         }} >
         <img src= {image_url} alt="" />

@@ -220,7 +220,6 @@ class RestaurantsCategoryPage extends Component {
     let pageCount;
     const urlHome = '/';
     const wildcardCap = this.capitalize(wildcard)
-    // console.log(wildcardCap)
 
     searchedRestaurants ? (
       pageCount = Math.ceil(searchedRestaurants.results_found / this.state.filterObject.count)

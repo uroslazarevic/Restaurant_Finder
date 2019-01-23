@@ -55,9 +55,11 @@
         left: 15px;
       }
     }
-  
+    
     // Collections Content Display Component
     @import 'style/components/collections_content_display.scss';
-    
   }
+  
+  // Add New Collection Link
+  @import 'style/components/add_new_collection.scss';
 }

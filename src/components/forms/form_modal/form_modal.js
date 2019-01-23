@@ -70,9 +70,6 @@ class FormModal extends Component {
 
   handleSignup(formData) {
     this.props.signup(formData)
-    setTimeout(() => {
-      console.log('USER:', this.props.user)
-    }, 2000)
   }
 
   handleLogin(formData) {

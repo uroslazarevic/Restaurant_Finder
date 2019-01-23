@@ -159,6 +159,7 @@
               background-color: #fff;
               line-height: 1em; }
           .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection {
+            cursor: pointer;
             line-height: 1em;
             background: #E0E1E2;
             color: rgba(0, 0, 0, 0.6);
@@ -182,7 +183,7 @@
           margin-bottom: 5px;
           font-size: 28px;
           line-height: 30.8px; }
-        .collection-details .collection-details-content .collection-details-card .collection-content .description {
+        .collection-details .collection-details-content .collection-details-card .collection-content .description, .collection-details .collection-details-content .collection-details-card .collection-content .tags {
           line-height: 1.4285em;
           color: #33373D;
           margin-bottom: 5px;

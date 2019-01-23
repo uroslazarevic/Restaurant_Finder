@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 
 // import Actions
 import { getSearchedCollections } from 'actions';
+import { setVisibleFM } from 'actions/event_bus'
+import { debouncedSearchLocations, debouncedSearchRestaurants, saveCollectionInDB } from '../../actions/user_collections';
 // Import Components
-import { Layout, PageLoader, CollContentDisplay } from 'components'; 
+import { Layout, PageLoader, CollContentDisplay, CreateNewCollection } from 'components'; 
 
 class CityCollections extends Component {
   constructor(props) {
@@ -17,7 +20,26 @@ class CityCollections extends Component {
       entity_type: 'city',
       pageLoader: false,
       showContent: false,
+      collectionModal: false
      }
+    this.hideCollectionModal = this.hideCollectionModal.bind(this);
+    this.showCollectionModal = this.showCollectionModal.bind(this);
+    this.hideModalOnSubmit = this.hideModalOnSubmit.bind(this);
+  }
+
+  hideCollectionModal(event) {
+    const target = event.target;
+    if( target.classList.contains('add-new-collection-container') || target.classList.contains('close-icon')) {
+      this.setState({ collectionModal: false })
+    }
+  }
+
+  hideModalOnSubmit() {
+    this.setState({ collectionModal: false })
+  }
+
+  showCollectionModal() {
+    this.setState({ collectionModal: true })
   }
 
   componentWillReceiveProps(newProps) {
@@ -45,10 +67,35 @@ class CityCollections extends Component {
   }
 
   render() {
-    const { searchedCollections, savedCollections } = this.props;
-    const { cityName, cityId, pageLoader, showContent } = this.state;
+    const {
+      searchedCollections,
+      savedCollections,
+      searchedLocations,
+      searchedRestaurants,
+      debouncedSearchLocations,
+      debouncedSearchRestaurants,
+      personalCollections,
+      saveCollectionInDB,
+      isAuth, 
+      setVisibleFM
+    } = this.props;
+
+    const {
+      cityName,
+      cityId,
+      pageLoader,
+      showContent,
+      collectionModal
+    } = this.state;
+
+    const transitionOptions = {
+      in: collectionModal,
+      timeout: 300,
+      classNames :"modal-fade",
+      unmountOnExit: true
+    }
+    
     const urlHome = '/';
-    // console.log('savedCollections:', savedCollections)
     return (
       <div className="city-collections">
         <Layout showFooter = { showContent } urlPath={ this.props.match.path } city={{ cityName, cityId }}>
@@ -66,24 +113,63 @@ class CityCollections extends Component {
                   <div className="city-collections-title">Collections - {cityName}</div>
                   <div className="city-collections-subtitle" >Create and browse lists of the finest restaurants</div>
                 </div>
-                <button className="right">Create Collection</button>
+                <button 
+                  onClick = { !isAuth ? setVisibleFM : this.showCollectionModal } 
+                  className="right"
+                >Create Collection</button>
               </div>
-              <CollContentDisplay 
+              <CollContentDisplay
+                personalCollections = { personalCollections }
                 savedCollections = { savedCollections }
                 collections = { searchedCollections }
                 city={{ cityName, cityId }} />
             </div> }
+          <CSSTransition {...transitionOptions} >
+            <CreateNewCollection
+                hideModalOnSubmit = { this.hideModalOnSubmit }
+                hideCollectionModal = { this.hideCollectionModal }
+                saveCollectionInDB = { saveCollectionInDB }
+                searchProps = {{ 
+                  searchedLocations,
+                  debouncedSearchLocations,
+                  searchedRestaurants,
+                  debouncedSearchRestaurants
+                }}
+              /> 
+          </CSSTransition>
         </Layout> 
       </div>
     )
   }
 }
 
-function mapStateToProps({ searchedTerms: { searchedCollections }, collections: { savedCollections } }) {
+function mapStateToProps({ 
+  searchedTerms: { searchedCollections },
+  authentification: { isAuth },
+  userCollections:
+    {
+    savedCollections,
+    searchedLocations,
+    searchedRestaurants,
+    personalCollections
+    }
+}) {
   return {
     searchedCollections,
-    savedCollections
+    savedCollections,
+    searchedLocations,
+    searchedRestaurants,
+    personalCollections,
+    isAuth
   }
 }
 
-export default connect(mapStateToProps, { getSearchedCollections } )(CityCollections);
+export default connect(
+  mapStateToProps, 
+  {
+    getSearchedCollections,
+    debouncedSearchLocations,
+    debouncedSearchRestaurants,
+    saveCollectionInDB,
+    setVisibleFM
+  })(CityCollections);

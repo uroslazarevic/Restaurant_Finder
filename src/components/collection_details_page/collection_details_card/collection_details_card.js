@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import { user_Collections } from './../../../shared/data_naming/data_naming'
 export default class CollectionDetailsCard extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +28,19 @@ export default class CollectionDetailsCard extends Component {
 
   handleSavedCollections(requiredCollection) {
     const { saveCollectionInDB, removeCollectionFromDB } = this.props;
-
-    this.state.saved ? this.setState({ saved: false }, () => removeCollectionFromDB(requiredCollection) )
-    : this.setState({ saved: true }, () => saveCollectionInDB(requiredCollection) )
+    this.state.saved ? this.setState({ saved: false },
+      () => removeCollectionFromDB(requiredCollection,  
+        { 
+          DBEndpoint: [user_Collections.saved.DBEndpoint],
+          state: [user_Collections.saved.state]
+        }
+      ))
+    : this.setState({ saved: true }, () => saveCollectionInDB(requiredCollection,
+      { 
+        DBEndpoint: [user_Collections.saved.DBEndpoint],
+        state: [user_Collections.saved.state]
+      }
+    ))
   }
 
   componentWillMount() {

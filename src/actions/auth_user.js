@@ -6,6 +6,7 @@ const PROJECT_KEY = 'AIzaSyDw3nLzSIMD7kl2n9_V7oE4M8-ghR_ZPSE';
 export const SAVE_USER = 'SAVE_USER';
 export const SET_USERNAME = 'SET_USERNAME';
 export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const SAVE_oobCode = 'CLEAR_AUTH';
 
 export function signup (formData) {
 
@@ -20,6 +21,7 @@ export function signup (formData) {
           email,
           username,
         };
+        
         // Set Local Storage
         setLocalStorage({ expiresIn, idToken, localId, email })
         // Store User in Database
@@ -87,6 +89,7 @@ function setUsername(authData) {
 export function login (formData) {
 
   return dispatch => {
+   
     loginUser(formData)
       .then(response => {
         const { expiresIn, idToken, localId } = response.data;
@@ -146,3 +149,16 @@ export function tryAutoLogin() {
      })
   }
 }
+
+// export function emailVerification(idToken) {
+//   return axiosAuth.post(`/getOobConfirmationCode?key=${PROJECT_KEY}`, {
+//     requestType: "VERIFY_EMAIL",
+//     idToken 
+//   } )
+// }
+
+// export function emailConfirmation(idToken) {
+//   return axiosAuth.post(`/setAccountInfo?key=${PROJECT_KEY}`, {
+//     oobCode: '????'
+//   } )
+// }
