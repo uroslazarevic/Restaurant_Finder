@@ -1,21 +1,26 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import history from './../shared/history';
 
 import { Home } from 'components';
-import { RestaurantsCategoryPage, CityCollections, RestaurantDetails, CollectionDetails } from 'containers';
+import {
+  RestaurantsCategoryPage,
+  CityCollections,
+  RestaurantDetails,
+  CollectionDetails,
+} from 'containers';
 // Import Actions
-import { tryAutoLogin } from '../actions/auth_user'
-import { loadAllCollections } from '../actions/user_collections'
+import { tryAutoLogin } from '../actions/auth_user';
+import { loadAllCollections } from '../actions/user_collections';
 
 class App extends Component {
-  
   constructor(props) {
     super(props);
 
     this.state = {
-      isAuth: false
-    }
+      isAuth: false,
+    };
   }
 
   componentWillMount() {
@@ -23,16 +28,16 @@ class App extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(newProps.isAuth) {
-      if(newProps.isAuth !== this.props.isAuth) {
-        this.setState({ isAuth: newProps.isAuth }, () => this.props.loadAllCollections())
+    if (newProps.isAuth) {
+      if (newProps.isAuth !== this.props.isAuth) {
+        this.setState({ isAuth: newProps.isAuth }, () => this.props.loadAllCollections());
       }
     }
   }
 
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -42,15 +47,18 @@ class App extends Component {
             <Route path="/:city/:wildcard" component={RestaurantsCategoryPage} />
           </Switch>
         </div>
-      </BrowserRouter>
-    )
+      </Router>
+    );
   }
 }
 
-function mapStateToProps ({ authentification }) {
+function mapStateToProps({ authentification }) {
   return {
-    isAuth: authentification.isAuth
-  }
+    isAuth: authentification.isAuth,
+  };
 }
 
-export default connect (mapStateToProps, { tryAutoLogin, loadAllCollections })(App)
+export default connect(
+  mapStateToProps,
+  { tryAutoLogin, loadAllCollections }
+)(App);

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 // Import Actions
-import { clearAuth } from '../../actions/auth_user'
-import { setVisibleFM } from '../../actions/event_bus'
+import { clearAuth } from '../../actions/auth_user';
+import { setVisibleFM } from '../../actions/event_bus';
 
 class LoginNavigation extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class LoginNavigation extends Component {
   }
 
   handleLogout() {
-    this.props.clearAuth()
+    this.props.clearAuth();
   }
 
   capitalize(string) {
@@ -26,29 +26,32 @@ class LoginNavigation extends Component {
 
     return (
       <div className="login-navigation">
-        <div 
-          className={`nav-link ${!isAuth ? 'signin-link' : 'logined-user'}`} 
-          onClick={!isAuth ? setVisibleFM : () => console.log('open user') } 
+        <div
+          className={`nav-link ${!isAuth ? 'signin-link' : 'logined-user'}`}
+          onClick={!isAuth ? setVisibleFM : () => console.log('open user')}
         >
-          { !isAuth ? 'Log in' : loginedUser }
-        </div> 
-        <div 
-          onClick={!isAuth ? setVisibleFM : this.handleLogout } 
-          className={`nav-link ${!isAuth? 'signup-link' : 'logout-link'}`}
+          {!isAuth ? 'Log in' : loginedUser}
+        </div>
+        <div
+          onClick={!isAuth ? setVisibleFM : this.handleLogout}
+          className={`nav-link ${!isAuth ? 'signup-link' : 'logout-link'}`}
         >
-          { !isAuth ? 'Create an account' : 'Logout' }
-        </div> 
+          {!isAuth ? 'Create an account' : 'Logout'}
+        </div>
       </div>
     );
-  };
+  }
 }
 
 function mapStateToProps({ authentification }) {
   const { user, isAuth } = authentification;
   return {
     user,
-    isAuth
-  }
+    isAuth,
+  };
 }
 
-export default connect(mapStateToProps, { clearAuth, setVisibleFM })(LoginNavigation);
+export default connect(
+  mapStateToProps,
+  { clearAuth, setVisibleFM }
+)(LoginNavigation);

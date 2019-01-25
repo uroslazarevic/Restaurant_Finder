@@ -8,18 +8,18 @@ import promise from 'redux-promise';
 import thunk from 'redux-thunk';
 
 import './App.css';
-import { App } from 'containers'
+import { App } from 'containers';
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
 
 export const store = createStoreWithMiddleware(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+);
 
 ReactDOM.render(
-  <Provider store ={store}>
+  <Provider store={store}>
     <App />
-  </Provider>, 
+  </Provider>,
   document.querySelector('#root')
 );
