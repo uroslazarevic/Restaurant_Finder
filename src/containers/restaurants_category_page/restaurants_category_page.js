@@ -61,9 +61,7 @@ class RestaurantsCategoryPage extends Component {
         },
       },
       () => {
-        this.props
-          .getSearchedRestaurants(this.state.filterObject)
-          .then(this.paintActiveListItems());
+        this.props.getSearchedRestaurants(this.state.filterObject).then(this.paintActiveListItems());
       }
     );
   }
@@ -71,8 +69,7 @@ class RestaurantsCategoryPage extends Component {
   handleCuisinesModal(e, cuisine = null) {
     const body = document.querySelector('body');
     const ele = e.target;
-    !ele.classList.contains('all-cuisines-container') &&
-    !ele.classList.contains('hide-cuisine-modal')
+    !ele.classList.contains('all-cuisines-container') && !ele.classList.contains('hide-cuisine-modal')
       ? this.setState({ showCuisinesModal: true }, () => (body.style.overflow = 'hidden'))
       : this.setState({ showCuisinesModal: false }, () => (body.style.overflow = 'initial'));
 
@@ -120,11 +117,7 @@ class RestaurantsCategoryPage extends Component {
       () => {
         this.props
           .getSearchedRestaurants(this.state.filterObject)
-          .then(
-            this.setState({ pageLoader: false, showContent: true }, () =>
-              this.paintActiveListItems()
-            )
-          );
+          .then(this.setState({ pageLoader: false, showContent: true }, () => this.paintActiveListItems()));
       }
     );
   }
@@ -180,10 +173,7 @@ class RestaurantsCategoryPage extends Component {
     const stateKey = ele.parentNode.getAttribute('data-filter');
     const listItems = document.querySelectorAll(`.${stateKey} li`);
 
-    if (
-      ele.classList.contains('active-filter-item') &&
-      ele.parentNode.getAttribute('data-filter')
-    ) {
+    if (ele.classList.contains('active-filter-item') && ele.parentNode.getAttribute('data-filter')) {
       // Remove current active filter item class
       this.setState(
         {
@@ -196,25 +186,18 @@ class RestaurantsCategoryPage extends Component {
           ele.classList.remove('active-filter-item');
           this.props
             .getSearchedRestaurants(this.state.filterObject)
-            .then(
-              this.setState({ pageLoader: false, showContent: true }, () =>
-                this.paintActiveListItems()
-              )
-            );
+            .then(this.setState({ pageLoader: false, showContent: true }, () => this.paintActiveListItems()));
         }
       );
     } else if (ele.classList.contains('next-active-filter-item')) {
       // Remove next active filter item class
-      this.setState(
-        { filterObjChange: true, filterObject: { ...this.state.filterObject, [stateKey]: '' } },
-        () => ele.classList.remove('next-active-filter-item')
+      this.setState({ filterObjChange: true, filterObject: { ...this.state.filterObject, [stateKey]: '' } }, () =>
+        ele.classList.remove('next-active-filter-item')
       );
     } else {
       // Add active filter item class and remove it from rest items
       listItems.forEach(li => {
-        li === ele
-          ? li.classList.add('next-active-filter-item')
-          : li.classList.remove('next-active-filter-item');
+        li === ele ? li.classList.add('next-active-filter-item') : li.classList.remove('next-active-filter-item');
       });
       this.setState({
         filterObjChange: true,
@@ -231,15 +214,9 @@ class RestaurantsCategoryPage extends Component {
       getSearchedEstablishments,
       getSearchedCuisines,
     } = this.props;
-    const wildcard = this.props.location.state
-      ? this.props.match.params.wildcard
-      : this.state.wildcard;
-    const cityName = this.props.location.state
-      ? this.props.location.state.cityName
-      : this.state.cityName;
-    const cityId = this.props.location.state
-      ? this.props.location.state.cityId
-      : this.state.filterObject.entity_id;
+    const wildcard = this.props.location.state ? this.props.match.params.wildcard : this.state.wildcard;
+    const cityName = this.props.location.state ? this.props.location.state.cityName : this.state.cityName;
+    const cityId = this.props.location.state ? this.props.location.state.cityId : this.state.filterObject.entity_id;
     const categoryId = this.props.location.state
       ? this.props.location.state.categoryId
       : this.state.filterObject.category;
@@ -278,12 +255,8 @@ class RestaurantsCategoryPage extends Component {
     ) {
       const wildcard = newProps.match.params.wildcard;
       const categoryId = newProps.location.state.categoryId;
-      const cityId = newProps.location.state
-        ? newProps.location.state.cityId
-        : this.state.filterObject.entity_id;
-      const cityName = this.props.location.state
-        ? newProps.location.state.cityName
-        : this.state.cityName;
+      const cityId = newProps.location.state ? newProps.location.state.cityId : this.state.filterObject.entity_id;
+      const cityName = this.props.location.state ? newProps.location.state.cityName : this.state.cityName;
 
       this.setState(
         {
@@ -342,7 +315,7 @@ class RestaurantsCategoryPage extends Component {
     searchedRestaurants
       ? (pageCount = Math.ceil(searchedRestaurants.results_found / this.state.filterObject.count))
       : 50;
-
+    console.log('restaurantsFOund:', searchedRestaurants);
     const transitionOptions = {
       in: showCuisinesModal,
       timeout: 300,
@@ -352,11 +325,7 @@ class RestaurantsCategoryPage extends Component {
 
     return (
       <div className="browse-by-category-wrapper">
-        <Layout
-          showFooter={showContent}
-          urlPath={this.props.match.path}
-          city={{ cityName, cityId }}
-        >
+        <Layout showFooter={showContent} urlPath={this.props.match.path} city={{ cityName, cityId }}>
           {pageLoader && <PageLoader />}
           {showContent && (
             <React.Fragment>
@@ -388,20 +357,12 @@ class RestaurantsCategoryPage extends Component {
                     categories={searchedCategories}
                     establishments={searchedEstablishments}
                   />
-                  <ul className="restaurant-list">
-                    {this.renderRestaurantCard({ cityName, cityId })}
-                  </ul>
+                  <ul className="restaurant-list">{this.renderRestaurantCard({ cityName, cityId })}</ul>
                 </div>
-                <Pagination
-                  handlePageClick={this.handlePaginationPageClick}
-                  pageCount={pageCount}
-                />
+                <Pagination handlePageClick={this.handlePaginationPageClick} pageCount={pageCount} />
               </div>
               <CSSTransition {...transitionOptions}>
-                <CuisinesModal
-                  handleCuisinesModal={this.handleCuisinesModal}
-                  allCuisines={searchedCuisines}
-                />
+                <CuisinesModal handleCuisinesModal={this.handleCuisinesModal} allCuisines={searchedCuisines} />
               </CSSTransition>
             </React.Fragment>
           )}

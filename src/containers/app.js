@@ -4,12 +4,7 @@ import { connect } from 'react-redux';
 import history from './../shared/history';
 
 import { Home } from 'components';
-import {
-  RestaurantsCategoryPage,
-  CityCollections,
-  RestaurantDetails,
-  CollectionDetails,
-} from 'containers';
+import { RestaurantsCategoryPage, CityCollections, RestaurantDetails, CollectionDetails } from 'containers';
 // Import Actions
 import { tryAutoLogin } from '../actions/auth_user';
 import { loadAllCollections } from '../actions/user_collections';

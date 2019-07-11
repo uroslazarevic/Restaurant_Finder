@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 // Import Actions
 import { getSearchedLocation, getSearchedCategories, getSearchedPlaces } from 'actions';
 // Import Components
-import { CategoriesList, PlacesList, SearchPlacesLoader, SearchLocationsLoader, SearchBtn } from 'components';
+import {
+  CategoriesList,
+  PlacesList,
+  SearchPlacesLoader,
+  SearchLocationsLoader,
+  SearchBtn,
+} from 'components';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -14,18 +20,18 @@ class SearchForm extends Component {
       locationTerm: this.props.city.cityName,
       setLocationTerm: this.props.city.cityName,
       resetLocationTerm: '',
-      placesObject:{
+      placesObject: {
         placeTerm: '',
-        entity_id : this.props.city.cityId,
-        entity_type : 'city',
-        count: 9
+        entity_id: this.props.city.cityId,
+        entity_type: 'city',
+        count: 9,
       },
       showLocationList: false,
       showPlacesList: false,
       showCuisineList: false,
       searchPlacesLoader: false,
-      searchLocationsLoader: false
-    }
+      searchLocationsLoader: false,
+    };
     this.searchLocationRef = React.createRef();
     this.searchCuisineRef = React.createRef();
     this.debounce = null;
@@ -43,176 +49,264 @@ class SearchForm extends Component {
     const { value } = e.target;
 
     this.setState({ locationTerm: value, searchLocationsLoader: true }, () => {
-    // Get Location Suggestions
-    clearTimeout(this.debounce)
-    this.state.locationTerm.length >= 2 ? 
-    this.debounce = setTimeout(() => {getSearchedLocation({ locationTerm: this.state.locationTerm })
-        .then(() => this.setState({ showLocationList: true, searchLocationsLoader: false }))
-    }, 300) : this.setState({ showLocationList: false, searchLocationsLoader: false })
+      // Get Location Suggestions
+      clearTimeout(this.debounce);
+      this.state.locationTerm.length >= 2
+        ? (this.debounce = setTimeout(() => {
+            getSearchedLocation({ locationTerm: this.state.locationTerm }).then(() =>
+              this.setState({ showLocationList: true, searchLocationsLoader: false })
+            );
+          }, 300))
+        : this.setState({ showLocationList: false, searchLocationsLoader: false });
     });
   }
 
   renderLocationList() {
     const { searchedLocation } = this.props;
 
-    return searchedLocation ? searchedLocation.map(location => {
-      const { id, name } = location;
-      const locationTextHighlight = () => { 
-        const regExp = new RegExp(this.state.locationTerm +"([a-zA-Z0-9]\b)?[, -]?", 'ig');
-        const matched = name.match(regExp);
-        const newText = name.replace(regExp, `<span style="font-weight: bold">${matched}</span>`)
-        return newText;
-      }
-      return (
-        <li 
-          onClick={ () => this.handleLocationSuggestionClick(name, id) }
-          dangerouslySetInnerHTML={{__html: locationTextHighlight()}}
-          key={id}>
-        </li>
-      )
-    }) : null
+    return searchedLocation
+      ? searchedLocation.map(location => {
+          const { id, name } = location;
+          const locationTextHighlight = () => {
+            const regExp = new RegExp(this.state.locationTerm + '([a-zA-Z0-9]\b)?[, -]?', 'ig');
+            const matched = name.match(regExp);
+            const newText = name.replace(
+              regExp,
+              `<span style="font-weight: bold">${matched}</span>`
+            );
+            return newText;
+          };
+          return (
+            <li
+              onClick={() => this.handleLocationSuggestionClick(name, id)}
+              dangerouslySetInnerHTML={{ __html: locationTextHighlight() }}
+              key={id}
+            />
+          );
+        })
+      : null;
   }
 
   handleLocationSuggestionClick(location, entity_id) {
     const { getSearchedPlaces } = this.props;
-    this.setState({ 
-      locationTerm: location,
-      setLocationTerm: location, 
-      placesObject: {...this.state.placesObject, entity_id: entity_id },
-      showLocationList: false,
-      showCuisineList: false
-    }, 
-    () => {
-      // Set City name & ID for parent - MainHome component
-      this.props.handleParentCityState({ cityName: this.state.setLocationTerm, cityId: entity_id})
-      if(this.state.placesObject.placeTerm.length !== 0){
-        this.setState({ searchPlacesLoader: true },
-          () => { getSearchedPlaces(this.state.placesObject).then(() => {
-            this.setState({ 
-              showPlacesList: true,
-              showCuisineList: false,
-              showLocationList: false,
-              searchPlacesLoader: false
-            })
-          })
-        })
+    this.setState(
+      {
+        locationTerm: location,
+        setLocationTerm: location,
+        placesObject: { ...this.state.placesObject, entity_id: entity_id },
+        showLocationList: false,
+        showCuisineList: false,
+      },
+      () => {
+        // Set City name & ID for parent - MainHome component
+        this.props.handleParentCityState({
+          cityName: this.state.setLocationTerm,
+          cityId: entity_id,
+        });
+        if (this.state.placesObject.placeTerm.length !== 0) {
+          this.setState({ searchPlacesLoader: true }, () => {
+            getSearchedPlaces(this.state.placesObject).then(() => {
+              this.setState({
+                showPlacesList: true,
+                showCuisineList: false,
+                showLocationList: false,
+                searchPlacesLoader: false,
+              });
+            });
+          });
+        }
       }
-    })
+    );
   }
 
   renderCuisinesList() {
     const { searchedCategories } = this.props;
-    const { setLocationTerm, placesObject: { entity_id } } = this.state;
-    return <CategoriesList city = {{ cityName: setLocationTerm, cityId: entity_id}} nameList={ searchedCategories } />
+    const {
+      setLocationTerm,
+      placesObject: { entity_id },
+    } = this.state;
+    return (
+      <CategoriesList
+        city={{ cityName: setLocationTerm, cityId: entity_id }}
+        nameList={searchedCategories}
+      />
+    );
   }
 
   // Handle Places Search
   handlePlacesTermChange(e) {
     const { value } = e.target;
 
-    this.setState({ 
-      placesObject: {...this.state.placesObject, placeTerm: value},
-      showPlacesList: false,
-      showCuisineList: false,
-      searchPlacesLoader: true
-    },() => {
-      this.debounceSearchPlaces();
-    })
-    value.length === 0 && this.setState({ showPlacesList: false, showCuisineList: true, searchPlacesLoader: false });
+    this.setState(
+      {
+        placesObject: { ...this.state.placesObject, placeTerm: value },
+        showPlacesList: false,
+        showCuisineList: false,
+        searchPlacesLoader: true,
+      },
+      () => {
+        this.debounceSearchPlaces();
+      }
+    );
+    value.length === 0 &&
+      this.setState({ showPlacesList: false, showCuisineList: true, searchPlacesLoader: false });
   }
 
   debounceSearchPlaces() {
     const { getSearchedPlaces } = this.props;
     const { placeTerm } = this.state.placesObject;
-    clearTimeout(this.debounce)
-    placeTerm.length >= 2 ? this.debounce = setTimeout(() =>  getSearchedPlaces(this.state.placesObject)
-    .then(() => this.setState({ searchPlacesLoader: false, showPlacesList: true })), 300) : this.setState({ searchPlacesLoader: false })
+    clearTimeout(this.debounce);
+    placeTerm.length >= 2
+      ? (this.debounce = setTimeout(
+          () =>
+            getSearchedPlaces(this.state.placesObject).then(() =>
+              this.setState({ searchPlacesLoader: false, showPlacesList: true })
+            ),
+          300
+        ))
+      : this.setState({ searchPlacesLoader: false });
   }
 
   renderPlacesList() {
     const { searchedPlaces } = this.props;
-    const {setLocationTerm, placesObject: { entity_id }} = this.state;
-    
-    return <PlacesList placesList={searchedPlaces} city = {{ cityName: setLocationTerm, cityId: entity_id}} />
+    const {
+      setLocationTerm,
+      placesObject: { entity_id },
+    } = this.state;
+
+    return (
+      <PlacesList
+        placesList={searchedPlaces}
+        city={{ cityName: setLocationTerm, cityId: entity_id }}
+      />
+    );
   }
 
   manipulateSearchLists(e) {
     const { placeTerm } = this.state.placesObject;
-    if(this.searchLocationRef.current.contains(e.target)) {
-      this.setState({ showCuisineList: false, showPlacesList: false, locationTerm: this.state.resetLocationTerm })
-    } else if(this.searchCuisineRef.current.contains(e.target)) {
+    if (this.searchLocationRef.current.contains(e.target)) {
+      this.setState({
+        showCuisineList: false,
+        showPlacesList: false,
+        locationTerm: this.state.resetLocationTerm,
+      });
+    } else if (this.searchCuisineRef.current.contains(e.target)) {
       this.searchCuisineRef.current.setAttribute('placeholder', 'Start typing to search...');
-      placeTerm.length >= 2 &&  placeTerm.length > 0 ? 
-      this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: true, locationTerm: this.state.setLocationTerm }) : this.setState({ showLocationList: false, showCuisineList: true, showPlacesList: false, locationTerm: this.state.setLocationTerm })
-    } else if(e.target.parentNode.className === 'location-list') {
-      placeTerm.length >= 2 &&  placeTerm.length > 0 ? this.setState({ showCuisineList: false }) : this.setState({ showCuisineList: true })
-    } 
-    else if(e.target.className=== 'cuisine-item' || e.target.className=== 'place-item') {
-      return
+      placeTerm.length >= 2 && placeTerm.length > 0
+        ? this.setState({
+            showLocationList: false,
+            showCuisineList: false,
+            showPlacesList: true,
+            locationTerm: this.state.setLocationTerm,
+          })
+        : this.setState({
+            showLocationList: false,
+            showCuisineList: true,
+            showPlacesList: false,
+            locationTerm: this.state.setLocationTerm,
+          });
+    } else if (e.target.parentNode.className === 'location-list') {
+      placeTerm.length >= 2 && placeTerm.length > 0
+        ? this.setState({ showCuisineList: false })
+        : this.setState({ showCuisineList: true });
+    } else if (e.target.className === 'cuisine-item' || e.target.className === 'place-item') {
+      return;
     } else {
-      this.searchCuisineRef.current.setAttribute('placeholder', "Search for resturants or cuisines...");
-      this.setState({ showCuisineList: false, showLocationList: false, showPlacesList: false, locationTerm: this.state.setLocationTerm })
+      this.searchCuisineRef.current.setAttribute(
+        'placeholder',
+        'Search for resturants or cuisines...'
+      );
+      this.setState({
+        showCuisineList: false,
+        showLocationList: false,
+        showPlacesList: false,
+        locationTerm: this.state.setLocationTerm,
+      });
     }
   }
 
   componentDidMount() {
-    const { setLocationTerm, placesObject: { entity_id } } = this.state;
+    const {
+      setLocationTerm,
+      placesObject: { entity_id },
+    } = this.state;
     document.querySelector('body').addEventListener('click', this.manipulateSearchLists);
     this.props.handleParentCityState({ cityName: setLocationTerm, cityId: entity_id });
   }
 
   componentWillUnmount() {
-    document.querySelector('body').removeEventListener('click', this.manipulateSearchLists)
+    document.querySelector('body').removeEventListener('click', this.manipulateSearchLists);
   }
 
   componentWillMount() {
     const { getSearchedCategories } = this.props;
-    this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: false })
+    this.setState({ showLocationList: false, showCuisineList: false, showPlacesList: false });
     getSearchedCategories();
   }
 
   render() {
-    const { setLocationTerm, placesObject: { entity_id } } = this.state;
+    const {
+      setLocationTerm,
+      placesObject: { entity_id },
+    } = this.state;
     return (
       <form className="search-form">
         <div className="search-location">
-          <span className="fa-arrow"><i className="fas fa-location-arrow"></i></span>
-          <input 
+          <span className="fa-arrow">
+            <i className="fas fa-location-arrow" />
+          </span>
+          <input
             ref={this.searchLocationRef}
             onChange={this.handleLocationTermChange}
             value={this.state.locationTerm}
-            placeholder="Please type a location" />
-          <span className="fa-caret"><i className="fas fa-caret-down"></i></span>
+            placeholder="Please type a location"
+          />
+          <span className="fa-caret">
+            <i className="fas fa-caret-down" />
+          </span>
           {this.state.searchLocationsLoader && <SearchLocationsLoader />}
         </div>
-        <div className="search-place" >
+        <div className="search-place">
           <input
             value={this.state.placesObject.placeTerm}
-            onChange={this.handlePlacesTermChange} 
+            onChange={this.handlePlacesTermChange}
             ref={this.searchCuisineRef}
-            placeholder="Search for resturants or cuisines..." />
-          <span className="fa-search"><i className="fas fa-search"></i></span>
+            placeholder="Search for resturants or cuisines..."
+          />
+          <span className="fa-search">
+            <i className="fas fa-search" />
+          </span>
           {this.state.searchPlacesLoader && <SearchPlacesLoader />}
         </div>
-        <SearchBtn urlPath={ this.props.urlPath } city = {{ cityName: setLocationTerm, cityId: entity_id }} />
+        <SearchBtn
+          urlPath={this.props.urlPath}
+          city={{ cityName: setLocationTerm, cityId: entity_id }}
+        />
         {/* Render Location List */}
-        {this.state.locationTerm.length !==0 && this.state.showLocationList && <ul className="location-list">{this.renderLocationList()}</ul>}
+        {this.state.locationTerm.length !== 0 && this.state.showLocationList && (
+          <ul className="location-list">{this.renderLocationList()}</ul>
+        )}
         {/* Render Cuisine list */}
-        {this.state.showCuisineList && <ul className="cuisine-list">{this.renderCuisinesList()}</ul>}
+        {this.state.showCuisineList && (
+          <ul className="cuisine-list">{this.renderCuisinesList()}</ul>
+        )}
         {/* Render Places list */}
-        { this.state.showPlacesList && <ul className="places-list">{this.renderPlacesList()}</ul>}
+        {this.state.showPlacesList && <ul className="places-list">{this.renderPlacesList()}</ul>}
       </form>
     );
-  };
+  }
 }
 
-function mapStateToProps ({ searchedTerms }) {
+function mapStateToProps({ searchedTerms }) {
   const { searchedLocation, searchedCategories, searchedPlaces } = searchedTerms;
   return {
     searchedLocation,
     searchedCategories,
-    searchedPlaces : searchedPlaces.restaurants
-  }
+    searchedPlaces: searchedPlaces.restaurants,
+  };
 }
 
-export default connect(mapStateToProps, { getSearchedLocation, getSearchedCategories, getSearchedPlaces })(SearchForm)
+export default connect(
+  mapStateToProps,
+  { getSearchedLocation, getSearchedCategories, getSearchedPlaces }
+)(SearchForm);

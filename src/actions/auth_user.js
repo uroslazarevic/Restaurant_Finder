@@ -110,6 +110,7 @@ export function login(formData) {
           // Save User In Store
           dispatch(saveUserInStore(user));
         });
+
         // Set Logout Timer
         setLogoutTimer(dispatch, expiresIn);
       })
@@ -147,10 +148,16 @@ export function tryAutoLogin() {
       email,
     };
     // Set User Username
-    dispatch(setUsername({ email, idToken: token })).then(() => {
-      // Save User In Store
-      dispatch(saveUserInStore(user));
-    });
+    dispatch(setUsername({ email, idToken: token }))
+      .then(() => {
+        // Save User In Store
+        dispatch(saveUserInStore(user));
+      })
+      .catch(err => {
+        console.log(err);
+        // Clear Local Storage
+        localStorage.clear();
+      });
   };
 }
 

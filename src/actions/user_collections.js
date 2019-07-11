@@ -103,20 +103,16 @@ export function loadAllCollections() {
   return (dispatch, getState) => {
     const { userId, token } = getState().authentification.user;
     // LOAD USER COLLECTIONS FROM DB
-    dispatch(getUserCollections({ userId, token }, user_Collections.saved.DBEndpoint))
-      .then(res => {
-        // Save USER SAVED COLLECTIONS
-        const oldSavedColls = res.payload.data;
-        dispatch(saveUserCollections(oldSavedColls, user_Collections.saved.state));
-      })
-      .catch(error => console.log('LOADING USER SAVED COLLECTIONS FAILED:', error));
+    dispatch(getUserCollections({ userId, token }, user_Collections.saved.DBEndpoint)).then(res => {
+      // Save USER SAVED COLLECTIONS
+      const oldSavedColls = res.payload.data;
+      dispatch(saveUserCollections(oldSavedColls, user_Collections.saved.state));
+    });
     // Save USER PERSONAL COLLECTIONS
-    dispatch(getUserCollections({ userId, token }, 'personal'))
-      .then(res => {
-        const oldPersonalColls = res.payload.data;
-        dispatch(saveUserCollections(oldPersonalColls, user_Collections.personal.state));
-      })
-      .catch(error => console.log('error'));
+    dispatch(getUserCollections({ userId, token }, 'personal')).then(res => {
+      const oldPersonalColls = res.payload.data;
+      dispatch(saveUserCollections(oldPersonalColls, user_Collections.personal.state));
+    });
   };
 }
 
@@ -149,7 +145,11 @@ function searchLocations({ locationTerm = 'Bra', count = '6' } = {}) {
 }
 
 const innerDebounceSL = _.debounce(
-  (dispatch, args) => setTimeout(() => dispatch(searchLocations(args)), 0),
+  (dispatch, args) =>
+    setTimeout(() => {
+      console.log(args);
+      dispatch(searchLocations(args));
+    }, 0),
   250
 );
 export const debouncedSearchLocations = args => async dispatch =>
