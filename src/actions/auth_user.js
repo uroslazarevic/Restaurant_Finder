@@ -1,182 +1,119 @@
-import { axiosAuth, axiosDB } from './../shared/axios_instances/axios_instances';
-import { clearCollections } from './user_collections';
+import { axiosServer } from './../shared/axios_instances/axios_instances';
+import * as fromCollectionsActions from './user_collections';
+import * as fromErrorActions from './errors';
+
 import history from './../shared/history';
 
-const PROJECT_KEY = 'AIzaSyDw3nLzSIMD7kl2n9_V7oE4M8-ghR_ZPSE';
-
-export const SAVE_USER = 'SAVE_USER';
-export const SET_USERNAME = 'SET_USERNAME';
-export const CLEAR_AUTH = 'CLEAR_AUTH';
-export const VALIDATE_AUTH = 'VALIDATE_AUTH';
-
-export function signupUser(formData) {
-  return axiosAuth.post(`/signupNewUser?key=${PROJECT_KEY}`, {
-    email: formData.email,
-    password: formData.password,
-    returnSecureToken: true,
-  });
-}
-
-export function saveUserInStore(user) {
-  return {
-    type: SAVE_USER,
-    payload: user,
-  };
-}
-
-function setLogoutTimer(dispatch, expirationTime) {
-  setTimeout(() => {
-    dispatch(clearAuth(dispatch));
-  }, expirationTime * 1000);
-}
-
-export function clearAuth() {
-  history.replace('/');
-  return dispatch => {
-    // Clear Local Storage
-    localStorage.clear();
-    dispatch(clearCollections());
-    dispatch({ type: CLEAR_AUTH });
-  };
-}
-
-function loginUser(formData) {
-  return axiosAuth.post(`/verifyPassword?key=${PROJECT_KEY}`, {
-    email: formData.email,
-    password: formData.password,
-    returnSecureToken: true,
-  });
-}
-
-function setUsername(authData) {
-  const request = axiosDB.get(`/users.json?auth=${authData.idToken}`);
-
-  return {
-    type: SET_USERNAME,
-    payload: request,
-    meta: authData.email,
-  };
-}
+export const SIGNUP = 'SIGNUP';
+export const SIGNIN = 'SIGNIN';
+export const SIGN_OUT = 'SIGN_OUT';
 
 export function signup(formData) {
   return async dispatch => {
-    await signupUser(formData)
-      .then(response => {
-        dispatch(validateAuth({ status: response.status, message: null }));
-        const { expiresIn, idToken, localId } = response.data;
-        const { email, username } = formData;
-        const user = {
-          token: idToken,
-          userId: localId,
-          email,
-          username,
-        };
-
-        // Set Local Storage
-        setLocalStorage({ expiresIn, idToken, localId, email });
-        // Store User in Database
-        axiosDB.post(`/users.json?auth=${idToken}`, formData);
-        // Save User In Store
-        dispatch(saveUserInStore(user));
-        // Set Logout Timer
-        setLogoutTimer(dispatch, expiresIn);
-      })
-      .catch(error => {
-        const { status } = error.response;
-        const { message } = error.response.data.error;
-        dispatch(validateAuth({ status, message }));
+    try {
+      const request = await axiosServer.post('/signup', {
+        ...formData,
       });
+      dispatch([
+        {
+          type: fromErrorActions.RESET_ERROR_MESSAGE,
+        },
+        {
+          type: SIGNUP,
+          payload: request,
+        },
+      ]);
+    } catch (err) {
+      dispatch({ type: fromErrorActions.UPDATE_ERROR_MESSAGE, payload: err.response, error: true });
+    }
   };
 }
 
-export function login(formData) {
-  return async dispatch => {
-    await loginUser(formData)
-      .then(response => {
-        dispatch(validateAuth({ status: response.status, message: null }));
-        const { expiresIn, idToken, localId } = response.data;
-        const { email } = formData;
-
-        const user = {
-          token: idToken,
-          userId: localId,
-          email,
-        };
-
-        // Set Local Storage
-        setLocalStorage({ expiresIn, idToken, localId, email });
-        // Set User Username
-        dispatch(setUsername({ email, idToken })).then(() => {
-          // Save User In Store
-          dispatch(saveUserInStore(user));
-        });
-
-        // Set Logout Timer
-        setLogoutTimer(dispatch, expiresIn);
-      })
-      .catch(error => {
-        const { status } = error.response;
-        const { message } = error.response.data.error;
-        dispatch(validateAuth({ status, message }));
+export function signin(formData) {
+  return async (dispatch, getState) => {
+    try {
+      const request = await axiosServer.post('/signin', {
+        email: formData.email,
+        password: formData.password,
       });
+      const { authData } = request.data;
+      const isAuth = getState().authentification.isAuth;
+      setLocalStorage(authData);
+      setLogoutTimer(authData.expiresIn, isAuth);
+
+      dispatch([
+        {
+          type: SIGNIN,
+          payload: { message: request.data.message, username: authData.username },
+        },
+        {
+          type: fromErrorActions.RESET_ERROR_MESSAGE,
+        },
+      ]);
+    } catch (err) {
+      dispatch({ type: fromErrorActions.UPDATE_ERROR_MESSAGE, payload: err.response, error: true });
+    }
   };
 }
 
-function setLocalStorage(authData) {
-  const now = new Date();
-  const expirationDate = new Date(now.getTime() + authData.expiresIn * 1000);
-  localStorage.setItem('token', authData.idToken);
-  localStorage.setItem('userId', authData.localId);
-  localStorage.setItem('expirationDate', expirationDate);
-  localStorage.setItem('email', authData.email);
+export function signOut() {
+  return dispatch => {
+    // Clear Local Storage
+    history.replace('/');
+    localStorage.clear();
+    dispatch([
+      {
+        type: SIGN_OUT,
+      },
+      {
+        type: fromCollectionsActions.CLEAR_COLLECTIONS,
+      },
+    ]);
+  };
 }
 
-export function tryAutoLogin() {
+export function tryAutoSignin() {
   return dispatch => {
     const token = localStorage.getItem('token');
     const expirationDate = localStorage.getItem('expirationDate');
-    const now = new Date();
+    const now = Date.now();
     if (!token || now >= expirationDate) {
       return;
     }
-    const userId = localStorage.getItem('userId');
-    const email = localStorage.getItem('email');
+    const username = localStorage.getItem('username');
 
-    const user = {
-      token,
-      userId,
-      email,
-    };
-    // Set User Username
-    dispatch(setUsername({ email, idToken: token }))
-      .then(() => {
-        // Save User In Store
-        dispatch(saveUserInStore(user));
-      })
-      .catch(err => {
-        console.log(err);
-        // Clear Local Storage
-        localStorage.clear();
-      });
+    dispatch({
+      type: SIGNIN,
+      payload: { message: '', username },
+    });
   };
 }
 
-function validateAuth(payload) {
-  return {
-    type: VALIDATE_AUTH,
-    payload,
+export function verifyEmail(token) {
+  return async dispatch => {
+    try {
+      await axiosServer.post('/confirm-email', { token });
+      history.replace('/');
+    } catch (err) {
+      dispatch({ type: fromErrorActions.UPDATE_ERROR_MESSAGE, payload: err.response, error: true });
+    }
   };
 }
 
-// export function emailVerification(idToken) {
-//   return axiosAuth.post(`/getOobConfirmationCode?key=${PROJECT_KEY}`, {
-//     requestType: "VERIFY_EMAIL",
-//     idToken
-//   } )
-// }
+const setLocalStorage = authData => {
+  const now = Math.floor(Date.now() / 1000);
+  const expirationDate = now + authData.expiresIn;
+  localStorage.setItem('expirationDate', expirationDate);
+  localStorage.setItem('token', authData.token);
+  localStorage.setItem('userId', authData.userId);
+  localStorage.setItem('username', authData.username);
+};
 
-// export function emailConfirmation(idToken) {
-//   return axiosAuth.post(`/setAccountInfo?key=${PROJECT_KEY}`, {
-//     oobCode: '????'
-//   } )
-// }
+const setLogoutTimer = (expirationTime, isAuth) => {
+  setTimeout(() => {
+    if (!isAuth) {
+      return;
+    }
+    signOut();
+  }, expirationTime * 1000);
+};

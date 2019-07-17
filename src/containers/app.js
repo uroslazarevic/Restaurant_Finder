@@ -3,10 +3,10 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import history from './../shared/history';
 
-import { Home } from 'components';
+import { Home, Confirm } from 'components';
 import { RestaurantsCategoryPage, CityCollections, RestaurantDetails, CollectionDetails } from 'containers';
 // Import Actions
-import { tryAutoLogin } from '../actions/auth_user';
+import { tryAutoSignin } from '../actions/auth_user';
 import { loadAllCollections } from '../actions/user_collections';
 
 class App extends Component {
@@ -18,11 +18,11 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
-    this.props.tryAutoLogin();
+  componentDidMount() {
+    this.props.tryAutoSignin();
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidUpdate(newProps) {
     if (newProps.isAuth) {
       if (newProps.isAuth !== this.props.isAuth) {
         this.setState({ isAuth: newProps.isAuth }, () => this.props.loadAllCollections());
@@ -36,6 +36,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/confirm" component={Confirm} />
             <Route path="/:city/restaurants/:restaurant" component={RestaurantDetails} />
             <Route path="/:city/collections/:collection" component={CollectionDetails} />
             <Route path="/:city/collections" component={CityCollections} />
@@ -55,5 +56,5 @@ function mapStateToProps({ authentification }) {
 
 export default connect(
   mapStateToProps,
-  { tryAutoLogin, loadAllCollections }
+  { tryAutoSignin, loadAllCollections }
 )(App);

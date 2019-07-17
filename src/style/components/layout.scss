@@ -1,14 +1,13 @@
 /* Layout Component */
 .layout {
-
   .disable-body-scroll {
     overflow: hidden;
   }
 
   .hide-unmatched-cuisine-item {
-    display: none; 
+    display: none;
   }
-  
+
   .header-top {
     // Import Search Form component
     @import 'style/containers/search_form.scss';
@@ -32,7 +31,8 @@
       padding: 0 20px;
       grid-template-columns: 230px 376px 86px;
 
-      .search-location, .search-place {
+      .search-location,
+      .search-place {
         input {
           border-radius: 2px;
         }
@@ -50,13 +50,13 @@
       }
 
       .search-btn {
-        border: 1px solid rgba(255,255,255,.75);
+        border: 1px solid rgba(255, 255, 255, 0.75);
         width: 73px;
         font-weight: 500;
         font-size: 15px;
 
         &:hover {
-          background: #D94148;
+          background: #d94148;
         }
       }
 
@@ -102,7 +102,8 @@
         border-radius: 4px;
 
         &:hover {
-          background-color: #D94148 !important;
+          background-color: #d94148 !important;
+
           color: #fff !important;
         }
       }
@@ -113,7 +114,7 @@
 
         &:hover {
           color: #fff !important;
-          background: #D94148 !important;
+          background: #d94148 !important;
         }
       }
 
@@ -143,7 +144,7 @@
 
   .all-cuisines-container {
     cursor: pointer;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     width: 100%;
     height: 1000px;
     position: fixed;
@@ -164,9 +165,10 @@
         line-height: 1.1em;
         font-weight: 700;
         font-size: 20px;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         border-bottom: 1px solid #e7e7e7;
-        padding: 17.5px 21px; 
+        padding: 17.5px 21px;
         box-sizing: border-box;
 
         span {
@@ -176,13 +178,12 @@
           z-index: 1;
           line-height: 20px;
           top: 14px;
-          opacity: .8;
+          opacity: 0.8;
           font-weight: bold;
           font-size: 20px;
 
           &:hover {
             opacity: 1;
-
           }
           i {
             pointer-events: none;
@@ -192,19 +193,20 @@
 
       .search-cuisine {
         padding: 21px 21px 0 21px;
-        
+
         input {
           width: 100%;
           line-height: 1.2142em;
-          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-          padding: .67861429em 1em;
-          background: #FFF;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+          padding: 0.67861429em 1em;
+          background: #fff;
           border: 1px solid #e7e7e7;
           font-size: 14px;
-          color: #33373D;
-          border-radius: .28571429rem;
-          -webkit-transition: box-shadow .1s ease,border-color .1s ease;
-          transition: box-shadow .1s ease,border-color .1s ease;
+          color: #33373d;
+          border-radius: 0.28571429rem;
+          -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+          transition: box-shadow 0.1s ease, border-color 0.1s ease;
           box-shadow: none;
         }
       }
@@ -215,7 +217,8 @@
         padding: 21px 31px;
 
         li {
-          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
           font-size: 14px;
           line-height: 19.6px;
           cursor: pointer;

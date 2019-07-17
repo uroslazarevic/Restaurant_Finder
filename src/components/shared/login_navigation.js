@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Actions
-import { clearAuth } from '../../actions/auth_user';
+import { signOut } from './../../actions/auth_user';
 import { setVisibleFM } from '../../actions/event_bus';
 
 class LoginNavigation extends Component {
@@ -13,7 +13,7 @@ class LoginNavigation extends Component {
   }
 
   handleLogout() {
-    this.props.clearAuth();
+    this.props.signOut();
   }
 
   capitalize(string) {
@@ -21,8 +21,8 @@ class LoginNavigation extends Component {
   }
 
   render() {
-    const { user, isAuth, setVisibleFM } = this.props;
-    let loginedUser = isAuth ? this.capitalize(user.username) : 'Log in';
+    const { username, isAuth, setVisibleFM } = this.props;
+    const loginedUser = isAuth ? this.capitalize(username) : 'Log in';
 
     return (
       <div className="login-navigation">
@@ -44,14 +44,14 @@ class LoginNavigation extends Component {
 }
 
 function mapStateToProps({ authentification }) {
-  const { user, isAuth } = authentification;
+  const { username, isAuth } = authentification;
   return {
-    user,
+    username,
     isAuth,
   };
 }
 
 export default connect(
   mapStateToProps,
-  { clearAuth, setVisibleFM }
+  { setVisibleFM, signOut }
 )(LoginNavigation);

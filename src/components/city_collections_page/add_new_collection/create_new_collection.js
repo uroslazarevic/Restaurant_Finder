@@ -58,8 +58,8 @@ export default class LoginForm extends Component {
     if (string.length > this.state.createdTags.length) {
       const newString = string
         .split(' ')
-        .map(word => word.replace('#', ''))
-        .map(tag => `#${tag}`)
+        .map((word) => word.replace('#', ''))
+        .map((tag) => `#${tag}`)
         .join(' ');
       this.setState({ createdTags: newString });
     } else {
@@ -78,7 +78,7 @@ export default class LoginForm extends Component {
 
   removeRes(place) {
     const restaurants = this.state.createdCollection.restaurants.filter(
-      res => res.restaurant.id !== place.restaurant.id
+      (res) => res.restaurant.id !== place.restaurant.id
     );
     this.setState({ createdCollection: { ...this.state.createdCollection, restaurants } });
   }
@@ -99,31 +99,27 @@ export default class LoginForm extends Component {
       // Search Locations
       name === 'location' && debouncedSearchLocations({ locationTerm: location });
       // Search Restaurants
-      name === 'restaurant' &&
-        debouncedSearchRestaurants({ placeTerm: restaurant, entity_id: cityId });
+      name === 'restaurant' && debouncedSearchRestaurants({ placeTerm: restaurant, entity_id: cityId });
     });
   }
 
   autocompleteInput(cityId) {
-    return event => {
+    return (event) => {
       const {
         searchProps: { debouncedSearchLocations, debouncedSearchRestaurants },
       } = this.props;
       const value = event.target.innerText;
       const name = event.target.dataset.autocomInput;
-      this.setState(
-        { cityId, createdCollection: { ...this.state.createdCollection, [name]: value } },
-        () => {
-          const { location, restaurant } = this.state.createdCollection;
-          // Search Locations
-          name === 'location' &&
-            debouncedSearchLocations({ locationTerm: location }).then(() => {
-              // Search Restaurants
-              restaurant.length > 1 &&
-                debouncedSearchRestaurants({ placeTerm: restaurant, entity_id: this.state.cityId });
-            });
-        }
-      );
+      this.setState({ cityId, createdCollection: { ...this.state.createdCollection, [name]: value } }, () => {
+        const { location, restaurant } = this.state.createdCollection;
+        // Search Locations
+        name === 'location' &&
+          debouncedSearchLocations({ locationTerm: location }).then(() => {
+            // Search Restaurants
+            restaurant.length > 1 &&
+              debouncedSearchRestaurants({ placeTerm: restaurant, entity_id: this.state.cityId });
+          });
+      });
     };
   }
 
@@ -211,11 +207,7 @@ export default class LoginForm extends Component {
           </div>
           <div className="actions">
             {showHiddenBtn && (
-              <button
-                className="back-btn"
-                onClick={this.handleBackBtn}
-                data-ref-to="addCollectionForm"
-              >
+              <button className="back-btn" onClick={this.handleBackBtn} data-ref-to="addCollectionForm">
                 Back
               </button>
             )}

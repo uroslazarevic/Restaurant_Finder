@@ -1,8 +1,9 @@
 .collection-details-card {
-  border-radius: .28571429rem;
+  border-radius: 0.28571429rem;
   border: 1px solid #e7e7e7;
   overflow: hidden;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 
   .collection-header {
     position: relative;
@@ -12,7 +13,6 @@
       width: 100%;
       background-size: cover;
       background-position: center center;
-
     }
 
     .collection-url {
@@ -29,7 +29,6 @@
         position: relative;
 
         &:hover {
-          
           .tooltipText {
             visibility: visible;
             opacity: 1;
@@ -58,7 +57,7 @@
           pointer-events: none;
 
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: -12px;
             left: 10%;
@@ -75,7 +74,7 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           cursor: pointer;
-          padding: .78571429em 1.5em;
+          padding: 0.78571429em 1.5em;
           background-color: #fff;
           line-height: 1em;
         }
@@ -84,12 +83,12 @@
       .share-collection {
         cursor: pointer;
         line-height: 1em;
-        background: #E0E1E2;
-        color: rgba(0,0,0,.6);
-        padding: .78571429em 1.5em;
-        transition: background .1s ease 0s;
+        background: #e0e1e2;
+        color: rgba(0, 0, 0, 0.6);
+        padding: 0.78571429em 1.5em;
+        transition: background 0.1s ease 0s;
         &:hover {
-          background-color: #EFF2F6;
+          background-color: #eff2f6;
         }
 
         span {
@@ -109,29 +108,30 @@
 
     .title {
       font-weight: 600;
-      color: #33373D;
+      color: #33373d;
       min-height: 1rem;
       margin-bottom: 5px;
       font-size: 28px;
       line-height: 30.8px;
     }
 
-    .description, .tags {
+    .description,
+    .tags {
       line-height: 1.4285em;
-      color: #33373D;
+      color: #33373d;
       margin-bottom: 5px;
       font-size: 15px;
     }
 
     .restaurants-offering-service {
-      color: #89959B;
+      color: #89959b;
       margin-bottom: 5px;
       font-size: 14px;
       line-height: 1.4285em;
     }
 
     .coll-btn {
-      transition: all .1s ease;
+      transition: all 0.1s ease;
       padding: 7px 10px;
       font-size: 14px;
       line-height: 14px;
@@ -147,7 +147,7 @@
       background: #d31616;
       color: #fff;
       width: 148.05px;
-      
+
       &:hover {
         opacity: 0.8;
       }

@@ -6,8 +6,8 @@
   width: 100%;
   top: 0; }
   .add-new-collection-container .add-new-collection {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    border-radius: .28571429rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    border-radius: 0.28571429rem;
     background: #fff;
     width: 760px;
     position: absolute;
@@ -27,27 +27,28 @@
         cursor: pointer;
         line-height: 20px;
         top: 14px;
-        opacity: .8;
+        opacity: 0.8;
         font-weight: bold;
-        color: #33373D;
+        color: #33373d;
         font-size: 20px; }
         .add-new-collection-container .add-new-collection .header .close-icon i {
           pointer-events: none; }
         .add-new-collection-container .add-new-collection .header .close-icon:hover {
           opacity: 1; }
-    .add-new-collection-container .add-new-collection .field input, .add-new-collection-container .add-new-collection .field textarea, .add-new-collection-container .add-new-collection .content .search-input-container .search-input {
+    .add-new-collection-container .add-new-collection .field input,
+    .add-new-collection-container .add-new-collection .field textarea, .add-new-collection-container .add-new-collection .content .search-input-container .search-input {
       height: 38px;
       border-color: none;
       line-height: 38px;
-      padding: .67861429em 1em;
+      padding: 0.67861429em 1em;
       font-size: 14px;
-      background: #FFF;
+      background: #fff;
       border: 1px solid #e7e7e7;
-      color: #33373D;
-      border-radius: .28571429rem;
+      color: #33373d;
+      border-radius: 0.28571429rem;
       box-shadow: 0 0 0 0 transparent inset;
-      -webkit-transition: color .1s ease,border-color .1s ease;
-      transition: color .1s ease,border-color .1s ease; }
+      -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+      transition: color 0.1s ease, border-color 0.1s ease; }
     .add-new-collection-container .add-new-collection .field {
       display: flex;
       flex-direction: column;
@@ -58,14 +59,16 @@
         font-weight: 700;
         line-height: 19.6px;
         text-transform: none;
-        color: #33373D;
+        color: #33373d;
         font-size: 14px;
         margin-bottom: 0px; }
-      .add-new-collection-container .add-new-collection .field input::placeholder, .add-new-collection-container .add-new-collection .field textarea::placeholder {
+      .add-new-collection-container .add-new-collection .field input::placeholder,
+      .add-new-collection-container .add-new-collection .field textarea::placeholder {
         color: #ccc;
         font-size: 14px; }
-      .add-new-collection-container .add-new-collection .field input:focus, .add-new-collection-container .add-new-collection .field textarea:focus {
-        outline-color: #85B7D9; }
+      .add-new-collection-container .add-new-collection .field input:focus,
+      .add-new-collection-container .add-new-collection .field textarea:focus {
+        outline-color: #85b7d9; }
       .add-new-collection-container .add-new-collection .field textarea {
         padding: 11px 14px;
         height: 75px !important;
@@ -77,28 +80,30 @@
       line-height: 0px;
       padding: 8.25px 15.75px;
       font-size: 14px;
-      border-radius: .28571429rem; }
-    .add-new-collection-container .add-new-collection .actions .add-restaurants, .add-new-collection-container .add-new-collection .actions .save-collection, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res {
+      border-radius: 0.28571429rem; }
+    .add-new-collection-container .add-new-collection .actions .add-restaurants,
+    .add-new-collection-container .add-new-collection .actions .save-collection, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res {
       margin-left: auto;
-      background-color: #099E44; }
-      .add-new-collection-container .add-new-collection .actions .add-restaurants:hover, .add-new-collection-container .add-new-collection .actions .save-collection:hover, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res:hover {
+      background-color: #099e44; }
+      .add-new-collection-container .add-new-collection .actions .add-restaurants:hover,
+      .add-new-collection-container .add-new-collection .actions .save-collection:hover, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res:hover {
         background-color: #018c38;
-        transition: background .1s ease 0s; }
+        transition: background 0.1s ease 0s; }
     .add-new-collection-container .add-new-collection .actions .back-btn, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .remove-res {
-      background-color: #CB202D; }
+      background-color: #cb202d; }
       .add-new-collection-container .add-new-collection .actions .back-btn:hover, .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .remove-res:hover {
         background-color: #bd1522;
-        transition: background .1s ease 0s; }
+        transition: background 0.1s ease 0s; }
     .add-new-collection-container .add-new-collection .actions {
       display: flex;
       border-top: 1px solid #e7e7e7;
-      background: #F9FAFB;
+      background: #f9fafb;
       padding: 14px; }
       .add-new-collection-container .add-new-collection .actions .btnDisabled {
-        background-color: #099E44;
+        background-color: #099e44;
         opacity: 0.5; }
         .add-new-collection-container .add-new-collection .actions .btnDisabled:hover {
-          background-color: #099E44;
+          background-color: #099e44;
           opacity: 0.5;
           transition: none; }
       .add-new-collection-container .add-new-collection .actions button {
@@ -115,7 +120,8 @@
         opacity: 0; }
       .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns {
         display: flex; }
-        .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .add-restaurants, .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .in-collection {
+        .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .add-restaurants,
+        .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .in-collection {
           width: 50%;
           text-align: center;
           padding: 12.85px 0;
@@ -129,7 +135,7 @@
       .add-new-collection-container .add-new-collection .content .search-input-container {
         position: relative; }
         .add-new-collection-container .add-new-collection .content .search-input-container .location-results {
-          border-radius: .28571429rem;
+          border-radius: 0.28571429rem;
           border: 1px solid #e7e7e7;
           overflow: hidden;
           position: absolute;
@@ -141,8 +147,8 @@
           width: 100%; }
           .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location {
             border-top: 1px solid #e7e7e7;
-            color: #33373D;
-            padding: .67861429em 1em;
+            color: #33373d;
+            padding: 0.67861429em 1em;
             font-size: 14px;
             line-height: 18.62px;
             padding: 12px 16px;
@@ -150,7 +156,7 @@
             cursor: pointer; }
             .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location:hover {
               transition: background 0.1s ease;
-              background: #F9FAFB; }
+              background: #f9fafb; }
             .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location:first-child {
               border-top: none; }
           .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location-fetch-failed {
@@ -188,7 +194,7 @@
           line-height: 21px; }
         .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant {
           font-size: 14px;
-          padding: .21428571em 0;
+          padding: 0.21428571em 0;
           line-height: 27px;
           display: flex; }
           .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .description {
@@ -204,7 +210,7 @@
               font-size: 14px;
               line-height: 16px; }
           .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant button {
-            transition: all .1s ease !important;
+            transition: all 0.1s ease !important;
             outline: none;
             overflow: hidden;
             white-space: nowrap;
@@ -223,7 +229,7 @@
 .fade-scale-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: .15s ease-in all; }
+  transition: 0.15s ease-in all; }
 
 .fade-scale-exit {
   opacity: 1;
@@ -232,7 +238,7 @@
 .fade-scale-exit-active {
   opacity: 0;
   transform: scale(0.9);
-  transition: .15s ease-in all; }
+  transition: 0.15s ease-in all; }
 
 .fade-enter {
   opacity: 0.01; }

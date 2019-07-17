@@ -224,7 +224,7 @@
       font-weight: 500;
       font-size: 15px; }
       .layout .header-top .search-form .search-btn:hover {
-        background: #D94148; }
+        background: #d94148; }
     .layout .header-top .search-form ul.cuisine-list {
       width: 376px;
       z-index: 1;
@@ -254,14 +254,14 @@
     .layout .header-top .login-navigation .signin-link, .layout .header-top .login-navigation .logined-user {
       border-radius: 4px; }
       .layout .header-top .login-navigation .signin-link:hover, .layout .header-top .login-navigation .logined-user:hover {
-        background-color: #D94148 !important;
+        background-color: #d94148 !important;
         color: #fff !important; }
     .layout .header-top .login-navigation .signup-link, .layout .header-top .login-navigation .logout-link {
       background-color: #ba1e2b !important;
       border: none; }
       .layout .header-top .login-navigation .signup-link:hover, .layout .header-top .login-navigation .logout-link:hover {
         color: #fff !important;
-        background: #D94148 !important; }
+        background: #d94148 !important; }
     .layout .header-top .login-navigation .signin-link {
       width: 78.19px; }
     .layout .header-top .login-navigation .logined-user {
@@ -295,7 +295,7 @@
       line-height: 1.1em;
       font-weight: 700;
       font-size: 20px;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
       border-bottom: 1px solid #e7e7e7;
       padding: 17.5px 21px;
       box-sizing: border-box; }
@@ -306,7 +306,7 @@
         z-index: 1;
         line-height: 20px;
         top: 14px;
-        opacity: .8;
+        opacity: 0.8;
         font-weight: bold;
         font-size: 20px; }
         .layout .all-cuisines-container .all-cuisine-content label span:hover {
@@ -318,22 +318,22 @@
       .layout .all-cuisines-container .all-cuisine-content .search-cuisine input {
         width: 100%;
         line-height: 1.2142em;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        padding: .67861429em 1em;
-        background: #FFF;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        padding: 0.67861429em 1em;
+        background: #fff;
         border: 1px solid #e7e7e7;
         font-size: 14px;
-        color: #33373D;
-        border-radius: .28571429rem;
-        -webkit-transition: box-shadow .1s ease,border-color .1s ease;
-        transition: box-shadow .1s ease,border-color .1s ease;
+        color: #33373d;
+        border-radius: 0.28571429rem;
+        -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+        transition: box-shadow 0.1s ease, border-color 0.1s ease;
         box-shadow: none; }
     .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list {
       grid-template-columns: repeat(3, 1fr);
       display: grid;
       padding: 21px 31px; }
       .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list li {
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         font-size: 14px;
         line-height: 19.6px;
         cursor: pointer;

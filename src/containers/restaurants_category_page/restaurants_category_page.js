@@ -206,7 +206,7 @@ class RestaurantsCategoryPage extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const {
       getLocationDetails,
       getSearchedRestaurants,
@@ -246,7 +246,7 @@ class RestaurantsCategoryPage extends Component {
     );
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidUpdate(newProps) {
     const { getSearchedRestaurants } = this.props;
 
     if (
@@ -308,14 +308,12 @@ class RestaurantsCategoryPage extends Component {
       pageLoader,
       showContent,
     } = this.state;
-    let pageCount;
     const urlHome = '/';
     const wildcardCap = this.capitalize(wildcard);
 
-    searchedRestaurants
-      ? (pageCount = Math.ceil(searchedRestaurants.results_found / this.state.filterObject.count))
+    const pageCount = searchedRestaurants
+      ? Math.ceil(searchedRestaurants.results_found / this.state.filterObject.count)
       : 50;
-    console.log('restaurantsFOund:', searchedRestaurants);
     const transitionOptions = {
       in: showCuisinesModal,
       timeout: 300,

@@ -35,10 +35,10 @@ export function saveCollectionInDB(collection, collectionType) {
     // LOAD USER COLLECTIONS FROM DB
     dispatch(getUserCollections({ userId, token }, collectionType.DBEndpoint))
       .then(res => {
-        let newColls = [];
+        const newColls = [];
         const oldColls = res.payload.data;
         // MAKE NEW ARRAY FROM OBJ AND REMOVE IF ITEM MATCHES
-        _.forEach(oldColls, (item, key) => {
+        _.forEach(oldColls, item => {
           if (item.collection.collection_id !== collection.collection.collection_id) {
             newColls.push(item);
           }
@@ -48,16 +48,9 @@ export function saveCollectionInDB(collection, collectionType) {
         newColls.unshift(collection);
         // PUSH OUR NEW COLLECTIONS ARRAY IN DB
         axiosDB
-          .put(
-            `/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`,
-            newColls
-          )
-          .then(res =>
-            console.log(`Response collections of type ${collectionType.DBEndpoint} `, res)
-          )
-          .catch(error =>
-            console.log(`Error collections of type ${collectionType.dataEndpoint}:`, error)
-          );
+          .put(`/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`, newColls)
+          .then(res => console.log(`Response collections of type ${collectionType.DBEndpoint} `, res))
+          .catch(error => console.log(`Error collections of type ${collectionType.dataEndpoint}:`, error));
         // SAVE USER "SAVED COLLECTIONS" IN STORE
         dispatch(saveUserCollections(newColls, collectionType.state));
       })
@@ -74,9 +67,9 @@ export function removeCollectionFromDB(collection, collectionType) {
     dispatch(getUserCollections({ userId, token }, collectionType.DBEndpoint))
       .then(res => {
         const oldColls = res.payload.data;
-        let newColls = [];
+        const newColls = [];
         // MAKE NEW ARRAY FROM OBJ AND REMOVE IF ITEM MATCHES
-        _.forEach(oldColls, (item, key) => {
+        _.forEach(oldColls, item => {
           if (item.collection.collection_id !== collection.collection.collection_id) {
             newColls.push(item);
           }
@@ -84,10 +77,7 @@ export function removeCollectionFromDB(collection, collectionType) {
 
         // PUSH OUR NEW COLLECTIONS ARRAY IN DB
         axiosDB
-          .put(
-            `/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`,
-            newColls
-          )
+          .put(`/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`, newColls)
           .then(res => {
             console.log(res);
             // SAVE USER "SAVED COLLECTIONS" IN STORE
@@ -152,15 +142,9 @@ const innerDebounceSL = _.debounce(
     }, 0),
   250
 );
-export const debouncedSearchLocations = args => async dispatch =>
-  await innerDebounceSL(dispatch, args);
+export const debouncedSearchLocations = args => async dispatch => await innerDebounceSL(dispatch, args);
 
-function searchRestaurants({
-  placeTerm = '',
-  entity_id = '',
-  entity_type = 'city',
-  count = 9,
-} = {}) {
+function searchRestaurants({ placeTerm = '', entity_id = '', entity_type = 'city', count = 9 } = {}) {
   const data = {
     entity_type,
     entity_id,
@@ -182,8 +166,5 @@ function searchRestaurants({
   };
 }
 
-const innerDebounceSR = _.debounce(
-  (dispatch, args) => setTimeout(() => dispatch(searchRestaurants(args)), 0),
-  250
-);
+const innerDebounceSR = _.debounce((dispatch, args) => setTimeout(() => dispatch(searchRestaurants(args)), 0), 250);
 export const debouncedSearchRestaurants = args => dispatch => innerDebounceSR(dispatch, args);

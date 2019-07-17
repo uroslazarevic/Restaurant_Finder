@@ -13,13 +13,6 @@ export const SEARCH_RESTAURANT_DETAILS = 'SEARCH_RESTAURANT_DETAILS';
 export const SEARCH_RESTAURANT_REVIEWS = 'SEARCH_RESTAURANT_REVIEWS';
 export const SEARCH_COLLECTION_DETAILS = 'SEARCH_COLLECTION_DETAILS';
 
-export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
-
-// Resets the currently visible error message.
-export const resetErrorMessage = () => ({
-  type: RESET_ERROR_MESSAGE,
-});
-
 export function getSearchedLocation({ locationTerm = 'Bra', count = '10' } = {}) {
   const data = {
     q: locationTerm,
@@ -44,7 +37,7 @@ export function getSearchedLocation({ locationTerm = 'Bra', count = '10' } = {})
 export function getSearchedCategories() {
   const config = {
     method: 'GET',
-    url: `categories`,
+    url: 'categories',
   };
 
   const request = axiosZomato(config);
@@ -256,11 +249,7 @@ export function getRestaurantReviews({ res_id = '', start = '', count = 5 } = {}
   };
 }
 
-export function getCollectionDetails({
-  entity_id = '111',
-  entity_type = 'city',
-  collection_id = 1,
-} = {}) {
+export function getCollectionDetails({ entity_id = '111', entity_type = 'city', collection_id = 1 } = {}) {
   const data = {
     entity_id,
     entity_type,

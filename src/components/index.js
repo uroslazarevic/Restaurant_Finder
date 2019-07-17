@@ -36,10 +36,10 @@ import CollectionRestaurantItem from './collection_details_page/collection_resta
 import CollContentDisplay from './city_collections_page/collections_content_display/collections_content_display';
 import CreateNewCollection from './city_collections_page/add_new_collection/create_new_collection';
 import AddCollectionForm from './city_collections_page/add_new_collection/add_collection_form/add_collection_form';
-import AddCollectionResForm from './city_collections_page/add_new_collection/add_collection_res_form/add_collection_res_form'
-import LocationList from './city_collections_page/add_new_collection/add_collection_res_form/location_list/location_list'
-import RestaurantList from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_list'
-import ResItem from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_item/restaurant_item'
+import AddCollectionResForm from './city_collections_page/add_new_collection/add_collection_res_form/add_collection_res_form';
+import LocationList from './city_collections_page/add_new_collection/add_collection_res_form/location_list/location_list';
+import RestaurantList from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_list';
+import ResItem from './city_collections_page/add_new_collection/add_collection_res_form/restaurant_list/restaurant_item/restaurant_item';
 import InCollectionResForm from './city_collections_page/add_new_collection/in_collection_res_form/in_collection_res_form';
 import AddedResList from './city_collections_page/add_new_collection/in_collection_res_form/added_restaurants/added_restaurants';
 import AddedResItem from './city_collections_page/add_new_collection/in_collection_res_form/added_restaurants/added_res_item/added_res_item';
@@ -50,6 +50,7 @@ import SavedCollCard from './city_collections_page/collections_content_display/s
 import PersonalCollCard from './city_collections_page/collections_content_display/personal_collections_card/personal_collections_card';
 import Footer from './shared/footer';
 import ShowNote from './shared/show_note';
+import Confirm from './confirm/confirm';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './shared/loaders';
 
 export {
@@ -109,6 +110,6 @@ export {
   SavedCollCard,
   PersonalCollCard,
   ShowNote,
-  Footer
-  
-}
+  Footer,
+  Confirm,
+};

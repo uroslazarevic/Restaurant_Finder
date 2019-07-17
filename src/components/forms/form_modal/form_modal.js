@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // Import Components
 import { StartForm, LoginForm, SignupForm, PasswordResetForm } from 'components';
 // Import Actions
-import { signup, login } from '../../../actions/auth_user';
+import { signup, signin } from '../../../actions/auth_user';
 import { setHiddenFM, setVisibleFM } from '../../../actions/event_bus';
 
 class FormModal extends Component {
@@ -19,135 +19,88 @@ class FormModal extends Component {
         login: 'By logging in',
         signup: 'By creating an account',
       },
-      validationMsg: '',
-      isValidated: '',
-      fieldsAdjusted: false,
+      validationMsg: null,
+      isFormValid: null,
+      formData: null,
     };
-
-    this.handleActiveForm = this.handleActiveForm.bind(this);
-    this.handlePolicyText = this.handlePolicyText.bind(this);
-    this.handleForgotenPassword = this.handleForgotenPassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.validateForm = this.validateForm.bind(this);
-    this.hideFormModal = this.hideFormModal.bind(this);
-    this.hideFormModalOnFormSubmit = this.hideFormModalOnFormSubmit.bind(this);
   }
 
-  hideFormModal(event) {
+  hideFormModal = event => {
     const target = event.target;
-    if (
-      target.classList.contains('form-modal-container') ||
-      target.classList.contains('close-icon')
-    ) {
+    if (target.classList.contains('form-modal-container') || target.classList.contains('close-icon')) {
       this.props.setHiddenFM();
     }
-  }
+  };
 
-  hideFormModalOnFormSubmit() {
-    this.props.setHiddenFM();
-  }
-
-  async validateForm(formData, validate = null) {
-    const { username = null, email = null, password = null } = formData;
-    let msg;
-    if (
-      (username === '' && email === '' && password === '') ||
-      (username === '' && email === '') ||
-      username === ''
-    ) {
-      msg = 'Please enter your email address or username';
-      await this.setState({ isValidated: 'error', validationMsg: msg, fieldsAdjusted: false });
-    } else if ((email === '' && password === '') || email === '') {
-      msg = 'Please enter your email address';
-      await this.setState({ isValidated: 'error', validationMsg: msg, fieldsAdjusted: false });
-    } else if (password === '') {
-      msg = 'Please enter your password';
-      await this.setState({ isValidated: 'error', validationMsg: msg, fieldsAdjusted: false });
-    } else if (password.length < 6) {
-      msg = 'Password must be atleast 6 characters long';
-      await this.setState({ isValidated: 'error', validationMsg: msg, fieldsAdjusted: false });
-    } else if (validate) {
-      const { status, message } = validate;
-
-      if (status === 200) {
-        this.setState({ validationMsg: 'You are successful!', isValidated: 'success' }, () => {
-          setTimeout(() => this.props.setHiddenFM(), 1500);
-        });
-        return;
-      }
-      // LOGIN ERRORS
-      if (status === 400 && message === 'INVALID_PASSWORD') {
-        this.setState({ validationMsg: 'Please enter a valid password', isValidated: 'error' });
-      }
-      if (status === 400 && message === 'TOO_MANY_ATTEMPTS_TRY_LATER') {
-        this.setState({
-          validationMsg: 'Too many unsuccessful login attempts. Try later.',
-          isValidated: 'error',
-        });
-      }
-      // SIGNUP ERRORS
-      if (status === 400 && message === 'EMAIL_EXISTS') {
-        this.setState({
-          validationMsg: 'This email is already taken. Try again.',
-          isValidated: 'error',
-        });
-      }
-      // LOGIN & SIGNUP ERRORS
-      if (
-        (status === 400 && message === 'EMAIL_NOT_FOUND') ||
-        (status === 400 && message === 'INVALID_EMAIL')
-      ) {
-        this.setState({
-          validationMsg: 'Please enter a valid email  (example@example.com)',
-          isValidated: 'error',
-        });
-      }
-    } else {
-      await this.setState({ fieldsAdjusted: true });
+  validateForm = async (formData, formName) => {
+    console.log('formData', formData);
+    let { username = '', email = '', password = '' } = formData;
+    if (formName === 'login') {
+      username = 'empty';
     }
-  }
+    username = username.trim();
+    email = username.trim();
+    password = password.trim();
+    let msg;
+    let error;
+    if ((!username && !email && !password) || (!username && !email) || !username) {
+      error = true;
+      msg = 'Please enter your email address or username';
+    } else if ((!email && !password) || !email) {
+      error = true;
+      msg = 'Please enter your email address';
+    } else if (!password) {
+      error = true;
+      msg = 'Please enter your password';
+    }
+    error
+      ? await this.setState({ isFormValid: 'false', validationMsg: msg })
+      : await this.setState({ isFormValid: 'true', validationMsg: null });
+    return this.state.isFormValid;
+  };
 
-  handleSubmit(formData, formName) {
-    return event => {
+  handleSubmit = (formData, formName) => {
+    return async event => {
       event.preventDefault();
-      this.validateForm(formData).then(() => {
-        // console.log(`${formName} form fields:`, formData);
-        if (this.state.fieldsAdjusted) {
-          if (formName === 'login') {
-            this.props.login(formData).then(() => this.validateForm(formData, this.props.validate));
-          } else {
-            this.props
-              .signup(formData)
-              .then(() => this.validateForm(formData, this.props.validate));
-          }
+      const isFormValid = await this.validateForm(formData, formName);
+      if (isFormValid === 'true') {
+        if (formName === 'login') {
+          await this.props.signin(formData);
+          this.hideModalOnSubmit();
+        } else {
+          await this.props.signup(formData);
+          this.setState({ isFormValid: 'true', validationMsg: this.props.authMessage });
+          this.hideModalOnSubmit();
         }
-      });
+        if (this.props.errorMessage) {
+          this.setState({ isFormValid: 'false', validationMsg: this.props.errorMessage });
+        }
+      }
     };
+  };
+
+  hideModalOnSubmit() {
+    setTimeout(() => {
+      this.props.setHiddenFM();
+    }, 2000);
   }
 
-  handleActiveForm(event) {
+  handleActiveForm = event => {
     const refTo = event.target.dataset.refTo;
     this.setState({ activeForm: refTo, validate: '' });
-  }
+  };
 
-  handlePolicyText(text) {
+  handlePolicyText = text => {
     this.setState({ activePolicyText: text });
-  }
+  };
 
-  handleForgotenPassword(event) {
+  handleForgotenPassword = event => {
     event.persist();
     this.setState({ forgotPassword: true }, () => this.handleActiveForm(event));
-  }
+  };
 
   render() {
-    const {
-      activeForm,
-      activePolicyText,
-      forgotPassword,
-      policyText,
-      isValidated,
-      validationMsg,
-    } = this.state;
+    const { activeForm, activePolicyText, forgotPassword, policyText, isFormValid, validationMsg } = this.state;
 
     return (
       <div onClick={this.hideFormModal} className="form-modal-container">
@@ -160,10 +113,10 @@ class FormModal extends Component {
           </div>
 
           <div className="content">
-            {isValidated === 'error' && (
+            {isFormValid === 'false' && validationMsg && (
               <div className="validation-msg animate-validation-error">{validationMsg}</div>
             )}
-            {isValidated === 'success' && (
+            {isFormValid === 'true' && validationMsg && (
               <div className="validation-msg animate-validation-success">{validationMsg}</div>
             )}
             {activeForm === 'start-form' && <StartForm handleActiveForm={this.handleActiveForm} />}
@@ -177,24 +130,18 @@ class FormModal extends Component {
             )}
 
             {activeForm === 'signup-form' && (
-              <SignupForm
-                handleSubmit={this.handleSubmit}
-                handlePolicyText={this.handlePolicyText}
-              />
+              <SignupForm handleSubmit={this.handleSubmit} handlePolicyText={this.handlePolicyText} />
             )}
 
-            {activeForm === 'password-reset-form' && (
-              <PasswordResetForm handleSubmit={this.handleSubmit} />
-            )}
+            {activeForm === 'password-reset-form' && <PasswordResetForm handleSubmit={this.handleSubmit} />}
 
             <div className="privacy-policy">
               {forgotPassword ? (
                 ''
               ) : (
                 <React.Fragment>
-                  {policyText[activePolicyText]} , you agree to Zomato's{' '}
-                  <span>Terms of Service</span>, <span>Cookie Policy</span>,{' '}
-                  <span>Privacy Policy</span> and <span>Content Policies</span>.
+                  {policyText[activePolicyText]} , you agree to Zomato&apos;s <span>Terms of Service</span>,{' '}
+                  <span>Cookie Policy</span>, <span>Privacy Policy</span> and <span>Content Policies</span>.
                 </React.Fragment>
               )}
             </div>
@@ -205,15 +152,16 @@ class FormModal extends Component {
   }
 }
 
-function mapStateToProps({ authentification }) {
-  const { user, validate } = authentification;
+function mapStateToProps({ authentification, errorMessage }) {
+  const { user, authMessage } = authentification;
   return {
     user,
-    validate,
+    errorMessage,
+    authMessage,
   };
 }
 
 export default connect(
   mapStateToProps,
-  { signup, login, setHiddenFM, setVisibleFM }
+  { signup, signin, setHiddenFM, setVisibleFM }
 )(FormModal);

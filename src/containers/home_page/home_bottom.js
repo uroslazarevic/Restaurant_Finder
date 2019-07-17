@@ -18,7 +18,7 @@ class HomeBottom extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const {
       getSearchedCollections,
       getLocationDetails,
@@ -26,15 +26,12 @@ class HomeBottom extends Component {
     } = this.props;
     this.setState({ pageLoader: true, showContent: false }, () => {
       axios
-        .all([
-          getSearchedCollections({ city_id: cityId }),
-          getLocationDetails({ entity_id: cityId }),
-        ])
+        .all([getSearchedCollections({ city_id: cityId }), getLocationDetails({ entity_id: cityId })])
         .then(() => this.setState({ pageLoader: false, showContent: true }));
     });
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidUpdate(newProps) {
     const {
       getSearchedCollections,
       getLocationDetails,
@@ -60,11 +57,7 @@ class HomeBottom extends Component {
       city: { cityId, cityName },
     } = this.props;
     return searchedCollections ? (
-      <Collections
-        urlPath={this.props.urlPath}
-        collections={searchedCollections}
-        city={{ cityName, cityId }}
-      />
+      <Collections urlPath={this.props.urlPath} collections={searchedCollections} city={{ cityName, cityId }} />
     ) : (
       <div className="container">Collections not available</div>
     );

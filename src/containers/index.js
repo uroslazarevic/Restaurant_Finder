@@ -1,4 +1,4 @@
-import App from './app'
+import App from './app';
 import SearchForm from './home_page/search_form';
 import HomeBottom from './home_page/home_bottom';
 import RestaurantsCategoryPage from './restaurants_category_page/restaurants_category_page';
@@ -14,6 +14,5 @@ export {
   RestaurantsCategoryPage,
   RestaurantDetails,
   CityCollections,
-  CollectionDetails
-
-}
+  CollectionDetails,
+};

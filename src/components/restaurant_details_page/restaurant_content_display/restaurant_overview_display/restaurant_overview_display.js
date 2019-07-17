@@ -1,14 +1,7 @@
 import React from 'react';
 
 // Import Components
-import {
-  ShowNote,
-  ResContactCard,
-  ResNavigationCard,
-  ResMenuCard,
-  ResPhotosCard,
-  ResReviewsCard,
-} from 'components';
+import { ShowNote, ResContactCard, ResNavigationCard, ResMenuCard, ResPhotosCard, ResReviewsCard } from 'components';
 
 // Import images
 import featuredImgAvatar from '../../../../images/restaurant_imgs/res_photos_imgs/featuredImgAvatar.png';

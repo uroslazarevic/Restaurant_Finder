@@ -374,8 +374,8 @@ body {
   width: 100%;
   top: 0; }
   .city-collections .add-new-collection-container .add-new-collection {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    border-radius: .28571429rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    border-radius: 0.28571429rem;
     background: #fff;
     width: 760px;
     position: absolute;
@@ -395,27 +395,28 @@ body {
         cursor: pointer;
         line-height: 20px;
         top: 14px;
-        opacity: .8;
+        opacity: 0.8;
         font-weight: bold;
-        color: #33373D;
+        color: #33373d;
         font-size: 20px; }
         .city-collections .add-new-collection-container .add-new-collection .header .close-icon i {
           pointer-events: none; }
         .city-collections .add-new-collection-container .add-new-collection .header .close-icon:hover {
           opacity: 1; }
-    .city-collections .add-new-collection-container .add-new-collection .field input, .city-collections .add-new-collection-container .add-new-collection .field textarea, .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .search-input {
+    .city-collections .add-new-collection-container .add-new-collection .field input,
+    .city-collections .add-new-collection-container .add-new-collection .field textarea, .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .search-input {
       height: 38px;
       border-color: none;
       line-height: 38px;
-      padding: .67861429em 1em;
+      padding: 0.67861429em 1em;
       font-size: 14px;
-      background: #FFF;
+      background: #fff;
       border: 1px solid #e7e7e7;
-      color: #33373D;
-      border-radius: .28571429rem;
+      color: #33373d;
+      border-radius: 0.28571429rem;
       box-shadow: 0 0 0 0 transparent inset;
-      -webkit-transition: color .1s ease,border-color .1s ease;
-      transition: color .1s ease,border-color .1s ease; }
+      -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+      transition: color 0.1s ease, border-color 0.1s ease; }
     .city-collections .add-new-collection-container .add-new-collection .field {
       display: flex;
       flex-direction: column;
@@ -426,14 +427,16 @@ body {
         font-weight: 700;
         line-height: 19.6px;
         text-transform: none;
-        color: #33373D;
+        color: #33373d;
         font-size: 14px;
         margin-bottom: 0px; }
-      .city-collections .add-new-collection-container .add-new-collection .field input::placeholder, .city-collections .add-new-collection-container .add-new-collection .field textarea::placeholder {
+      .city-collections .add-new-collection-container .add-new-collection .field input::placeholder,
+      .city-collections .add-new-collection-container .add-new-collection .field textarea::placeholder {
         color: #ccc;
         font-size: 14px; }
-      .city-collections .add-new-collection-container .add-new-collection .field input:focus, .city-collections .add-new-collection-container .add-new-collection .field textarea:focus {
-        outline-color: #85B7D9; }
+      .city-collections .add-new-collection-container .add-new-collection .field input:focus,
+      .city-collections .add-new-collection-container .add-new-collection .field textarea:focus {
+        outline-color: #85b7d9; }
       .city-collections .add-new-collection-container .add-new-collection .field textarea {
         padding: 11px 14px;
         height: 75px !important;
@@ -445,28 +448,30 @@ body {
       line-height: 0px;
       padding: 8.25px 15.75px;
       font-size: 14px;
-      border-radius: .28571429rem; }
-    .city-collections .add-new-collection-container .add-new-collection .actions .add-restaurants, .city-collections .add-new-collection-container .add-new-collection .actions .save-collection, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res {
+      border-radius: 0.28571429rem; }
+    .city-collections .add-new-collection-container .add-new-collection .actions .add-restaurants,
+    .city-collections .add-new-collection-container .add-new-collection .actions .save-collection, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res {
       margin-left: auto;
-      background-color: #099E44; }
-      .city-collections .add-new-collection-container .add-new-collection .actions .add-restaurants:hover, .city-collections .add-new-collection-container .add-new-collection .actions .save-collection:hover, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res:hover {
+      background-color: #099e44; }
+      .city-collections .add-new-collection-container .add-new-collection .actions .add-restaurants:hover,
+      .city-collections .add-new-collection-container .add-new-collection .actions .save-collection:hover, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .add-res:hover {
         background-color: #018c38;
-        transition: background .1s ease 0s; }
+        transition: background 0.1s ease 0s; }
     .city-collections .add-new-collection-container .add-new-collection .actions .back-btn, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .remove-res {
-      background-color: #CB202D; }
+      background-color: #cb202d; }
       .city-collections .add-new-collection-container .add-new-collection .actions .back-btn:hover, .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .remove-res:hover {
         background-color: #bd1522;
-        transition: background .1s ease 0s; }
+        transition: background 0.1s ease 0s; }
     .city-collections .add-new-collection-container .add-new-collection .actions {
       display: flex;
       border-top: 1px solid #e7e7e7;
-      background: #F9FAFB;
+      background: #f9fafb;
       padding: 14px; }
       .city-collections .add-new-collection-container .add-new-collection .actions .btnDisabled {
-        background-color: #099E44;
+        background-color: #099e44;
         opacity: 0.5; }
         .city-collections .add-new-collection-container .add-new-collection .actions .btnDisabled:hover {
-          background-color: #099E44;
+          background-color: #099e44;
           opacity: 0.5;
           transition: none; }
       .city-collections .add-new-collection-container .add-new-collection .actions button {
@@ -483,7 +488,8 @@ body {
         opacity: 0; }
       .city-collections .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns {
         display: flex; }
-        .city-collections .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .add-restaurants, .city-collections .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .in-collection {
+        .city-collections .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .add-restaurants,
+        .city-collections .add-new-collection-container .add-new-collection .content form.add-collection-res-form .add-coll-ress-btns .in-collection {
           width: 50%;
           text-align: center;
           padding: 12.85px 0;
@@ -497,7 +503,7 @@ body {
       .city-collections .add-new-collection-container .add-new-collection .content .search-input-container {
         position: relative; }
         .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .location-results {
-          border-radius: .28571429rem;
+          border-radius: 0.28571429rem;
           border: 1px solid #e7e7e7;
           overflow: hidden;
           position: absolute;
@@ -509,8 +515,8 @@ body {
           width: 100%; }
           .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location {
             border-top: 1px solid #e7e7e7;
-            color: #33373D;
-            padding: .67861429em 1em;
+            color: #33373d;
+            padding: 0.67861429em 1em;
             font-size: 14px;
             line-height: 18.62px;
             padding: 12px 16px;
@@ -518,7 +524,7 @@ body {
             cursor: pointer; }
             .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location:hover {
               transition: background 0.1s ease;
-              background: #F9FAFB; }
+              background: #f9fafb; }
             .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location:first-child {
               border-top: none; }
           .city-collections .add-new-collection-container .add-new-collection .content .search-input-container .location-results .location-fetch-failed {
@@ -556,7 +562,7 @@ body {
           line-height: 21px; }
         .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant {
           font-size: 14px;
-          padding: .21428571em 0;
+          padding: 0.21428571em 0;
           line-height: 27px;
           display: flex; }
           .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant .description {
@@ -572,7 +578,7 @@ body {
               font-size: 14px;
               line-height: 16px; }
           .city-collections .add-new-collection-container .add-new-collection .content .restaurants-results li.restaurant button {
-            transition: all .1s ease !important;
+            transition: all 0.1s ease !important;
             outline: none;
             overflow: hidden;
             white-space: nowrap;
@@ -591,7 +597,7 @@ body {
 .city-collections .fade-scale-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: .15s ease-in all; }
+  transition: 0.15s ease-in all; }
 
 .city-collections .fade-scale-exit {
   opacity: 1;
@@ -600,7 +606,7 @@ body {
 .city-collections .fade-scale-exit-active {
   opacity: 0;
   transform: scale(0.9);
-  transition: .15s ease-in all; }
+  transition: 0.15s ease-in all; }
 
 .city-collections .fade-enter {
   opacity: 0.01; }
@@ -1454,10 +1460,10 @@ body {
             line-clamp: 3;
             overflow: hidden; }
     .collection-details .collection-details-content .collection-details-card {
-      border-radius: .28571429rem;
+      border-radius: 0.28571429rem;
       border: 1px solid #e7e7e7;
       overflow: hidden;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
       .collection-details .collection-details-content .collection-details-card .collection-header {
         position: relative; }
         .collection-details .collection-details-content .collection-details-card .collection-header .bg-coll-image {
@@ -1499,7 +1505,7 @@ body {
               transform: scale(0.85);
               pointer-events: none; }
               .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .show-tooltip .tooltipText:before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: -12px;
                 left: 10%;
@@ -1513,18 +1519,18 @@ body {
               white-space: nowrap;
               text-overflow: ellipsis;
               cursor: pointer;
-              padding: .78571429em 1.5em;
+              padding: 0.78571429em 1.5em;
               background-color: #fff;
               line-height: 1em; }
           .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection {
             cursor: pointer;
             line-height: 1em;
-            background: #E0E1E2;
+            background: #e0e1e2;
             color: rgba(0, 0, 0, 0.6);
-            padding: .78571429em 1.5em;
-            transition: background .1s ease 0s; }
+            padding: 0.78571429em 1.5em;
+            transition: background 0.1s ease 0s; }
             .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection:hover {
-              background-color: #EFF2F6; }
+              background-color: #eff2f6; }
             .collection-details .collection-details-content .collection-details-card .collection-header .collection-url .share-collection span {
               position: relative;
               bottom: 2px;
@@ -1536,23 +1542,24 @@ body {
         background: #fff; }
         .collection-details .collection-details-content .collection-details-card .collection-content .title {
           font-weight: 600;
-          color: #33373D;
+          color: #33373d;
           min-height: 1rem;
           margin-bottom: 5px;
           font-size: 28px;
           line-height: 30.8px; }
-        .collection-details .collection-details-content .collection-details-card .collection-content .description, .collection-details .collection-details-content .collection-details-card .collection-content .tags {
+        .collection-details .collection-details-content .collection-details-card .collection-content .description,
+        .collection-details .collection-details-content .collection-details-card .collection-content .tags {
           line-height: 1.4285em;
-          color: #33373D;
+          color: #33373d;
           margin-bottom: 5px;
           font-size: 15px; }
         .collection-details .collection-details-content .collection-details-card .collection-content .restaurants-offering-service {
-          color: #89959B;
+          color: #89959b;
           margin-bottom: 5px;
           font-size: 14px;
           line-height: 1.4285em; }
         .collection-details .collection-details-content .collection-details-card .collection-content .coll-btn {
-          transition: all .1s ease;
+          transition: all 0.1s ease;
           padding: 7px 10px;
           font-size: 14px;
           line-height: 14px;
@@ -2044,11 +2051,11 @@ body {
     color: #fff;
     font-size: 14px;
     line-height: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     cursor: pointer;
-    transition: background .1s ease; }
+    transition: background 0.1s ease; }
     .login-navigation div:hover {
-      color: #B9BFC7 !important; }
+      color: #b9bfc7 !important; }
   .login-navigation .nav-link {
     transition: width 0.1ss ease;
     padding: 10px 20px 12px 20px;
@@ -2059,14 +2066,19 @@ body {
     width: 159.59px; }
   .login-navigation .logout-link {
     width: 87.5px; }
-  .login-navigation .signup-link, .login-navigation .logout-link {
+  .login-navigation .signup-link,
+  .login-navigation .logout-link {
     border: 2px solid #fff;
     border-radius: 3px;
     font-size: 15px;
     line-height: 15px; }
-    .login-navigation .signup-link:hover, .login-navigation .logout-link:hover {
-      border-color: #B9BFC7 !important;
-      color: #B9BFC7 !important; }
+  .login-navigation .signup-link:hover {
+    border-color: #b9bfc7 !important;
+    color: #b9bfc7 !important; }
+  .login-navigation .logined-user:hover,
+  .login-navigation .logout-link:hover {
+    border-color: #d94148 !important;
+    color: #d94148 !important; }
 
 /* MainHome component*/
 .main-home-bg {
@@ -2899,7 +2911,7 @@ body {
       font-weight: 500;
       font-size: 15px; }
       .layout .header-top .search-form .search-btn:hover {
-        background: #D94148; }
+        background: #d94148; }
     .layout .header-top .search-form ul.cuisine-list {
       width: 376px;
       z-index: 1;
@@ -2929,14 +2941,14 @@ body {
     .layout .header-top .login-navigation .signin-link, .layout .header-top .login-navigation .logined-user {
       border-radius: 4px; }
       .layout .header-top .login-navigation .signin-link:hover, .layout .header-top .login-navigation .logined-user:hover {
-        background-color: #D94148 !important;
+        background-color: #d94148 !important;
         color: #fff !important; }
     .layout .header-top .login-navigation .signup-link, .layout .header-top .login-navigation .logout-link {
       background-color: #ba1e2b !important;
       border: none; }
       .layout .header-top .login-navigation .signup-link:hover, .layout .header-top .login-navigation .logout-link:hover {
         color: #fff !important;
-        background: #D94148 !important; }
+        background: #d94148 !important; }
     .layout .header-top .login-navigation .signin-link {
       width: 78.19px; }
     .layout .header-top .login-navigation .logined-user {
@@ -2970,7 +2982,7 @@ body {
       line-height: 1.1em;
       font-weight: 700;
       font-size: 20px;
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
       border-bottom: 1px solid #e7e7e7;
       padding: 17.5px 21px;
       box-sizing: border-box; }
@@ -2981,7 +2993,7 @@ body {
         z-index: 1;
         line-height: 20px;
         top: 14px;
-        opacity: .8;
+        opacity: 0.8;
         font-weight: bold;
         font-size: 20px; }
         .layout .all-cuisines-container .all-cuisine-content label span:hover {
@@ -2993,22 +3005,22 @@ body {
       .layout .all-cuisines-container .all-cuisine-content .search-cuisine input {
         width: 100%;
         line-height: 1.2142em;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        padding: .67861429em 1em;
-        background: #FFF;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        padding: 0.67861429em 1em;
+        background: #fff;
         border: 1px solid #e7e7e7;
         font-size: 14px;
-        color: #33373D;
-        border-radius: .28571429rem;
-        -webkit-transition: box-shadow .1s ease,border-color .1s ease;
-        transition: box-shadow .1s ease,border-color .1s ease;
+        color: #33373d;
+        border-radius: 0.28571429rem;
+        -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+        transition: box-shadow 0.1s ease, border-color 0.1s ease;
         box-shadow: none; }
     .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list {
       grid-template-columns: repeat(3, 1fr);
       display: grid;
       padding: 21px 31px; }
       .layout .all-cuisines-container .all-cuisine-content .all-cuisine-list li {
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         font-size: 14px;
         line-height: 19.6px;
         cursor: pointer;
@@ -3096,6 +3108,12 @@ body {
       border-width: 6px;
       border-style: solid;
       border-color: transparent transparent #585858 transparent; }
+
+.confirm {
+  height: 750px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center; }
 
 .sticky {
   z-index: 99; }

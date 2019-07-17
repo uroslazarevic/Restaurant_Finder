@@ -1,8 +1,8 @@
 .collection-details-card {
-  border-radius: .28571429rem;
+  border-radius: 0.28571429rem;
   border: 1px solid #e7e7e7;
   overflow: hidden;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
   .collection-details-card .collection-header {
     position: relative; }
     .collection-details-card .collection-header .bg-coll-image {
@@ -44,7 +44,7 @@
           transform: scale(0.85);
           pointer-events: none; }
           .collection-details-card .collection-header .collection-url .show-tooltip .tooltipText:before {
-            content: "";
+            content: '';
             position: absolute;
             top: -12px;
             left: 10%;
@@ -58,18 +58,18 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           cursor: pointer;
-          padding: .78571429em 1.5em;
+          padding: 0.78571429em 1.5em;
           background-color: #fff;
           line-height: 1em; }
       .collection-details-card .collection-header .collection-url .share-collection {
         cursor: pointer;
         line-height: 1em;
-        background: #E0E1E2;
+        background: #e0e1e2;
         color: rgba(0, 0, 0, 0.6);
-        padding: .78571429em 1.5em;
-        transition: background .1s ease 0s; }
+        padding: 0.78571429em 1.5em;
+        transition: background 0.1s ease 0s; }
         .collection-details-card .collection-header .collection-url .share-collection:hover {
-          background-color: #EFF2F6; }
+          background-color: #eff2f6; }
         .collection-details-card .collection-header .collection-url .share-collection span {
           position: relative;
           bottom: 2px;
@@ -81,23 +81,24 @@
     background: #fff; }
     .collection-details-card .collection-content .title {
       font-weight: 600;
-      color: #33373D;
+      color: #33373d;
       min-height: 1rem;
       margin-bottom: 5px;
       font-size: 28px;
       line-height: 30.8px; }
-    .collection-details-card .collection-content .description, .collection-details-card .collection-content .tags {
+    .collection-details-card .collection-content .description,
+    .collection-details-card .collection-content .tags {
       line-height: 1.4285em;
-      color: #33373D;
+      color: #33373d;
       margin-bottom: 5px;
       font-size: 15px; }
     .collection-details-card .collection-content .restaurants-offering-service {
-      color: #89959B;
+      color: #89959b;
       margin-bottom: 5px;
       font-size: 14px;
       line-height: 1.4285em; }
     .collection-details-card .collection-content .coll-btn {
-      transition: all .1s ease;
+      transition: all 0.1s ease;
       padding: 7px 10px;
       font-size: 14px;
       line-height: 14px;

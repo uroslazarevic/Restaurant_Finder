@@ -6,11 +6,12 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
+import reduxMulti from 'redux-multi';
 
 import './App.css';
 import { App } from 'containers';
 
-const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, thunk, reduxMulti)(createStore);
 
 export const store = createStoreWithMiddleware(
   reducers,
