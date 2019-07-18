@@ -7,7 +7,7 @@ import { Home, Confirm } from 'components';
 import { RestaurantsCategoryPage, CityCollections, RestaurantDetails, CollectionDetails } from 'containers';
 // Import Actions
 import { tryAutoSignin } from '../actions/auth_user';
-import { loadAllCollections } from '../actions/user_collections';
+import { loadCollections } from '../actions/user_collections';
 
 class App extends Component {
   constructor(props) {
@@ -19,14 +19,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('');
     this.props.tryAutoSignin();
   }
 
-  componentDidUpdate(newProps) {
-    if (newProps.isAuth) {
-      if (newProps.isAuth !== this.props.isAuth) {
-        this.setState({ isAuth: newProps.isAuth }, () => this.props.loadAllCollections());
-      }
+  componentDidUpdate() {
+    if (this.props.isAuth) {
+      this.props.loadCollections();
     }
   }
 
@@ -56,5 +55,5 @@ function mapStateToProps({ authentification }) {
 
 export default connect(
   mapStateToProps,
-  { tryAutoSignin, loadAllCollections }
+  { tryAutoSignin, loadCollections }
 )(App);

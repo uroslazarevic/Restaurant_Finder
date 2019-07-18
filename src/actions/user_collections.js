@@ -1,109 +1,90 @@
 import qs from 'qs';
 import _ from 'lodash';
-import { axiosDB, axiosZomato } from './../shared/axios_instances/axios_instances';
-import { user_Collections } from './../shared/data_naming/data_naming';
+import { axiosZomato, axiosServer } from './../shared/axios_instances/axios_instances';
+import { getLocalStorage } from './auth_user';
+import * as fromErrorActions from './errors';
 
-export const GET_USER_COLLECTIONS = 'GET_USER_COLLECTIONS';
-export const POST_USER_COLLECTIONS = 'POST_USER_COLLECTIONS';
+export const REMOVE_COLLECTION = 'REMOVE_COLLECTION';
+export const SAVE_COLLECTION = 'SAVE_COLLECTION';
+export const LOAD_COLLECTIONS = 'LOAD_COLLECTIONS';
 export const CLEAR_COLLECTIONS = 'CLEAR_COLLECTIONS';
 export const SEARCH_CREATED_COLLECTION_LOCATIONS = 'SEARCH_CREATED_COLLECTION_LOCATIONS';
 export const SEARCH_CREATED_COLLECTION_RESTAURANTS = 'SEARCH_CREATED_COLLECTION_RESTAURANTS';
 
-/* USER COLLECTION ACTION CREATORS */
-
-export function getUserCollections(authData, DBEndpoint) {
-  const { userId, token } = authData;
-  const request = axiosDB.get(`/data/collections/${userId}/${DBEndpoint}.json?auth=${token}`);
-
-  return {
-    type: GET_USER_COLLECTIONS,
-    payload: request,
-  };
-}
-
-export function saveUserCollections(myCollection, state) {
-  return {
-    type: POST_USER_COLLECTIONS,
-    payload: myCollection,
-    meta: state,
-  };
-}
-
-export function saveCollectionInDB(collection, collectionType) {
-  return (dispatch, getState) => {
-    const { userId, token } = getState().authentification.user;
-    // LOAD USER COLLECTIONS FROM DB
-    dispatch(getUserCollections({ userId, token }, collectionType.DBEndpoint))
-      .then(res => {
-        const newColls = [];
-        const oldColls = res.payload.data;
-        // MAKE NEW ARRAY FROM OBJ AND REMOVE IF ITEM MATCHES
-        _.forEach(oldColls, item => {
-          if (item.collection.collection_id !== collection.collection.collection_id) {
-            newColls.push(item);
-          }
-        });
-
-        // ADD NEW ITEM TO THE ARRAY
-        newColls.unshift(collection);
-        // PUSH OUR NEW COLLECTIONS ARRAY IN DB
-        axiosDB
-          .put(`/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`, newColls)
-          .then(res => console.log(`Response collections of type ${collectionType.DBEndpoint} `, res))
-          .catch(error => console.log(`Error collections of type ${collectionType.dataEndpoint}:`, error));
-        // SAVE USER "SAVED COLLECTIONS" IN STORE
-        dispatch(saveUserCollections(newColls, collectionType.state));
-      })
-      .catch(error => {
-        console.log('ERROR:', error);
-      });
-  };
-}
-
-export function removeCollectionFromDB(collection, collectionType) {
-  return (dispatch, getState) => {
-    const { userId, token } = getState().authentification.user;
-    // LOAD USER COLLECTIONS FROM DB
-    dispatch(getUserCollections({ userId, token }, collectionType.DBEndpoint))
-      .then(res => {
-        const oldColls = res.payload.data;
-        const newColls = [];
-        // MAKE NEW ARRAY FROM OBJ AND REMOVE IF ITEM MATCHES
-        _.forEach(oldColls, item => {
-          if (item.collection.collection_id !== collection.collection.collection_id) {
-            newColls.push(item);
-          }
-        });
-
-        // PUSH OUR NEW COLLECTIONS ARRAY IN DB
-        axiosDB
-          .put(`/data/collections/${userId}/${collectionType.DBEndpoint}.json?auth=${token}`, newColls)
-          .then(res => {
-            console.log(res);
-            // SAVE USER "SAVED COLLECTIONS" IN STORE
-            dispatch(saveUserCollections(newColls, collectionType.state));
-          })
-          .catch(error => console.log('Save Collections error:', error));
-      })
-      .catch(error => console.log(error));
-  };
-}
-
-export function loadAllCollections() {
-  return (dispatch, getState) => {
-    const { userId, token } = getState().authentification.user;
-    // LOAD USER COLLECTIONS FROM DB
-    dispatch(getUserCollections({ userId, token }, user_Collections.saved.DBEndpoint)).then(res => {
-      // Save USER SAVED COLLECTIONS
-      const oldSavedColls = res.payload.data;
-      dispatch(saveUserCollections(oldSavedColls, user_Collections.saved.state));
+export async function saveCollection(collection) {
+  if (collection.type === 'personal') {
+    const restaurants = collection.restaurants.map(res => {
+      const {
+        name,
+        featured_image,
+        cuisines,
+        location: { locality_verbose },
+        user_rating: { rating_color, aggregate_rating },
+        R: { res_id },
+      } = res.restaurant;
+      return {
+        name,
+        featured_image,
+        cuisines,
+        locality_verbose,
+        rating_color,
+        aggregate_rating,
+        res_id,
+      };
     });
-    // Save USER PERSONAL COLLECTIONS
-    dispatch(getUserCollections({ userId, token }, 'personal')).then(res => {
-      const oldPersonalColls = res.payload.data;
-      dispatch(saveUserCollections(oldPersonalColls, user_Collections.personal.state));
-    });
-  };
+    collection.restaurants = restaurants;
+  }
+  const authData = getLocalStorage();
+  try {
+    await axiosServer.post(
+      '/collection/save',
+      { collection },
+      { headers: { Authorization: `Bearer ${authData.token}` } }
+    );
+    return {
+      type: SAVE_COLLECTION,
+      payload: collection,
+    };
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
+export async function removeCollection(collectionId) {
+  const authData = getLocalStorage();
+  try {
+    await axiosServer.post(
+      '/collection/remove',
+      { collectionId },
+      { headers: { Authorization: `Bearer ${authData.token}` } }
+    );
+    return {
+      type: REMOVE_COLLECTION,
+      payload: collectionId,
+    };
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+
+export async function loadCollections() {
+  const authData = getLocalStorage();
+  try {
+    const request = await axiosServer.post(
+      '/collection/load',
+      {},
+      {
+        headers: { Authorization: `Bearer ${authData.token}` },
+      }
+    );
+    console.log('OKIDAM SE?');
+    return {
+      type: LOAD_COLLECTIONS,
+      payload: request.data.collections,
+    };
+  } catch (err) {
+    console.log(err.response);
+  }
 }
 
 export function clearCollections() {

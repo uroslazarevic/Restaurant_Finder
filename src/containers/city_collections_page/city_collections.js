@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 
+// Context
+import { CityCollectionsContext } from 'containers/contexts';
+
 // import Actions
 import { getSearchedCollections } from 'actions';
 import { setVisibleFM } from 'actions/event_bus';
-import {
-  debouncedSearchLocations,
-  debouncedSearchRestaurants,
-  saveCollectionInDB,
-} from '../../actions/user_collections';
+import { debouncedSearchLocations, debouncedSearchRestaurants, saveCollection } from '../../actions/user_collections';
 // Import Components
 import { Layout, PageLoader, CollContentDisplay, CreateNewCollection } from 'components';
 
@@ -73,14 +72,13 @@ class CityCollections extends Component {
 
   render() {
     const {
+      collections,
       searchedCollections,
-      savedCollections,
       searchedLocations,
       searchedRestaurants,
       debouncedSearchLocations,
       debouncedSearchRestaurants,
-      personalCollections,
-      saveCollectionInDB,
+      saveCollection,
       isAuth,
       setVisibleFM,
     } = this.props;
@@ -95,57 +93,64 @@ class CityCollections extends Component {
     };
 
     const urlHome = '/';
+    const cityCollectionContext = {
+      searchedCollections,
+      searchedLocations,
+      searchedRestaurants,
+      collections,
+      debouncedSearchLocations,
+      debouncedSearchRestaurants,
+      saveCollection,
+      city: { cityName, cityId },
+    };
     return (
-      <div className="city-collections">
-        <Layout showFooter={showContent} urlPath={this.props.match.path} city={{ cityName, cityId }}>
-          {pageLoader && <PageLoader />}
-          {showContent && (
-            <div className="city-collections-content">
-              <div className="pathway-link container">
-                <Link to={{ pathname: urlHome, state: { cityName, cityId } }}>Home</Link>
-                <span>
-                  {' '}
-                  <i className="fas fa-angle-right" />
-                </span>
-                <span> {cityName}</span>
-                <span>
-                  {' '}
-                  <i className="fas fa-angle-right" />
-                </span>
-                <span> Collections</span>
-              </div>
-              <div className="info container">
-                <div className="left">
-                  <div className="city-collections-title">Collections - {cityName}</div>
-                  <div className="city-collections-subtitle">Create and browse lists of the finest restaurants</div>
+      <CityCollectionsContext.Provider value={cityCollectionContext}>
+        <div className="city-collections">
+          <Layout showFooter={showContent} urlPath={this.props.match.path} city={{ cityName, cityId }}>
+            {pageLoader && <PageLoader />}
+            {showContent && (
+              <div className="city-collections-content">
+                <div className="pathway-link container">
+                  <Link to={{ pathname: urlHome, state: { cityName, cityId } }}>Home</Link>
+                  <span>
+                    {' '}
+                    <i className="fas fa-angle-right" />
+                  </span>
+                  <span> {cityName}</span>
+                  <span>
+                    {' '}
+                    <i className="fas fa-angle-right" />
+                  </span>
+                  <span> Collections</span>
                 </div>
-                <button onClick={!isAuth ? setVisibleFM : this.showCollectionModal} className="right">
-                  Create Collection
-                </button>
+                <div className="info container">
+                  <div className="left">
+                    <div className="city-collections-title">Collections - {cityName}</div>
+                    <div className="city-collections-subtitle">Create and browse lists of the finest restaurants</div>
+                  </div>
+                  <button onClick={!isAuth ? setVisibleFM : this.showCollectionModal} className="right">
+                    Create Collection
+                  </button>
+                </div>
+                <CollContentDisplay />
               </div>
-              <CollContentDisplay
-                personalCollections={personalCollections}
-                savedCollections={savedCollections}
-                collections={searchedCollections}
-                city={{ cityName, cityId }}
+            )}
+            <CSSTransition {...transitionOptions}>
+              <CreateNewCollection
+                hideModalOnSubmit={this.hideModalOnSubmit}
+                hideCollectionModal={this.hideCollectionModal}
+                saveCollection={saveCollection}
+                searchProps={{
+                  searchedLocations,
+                  debouncedSearchLocations,
+                  searchedRestaurants,
+                  debouncedSearchRestaurants,
+                }}
               />
-            </div>
-          )}
-          <CSSTransition {...transitionOptions}>
-            <CreateNewCollection
-              hideModalOnSubmit={this.hideModalOnSubmit}
-              hideCollectionModal={this.hideCollectionModal}
-              saveCollectionInDB={saveCollectionInDB}
-              searchProps={{
-                searchedLocations,
-                debouncedSearchLocations,
-                searchedRestaurants,
-                debouncedSearchRestaurants,
-              }}
-            />
-          </CSSTransition>
-        </Layout>
-      </div>
+            </CSSTransition>
+          </Layout>
+        </div>
+      </CityCollectionsContext.Provider>
     );
   }
 }
@@ -153,14 +158,13 @@ class CityCollections extends Component {
 function mapStateToProps({
   searchedTerms: { searchedCollections },
   authentification: { isAuth },
-  userCollections: { savedCollections, searchedLocations, searchedRestaurants, personalCollections },
+  userCollections: { searchedLocations, searchedRestaurants, collections },
 }) {
   return {
     searchedCollections,
-    savedCollections,
+    collections,
     searchedLocations,
     searchedRestaurants,
-    personalCollections,
     isAuth,
   };
 }
@@ -171,7 +175,7 @@ export default connect(
     getSearchedCollections,
     debouncedSearchLocations,
     debouncedSearchRestaurants,
-    saveCollectionInDB,
+    saveCollection,
     setVisibleFM,
   }
 )(CityCollections);

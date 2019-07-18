@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import { user_Collections } from './../../../shared/data_naming/data_naming';
-export default class PersonalCollectionDetailsCard extends Component {
+import { CollectionDetailsContext } from 'containers/contexts';
+
+class PersonalCollectionDetailsCard extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +12,6 @@ export default class PersonalCollectionDetailsCard extends Component {
     };
 
     this.handleExecCommandOnClick = this.handleExecCommandOnClick.bind(this);
-    this.handleSavedCollections = this.handleSavedCollections.bind(this);
   }
 
   handleExecCommandOnClick() {
@@ -25,35 +25,19 @@ export default class PersonalCollectionDetailsCard extends Component {
     event.clipboardData && event.clipboardData.setData('text/plain', event.target.textContent);
   }
 
-  handleSavedCollections(personalCollection) {
-    const { saveCollectionInDB, removeCollectionFromDB } = this.props;
+  handleSavedCollections = personalCollection => {
+    const { saveCollection, removeCollection } = this.context;
 
-    this.state.saved
-      ? this.setState({ saved: false }, () =>
-          removeCollectionFromDB(personalCollection, {
-            DBEndpoint: [user_Collections.personal.DBEndpoint],
-            state: [user_Collections.personal.state],
-          })
-        )
-      : this.setState({ saved: true }, () =>
-          saveCollectionInDB(personalCollection, {
-            DBEndpoint: [user_Collections.personal.DBEndpoint],
-            state: [user_Collections.personal.state],
-          })
-        );
-  }
+    if (this.state.saved) {
+      return this.setState({ saved: false }, () => removeCollection(personalCollection.collection.collection_id));
+    }
+    this.setState({ saved: true }, () => saveCollection(personalCollection.collection));
+  };
 
   render() {
     const { showTooltip, saved } = this.state;
     const { personalCollection } = this.props;
-    const {
-      description,
-      image_url,
-      res_count,
-      title,
-      share_url,
-      tags,
-    } = personalCollection.collection;
+    const { description, image_url, res_count, title, share_url, tags } = personalCollection.collection;
 
     return (
       <div className="collection-details-card">
@@ -104,3 +88,5 @@ export default class PersonalCollectionDetailsCard extends Component {
     );
   }
 }
+PersonalCollectionDetailsCard.contextType = CollectionDetailsContext;
+export default PersonalCollectionDetailsCard;

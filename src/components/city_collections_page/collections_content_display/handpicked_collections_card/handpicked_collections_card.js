@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { Collections } from 'components'
+import { Collections } from 'components';
+import { CityCollectionsContext } from 'containers/contexts';
 
-export default ({ collections, city }) => {
-
-  if(collections) {
-    return (
-      <div className="collections" >
-        <Collections 
-          collections={ collections } 
-          city= { city } 
-        />
-      </div>
-    )
-  }
-
-  return <div className="container">Collections not available</div>
-}
+export default () => (
+  <CityCollectionsContext.Consumer>
+    {cityCollectionsContext => {
+      const { searchedCollections, city } = cityCollectionsContext;
+      if (searchedCollections) {
+        return (
+          <div className="collections">
+            <Collections collections={searchedCollections} city={city} />
+          </div>
+        );
+      }
+      return <div className="container">Collections not available</div>;
+    }}
+  </CityCollectionsContext.Consumer>
+);

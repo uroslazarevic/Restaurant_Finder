@@ -6,13 +6,7 @@ export default ({ restaurants, city }) => {
     return (
       <div className="collection-restaurants-list">
         {restaurants.map(restaurant => {
-          return (
-            <CollectionRestaurantItem
-              key={restaurant.restaurant.id}
-              city={city}
-              restaurant={restaurant}
-            />
-          );
+          return <CollectionRestaurantItem key={restaurant.restaurant.R.res_id} city={city} restaurant={restaurant} />;
         })}
       </div>
     );

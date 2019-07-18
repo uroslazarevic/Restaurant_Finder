@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { user_Collections } from './../../../shared/data_naming/data_naming';
 import { AddCollectionForm, AddCollectionResForm, InCollectionResForm } from 'components';
 
 export default class LoginForm extends Component {
@@ -29,61 +28,53 @@ export default class LoginForm extends Component {
       createdTags: '',
       cityId: '111',
     };
-    this.handleActiveForm = this.handleActiveForm.bind(this);
-    this.handleAddResBtn = this.handleAddResBtn.bind(this);
-    this.handleBackBtn = this.handleBackBtn.bind(this);
-    this.handleInputState = this.handleInputState.bind(this);
-    this.autocompleteInput = this.autocompleteInput.bind(this);
-    this.setTagsInputValue = this.setTagsInputValue.bind(this);
-    this.addRes = this.addRes.bind(this);
-    this.removeRes = this.removeRes.bind(this);
   }
 
-  handleActiveForm(event) {
+  handleActiveForm = event => {
     const refTo = event.target.dataset.refTo;
     this.setState({ activeForm: refTo, validate: '' });
-  }
+  };
 
-  handleAddResBtn(event) {
+  handleAddResBtn = event => {
     this.setState({ showHiddenBtn: true });
     this.handleActiveForm(event);
-  }
+  };
 
-  handleBackBtn(event) {
+  handleBackBtn = event => {
     this.setState({ showHiddenBtn: false });
     this.handleActiveForm(event);
-  }
+  };
 
-  setTagsInputValue(string) {
+  setTagsInputValue = string => {
     if (string.length > this.state.createdTags.length) {
       const newString = string
         .split(' ')
-        .map((word) => word.replace('#', ''))
-        .map((tag) => `#${tag}`)
+        .map(word => word.replace('#', ''))
+        .map(tag => `#${tag}`)
         .join(' ');
       this.setState({ createdTags: newString });
     } else {
       this.setState({ createdTags: string });
     }
-  }
+  };
 
-  addRes(place) {
+  addRes = place => {
     this.setState({
       createdCollection: {
         ...this.state.createdCollection,
         restaurants: [...this.state.createdCollection.restaurants, place],
       },
     });
-  }
+  };
 
-  removeRes(place) {
+  removeRes = place => {
     const restaurants = this.state.createdCollection.restaurants.filter(
-      (res) => res.restaurant.id !== place.restaurant.id
+      res => res.restaurant.id !== place.restaurant.id
     );
     this.setState({ createdCollection: { ...this.state.createdCollection, restaurants } });
-  }
+  };
 
-  handleInputState(event) {
+  handleInputState = event => {
     event.persist();
     const {
       searchProps: { debouncedSearchLocations, debouncedSearchRestaurants },
@@ -101,10 +92,10 @@ export default class LoginForm extends Component {
       // Search Restaurants
       name === 'restaurant' && debouncedSearchRestaurants({ placeTerm: restaurant, entity_id: cityId });
     });
-  }
+  };
 
-  autocompleteInput(cityId) {
-    return (event) => {
+  autocompleteInput = cityId => {
+    return event => {
       const {
         searchProps: { debouncedSearchLocations, debouncedSearchRestaurants },
       } = this.props;
@@ -121,37 +112,35 @@ export default class LoginForm extends Component {
           });
       });
     };
-  }
+  };
 
-  randomIntFromInterval(min, max) {
+  randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+  };
 
-  handleCollectionSaving() {
+  handleCollectionSaving = () => {
     const { createdCollection } = this.state;
-    const { saveCollectionInDB } = this.props;
+    const { saveCollection } = this.props;
     const collection_id = this.randomIntFromInterval(1, 1000);
     const myCollection = {
-      collection: {
-        collection_id,
-        title: createdCollection.name,
-        description: createdCollection.description,
-        res_count: createdCollection.restaurants.length,
-        tags: createdCollection.tags,
-        restaurants: createdCollection.restaurants,
-        image_url: `https://loremflickr.com/180/240/dish?random=${collection_id}`,
-        share_url: '(The personal collection url) - Are not part of Zomato API',
-      },
+      collection_id,
+      title: createdCollection.name,
+      description: createdCollection.description,
+      res_count: createdCollection.restaurants.length,
+      tags: createdCollection.tags,
+      restaurants: createdCollection.restaurants,
+      image_url: `https://loremflickr.com/180/240/dish?random=${collection_id}`,
+      url: `https://loremflickr.com/180/240/dish?random=${collection_id}`,
+      share_url: '(The personal collection url) - Are not part of Zomato API',
+      type: 'personal',
     };
+    console.log('Personal collection', myCollection);
     //  Save personal Collections
-    saveCollectionInDB(myCollection, {
-      DBEndpoint: [user_Collections.personal.DBEndpoint],
-      state: [user_Collections.personal.state],
-    });
+    saveCollection(myCollection);
     this.props.hideModalOnSubmit();
-  }
+  };
 
-  componentWillMount() {
+  componentDidMount() {
     // Initial Fetch Lcoations on prepopulated input
     this.props.searchProps.debouncedSearchLocations({
       locationTerm: this.state.createdCollection.location,

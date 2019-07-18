@@ -1,30 +1,37 @@
 import React from 'react';
 
-import personalEmpty from '../../../../images/my_collection_empty.png'
-import { Collections } from 'components'
+import personalEmpty from 'images/my_collection_empty.png';
+import { Collections } from 'components';
+import { CityCollectionsContext } from 'containers/contexts';
 
-export default ({ personalCollections, city }) => {
+export default () => (
+  <CityCollectionsContext.Consumer>
+    {cityCollectionsContext => {
+      const personalCollections = cityCollectionsContext.collections.reduce((acc, coll) => {
+        if (coll.type === 'personal') {
+          acc.push({ collection: coll });
+        }
+        return acc;
+      }, []);
+      const { city } = cityCollectionsContext;
+      if (personalCollections.length !== 0) {
+        return (
+          <div className="collections">
+            <Collections collections={personalCollections} city={city} userCollection={true} />
+          </div>
+        );
+      }
 
-  if(personalCollections.length !== 0) {
-    return (
-      <div className="collections" >
-        <Collections 
-          collections={ personalCollections } 
-          city= { city } 
-          userCollection = { true }
-        />
-      </div>
-    )
-  }
-  
-  return (
-    <div className="personal-coll container">
-      <img src= {personalEmpty} alt="" />
-      <div className="filling-in">
-        Got favorite dessert places? Bars? Date spots? 
-        <br></br>
-        Login to create your very own Collections!
-      </div>
-    </div>
-  )
-}
+      return (
+        <div className="personal-coll container">
+          <img src={personalEmpty} alt="" />
+          <div className="filling-in">
+            Got favorite dessert places? Bars? Date spots?
+            <br />
+            Login to create your very own Collections!
+          </div>
+        </div>
+      );
+    }}
+  </CityCollectionsContext.Consumer>
+);

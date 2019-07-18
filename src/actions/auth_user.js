@@ -57,34 +57,41 @@ export function signin(formData) {
 }
 
 export function signOut() {
-  return dispatch => {
-    // Clear Local Storage
-    history.replace('/');
-    localStorage.clear();
-    dispatch([
-      {
-        type: SIGN_OUT,
-      },
-      {
-        type: fromCollectionsActions.CLEAR_COLLECTIONS,
-      },
-    ]);
+  return async dispatch => {
+    const authData = getLocalStorage();
+    try {
+      await axiosServer.post('/signout', {
+        userId: authData.userId,
+        token: authData.token,
+      });
+      // Clear Local Storage
+      history.replace('/');
+      localStorage.clear();
+      dispatch([
+        {
+          type: SIGN_OUT,
+        },
+        {
+          type: fromCollectionsActions.CLEAR_COLLECTIONS,
+        },
+      ]);
+    } catch (err) {
+      dispatch({ type: fromErrorActions.UPDATE_ERROR_MESSAGE, payload: err.response, error: true });
+    }
   };
 }
 
 export function tryAutoSignin() {
   return dispatch => {
-    const token = localStorage.getItem('token');
-    const expirationDate = localStorage.getItem('expirationDate');
+    const authData = getLocalStorage();
     const now = Date.now();
-    if (!token || now >= expirationDate) {
+    if (!authData || now >= authData.expirationDate) {
       return;
     }
-    const username = localStorage.getItem('username');
 
     dispatch({
       type: SIGNIN,
-      payload: { message: '', username },
+      payload: { message: '', username: authData.username },
     });
   };
 }
@@ -103,11 +110,20 @@ export function verifyEmail(token) {
 const setLocalStorage = authData => {
   const now = Math.floor(Date.now() / 1000);
   const expirationDate = now + authData.expiresIn;
-  localStorage.setItem('expirationDate', expirationDate);
-  localStorage.setItem('token', authData.token);
-  localStorage.setItem('userId', authData.userId);
-  localStorage.setItem('username', authData.username);
+  const strAuthData = JSON.stringify({
+    token: authData.token,
+    userId: authData.userId,
+    username: authData.username,
+    expirationDate,
+  });
+  localStorage.setItem('authData', strAuthData);
 };
+
+export function getLocalStorage() {
+  const strAuthData = localStorage.getItem('authData');
+  const authData = JSON.parse(strAuthData);
+  return authData;
+}
 
 const setLogoutTimer = (expirationTime, isAuth) => {
   setTimeout(() => {
