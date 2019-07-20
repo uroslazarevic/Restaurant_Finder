@@ -37,53 +37,71 @@
           opacity: 1; }
     .form-modal-container .form-modal .content {
       padding: 21px; }
-      .form-modal-container .form-modal .content .login-form, .form-modal-container .form-modal .content .signup-form, .form-modal-container .form-modal .content .password-reset-form {
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
-        .form-modal-container .form-modal .content .login-form .message, .form-modal-container .form-modal .content .signup-form .message, .form-modal-container .form-modal .content .password-reset-form .message {
+      .form-modal-container .form-modal .content .login-form,
+      .form-modal-container .form-modal .content .signup-form,
+      .form-modal-container .form-modal .content .password-reset-form {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+        .form-modal-container .form-modal .content .login-form .message,
+        .form-modal-container .form-modal .content .signup-form .message,
+        .form-modal-container .form-modal .content .password-reset-form .message {
           font-size: 14px;
           line-height: 19.6px;
-          color: #33373D;
+          color: #33373d;
           margin-bottom: 10px; }
-        .form-modal-container .form-modal .content .login-form .field, .form-modal-container .form-modal .content .signup-form .field, .form-modal-container .form-modal .content .password-reset-form .field {
+        .form-modal-container .form-modal .content .login-form .field,
+        .form-modal-container .form-modal .content .signup-form .field,
+        .form-modal-container .form-modal .content .password-reset-form .field {
           display: flex;
           flex-direction: column;
           margin-bottom: 14px; }
-          .form-modal-container .form-modal .content .login-form .field label, .form-modal-container .form-modal .content .signup-form .field label, .form-modal-container .form-modal .content .password-reset-form .field label {
+          .form-modal-container .form-modal .content .login-form .field label,
+          .form-modal-container .form-modal .content .signup-form .field label,
+          .form-modal-container .form-modal .content .password-reset-form .field label {
             font-weight: 600;
             line-height: 1.1em;
             text-transform: none;
-            color: #33373D;
+            color: #33373d;
             margin-bottom: 14px;
             font-size: 17.92px; }
-          .form-modal-container .form-modal .content .login-form .field input, .form-modal-container .form-modal .content .signup-form .field input, .form-modal-container .form-modal .content .password-reset-form .field input {
+          .form-modal-container .form-modal .content .login-form .field input,
+          .form-modal-container .form-modal .content .signup-form .field input,
+          .form-modal-container .form-modal .content .password-reset-form .field input {
             height: 60px;
             border-color: none;
             line-height: 60px;
-            padding: .67861429em 1em;
+            padding: 0.67861429em 1em;
             font-size: 1em;
-            background: #FFF;
+            background: #fff;
             border: 1px solid #e7e7e7;
-            color: #33373D;
-            border-radius: .28571429rem;
+            color: #33373d;
+            border-radius: 0.28571429rem;
             box-shadow: 0 0 0 0 transparent inset;
-            -webkit-transition: color .1s ease,border-color .1s ease;
-            transition: color .1s ease,border-color .1s ease; }
-            .form-modal-container .form-modal .content .login-form .field input:focus, .form-modal-container .form-modal .content .signup-form .field input:focus, .form-modal-container .form-modal .content .password-reset-form .field input:focus {
-              outline-color: #85B7D9; }
-        .form-modal-container .form-modal .content .login-form .check-data, .form-modal-container .form-modal .content .signup-form .check-data, .form-modal-container .form-modal .content .password-reset-form .check-data {
+            -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+            transition: color 0.1s ease, border-color 0.1s ease; }
+            .form-modal-container .form-modal .content .login-form .field input:focus,
+            .form-modal-container .form-modal .content .signup-form .field input:focus,
+            .form-modal-container .form-modal .content .password-reset-form .field input:focus {
+              outline-color: #85b7d9; }
+        .form-modal-container .form-modal .content .login-form .check-data,
+        .form-modal-container .form-modal .content .signup-form .check-data,
+        .form-modal-container .form-modal .content .password-reset-form .check-data {
           display: flex !important;
           flex-direction: row;
-          color: #33373D;
-          transition: color .1s ease;
+          color: #33373d;
+          transition: color 0.1s ease;
           cursor: auto;
           display: block;
           outline: 0;
           font-size: 14px;
           line-height: 17px; }
-          .form-modal-container .form-modal .content .login-form .check-data .checkbox-label, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label {
+          .form-modal-container .form-modal .content .login-form .check-data .checkbox-label,
+          .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label,
+          .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label {
             position: relative;
             padding-left: 25px; }
-            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input {
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input,
+            .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input {
               cursor: pointer;
               position: absolute;
               top: 0;
@@ -91,33 +109,47 @@
               outline: 0;
               width: 17px;
               height: 17px;
-              border-radius: .28571429rem; }
-              .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input:focus {
+              border-radius: 0.28571429rem; }
+              .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input:focus,
+              .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input:focus,
+              .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input:focus {
                 color: #fff !important;
-                outline-color: #85B7D9 !important; }
-            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label span {
+                outline-color: #85b7d9 !important; }
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label span,
+            .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label span,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label span {
               font-weight: 500;
-              color: #33373D;
+              color: #33373d;
               cursor: pointer; }
-          .form-modal-container .form-modal .content .login-form .check-data .forgotpass, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass {
+          .form-modal-container .form-modal .content .login-form .check-data .forgotpass,
+          .form-modal-container .form-modal .content .signup-form .check-data .forgotpass,
+          .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass {
             color: #cb202d;
             margin-left: auto;
             cursor: pointer; }
-            .form-modal-container .form-modal .content .login-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass:hover {
-              transition: color .1s ease 0s;
+            .form-modal-container .form-modal .content .login-form .check-data .forgotpass:hover,
+            .form-modal-container .form-modal .content .signup-form .check-data .forgotpass:hover,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass:hover {
+              transition: color 0.1s ease 0s;
               color: #222d3d; }
-        .form-modal-container .form-modal .content .login-form button, .form-modal-container .form-modal .content .signup-form button, .form-modal-container .form-modal .content .password-reset-form button {
+        .form-modal-container .form-modal .content .login-form button,
+        .form-modal-container .form-modal .content .signup-form button,
+        .form-modal-container .form-modal .content .password-reset-form button {
           height: 60px;
           line-height: 60px;
-          background-color: #CB202D;
-          color: #FFF;
+          background-color: #cb202d;
+          color: #fff;
           margin-top: 20px;
           border: none; }
-          .form-modal-container .form-modal .content .login-form button:disabled, .form-modal-container .form-modal .content .signup-form button:disabled, .form-modal-container .form-modal .content .password-reset-form button:disabled {
+          .form-modal-container .form-modal .content .login-form button:disabled,
+          .form-modal-container .form-modal .content .signup-form button:disabled,
+          .form-modal-container .form-modal .content .password-reset-form button:disabled {
             cursor: default;
-            opacity: .45; }
-          .form-modal-container .form-modal .content .login-form button:hover, .form-modal-container .form-modal .content .signup-form button:hover, .form-modal-container .form-modal .content .password-reset-form button:hover {
-            transition: background .1s ease 0s; }
+            opacity: 0.45; }
+          .form-modal-container .form-modal .content .login-form button:hover,
+          .form-modal-container .form-modal .content .signup-form button:hover,
+          .form-modal-container .form-modal .content .password-reset-form button:hover {
+            transition: background 0.1s ease 0s; }
       .form-modal-container .form-modal .content .validation-msg {
         border-radius: .28571429rem;
         font-size: 14px;

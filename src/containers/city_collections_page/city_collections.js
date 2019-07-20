@@ -9,7 +9,8 @@ import { CityCollectionsContext } from 'containers/contexts';
 // import Actions
 import { getSearchedCollections } from 'actions';
 import { setVisibleFM } from 'actions/event_bus';
-import { debouncedSearchLocations, debouncedSearchRestaurants, saveCollection } from '../../actions/user_collections';
+import { debouncedSearchLocations, debouncedSearchRestaurants, saveCollection } from 'actions/user_collections';
+import { loadCollections } from 'actions/user_collections';
 // Import Components
 import { Layout, PageLoader, CollContentDisplay, CreateNewCollection } from 'components';
 
@@ -60,13 +61,13 @@ class CityCollections extends Component {
   }
 
   componentDidMount() {
-    const { getSearchedCollections } = this.props;
+    const { getSearchedCollections, loadCollections } = this.props;
     const { cityName, cityId } = this.props.location.state;
 
-    this.setState({ cityId, cityName, pageLoader: true, showContent: false }, () => {
-      getSearchedCollections({ city_id: cityId, count: '30' }).then(() =>
-        this.setState({ pageLoader: false, showContent: true })
-      );
+    this.setState({ cityId, cityName, pageLoader: true, showContent: false }, async () => {
+      await getSearchedCollections({ city_id: cityId, count: '30' });
+      await loadCollections();
+      this.setState({ pageLoader: false, showContent: true });
     });
   }
 
@@ -172,6 +173,7 @@ function mapStateToProps({
 export default connect(
   mapStateToProps,
   {
+    loadCollections,
     getSearchedCollections,
     debouncedSearchLocations,
     debouncedSearchRestaurants,

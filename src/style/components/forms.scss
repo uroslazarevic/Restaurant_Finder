@@ -1,10 +1,13 @@
-.login-form, .signup-form, .password-reset-form {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+.login-form,
+.signup-form,
+.password-reset-form {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 
   .message {
     font-size: 14px;
     line-height: 19.6px;
-    color: #33373D;
+    color: #33373d;
     margin-bottom: 10px;
   }
 
@@ -17,7 +20,7 @@
       font-weight: 600;
       line-height: 1.1em;
       text-transform: none;
-      color: #33373D;
+      color: #33373d;
       margin-bottom: 14px;
       font-size: 17.92px;
     }
@@ -26,18 +29,18 @@
       height: 60px;
       border-color: none;
       line-height: 60px;
-      padding: .67861429em 1em;
+      padding: 0.67861429em 1em;
       font-size: 1em;
-      background: #FFF;
+      background: #fff;
       border: 1px solid #e7e7e7;
-      color: #33373D;
-      border-radius: .28571429rem;
+      color: #33373d;
+      border-radius: 0.28571429rem;
       box-shadow: 0 0 0 0 transparent inset;
-      -webkit-transition: color .1s ease,border-color .1s ease;
-      transition: color .1s ease,border-color .1s ease;
+      -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+      transition: color 0.1s ease, border-color 0.1s ease;
 
       &:focus {
-        outline-color: #85B7D9;
+        outline-color: #85b7d9;
       }
     }
   }
@@ -45,8 +48,8 @@
   .check-data {
     display: flex !important;
     flex-direction: row;
-    color: #33373D;
-    transition: color .1s ease;
+    color: #33373d;
+    transition: color 0.1s ease;
     cursor: auto;
     display: block;
     outline: 0;
@@ -65,17 +68,17 @@
         outline: 0;
         width: 17px;
         height: 17px;
-        border-radius: .28571429rem;
+        border-radius: 0.28571429rem;
 
         &:focus {
-          color: #fff!important;
-          outline-color: #85B7D9 !important;
+          color: #fff !important;
+          outline-color: #85b7d9 !important;
         }
       }
 
       span {
         font-weight: 500;
-        color: #33373D;
+        color: #33373d;
         cursor: pointer;
       }
     }
@@ -86,7 +89,7 @@
       cursor: pointer;
 
       &:hover {
-        transition: color .1s ease 0s;
+        transition: color 0.1s ease 0s;
         color: #222d3d;
       }
     }
@@ -95,18 +98,18 @@
   button {
     height: 60px;
     line-height: 60px;
-    background-color: #CB202D;
-    color: #FFF;
+    background-color: #cb202d;
+    color: #fff;
     margin-top: 20px;
     border: none;
 
     &:disabled {
       cursor: default;
-      opacity: .45;
+      opacity: 0.45;
     }
 
     &:hover {
-      transition: background .1s ease 0s;
+      transition: background 0.1s ease 0s;
     }
   }
 }

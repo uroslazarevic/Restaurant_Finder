@@ -25,24 +25,26 @@ class CollectionDetailsCard extends Component {
     event.clipboardData && event.clipboardData.setData('text/plain', event.target.textContent);
   }
 
-  handleSavedCollections = requiredCollection => {
+  handleSavedCollections = async requiredCollection => {
     const { saveCollection, removeCollection } = this.context;
-
-    if (this.state.saved) {
-      return this.setState({ saved: false }, () => {
+    try {
+      if (this.state.saved) {
         const { collection_id } = requiredCollection.collection;
-        removeCollection(collection_id);
-      });
+        await removeCollection(collection_id);
+        return this.setState({ saved: false });
+      }
+      requiredCollection.collection.type = 'saved';
+      requiredCollection.collection.tags = '';
+      await await saveCollection(requiredCollection.collection);
+      this.setState({ saved: true });
+    } catch (err) {
+      return;
     }
-    requiredCollection.collection.type = 'saved';
-    requiredCollection.collection.tags = '';
-    this.setState({ saved: true }, () => saveCollection(requiredCollection.collection));
   };
 
   componentDidMount() {
     const collectionDetails = this.context;
     const { requiredCollectionId, collections } = collectionDetails;
-    console.log('this.context', this.context);
     const savedCollections = collections.reduce((acc, coll) => {
       if (coll.type === 'saved') {
         acc.push({ collection: coll });

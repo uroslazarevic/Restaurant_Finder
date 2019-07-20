@@ -51,6 +51,7 @@ import PersonalCollCard from './city_collections_page/collections_content_displa
 import Footer from './shared/footer';
 import ShowNote from './shared/show_note';
 import Confirm from './confirm/confirm';
+import ResetPassword from './reset_password/reset_password';
 import { SearchPlacesLoader, SearchLocationsLoader, PageLoader, ReviewsLoader } from './shared/loaders';
 
 export {
@@ -112,4 +113,5 @@ export {
   ShowNote,
   Footer,
   Confirm,
+  ResetPassword,
 };

@@ -1,4 +1,4 @@
-import { SIGNUP, SIGNIN, SIGN_OUT } from '../actions/auth_user';
+import { SIGNUP, SIGNIN, SIGN_OUT, RESET_PASSWORD } from '../actions/auth_user';
 
 const initialState = {
   user: {},
@@ -29,6 +29,12 @@ export default (state = initialState, action) => {
         ...state,
         username: null,
         isAuth: false,
+      };
+
+    case RESET_PASSWORD:
+      return {
+        ...state,
+        authMessage: action.payload.data.message,
       };
 
     default:

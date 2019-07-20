@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 // Import Components
 import { StartForm, LoginForm, SignupForm, PasswordResetForm } from 'components';
 // Import Actions
-import { signup, signin } from '../../../actions/auth_user';
-import { setHiddenFM, setVisibleFM } from '../../../actions/event_bus';
+import { signup, signin, resetPassword } from 'actions/auth_user';
+import { setHiddenFM, setVisibleFM } from 'actions/event_bus';
 
 class FormModal extends Component {
   constructor() {
@@ -38,6 +38,10 @@ class FormModal extends Component {
     if (formName === 'login') {
       username = 'empty';
     }
+    if (formName === 'password-reset') {
+      username = 'empty';
+      password = 'empty';
+    }
     username = username.trim();
     email = username.trim();
     password = password.trim();
@@ -62,16 +66,25 @@ class FormModal extends Component {
   handleSubmit = (formData, formName) => {
     return async event => {
       event.preventDefault();
-      const isFormValid = await this.validateForm(formData, formName);
-      if (isFormValid === 'true') {
-        if (formName === 'login') {
-          await this.props.signin(formData);
-          this.hideModalOnSubmit();
-        } else {
-          await this.props.signup(formData);
-          this.setState({ isFormValid: 'true', validationMsg: this.props.authMessage });
-          this.hideModalOnSubmit();
+      try {
+        const isFormValid = await this.validateForm(formData, formName);
+        if (isFormValid === 'true') {
+          if (formName === 'login') {
+            await this.props.signin(formData);
+            this.setState({ isFormValid: 'true', validationMsg: this.props.authMessage });
+            this.hideModalOnSubmit();
+          } else if (formName === 'signup') {
+            await this.props.signup(formData);
+            this.setState({ isFormValid: 'true', validationMsg: this.props.authMessage });
+            this.hideModalOnSubmit();
+          } else {
+            await this.props.resetPassword(formData);
+            this.setState({ isFormValid: 'true', validationMsg: this.props.authMessage });
+            console.log('this.props.authMessage', this.props);
+            this.hideModalOnSubmit();
+          }
         }
+      } catch (err) {
         if (this.props.errorMessage) {
           this.setState({ isFormValid: 'false', validationMsg: this.props.errorMessage });
         }
@@ -87,7 +100,7 @@ class FormModal extends Component {
 
   handleActiveForm = event => {
     const refTo = event.target.dataset.refTo;
-    this.setState({ activeForm: refTo, validate: '' });
+    this.setState({ activeForm: refTo, validationMsg: null });
   };
 
   handlePolicyText = text => {
@@ -163,5 +176,5 @@ function mapStateToProps({ authentification, errorMessage }) {
 
 export default connect(
   mapStateToProps,
-  { signup, signin, setHiddenFM, setVisibleFM }
+  { signup, signin, resetPassword, setHiddenFM, setVisibleFM }
 )(FormModal);

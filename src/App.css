@@ -1779,53 +1779,71 @@ body {
           opacity: 1; }
     .form-modal-container .form-modal .content {
       padding: 21px; }
-      .form-modal-container .form-modal .content .login-form, .form-modal-container .form-modal .content .signup-form, .form-modal-container .form-modal .content .password-reset-form {
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
-        .form-modal-container .form-modal .content .login-form .message, .form-modal-container .form-modal .content .signup-form .message, .form-modal-container .form-modal .content .password-reset-form .message {
+      .form-modal-container .form-modal .content .login-form,
+      .form-modal-container .form-modal .content .signup-form,
+      .form-modal-container .form-modal .content .password-reset-form {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+        .form-modal-container .form-modal .content .login-form .message,
+        .form-modal-container .form-modal .content .signup-form .message,
+        .form-modal-container .form-modal .content .password-reset-form .message {
           font-size: 14px;
           line-height: 19.6px;
-          color: #33373D;
+          color: #33373d;
           margin-bottom: 10px; }
-        .form-modal-container .form-modal .content .login-form .field, .form-modal-container .form-modal .content .signup-form .field, .form-modal-container .form-modal .content .password-reset-form .field {
+        .form-modal-container .form-modal .content .login-form .field,
+        .form-modal-container .form-modal .content .signup-form .field,
+        .form-modal-container .form-modal .content .password-reset-form .field {
           display: flex;
           flex-direction: column;
           margin-bottom: 14px; }
-          .form-modal-container .form-modal .content .login-form .field label, .form-modal-container .form-modal .content .signup-form .field label, .form-modal-container .form-modal .content .password-reset-form .field label {
+          .form-modal-container .form-modal .content .login-form .field label,
+          .form-modal-container .form-modal .content .signup-form .field label,
+          .form-modal-container .form-modal .content .password-reset-form .field label {
             font-weight: 600;
             line-height: 1.1em;
             text-transform: none;
-            color: #33373D;
+            color: #33373d;
             margin-bottom: 14px;
             font-size: 17.92px; }
-          .form-modal-container .form-modal .content .login-form .field input, .form-modal-container .form-modal .content .signup-form .field input, .form-modal-container .form-modal .content .password-reset-form .field input {
+          .form-modal-container .form-modal .content .login-form .field input,
+          .form-modal-container .form-modal .content .signup-form .field input,
+          .form-modal-container .form-modal .content .password-reset-form .field input {
             height: 60px;
             border-color: none;
             line-height: 60px;
-            padding: .67861429em 1em;
+            padding: 0.67861429em 1em;
             font-size: 1em;
-            background: #FFF;
+            background: #fff;
             border: 1px solid #e7e7e7;
-            color: #33373D;
-            border-radius: .28571429rem;
+            color: #33373d;
+            border-radius: 0.28571429rem;
             box-shadow: 0 0 0 0 transparent inset;
-            -webkit-transition: color .1s ease,border-color .1s ease;
-            transition: color .1s ease,border-color .1s ease; }
-            .form-modal-container .form-modal .content .login-form .field input:focus, .form-modal-container .form-modal .content .signup-form .field input:focus, .form-modal-container .form-modal .content .password-reset-form .field input:focus {
-              outline-color: #85B7D9; }
-        .form-modal-container .form-modal .content .login-form .check-data, .form-modal-container .form-modal .content .signup-form .check-data, .form-modal-container .form-modal .content .password-reset-form .check-data {
+            -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+            transition: color 0.1s ease, border-color 0.1s ease; }
+            .form-modal-container .form-modal .content .login-form .field input:focus,
+            .form-modal-container .form-modal .content .signup-form .field input:focus,
+            .form-modal-container .form-modal .content .password-reset-form .field input:focus {
+              outline-color: #85b7d9; }
+        .form-modal-container .form-modal .content .login-form .check-data,
+        .form-modal-container .form-modal .content .signup-form .check-data,
+        .form-modal-container .form-modal .content .password-reset-form .check-data {
           display: flex !important;
           flex-direction: row;
-          color: #33373D;
-          transition: color .1s ease;
+          color: #33373d;
+          transition: color 0.1s ease;
           cursor: auto;
           display: block;
           outline: 0;
           font-size: 14px;
           line-height: 17px; }
-          .form-modal-container .form-modal .content .login-form .check-data .checkbox-label, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label {
+          .form-modal-container .form-modal .content .login-form .check-data .checkbox-label,
+          .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label,
+          .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label {
             position: relative;
             padding-left: 25px; }
-            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input {
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input,
+            .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input {
               cursor: pointer;
               position: absolute;
               top: 0;
@@ -1833,33 +1851,47 @@ body {
               outline: 0;
               width: 17px;
               height: 17px;
-              border-radius: .28571429rem; }
-              .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input:focus, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input:focus {
+              border-radius: 0.28571429rem; }
+              .form-modal-container .form-modal .content .login-form .check-data .checkbox-label input:focus,
+              .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label input:focus,
+              .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label input:focus {
                 color: #fff !important;
-                outline-color: #85B7D9 !important; }
-            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label span, .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label span {
+                outline-color: #85b7d9 !important; }
+            .form-modal-container .form-modal .content .login-form .check-data .checkbox-label span,
+            .form-modal-container .form-modal .content .signup-form .check-data .checkbox-label span,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .checkbox-label span {
               font-weight: 500;
-              color: #33373D;
+              color: #33373d;
               cursor: pointer; }
-          .form-modal-container .form-modal .content .login-form .check-data .forgotpass, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass {
+          .form-modal-container .form-modal .content .login-form .check-data .forgotpass,
+          .form-modal-container .form-modal .content .signup-form .check-data .forgotpass,
+          .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass {
             color: #cb202d;
             margin-left: auto;
             cursor: pointer; }
-            .form-modal-container .form-modal .content .login-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .signup-form .check-data .forgotpass:hover, .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass:hover {
-              transition: color .1s ease 0s;
+            .form-modal-container .form-modal .content .login-form .check-data .forgotpass:hover,
+            .form-modal-container .form-modal .content .signup-form .check-data .forgotpass:hover,
+            .form-modal-container .form-modal .content .password-reset-form .check-data .forgotpass:hover {
+              transition: color 0.1s ease 0s;
               color: #222d3d; }
-        .form-modal-container .form-modal .content .login-form button, .form-modal-container .form-modal .content .signup-form button, .form-modal-container .form-modal .content .password-reset-form button {
+        .form-modal-container .form-modal .content .login-form button,
+        .form-modal-container .form-modal .content .signup-form button,
+        .form-modal-container .form-modal .content .password-reset-form button {
           height: 60px;
           line-height: 60px;
-          background-color: #CB202D;
-          color: #FFF;
+          background-color: #cb202d;
+          color: #fff;
           margin-top: 20px;
           border: none; }
-          .form-modal-container .form-modal .content .login-form button:disabled, .form-modal-container .form-modal .content .signup-form button:disabled, .form-modal-container .form-modal .content .password-reset-form button:disabled {
+          .form-modal-container .form-modal .content .login-form button:disabled,
+          .form-modal-container .form-modal .content .signup-form button:disabled,
+          .form-modal-container .form-modal .content .password-reset-form button:disabled {
             cursor: default;
-            opacity: .45; }
-          .form-modal-container .form-modal .content .login-form button:hover, .form-modal-container .form-modal .content .signup-form button:hover, .form-modal-container .form-modal .content .password-reset-form button:hover {
-            transition: background .1s ease 0s; }
+            opacity: 0.45; }
+          .form-modal-container .form-modal .content .login-form button:hover,
+          .form-modal-container .form-modal .content .signup-form button:hover,
+          .form-modal-container .form-modal .content .password-reset-form button:hover {
+            transition: background 0.1s ease 0s; }
       .form-modal-container .form-modal .content .validation-msg {
         border-radius: .28571429rem;
         font-size: 14px;
@@ -3114,6 +3146,168 @@ body {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center center; }
+
+.reset-password-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  border-radius: 0.28571429rem;
+  background: #fff;
+  width: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .reset-password-page .header {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    line-height: 1.1em;
+    font-weight: 700;
+    padding: 21px;
+    border-bottom: 1px solid #e7e7e7; }
+    .reset-password-page .header .close-icon {
+      margin-left: auto;
+      cursor: pointer;
+      line-height: 20px;
+      top: 14px;
+      opacity: 0.8;
+      font-weight: bold;
+      color: #33373d;
+      font-size: 20px; }
+      .reset-password-page .header .close-icon i {
+        pointer-events: none; }
+      .reset-password-page .header .close-icon:hover {
+        opacity: 1; }
+  .reset-password-page .content {
+    padding: 21px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+    .reset-password-page .content .message {
+      font-size: 14px;
+      line-height: 19.6px;
+      color: #33373d;
+      margin-bottom: 10px; }
+    .reset-password-page .content .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px; }
+      .reset-password-page .content .field label {
+        font-weight: 600;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #33373d;
+        margin-bottom: 14px;
+        font-size: 17.92px; }
+      .reset-password-page .content .field input {
+        height: 60px;
+        border-color: none;
+        line-height: 60px;
+        padding: 0.67861429em 1em;
+        font-size: 1em;
+        background: #fff;
+        border: 1px solid #e7e7e7;
+        color: #33373d;
+        border-radius: 0.28571429rem;
+        box-shadow: 0 0 0 0 transparent inset;
+        -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+        transition: color 0.1s ease, border-color 0.1s ease; }
+        .reset-password-page .content .field input:focus {
+          outline-color: #85b7d9; }
+    .reset-password-page .content button {
+      height: 60px;
+      line-height: 60px;
+      background-color: #cb202d;
+      color: #fff;
+      margin-top: 20px;
+      border: none; }
+      .reset-password-page .content button:disabled {
+        cursor: default;
+        opacity: 0.45; }
+      .reset-password-page .content button:hover {
+        transition: background 0.1s ease 0s; }
+    .reset-password-page .content .validation-msg {
+      border-radius: 0.28571429rem;
+      font-size: 14px;
+      margin: 14px 0; }
+
+@keyframes animate-validation-error {
+  0% {
+    opacity: 0;
+    padding: 0em 0em; }
+  20% {
+    opacity: 0.116; }
+  59% {
+    opacity: 0.778; }
+  80% {
+    opacity: 0.543; }
+  100% {
+    opacity: 1;
+    padding: 1em 1.5em; } }
+
+@keyframes animate-validation-success {
+  0% {
+    opacity: 1;
+    padding: 0em 0em; }
+  25% {
+    opacity: 0.778; }
+  50% {
+    opacity: 0.543; }
+  75% {
+    opacity: 0.778; }
+  100% {
+    opacity: 1;
+    padding: 1em 1.5em; } }
+    .reset-password-page .content .animate-validation-error {
+      background-color: #fff6f6;
+      color: #9f3a38;
+      box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent;
+      animation-duration: 0.3s;
+      animation-name: animate-validation-error;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease; }
+    .reset-password-page .content .animate-validation-success {
+      color: #155724;
+      background-color: #d4edda;
+      box-shadow: 0 0 0 1px #c3e6cb inset, 0 0 0 0 transparent;
+      animation-duration: 0.3s;
+      animation-name: animate-validation-success;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-timing-function: ease; }
+    .reset-password-page .content button {
+      width: 100%;
+      height: 65px;
+      line-height: 65px;
+      font-size: 15px;
+      border-radius: 0.28571429rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      outline: none; }
+    .reset-password-page .content .form-btns {
+      display: flex;
+      flex-direction: row; }
+      .reset-password-page .content .form-btns .reset-password {
+        margin-right: 20px;
+        background-color: #cb202d;
+        color: #fff;
+        border: none; }
+        .reset-password-page .content .form-btns .reset-password:hover {
+          background-color: #bd1522;
+          transition: background 0.1s ease 0s; }
+
+.modal-fade-enter {
+  opacity: 0; }
+
+.modal-fade-enter-active {
+  opacity: 1;
+  transition: 0.3s ease-in all; }
+
+.modal-fade-exit {
+  opacity: 1; }
+
+.modal-fade-exit-active {
+  opacity: 0;
+  transition: 0.3s ease-in all; }
 
 .sticky {
   z-index: 99; }

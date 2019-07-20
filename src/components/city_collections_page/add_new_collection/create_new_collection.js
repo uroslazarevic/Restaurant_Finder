@@ -134,7 +134,7 @@ export default class LoginForm extends Component {
       share_url: '(The personal collection url) - Are not part of Zomato API',
       type: 'personal',
     };
-    console.log('Personal collection', myCollection);
+    console.log('Personal collection', createdCollection);
     //  Save personal Collections
     saveCollection(myCollection);
     this.props.hideModalOnSubmit();

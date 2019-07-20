@@ -1,50 +1,68 @@
-.login-form, .signup-form, .password-reset-form {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
-  .login-form .message, .signup-form .message, .password-reset-form .message {
+.login-form,
+.signup-form,
+.password-reset-form {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+  .login-form .message,
+  .signup-form .message,
+  .password-reset-form .message {
     font-size: 14px;
     line-height: 19.6px;
-    color: #33373D;
+    color: #33373d;
     margin-bottom: 10px; }
-  .login-form .field, .signup-form .field, .password-reset-form .field {
+  .login-form .field,
+  .signup-form .field,
+  .password-reset-form .field {
     display: flex;
     flex-direction: column;
     margin-bottom: 14px; }
-    .login-form .field label, .signup-form .field label, .password-reset-form .field label {
+    .login-form .field label,
+    .signup-form .field label,
+    .password-reset-form .field label {
       font-weight: 600;
       line-height: 1.1em;
       text-transform: none;
-      color: #33373D;
+      color: #33373d;
       margin-bottom: 14px;
       font-size: 17.92px; }
-    .login-form .field input, .signup-form .field input, .password-reset-form .field input {
+    .login-form .field input,
+    .signup-form .field input,
+    .password-reset-form .field input {
       height: 60px;
       border-color: none;
       line-height: 60px;
-      padding: .67861429em 1em;
+      padding: 0.67861429em 1em;
       font-size: 1em;
-      background: #FFF;
+      background: #fff;
       border: 1px solid #e7e7e7;
-      color: #33373D;
-      border-radius: .28571429rem;
+      color: #33373d;
+      border-radius: 0.28571429rem;
       box-shadow: 0 0 0 0 transparent inset;
-      -webkit-transition: color .1s ease,border-color .1s ease;
-      transition: color .1s ease,border-color .1s ease; }
-      .login-form .field input:focus, .signup-form .field input:focus, .password-reset-form .field input:focus {
-        outline-color: #85B7D9; }
-  .login-form .check-data, .signup-form .check-data, .password-reset-form .check-data {
+      -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+      transition: color 0.1s ease, border-color 0.1s ease; }
+      .login-form .field input:focus,
+      .signup-form .field input:focus,
+      .password-reset-form .field input:focus {
+        outline-color: #85b7d9; }
+  .login-form .check-data,
+  .signup-form .check-data,
+  .password-reset-form .check-data {
     display: flex !important;
     flex-direction: row;
-    color: #33373D;
-    transition: color .1s ease;
+    color: #33373d;
+    transition: color 0.1s ease;
     cursor: auto;
     display: block;
     outline: 0;
     font-size: 14px;
     line-height: 17px; }
-    .login-form .check-data .checkbox-label, .signup-form .check-data .checkbox-label, .password-reset-form .check-data .checkbox-label {
+    .login-form .check-data .checkbox-label,
+    .signup-form .check-data .checkbox-label,
+    .password-reset-form .check-data .checkbox-label {
       position: relative;
       padding-left: 25px; }
-      .login-form .check-data .checkbox-label input, .signup-form .check-data .checkbox-label input, .password-reset-form .check-data .checkbox-label input {
+      .login-form .check-data .checkbox-label input,
+      .signup-form .check-data .checkbox-label input,
+      .password-reset-form .check-data .checkbox-label input {
         cursor: pointer;
         position: absolute;
         top: 0;
@@ -52,30 +70,44 @@
         outline: 0;
         width: 17px;
         height: 17px;
-        border-radius: .28571429rem; }
-        .login-form .check-data .checkbox-label input:focus, .signup-form .check-data .checkbox-label input:focus, .password-reset-form .check-data .checkbox-label input:focus {
+        border-radius: 0.28571429rem; }
+        .login-form .check-data .checkbox-label input:focus,
+        .signup-form .check-data .checkbox-label input:focus,
+        .password-reset-form .check-data .checkbox-label input:focus {
           color: #fff !important;
-          outline-color: #85B7D9 !important; }
-      .login-form .check-data .checkbox-label span, .signup-form .check-data .checkbox-label span, .password-reset-form .check-data .checkbox-label span {
+          outline-color: #85b7d9 !important; }
+      .login-form .check-data .checkbox-label span,
+      .signup-form .check-data .checkbox-label span,
+      .password-reset-form .check-data .checkbox-label span {
         font-weight: 500;
-        color: #33373D;
+        color: #33373d;
         cursor: pointer; }
-    .login-form .check-data .forgotpass, .signup-form .check-data .forgotpass, .password-reset-form .check-data .forgotpass {
+    .login-form .check-data .forgotpass,
+    .signup-form .check-data .forgotpass,
+    .password-reset-form .check-data .forgotpass {
       color: #cb202d;
       margin-left: auto;
       cursor: pointer; }
-      .login-form .check-data .forgotpass:hover, .signup-form .check-data .forgotpass:hover, .password-reset-form .check-data .forgotpass:hover {
-        transition: color .1s ease 0s;
+      .login-form .check-data .forgotpass:hover,
+      .signup-form .check-data .forgotpass:hover,
+      .password-reset-form .check-data .forgotpass:hover {
+        transition: color 0.1s ease 0s;
         color: #222d3d; }
-  .login-form button, .signup-form button, .password-reset-form button {
+  .login-form button,
+  .signup-form button,
+  .password-reset-form button {
     height: 60px;
     line-height: 60px;
-    background-color: #CB202D;
-    color: #FFF;
+    background-color: #cb202d;
+    color: #fff;
     margin-top: 20px;
     border: none; }
-    .login-form button:disabled, .signup-form button:disabled, .password-reset-form button:disabled {
+    .login-form button:disabled,
+    .signup-form button:disabled,
+    .password-reset-form button:disabled {
       cursor: default;
-      opacity: .45; }
-    .login-form button:hover, .signup-form button:hover, .password-reset-form button:hover {
-      transition: background .1s ease 0s; }
+      opacity: 0.45; }
+    .login-form button:hover,
+    .signup-form button:hover,
+    .password-reset-form button:hover {
+      transition: background 0.1s ease 0s; }

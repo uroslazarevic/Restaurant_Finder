@@ -25,13 +25,19 @@ class PersonalCollectionDetailsCard extends Component {
     event.clipboardData && event.clipboardData.setData('text/plain', event.target.textContent);
   }
 
-  handleSavedCollections = personalCollection => {
+  handleSavedCollections = async personalCollection => {
     const { saveCollection, removeCollection } = this.context;
-
-    if (this.state.saved) {
-      return this.setState({ saved: false }, () => removeCollection(personalCollection.collection.collection_id));
+    try {
+      if (this.state.saved) {
+        const { collection_id } = personalCollection.collection;
+        await removeCollection(collection_id);
+        return this.setState({ saved: false });
+      }
+      await await saveCollection(personalCollection.collection);
+      this.setState({ saved: true });
+    } catch (err) {
+      return;
     }
-    this.setState({ saved: true }, () => saveCollection(personalCollection.collection));
   };
 
   render() {
@@ -40,51 +46,63 @@ class PersonalCollectionDetailsCard extends Component {
     const { description, image_url, res_count, title, share_url, tags } = personalCollection.collection;
 
     return (
-      <div className="collection-details-card">
-        <div className="collection-header">
-          <div className="bg-coll-image" style={{ backgroundImage: `url("${image_url}")` }} />
-          <div className="collection-url">
-            <div className="show-tooltip">
-              {showTooltip && <span className="tooltipText">Link copied to clipboard!</span>}
-              <div
-                onClick={this.handleExecCommandOnClick}
-                onCopy={this.handleCopyUrlOnCopy}
-                aria-label="copy"
-                className="copy-url"
-              >
-                {share_url}
+      <CollectionDetailsContext.Consumer>
+        {collectionDetails => {
+          const { isAuth, setVisibleFM } = collectionDetails;
+          return (
+            <div className="collection-details-card">
+              <div className="collection-header">
+                <div className="bg-coll-image" style={{ backgroundImage: `url("${image_url}")` }} />
+                <div className="collection-url">
+                  <div className="show-tooltip">
+                    {showTooltip && <span className="tooltipText">Link copied to clipboard!</span>}
+                    <div
+                      onClick={this.handleExecCommandOnClick}
+                      onCopy={this.handleCopyUrlOnCopy}
+                      aria-label="copy"
+                      className="copy-url"
+                    >
+                      {share_url}
+                    </div>
+                  </div>
+                  <div className="share-collection">
+                    <span>
+                      <i className="fas fa-share-square" />
+                    </span>
+                    Share
+                  </div>
+                </div>
+              </div>
+              <div className="collection-content">
+                <div className="title">{title}</div>
+                <div className="description">{description}</div>
+                <div className="tags">{tags}</div>
+                <div className="restaurants-offering-service">{res_count} Places</div>
+
+                {!isAuth ? (
+                  <button onClick={setVisibleFM} className="coll-btn save-collection">
+                    Save Collection
+                  </button>
+                ) : saved ? (
+                  <button
+                    onClick={() => this.handleSavedCollections(personalCollection)}
+                    className="coll-btn remove-collection "
+                  >
+                    Remove From Saved
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => this.handleSavedCollections(personalCollection)}
+                    className="coll-btn save-collection"
+                  >
+                    Save Collection
+                  </button>
+                )}
               </div>
             </div>
-            <div className="share-collection">
-              <span>
-                <i className="fas fa-share-square" />
-              </span>
-              Share
-            </div>
-          </div>
-        </div>
-        <div className="collection-content">
-          <div className="title">{title}</div>
-          <div className="description">{description}</div>
-          <div className="tags">{tags}</div>
-          <div className="restaurants-offering-service">{res_count} Places</div>
-          {saved ? (
-            <button
-              onClick={() => this.handleSavedCollections(personalCollection)}
-              className="coll-btn remove-collection "
-            >
-              Remove From Saved
-            </button>
-          ) : (
-            <button
-              onClick={() => this.handleSavedCollections(personalCollection)}
-              className="coll-btn save-collection"
-            >
-              Save Collection
-            </button>
-          )}
-        </div>
-      </div>
+          );
+        }}
+      </CollectionDetailsContext.Consumer>
     );
   }
 }

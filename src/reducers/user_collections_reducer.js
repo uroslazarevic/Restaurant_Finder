@@ -20,8 +20,8 @@ export default (state = initialState, action) => {
 
     case REMOVE_COLLECTION:
       const newCollections = [...state.collections];
-      newCollections.filter(collection => collection.collection_id === action.payload);
-      return { ...state, collections: newCollections };
+      const updatedNewCollections = newCollections.filter(collection => collection.collection_id === action.payload);
+      return { ...state, collections: updatedNewCollections };
 
     case SAVE_COLLECTION:
       return { ...state, collections: [...state.collections, action.payload] };

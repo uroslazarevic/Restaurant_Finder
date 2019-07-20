@@ -2,7 +2,7 @@ import qs from 'qs';
 import _ from 'lodash';
 import { axiosZomato, axiosServer } from './../shared/axios_instances/axios_instances';
 import { getLocalStorage } from './auth_user';
-import * as fromErrorActions from './errors';
+import * as fromAuthActions from './auth_user';
 
 export const REMOVE_COLLECTION = 'REMOVE_COLLECTION';
 export const SAVE_COLLECTION = 'SAVE_COLLECTION';
@@ -11,80 +11,98 @@ export const CLEAR_COLLECTIONS = 'CLEAR_COLLECTIONS';
 export const SEARCH_CREATED_COLLECTION_LOCATIONS = 'SEARCH_CREATED_COLLECTION_LOCATIONS';
 export const SEARCH_CREATED_COLLECTION_RESTAURANTS = 'SEARCH_CREATED_COLLECTION_RESTAURANTS';
 
-export async function saveCollection(collection) {
-  if (collection.type === 'personal') {
-    const restaurants = collection.restaurants.map(res => {
-      const {
-        name,
-        featured_image,
-        cuisines,
-        location: { locality_verbose },
-        user_rating: { rating_color, aggregate_rating },
-        R: { res_id },
-      } = res.restaurant;
-      return {
-        name,
-        featured_image,
-        cuisines,
-        locality_verbose,
-        rating_color,
-        aggregate_rating,
-        res_id,
-      };
-    });
-    collection.restaurants = restaurants;
-  }
-  const authData = getLocalStorage();
-  try {
-    await axiosServer.post(
-      '/collection/save',
-      { collection },
-      { headers: { Authorization: `Bearer ${authData.token}` } }
-    );
-    return {
-      type: SAVE_COLLECTION,
-      payload: collection,
-    };
-  } catch (err) {
-    console.log(err.response);
-  }
-}
-
-export async function removeCollection(collectionId) {
-  const authData = getLocalStorage();
-  try {
-    await axiosServer.post(
-      '/collection/remove',
-      { collectionId },
-      { headers: { Authorization: `Bearer ${authData.token}` } }
-    );
-    return {
-      type: REMOVE_COLLECTION,
-      payload: collectionId,
-    };
-  } catch (err) {
-    console.log(err.response);
-  }
-}
-
-export async function loadCollections() {
-  const authData = getLocalStorage();
-  try {
-    const request = await axiosServer.post(
-      '/collection/load',
-      {},
-      {
-        headers: { Authorization: `Bearer ${authData.token}` },
+export function saveCollection(collection) {
+  return dispatch => {
+    return new Promise(async (resolve, reject) => {
+      let modifiedRestaurants;
+      if (collection.type === 'personal') {
+        modifiedRestaurants = collection.restaurants.map(res => {
+          const {
+            name,
+            featured_image,
+            cuisines,
+            location: { locality_verbose },
+            user_rating: { rating_color, aggregate_rating },
+            R: { res_id },
+          } = res.restaurant;
+          return {
+            name,
+            featured_image,
+            cuisines,
+            locality_verbose,
+            rating_color,
+            aggregate_rating,
+            res_id,
+          };
+        });
       }
-    );
-    console.log('OKIDAM SE?');
-    return {
-      type: LOAD_COLLECTIONS,
-      payload: request.data.collections,
-    };
-  } catch (err) {
-    console.log(err.response);
-  }
+      const collectionToSave = modifiedRestaurants ? { ...collection, restaurants: modifiedRestaurants } : collection;
+      const authData = getLocalStorage();
+      try {
+        const request = await axiosServer.post(
+          '/collection/save',
+          { collection: collectionToSave },
+          { headers: { Authorization: `Bearer ${authData.tokens.accessToken}` } }
+        );
+        dispatch({
+          type: SAVE_COLLECTION,
+          payload: collection,
+        });
+        resolve(request);
+      } catch (err) {
+        console.log(err.response);
+        dispatch(fromAuthActions.refreshToken());
+        reject(err);
+      }
+    });
+  };
+}
+
+export function removeCollection(collectionId) {
+  return dispatch => {
+    return new Promise(async (resolve, reject) => {
+      const authData = getLocalStorage();
+      try {
+        const request = await axiosServer.post(
+          '/collection/remove',
+          { collectionId },
+          { headers: { Authorization: `Bearer ${authData.tokens.accessToken}` } }
+        );
+        dispatch({
+          type: REMOVE_COLLECTION,
+          payload: collectionId,
+        });
+        resolve(request);
+      } catch (err) {
+        console.log(err.response);
+        dispatch(fromAuthActions.refreshToken());
+        reject(err);
+      }
+    });
+  };
+}
+
+export function loadCollections() {
+  return async dispatch => {
+    const authData = getLocalStorage();
+    if (!authData) {
+      return;
+    }
+    try {
+      const request = await axiosServer.post(
+        '/collection/load',
+        {},
+        { headers: { Authorization: `Bearer ${authData.tokens.accessToken}` } }
+      );
+      dispatch({
+        type: LOAD_COLLECTIONS,
+        payload: request.data.collections,
+      });
+    } catch (err) {
+      console.log(err.response);
+      dispatch(fromAuthActions.refreshToken(loadCollections));
+    }
+  };
 }
 
 export function clearCollections() {
