@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const serverURL = 'http://localhost:3001';
-const DATABASE_URL = 'https://resfinder-14861.firebaseio.com';
+const serverURL = process.env.REACT_APP_API_URL;
+// console.log(process.env.REACT_APP_API_URL);
 
 // const USER_KEY = 'e04e2c0fa2c828b065c75f191caaea13';
 // const USER_KEY = '6facc9d7e203d8568aa7fff14038918f';
@@ -21,8 +21,4 @@ export const axiosServer = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-});
-
-export const axiosDB = axios.create({
-  baseURL: DATABASE_URL,
 });
